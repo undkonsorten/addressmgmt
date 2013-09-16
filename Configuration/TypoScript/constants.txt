@@ -1,0 +1,14 @@
+plugin.tx_people {
+	view {
+		# cat=plugin.tx_people/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:people/Resources/Private/Templates/
+		# cat=plugin.tx_people/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:people/Resources/Private/Partials/
+		# cat=plugin.tx_people/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:people/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_people//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

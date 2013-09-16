@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-16T23:50:41Z" product-name="people">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_people_domain_model_person">
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.first_name">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.lst_name">
+				<source>Lst Name</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.gender">
+				<source>Gender</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.organization">
+				<source>Organization</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.department">
+				<source>Department</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.street">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.street_number">
+				<source>Street Number</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.address_supplement">
+				<source>Address Supplement</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.zip">
+				<source>Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.state">
+				<source>State</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.closest_city">
+				<source>Closest City</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.mobile">
+				<source>Mobile</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.fax">
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.www">
+				<source>Www</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.latitude">
+				<source>Latitude</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.longitude">
+				<source>Longitude</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.fe_user">
+				<source>Fe User</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.social_identifiers">
+				<source>Social Identifiers</source>
+			</trans-unit>
+
+			<trans-unit id="tx_people_domain_model_socialidentifier">
+				<source>Social Identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialidentifier.identifier">
+				<source>Identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialidentifier.url_override">
+				<source>Url Override</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialidentifier.provider">
+				<source>Provider</source>
+			</trans-unit>
+
+			<trans-unit id="tx_people_domain_model_socialprovider">
+				<source>Social Provider</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialprovider.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialprovider.url_scheme">
+				<source>Url Scheme</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialprovider.www">
+				<source>Www</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialprovider.image">
+				<source>Image</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

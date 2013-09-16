@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-16T23:50:41Z" product-name="people">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_people_domain_model_person">
+				<source>Address records</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.first_name">
+				<source>firstName</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.lst_name">
+				<source>lstName</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.gender">
+				<source>gender</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.title">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.organization">
+				<source>organization</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.department">
+				<source>department</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.street">
+				<source>street</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.street_number">
+				<source>streetNumber</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.address_supplement">
+				<source>addressSupplement</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.city">
+				<source>city</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.zip">
+				<source>zip</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.country">
+				<source>country</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.state">
+				<source>state</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.closest_city">
+				<source>closestCity</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.email">
+				<source>email</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.phone">
+				<source>phone</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.mobile">
+				<source>mobile</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.fax">
+				<source>fax</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.www">
+				<source>www</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.image">
+				<source>image</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.latitude">
+				<source>latitude</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.longitude">
+				<source>longitude</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.fe_user">
+				<source>feUser</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.social_identifiers">
+				<source>socialIdentifiers</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_people_domain_model_socialidentifier">
+				<source>SocialIdentifier</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialidentifier.identifier">
+				<source>identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialidentifier.url_override">
+				<source>urlOverride</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialidentifier.provider">
+				<source>provider</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_people_domain_model_socialprovider">
+				<source>SocialProvider</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialprovider.name">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialprovider.url_scheme">
+				<source>urlScheme</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialprovider.www">
+				<source>www</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_socialprovider.image">
+				<source>image</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

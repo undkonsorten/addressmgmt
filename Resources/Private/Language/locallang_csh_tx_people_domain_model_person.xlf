@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-16T23:50:41Z" product-name="people">
+		<header/>
+		<body>
+
+			<trans-unit id="first_name.description">
+				<source>firstName</source>
+			</trans-unit>
+			<trans-unit id="lst_name.description">
+				<source>lstName</source>
+			</trans-unit>
+			<trans-unit id="gender.description">
+				<source>gender</source>
+			</trans-unit>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="organization.description">
+				<source>organization</source>
+			</trans-unit>
+			<trans-unit id="department.description">
+				<source>department</source>
+			</trans-unit>
+			<trans-unit id="street.description">
+				<source>street</source>
+			</trans-unit>
+			<trans-unit id="street_number.description">
+				<source>streetNumber</source>
+			</trans-unit>
+			<trans-unit id="address_supplement.description">
+				<source>addressSupplement</source>
+			</trans-unit>
+			<trans-unit id="city.description">
+				<source>city</source>
+			</trans-unit>
+			<trans-unit id="zip.description">
+				<source>zip</source>
+			</trans-unit>
+			<trans-unit id="country.description">
+				<source>country</source>
+			</trans-unit>
+			<trans-unit id="state.description">
+				<source>state</source>
+			</trans-unit>
+			<trans-unit id="closest_city.description">
+				<source>closestCity</source>
+			</trans-unit>
+			<trans-unit id="email.description">
+				<source>email</source>
+			</trans-unit>
+			<trans-unit id="phone.description">
+				<source>phone</source>
+			</trans-unit>
+			<trans-unit id="mobile.description">
+				<source>mobile</source>
+			</trans-unit>
+			<trans-unit id="fax.description">
+				<source>fax</source>
+			</trans-unit>
+			<trans-unit id="www.description">
+				<source>www</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="image.description">
+				<source>image</source>
+			</trans-unit>
+			<trans-unit id="latitude.description">
+				<source>latitude</source>
+			</trans-unit>
+			<trans-unit id="longitude.description">
+				<source>longitude</source>
+			</trans-unit>
+			<trans-unit id="fe_user.description">
+				<source>feUser</source>
+			</trans-unit>
+			<trans-unit id="social_identifiers.description">
+				<source>socialIdentifiers</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

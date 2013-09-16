@@ -1,0 +1,39 @@
+plugin.tx_people {
+	view {
+		templateRootPath = {$plugin.tx_people.view.templateRootPath}
+		partialRootPath = {$plugin.tx_people.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_people.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_people.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+plugin.tx_people._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-people table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-people table th {
+		font-weight:bold;
+	}
+
+	.tx-people table td {
+		vertical-align:top;
+	}
+)
