@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-16T23:50:41Z" product-name="people">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="people">
 		<header/>
 		<body>
 
 			<trans-unit id="first_name.description">
 				<source>firstName</source>
 			</trans-unit>
-			<trans-unit id="lst_name.description">
-				<source>lstName</source>
+			<trans-unit id="last_name.description">
+				<source>lastName</source>
 			</trans-unit>
 			<trans-unit id="gender.description">
 				<source>gender</source>

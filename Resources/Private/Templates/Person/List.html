@@ -19,7 +19,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <table  class="tx_people" >
 	<tr>
 		<th><f:translate key="tx_people_domain_model_person.first_name" /></th>
-		<th><f:translate key="tx_people_domain_model_person.lst_name" /></th>
+		<th><f:translate key="tx_people_domain_model_person.last_name" /></th>
 		<th><f:translate key="tx_people_domain_model_person.gender" /></th>
 		<th><f:translate key="tx_people_domain_model_person.title" /></th>
 		<th><f:translate key="tx_people_domain_model_person.organization" /></th>
@@ -48,7 +48,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<f:for each="{persons}" as="person">
 		<tr>
 			<td><f:link.action action="show" arguments="{person : person}"> {person.firstName}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{person : person}"> {person.lstName}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{person : person}"> {person.lastName}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{person : person}"> {person.gender}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{person : person}"> {person.title}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{person : person}"> {person.organization}</f:link.action></td>

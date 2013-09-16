@@ -7,7 +7,7 @@ CREATE TABLE tx_people_domain_model_person (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	first_name varchar(255) DEFAULT '' NOT NULL,
-	lst_name varchar(255) DEFAULT '' NOT NULL,
+	last_name varchar(255) DEFAULT '' NOT NULL,
 	gender int(11) DEFAULT '0' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	organization varchar(255) DEFAULT '' NOT NULL,

@@ -17,8 +17,8 @@ Extension Name
 :Description: manuals covering TYPO3 extension "People"
 :Language: en
 :Author: Felix Althaus, Eike Starkmann
-:Creation: 2013-09-16
-:Generation: 23:50
+:Creation: 2013-09-17
+:Generation: 00:06
 :Licence: Open Content License available from `www.opencontent.org/opl.shtml <http://www.opencontent.org/opl.shtml>`_
 
 The content of this document is related to TYPO3, a GNU/GPL CMS/Framework available from `www.typo3.org

@@ -73,17 +73,17 @@ class PersonTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @test
 	 */
-	public function getLstNameReturnsInitialValueForString() { }
+	public function getLastNameReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setLstNameForStringSetsLstName() { 
-		$this->fixture->setLstName('Conceived at T3CON10');
+	public function setLastNameForStringSetsLastName() { 
+		$this->fixture->setLastName('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getLstName()
+			$this->fixture->getLastName()
 		);
 	}
 	

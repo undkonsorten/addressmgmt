@@ -43,12 +43,12 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $firstName;
 
 	/**
-	 * lstName
+	 * lastName
 	 *
 	 * @var \string
 	 * @validate NotEmpty
 	 */
-	protected $lstName;
+	protected $lastName;
 
 	/**
 	 * gender
@@ -256,22 +256,22 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the lstName
+	 * Returns the lastName
 	 *
-	 * @return \string $lstName
+	 * @return \string $lastName
 	 */
-	public function getLstName() {
-		return $this->lstName;
+	public function getLastName() {
+		return $this->lastName;
 	}
 
 	/**
-	 * Sets the lstName
+	 * Sets the lastName
 	 *
-	 * @param \string $lstName
+	 * @param \string $lastName
 	 * @return void
 	 */
-	public function setLstName($lstName) {
-		$this->lstName = $lstName;
+	public function setLastName($lastName) {
+		$this->lastName = $lastName;
 	}
 
 	/**
