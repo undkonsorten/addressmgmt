@@ -54,6 +54,7 @@ $TCA['tx_people_domain_model_socialidentifier'] = array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
+		'hideTable' => TRUE,
 		'sortby' => 'sorting',
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
