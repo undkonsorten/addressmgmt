@@ -9,10 +9,10 @@ $TCA['tx_people_domain_model_socialidentifier'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, identifier, url_override, provider',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, identifier, url_override, provider,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'hidden;;1, identifier;;url_override, provider'),
 	),
 	'palettes' => array(
-		'1' => array('showitem' => ''),
+		'url_override' => array('showitem' => 'url_override', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
 		'sys_language_uid' => array(

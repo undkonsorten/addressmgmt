@@ -311,6 +311,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'image', 
 				array(
+					'maxitems' => 1,
 					'appearance' => array(
 							'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
 					),

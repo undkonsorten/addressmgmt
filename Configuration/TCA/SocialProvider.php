@@ -123,13 +123,28 @@ $TCA['tx_people_domain_model_socialprovider'] = array(
 		'image' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_socialprovider.image',
-			'config' => array(
-				'type' => 'group',
-				'internal_type' => 'file_reference',
-				'uploadfolder' => 'uploads/tx_people',
-				'allowed' => '*',
-				'disallowed' => 'php',
-				'size' => 5,
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+				'image', 
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+							'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+					),
+					'foreign_types' => array(
+						'0' => array(
+							'showitem' => '
+								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+								--palette--;;filePalette'
+						),
+						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+								'showitem' => '
+							--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+							--palette--;;filePalette'
+						),
+					),
+									
+				), 
+				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 		),
 	),
