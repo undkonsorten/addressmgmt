@@ -6,30 +6,30 @@ CREATE TABLE tx_people_domain_model_person (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	first_name varchar(255) DEFAULT '' NOT NULL,
-	last_name varchar(255) DEFAULT '' NOT NULL,
+	first_name varchar(100) DEFAULT '' NOT NULL,
+	last_name varchar(100) DEFAULT '' NOT NULL,
 	gender int(11) DEFAULT '0' NOT NULL,
 	title varchar(40) DEFAULT '' NOT NULL,
-	organization varchar(255) DEFAULT '' NOT NULL,
-	department varchar(255) DEFAULT '' NOT NULL,
-	street varchar(255) DEFAULT '' NOT NULL,
-	street_number varchar(255) DEFAULT '' NOT NULL,
-	address_supplement varchar(255) DEFAULT '' NOT NULL,
-	city varchar(255) DEFAULT '' NOT NULL,
-	zip varchar(255) DEFAULT '' NOT NULL,
-	country varchar(255) DEFAULT '' NOT NULL,
-	state varchar(255) DEFAULT '' NOT NULL,
-	closest_city varchar(255) DEFAULT '' NOT NULL,
+	organization varchar(120) DEFAULT '' NOT NULL,
+	department varchar(80) DEFAULT '' NOT NULL,
+	street varchar(120) DEFAULT '' NOT NULL,
+	street_number varchar(25) DEFAULT '' NOT NULL,
+	address_supplement varchar(80) DEFAULT '' NOT NULL,
+	city varchar(100) DEFAULT '' NOT NULL,
+	zip varchar(10) DEFAULT '' NOT NULL,
+	country varchar(80) DEFAULT '' NOT NULL,
+	state varchar(80) DEFAULT '' NOT NULL,
+	closest_city varchar(100) DEFAULT '' NOT NULL,
 	email varchar(255) DEFAULT '' NOT NULL,
-	phone varchar(255) DEFAULT '' NOT NULL,
-	mobile varchar(255) DEFAULT '' NOT NULL,
-	fax varchar(255) DEFAULT '' NOT NULL,
+	phone varchar(60) DEFAULT '' NOT NULL,
+	mobile varchar(60) DEFAULT '' NOT NULL,
+	fax varchar(60) DEFAULT '' NOT NULL,
 	www varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 	image int(11) unsigned DEFAULT '0',
 	latitude decimal(9,6) DEFAULT '0.000000' NOT NULL,
 	longitude decimal(9,6) DEFAULT '0.000000' NOT NULL,
-	fe_user int(11) unsigned DEFAULT '0',
+	fe_user int(11) unsigned DEFAULT '0' NOT NULL,
 	social_identifiers int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
@@ -72,9 +72,10 @@ CREATE TABLE tx_people_domain_model_socialidentifier (
 
 	person int(11) unsigned DEFAULT '0' NOT NULL,
 
-	identifier varchar(255) DEFAULT '' NOT NULL,
+	identifier varchar(100) DEFAULT '' NOT NULL,
 	url_override varchar(255) DEFAULT '' NOT NULL,
-	provider int(11) unsigned DEFAULT '0',
+	provider int(11) unsigned DEFAULT '0' NOT NULL,
+	person  int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -114,10 +115,10 @@ CREATE TABLE tx_people_domain_model_socialprovider (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	name varchar(255) DEFAULT '' NOT NULL,
+	name varchar(80) DEFAULT '' NOT NULL,
 	url_scheme varchar(255) DEFAULT '' NOT NULL,
-	www varchar(255) DEFAULT '' NOT NULL,
-	image text NOT NULL,
+	www varchar(120) DEFAULT '' NOT NULL,
+	image int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -146,14 +147,5 @@ CREATE TABLE tx_people_domain_model_socialprovider (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
-
-);
-
-#
-# Table structure for table 'tx_people_domain_model_socialidentifier'
-#
-CREATE TABLE tx_people_domain_model_socialidentifier (
-
-	person  int(11) unsigned DEFAULT '0' NOT NULL,
 
 );

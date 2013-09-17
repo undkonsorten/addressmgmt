@@ -63,6 +63,15 @@ class SocialProvider extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $image;
+	
+	/**
+	 * String representation of social provider
+	 * 
+	 * @return \string
+	 */
+	public function __toString() {
+		return $this->getName();
+	}
 
 	/**
 	 * Returns the name

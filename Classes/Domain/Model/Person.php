@@ -235,6 +235,24 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		 */
 		$this->socialIdentifiers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
+	
+	/**
+	 * String representation of person
+	 * 
+	 * @return \string
+	 */
+	public function __toString() {
+		return $this->getFullName();
+	}
+	
+	/**
+	 * return full name as first name last name
+	 * 
+	 * @return \string
+	 */
+	public function getFullName() {
+		return $this->getFirstName() . ' ' . $this->getLastName();
+	}
 
 	/**
 	 * Returns the firstName
@@ -634,11 +652,23 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setImage($image) {
 		$this->image = $image;
 	}
+	
+	/**
+	 * Coordinates as array of floats
+	 * 
+	 * @return array<float>
+	 */
+	public function getCoordinates() {
+		return array(
+			'longitude' => $this->getLongitude(),
+			'latitude' => $this->getLatitude(),
+		);
+	}
 
 	/**
 	 * Returns the latitude
 	 *
-	 * @return \string $latitude
+	 * @return \float $latitude
 	 */
 	public function getLatitude() {
 		return $this->latitude;
@@ -647,7 +677,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the latitude
 	 *
-	 * @param \string $latitude
+	 * @param \float $latitude
 	 * @return void
 	 */
 	public function setLatitude($latitude) {
@@ -657,7 +687,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the longitude
 	 *
-	 * @return \string $longitude
+	 * @return \float $longitude
 	 */
 	public function getLongitude() {
 		return $this->longitude;
@@ -666,7 +696,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the longitude
 	 *
-	 * @param \string $longitude
+	 * @param \float $longitude
 	 * @return void
 	 */
 	public function setLongitude($longitude) {

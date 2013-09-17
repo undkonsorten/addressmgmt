@@ -57,6 +57,15 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObje
 	 * @lazy
 	 */
 	protected $provider;
+	
+	/**
+	 * Returns string representation of identifier
+	 * 
+	 * @return \string
+	 */
+	public function __toString() {
+		return $this->getIdentifier();
+	}
 
 	/**
 	 * Returns the identifier
@@ -75,6 +84,20 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObje
 	 */
 	public function setIdentifier($identifier) {
 		$this->identifier = $identifier;
+	}
+	
+	/**
+	 * Returns url as from provider template if not locally overridden
+	 * 
+	 * @return \string
+	 */
+	public function getUrl() {
+		if (is_string($this->getUrlOverride()) && strlen($this->getUrlOverride())) {
+			return $this->getUrlOverride();
+		} elseif ($this->getProvider()->getUrlScheme()) {
+			return sprintf($this->getProvider()->getUrlScheme(), $this->getIdentifier());
+		}
+		return $this->getIdentifier();
 	}
 
 	/**
