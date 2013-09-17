@@ -112,6 +112,22 @@
 				<source>Image</source>
 			</trans-unit>
 
+			<trans-unit id="tx_people_domain_model_person.tce.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.tce.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.tce.personal_contact">
+				<source>Personal contact</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.tce.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_people_domain_model_person.tce.coordinates">
+				<source>Coordinates</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

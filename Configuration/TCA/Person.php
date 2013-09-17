@@ -10,15 +10,15 @@ $TCA['tx_people_domain_model_person'] = array(
 	),
 	'types' => array(
 		'1' => array('showitem' => '
-					--palette--;Name;name, fe_user, organization;;department, 
-					--palette--;Personal contact;personal_contact,social_identifiers,
-					--div--;Description,image,description,  
-					--div--;Address,
-					--palette--;Address;address,
-					--palette--;Coordinates;coordinates,
-					--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-					sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,  
-				'
+				--palette--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.name;name, fe_user, organization;;department, 
+				--palette--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.personal_contact;personal_contact,social_identifiers,
+			--div--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.description,image,description,  
+			--div--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.address,
+				--palette--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.address;address,
+				--palette--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.coordinates;coordinates,
+			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+				sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,  
+			'
 		),
 	),
 	'palettes' => array(
