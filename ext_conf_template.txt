@@ -1,0 +1,2 @@
+# cat=basic;type=boolean; label=Relation to fe_users
+feUserRelation = 1

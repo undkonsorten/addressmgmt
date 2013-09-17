@@ -9,10 +9,24 @@ $TCA['tx_people_domain_model_person'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, first_name, last_name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, image, latitude, longitude, fe_user, social_identifiers',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, first_name, last_name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, image, latitude, longitude, fe_user, social_identifiers,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => '
+					--palette--;Name;name, fe_user, organization;;department, 
+					--palette--;Personal contact;personal_contact,social_identifiers,
+					--div--;Description,image,description,  
+					--div--;Address,
+					--palette--;Address;address,
+					--palette--;Coordinates;coordinates,
+					--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+					sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,  
+				'
+		),
 	),
 	'palettes' => array(
-		'1' => array('showitem' => ''),
+		'name' => array('showitem' => 'gender, title, --linebreak--, first_name, last_name', 'canNotCollapse' => 1),
+		'department' => array('showitem' => 'department', 'canNotCollapse' => 1),
+		'address' => array('showitem' => 'street, street_number, address_supplement, --linebreak--, zip, city, --linebreak--, state, country', 'canNotCollapse' => 1),
+		'coordinates' => array('showitem' => 'closest_city, --linebreak--, longitude, latitude', 'canNotCollapse' => 1),
+		'personal_contact' => array('showitem' => 'email, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
 		'sys_language_uid' => array(
@@ -98,7 +112,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.first_name',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 15,
 				'eval' => 'trim'
 			),
 		),
@@ -107,7 +121,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.last_name',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 20,
 				'eval' => 'trim,required'
 			),
 		),
@@ -117,7 +131,9 @@ $TCA['tx_people_domain_model_person'] = array(
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
-					array('-- Label --', 0),
+					array('--', 0),
+					array('Ma\'am', 1),
+					array('Sir', 2),
 				),
 				'size' => 1,
 				'maxitems' => 1,
@@ -129,7 +145,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.title',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 10,
 				'eval' => 'trim'
 			),
 		),
@@ -147,7 +163,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.department',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 10,
 				'eval' => 'trim'
 			),
 		),
@@ -156,7 +172,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.street',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 20,
 				'eval' => 'trim'
 			),
 		),
@@ -165,7 +181,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.street_number',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 4,
 				'eval' => 'trim'
 			),
 		),
@@ -174,7 +190,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.address_supplement',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 8,
 				'eval' => 'trim'
 			),
 		),
@@ -183,7 +199,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.city',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 15,
 				'eval' => 'trim'
 			),
 		),
@@ -192,7 +208,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.zip',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 6,
 				'eval' => 'trim'
 			),
 		),
@@ -201,7 +217,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.country',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 15,
 				'eval' => 'trim'
 			),
 		),
@@ -210,7 +226,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.state',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 15,
 				'eval' => 'trim'
 			),
 		),
@@ -219,7 +235,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.closest_city',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 15,
 				'eval' => 'trim'
 			),
 		),
@@ -228,7 +244,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.email',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 25,
 				'eval' => 'trim'
 			),
 		),
@@ -237,7 +253,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.phone',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 12,
 				'eval' => 'trim'
 			),
 		),
@@ -246,7 +262,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.mobile',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 12,
 				'eval' => 'trim'
 			),
 		),
@@ -255,7 +271,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.fax',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 10,
 				'eval' => 'trim'
 			),
 		),
@@ -264,7 +280,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.www',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 20,
 				'eval' => 'trim'
 			),
 		),
@@ -292,13 +308,27 @@ $TCA['tx_people_domain_model_person'] = array(
 		'image' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.image',
-			'config' => array(
-				'type' => 'group',
-				'internal_type' => 'file_reference',
-				'uploadfolder' => 'uploads/tx_people',
-				'allowed' => '*',
-				'disallowed' => 'php',
-				'size' => 5,
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+				'image', 
+				array(
+					'appearance' => array(
+							'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+					),
+					'foreign_types' => array(
+						'0' => array(
+							'showitem' => '
+								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+								--palette--;;filePalette'
+						),
+						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+								'showitem' => '
+							--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+							--palette--;;filePalette'
+						),
+					),
+									
+				), 
+				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 		),
 		'latitude' => array(
@@ -306,7 +336,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.latitude',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 10,
 				'eval' => 'trim'
 			),
 		),
@@ -315,7 +345,7 @@ $TCA['tx_people_domain_model_person'] = array(
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.longitude',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 10,
 				'eval' => 'trim'
 			),
 		),
@@ -323,16 +353,18 @@ $TCA['tx_people_domain_model_person'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.fe_user',
 			'config' => array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'fe_users',
 				'minitems' => 0,
 				'maxitems' => 1,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
+				'size' => 1,
+				'items' => array(
+					array('none' => ''),
+				),
+				'wizards' => array(
+					'suggest' => array(
+						'type' => 'suggest',
+					),
 				),
 			),
 		),
@@ -356,4 +388,14 @@ $TCA['tx_people_domain_model_person'] = array(
 	),
 );
 
+$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['people']);
+if(!$settings['feUserRelation']) {
+	$TCA['tx_people_domain_model_person']['columns']['fe_user'] = array(
+		'exclude' => 1,
+		'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.fe_user',
+		'config' => array(
+			'type' => 'passthrough',
+		),
+	);
+}
 ?>

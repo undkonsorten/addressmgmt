@@ -27,8 +27,8 @@ CREATE TABLE tx_people_domain_model_person (
 	www varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 	image text NOT NULL,
-	latitude varchar(255) DEFAULT '' NOT NULL,
-	longitude varchar(255) DEFAULT '' NOT NULL,
+	latitude decimal(9,6) DEFAULT '0.000000' NOT NULL,
+	longitude decimal(9,6) DEFAULT '0.000000' NOT NULL,
 	fe_user int(11) unsigned DEFAULT '0',
 	social_identifiers int(11) unsigned DEFAULT '0' NOT NULL,
 
