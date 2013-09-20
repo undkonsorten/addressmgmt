@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\People\Domain\Model;
+namespace Undkonsorten\Addressbook\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -29,11 +29,11 @@ namespace Undkonsorten\People\Domain\Model;
 /**
  *
  *
- * @package people
+ * @package addressbook
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * firstName
@@ -207,7 +207,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * socialIdentifiers
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\People\Domain\Model\SocialIdentifier>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier>
 	 * @lazy
 	 */
 	protected $socialIdentifiers;
@@ -215,7 +215,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * __construct
 	 *
-	 * @return Person
+	 * @return Address
 	 */
 	public function __construct() {
 		//Do not remove the next line: It would break the functionality
@@ -237,7 +237,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 	
 	/**
-	 * String representation of person
+	 * String representation of address
 	 * 
 	 * @return \string
 	 */
@@ -725,27 +725,27 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Adds a SocialIdentifier
 	 *
-	 * @param \Undkonsorten\People\Domain\Model\SocialIdentifier $socialIdentifier
+	 * @param \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier $socialIdentifier
 	 * @return void
 	 */
-	public function addSocialIdentifier(\Undkonsorten\People\Domain\Model\SocialIdentifier $socialIdentifier) {
+	public function addSocialIdentifier(\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier $socialIdentifier) {
 		$this->socialIdentifiers->attach($socialIdentifier);
 	}
 
 	/**
 	 * Removes a SocialIdentifier
 	 *
-	 * @param \Undkonsorten\People\Domain\Model\SocialIdentifier $socialIdentifierToRemove The SocialIdentifier to be removed
+	 * @param \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier $socialIdentifierToRemove The SocialIdentifier to be removed
 	 * @return void
 	 */
-	public function removeSocialIdentifier(\Undkonsorten\People\Domain\Model\SocialIdentifier $socialIdentifierToRemove) {
+	public function removeSocialIdentifier(\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier $socialIdentifierToRemove) {
 		$this->socialIdentifiers->detach($socialIdentifierToRemove);
 	}
 
 	/**
 	 * Returns the socialIdentifiers
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\People\Domain\Model\SocialIdentifier> $socialIdentifiers
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier> $socialIdentifiers
 	 */
 	public function getSocialIdentifiers() {
 		return $this->socialIdentifiers;
@@ -754,7 +754,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the socialIdentifiers
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\People\Domain\Model\SocialIdentifier> $socialIdentifiers
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier> $socialIdentifiers
 	 * @return void
 	 */
 	public function setSocialIdentifiers(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $socialIdentifiers) {

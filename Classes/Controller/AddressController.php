@@ -1,17 +1,18 @@
 <?php
-namespace Undkonsorten\People\Tests;
+namespace Undkonsorten\Addressbook\Controller;
+
 /***************************************************************
  *  Copyright notice
  *
  *  (c) 2013 Felix Althaus <felix.althaus@undkonsorten.com>, undkonsorten
- *  			Eike Starkmann <eike.starkmann@undkonsorten.com>, undkonsorten
- *  			
+ *  Eike Starkmann <eike.starkmann@undkonsorten.com>, undkonsorten
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
  *  free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
+ *  the Free Software Foundation; either version 3 of the License, or
  *  (at your option) any later version.
  *
  *  The GNU General Public License can be found at
@@ -26,37 +27,40 @@ namespace Undkonsorten\People\Tests;
  ***************************************************************/
 
 /**
- * Test case for class Tx_People_Controller_PersonController.
  *
- * @version $Id$
- * @copyright Copyright belongs to the respective authors
+ *
+ * @package addressbook
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
- * @package TYPO3
- * @subpackage People
- *
- * @author Felix Althaus <felix.althaus@undkonsorten.com>
- * @author Eike Starkmann <eike.starkmann@undkonsorten.com>
  */
-class PersonControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
-	/**
-	 * @var 
-	 */
-	protected $fixture;
-
-	public function setUp() {
-		$this->fixture = new \Undkonsorten\People\Domain\Model\Person();
-	}
-
-	public function tearDown() {
-		unset($this->fixture);
-	}
+class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
-	 * @test
+	 * addressRepository
+	 *
+	 * @var \Undkonsorten\Addressbook\Domain\Repository\AddressRepository
+	 * @inject
 	 */
-	public function dummyMethod() {
-		$this->markTestIncomplete();
+	protected $addressRepository;
+
+	/**
+	 * action list
+	 *
+	 * @return void
+	 */
+	public function listAction() {
+		$addresss = $this->addressRepository->findAll();
+		$this->view->assign('addresss', $addresss);
+	}
+
+	/**
+	 * action show
+	 *
+	 * @param \Undkonsorten\Addressbook\Domain\Model\Address $address
+	 * @return void
+	 */
+	public function showAction(\Undkonsorten\Addressbook\Domain\Model\Address $address) {
+		$this->view->assign('address', $address);
 	}
 
 }

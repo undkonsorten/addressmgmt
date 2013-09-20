@@ -1,6 +1,6 @@
 <?php
 
-namespace Undkonsorten\People\Tests;
+namespace Undkonsorten\Addressbook\Tests;
 /***************************************************************
  *  Copyright notice
  *
@@ -27,26 +27,26 @@ namespace Undkonsorten\People\Tests;
  ***************************************************************/
 
 /**
- * Test case for class \Undkonsorten\People\Domain\Model\Person.
+ * Test case for class \Undkonsorten\Addressbook\Domain\Model\Address.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage People
+ * @subpackage Addressbook
  *
  * @author Felix Althaus <felix.althaus@undkonsorten.com>
  * @author Eike Starkmann <eike.starkmann@undkonsorten.com>
  */
-class PersonTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
+class AddressTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
-	 * @var \Undkonsorten\People\Domain\Model\Person
+	 * @var \Undkonsorten\Addressbook\Domain\Model\Address
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new \Undkonsorten\People\Domain\Model\Person();
+		$this->fixture = new \Undkonsorten\Addressbook\Domain\Model\Address();
 	}
 
 	public function tearDown() {
@@ -474,7 +474,7 @@ class PersonTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setSocialIdentifiersForObjectStorageContainingSocialIdentifierSetsSocialIdentifiers() { 
-		$socialIdentifier = new \Undkonsorten\People\Domain\Model\SocialIdentifier();
+		$socialIdentifier = new \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier();
 		$objectStorageHoldingExactlyOneSocialIdentifiers = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$objectStorageHoldingExactlyOneSocialIdentifiers->attach($socialIdentifier);
 		$this->fixture->setSocialIdentifiers($objectStorageHoldingExactlyOneSocialIdentifiers);
@@ -489,7 +489,7 @@ class PersonTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function addSocialIdentifierToObjectStorageHoldingSocialIdentifiers() {
-		$socialIdentifier = new \Undkonsorten\People\Domain\Model\SocialIdentifier();
+		$socialIdentifier = new \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier();
 		$objectStorageHoldingExactlyOneSocialIdentifier = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$objectStorageHoldingExactlyOneSocialIdentifier->attach($socialIdentifier);
 		$this->fixture->addSocialIdentifier($socialIdentifier);
@@ -504,7 +504,7 @@ class PersonTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function removeSocialIdentifierFromObjectStorageHoldingSocialIdentifiers() {
-		$socialIdentifier = new \Undkonsorten\People\Domain\Model\SocialIdentifier();
+		$socialIdentifier = new \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier();
 		$localObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$localObjectStorage->attach($socialIdentifier);
 		$localObjectStorage->detach($socialIdentifier);

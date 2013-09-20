@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\People\Controller;
+namespace Undkonsorten\Addressbook\Domain\Repository;
 
 /***************************************************************
  *  Copyright notice
@@ -29,39 +29,11 @@ namespace Undkonsorten\People\Controller;
 /**
  *
  *
- * @package people
+ * @package addressbook
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
-
-	/**
-	 * personRepository
-	 *
-	 * @var \Undkonsorten\People\Domain\Repository\PersonRepository
-	 * @inject
-	 */
-	protected $personRepository;
-
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$persons = $this->personRepository->findAll();
-		$this->view->assign('persons', $persons);
-	}
-
-	/**
-	 * action show
-	 *
-	 * @param \Undkonsorten\People\Domain\Model\Person $person
-	 * @return void
-	 */
-	public function showAction(\Undkonsorten\People\Domain\Model\Person $person) {
-		$this->view->assign('person', $person);
-	}
+class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 }
 ?>

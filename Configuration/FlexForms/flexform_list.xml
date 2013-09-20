@@ -14,8 +14,8 @@
 								<type>select</type>
 								<items>
 									<numIndex index="0">
-										<numIndex index="0">Display People</numIndex>
-										<numIndex index="1">Person->list;Person->show</numIndex>
+										<numIndex index="0">Display Addressbook</numIndex>
+										<numIndex index="1">Address->list;Address->show</numIndex>
 									</numIndex>
 								</items>
 							</config>

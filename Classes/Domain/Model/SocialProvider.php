@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\People\Domain\Model;
+namespace Undkonsorten\Addressbook\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -29,7 +29,7 @@ namespace Undkonsorten\People\Domain\Model;
 /**
  *
  *
- * @package people
+ * @package addressbook
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */

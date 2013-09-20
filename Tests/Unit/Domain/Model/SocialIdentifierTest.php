@@ -1,6 +1,6 @@
 <?php
 
-namespace Undkonsorten\People\Tests;
+namespace Undkonsorten\Addressbook\Tests;
 /***************************************************************
  *  Copyright notice
  *
@@ -27,26 +27,26 @@ namespace Undkonsorten\People\Tests;
  ***************************************************************/
 
 /**
- * Test case for class \Undkonsorten\People\Domain\Model\SocialIdentifier.
+ * Test case for class \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage People
+ * @subpackage Addressbook
  *
  * @author Felix Althaus <felix.althaus@undkonsorten.com>
  * @author Eike Starkmann <eike.starkmann@undkonsorten.com>
  */
 class SocialIdentifierTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
-	 * @var \Undkonsorten\People\Domain\Model\SocialIdentifier
+	 * @var \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new \Undkonsorten\People\Domain\Model\SocialIdentifier();
+		$this->fixture = new \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier();
 	}
 
 	public function tearDown() {

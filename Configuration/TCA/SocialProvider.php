@@ -3,8 +3,8 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_people_domain_model_socialprovider'] = array(
-	'ctrl' => $TCA['tx_people_domain_model_socialprovider']['ctrl'],
+$TCA['tx_addressbook_domain_model_socialprovider'] = array(
+	'ctrl' => $TCA['tx_addressbook_domain_model_socialprovider']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, url_scheme, www, image',
 	),
@@ -37,8 +37,8 @@ $TCA['tx_people_domain_model_socialprovider'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_people_domain_model_socialprovider',
-				'foreign_table_where' => 'AND tx_people_domain_model_socialprovider.pid=###CURRENT_PID### AND tx_people_domain_model_socialprovider.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_addressbook_domain_model_socialprovider',
+				'foreign_table_where' => 'AND tx_addressbook_domain_model_socialprovider.pid=###CURRENT_PID### AND tx_addressbook_domain_model_socialprovider.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -95,7 +95,7 @@ $TCA['tx_people_domain_model_socialprovider'] = array(
 		),
 		'name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_socialprovider.name',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -104,7 +104,7 @@ $TCA['tx_people_domain_model_socialprovider'] = array(
 		),
 		'url_scheme' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_socialprovider.url_scheme',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.url_scheme',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -113,7 +113,7 @@ $TCA['tx_people_domain_model_socialprovider'] = array(
 		),
 		'www' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_socialprovider.www',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.www',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -122,7 +122,7 @@ $TCA['tx_people_domain_model_socialprovider'] = array(
 		),
 		'image' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_socialprovider.image',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'image', 
 				array(

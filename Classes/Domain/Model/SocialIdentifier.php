@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\People\Domain\Model;
+namespace Undkonsorten\Addressbook\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -29,7 +29,7 @@ namespace Undkonsorten\People\Domain\Model;
 /**
  *
  *
- * @package people
+ * @package addressbook
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
@@ -53,7 +53,7 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObje
 	/**
 	 * provider
 	 *
-	 * @var \Undkonsorten\People\Domain\Model\SocialProvider
+	 * @var \Undkonsorten\Addressbook\Domain\Model\SocialProvider
 	 * @lazy
 	 */
 	protected $provider;
@@ -122,7 +122,7 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObje
 	/**
 	 * Returns the provider
 	 *
-	 * @return \Undkonsorten\People\Domain\Model\SocialProvider $provider
+	 * @return \Undkonsorten\Addressbook\Domain\Model\SocialProvider $provider
 	 */
 	public function getProvider() {
 		return $this->provider;
@@ -131,10 +131,10 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObje
 	/**
 	 * Sets the provider
 	 *
-	 * @param \Undkonsorten\People\Domain\Model\SocialProvider $provider
+	 * @param \Undkonsorten\Addressbook\Domain\Model\SocialProvider $provider
 	 * @return void
 	 */
-	public function setProvider(\Undkonsorten\People\Domain\Model\SocialProvider $provider) {
+	public function setProvider(\Undkonsorten\Addressbook\Domain\Model\SocialProvider $provider) {
 		$this->provider = $provider;
 	}
 

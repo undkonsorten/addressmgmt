@@ -3,19 +3,19 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_people_domain_model_person'] = array(
-	'ctrl' => $TCA['tx_people_domain_model_person']['ctrl'],
+$TCA['tx_addressbook_domain_model_address'] = array(
+	'ctrl' => $TCA['tx_addressbook_domain_model_address']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, first_name, last_name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, image, latitude, longitude, fe_user, social_identifiers',
 	),
 	'types' => array(
 		'1' => array('showitem' => '
-				--palette--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.name;name, fe_user, organization;;department, 
-				--palette--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.personal_contact;personal_contact,social_identifiers,
-			--div--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.description,image,description,  
-			--div--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.address,
-				--palette--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.address;address,
-				--palette--;LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tce.coordinates;coordinates,
+				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.name;name, fe_user, organization;;department, 
+				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.addressal_contact;addressal_contact,social_identifiers,
+			--div--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.description,image,description,  
+			--div--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.address,
+				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.address;address,
+				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.coordinates;coordinates,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
 				sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,  
 			'
@@ -26,7 +26,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		'department' => array('showitem' => 'department', 'canNotCollapse' => 1),
 		'address' => array('showitem' => 'street, street_number, address_supplement, --linebreak--, zip, city, --linebreak--, state, country', 'canNotCollapse' => 1),
 		'coordinates' => array('showitem' => 'closest_city, --linebreak--, longitude, latitude', 'canNotCollapse' => 1),
-		'personal_contact' => array('showitem' => 'email, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
+		'addressal_contact' => array('showitem' => 'email, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
 		'sys_language_uid' => array(
@@ -51,8 +51,8 @@ $TCA['tx_people_domain_model_person'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_people_domain_model_person',
-				'foreign_table_where' => 'AND tx_people_domain_model_person.pid=###CURRENT_PID### AND tx_people_domain_model_person.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_addressbook_domain_model_address',
+				'foreign_table_where' => 'AND tx_addressbook_domain_model_address.pid=###CURRENT_PID### AND tx_addressbook_domain_model_address.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -109,7 +109,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'first_name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.first_name',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.first_name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -118,7 +118,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'last_name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.last_name',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.last_name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 20,
@@ -127,13 +127,14 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'gender' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.gender',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.gender',
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
-					array('--', 0),
-					array('Ma\'am', 1),
-					array('Sir', 2),
+					array('', ''),
+					array('LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.gender_female', 1),
+					array('LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.gender_male', 2),
+					array('LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.gender_other', 3),
 				),
 				'size' => 1,
 				'maxitems' => 1,
@@ -142,7 +143,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'title' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.title',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.title',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
@@ -151,7 +152,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'organization' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.organization',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.organization',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -160,7 +161,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'department' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.department',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.department',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
@@ -169,7 +170,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'street' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.street',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.street',
 			'config' => array(
 				'type' => 'input',
 				'size' => 20,
@@ -178,7 +179,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'street_number' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.street_number',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.street_number',
 			'config' => array(
 				'type' => 'input',
 				'size' => 4,
@@ -187,7 +188,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'address_supplement' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.address_supplement',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.address_supplement',
 			'config' => array(
 				'type' => 'input',
 				'size' => 8,
@@ -196,7 +197,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'city' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.city',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.city',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -205,7 +206,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'zip' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.zip',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.zip',
 			'config' => array(
 				'type' => 'input',
 				'size' => 6,
@@ -214,7 +215,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'country' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.country',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.country',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -223,7 +224,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'state' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.state',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.state',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -232,7 +233,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'closest_city' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.closest_city',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.closest_city',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -241,7 +242,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'email' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.email',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.email',
 			'config' => array(
 				'type' => 'input',
 				'size' => 25,
@@ -250,7 +251,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'phone' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.phone',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.phone',
 			'config' => array(
 				'type' => 'input',
 				'size' => 12,
@@ -259,7 +260,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'mobile' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.mobile',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.mobile',
 			'config' => array(
 				'type' => 'input',
 				'size' => 12,
@@ -268,7 +269,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'fax' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.fax',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.fax',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
@@ -277,7 +278,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'www' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.www',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.www',
 			'config' => array(
 				'type' => 'input',
 				'size' => 20,
@@ -286,7 +287,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'description' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.description',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.description',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
@@ -307,7 +308,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'image' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.image',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'image', 
 				array(
@@ -334,7 +335,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'latitude' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.latitude',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.latitude',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
@@ -343,7 +344,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'longitude' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.longitude',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.longitude',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
@@ -352,7 +353,7 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'fe_user' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.fe_user',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.fe_user',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'fe_users',
@@ -371,29 +372,30 @@ $TCA['tx_people_domain_model_person'] = array(
 		),
 		'social_identifiers' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.social_identifiers',
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.social_identifiers',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_people_domain_model_socialidentifier',
-				'foreign_field' => 'person',
+				'foreign_table' => 'tx_addressbook_domain_model_socialidentifier',
+				'foreign_field' => 'address',
 				'maxitems'      => 9999,
 				'appearance' => array(
-					'collapseAll' => 0,
+					'expandSingle' => TRUE,	
+					'collapseAll' => 1,
 					'levelLinksPosition' => 'top',
 					'showSynchronizationLink' => 1,
 					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
-				),
+					'showAllLocalizationLink' => 1,
+ 				),
 			),
 		),
 	),
 );
 
-$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['people']);
+$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['addressbook']);
 if(!$settings['feUserRelation']) {
-	$TCA['tx_people_domain_model_person']['columns']['fe_user'] = array(
+	$TCA['tx_addressbook_domain_model_address']['columns']['fe_user'] = array(
 		'exclude' => 1,
-		'label' => 'LLL:EXT:people/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.fe_user',
+		'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.fe_user',
 		'config' => array(
 			'type' => 'passthrough',
 		),

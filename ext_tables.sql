@@ -1,7 +1,7 @@
 #
-# Table structure for table 'tx_people_domain_model_person'
+# Table structure for table 'tx_addressbook_domain_model_address'
 #
-CREATE TABLE tx_people_domain_model_person (
+CREATE TABLE tx_addressbook_domain_model_address (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -63,19 +63,19 @@ CREATE TABLE tx_people_domain_model_person (
 );
 
 #
-# Table structure for table 'tx_people_domain_model_socialidentifier'
+# Table structure for table 'tx_addressbook_domain_model_socialidentifier'
 #
-CREATE TABLE tx_people_domain_model_socialidentifier (
+CREATE TABLE tx_addressbook_domain_model_socialidentifier (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	person int(11) unsigned DEFAULT '0' NOT NULL,
+	address int(11) unsigned DEFAULT '0' NOT NULL,
 
 	identifier varchar(100) DEFAULT '' NOT NULL,
 	url_override varchar(255) DEFAULT '' NOT NULL,
 	provider int(11) unsigned DEFAULT '0' NOT NULL,
-	person  int(11) unsigned DEFAULT '0' NOT NULL,
+	address  int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -108,9 +108,9 @@ CREATE TABLE tx_people_domain_model_socialidentifier (
 );
 
 #
-# Table structure for table 'tx_people_domain_model_socialprovider'
+# Table structure for table 'tx_addressbook_domain_model_socialprovider'
 #
-CREATE TABLE tx_people_domain_model_socialprovider (
+CREATE TABLE tx_addressbook_domain_model_socialprovider (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,

@@ -1,11 +1,11 @@
-plugin.tx_people {
+plugin.tx_addressbook {
 	view {
-		templateRootPath = {$plugin.tx_people.view.templateRootPath}
-		partialRootPath = {$plugin.tx_people.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_people.view.layoutRootPath}
+		templateRootPath = {$plugin.tx_addressbook.view.templateRootPath}
+		partialRootPath = {$plugin.tx_addressbook.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_addressbook.view.layoutRootPath}
 	}
 	persistence {
-		storagePid = {$plugin.tx_people.persistence.storagePid}
+		storagePid = {$plugin.tx_addressbook.persistence.storagePid}
 	}
 	features {
 		# uncomment the following line to enable the new Property Mapper.
@@ -13,7 +13,7 @@ plugin.tx_people {
 	}
 }
 
-plugin.tx_people._CSS_DEFAULT_STYLE (
+plugin.tx_addressbook._CSS_DEFAULT_STYLE (
 	textarea.f3-form-error {
 		background-color:#FF9F9F;
 		border: 1px #FF0000 solid;
@@ -24,16 +24,16 @@ plugin.tx_people._CSS_DEFAULT_STYLE (
 		border: 1px #FF0000 solid;
 	}
 
-	.tx-people table {
+	.tx-addressbook table {
 		border-collapse:separate;
 		border-spacing:10px;
 	}
 
-	.tx-people table th {
+	.tx-addressbook table th {
 		font-weight:bold;
 	}
 
-	.tx-people table td {
+	.tx-addressbook table td {
 		vertical-align:top;
 	}
 )
