@@ -7,8 +7,8 @@
 			<trans-unit id="first_name.description">
 				<source>firstName</source>
 			</trans-unit>
-			<trans-unit id="last_name.description">
-				<source>lastName</source>
+			<trans-unit id="name.description">
+				<source>name</source>
 			</trans-unit>
 			<trans-unit id="gender.description">
 				<source>gender</source>

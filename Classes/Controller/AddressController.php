@@ -44,13 +44,29 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	protected $addressRepository;
 
 	/**
+	 * personRepository
+	 *
+	 * @var \Undkonsorten\Addressbook\Domain\Repository\Address\PersonRepository
+	 * @inject
+	 */
+	protected $personRepository;
+
+	/**
+	 * organisationRepository
+	 *
+	 * @var \Undkonsorten\Addressbook\Domain\Repository\Address\OrganisationRepository
+	 * @inject
+	 */
+	protected $organisationRepository;
+
+	/**
 	 * action list
 	 *
 	 * @return void
 	 */
 	public function listAction() {
-		$addresss = $this->addressRepository->findAll();
-		$this->view->assign('addresss', $addresss);
+		$addresses = $this->addressRepository->findAll();
+		$this->view->assign('addresss', $addresses);
 	}
 
 	/**

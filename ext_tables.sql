@@ -6,8 +6,9 @@ CREATE TABLE tx_addressbook_domain_model_address (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
+	type varchar(100) DEFAULT '' NOT NULL,
 	first_name varchar(100) DEFAULT '' NOT NULL,
-	last_name varchar(100) DEFAULT '' NOT NULL,
+	name varchar(100) DEFAULT '' NOT NULL,
 	gender int(11) DEFAULT '0' NOT NULL,
 	title varchar(40) DEFAULT '' NOT NULL,
 	organization varchar(120) DEFAULT '' NOT NULL,

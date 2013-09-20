@@ -19,15 +19,16 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_addressbook_domain_model_address');
 $TCA['tx_addressbook_domain_model_address'] = array(
 	'ctrl' => array(
+		'type' => 'type',
 		'title'	=> 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address',
-		'label' => 'last_name',
+		'label' => 'name',
 		'label_alt' => 'first_name',
 		'label_alt_force' => TRUE,
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-		'sortby' => 'last_name',
+		'sortby' => 'name',
 
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
@@ -41,7 +42,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'first_name,last_name,gender,title,organization,department,street,street_number,address_supplement,city,zip,country,state,closest_city,email,phone,mobile,fax,www,description,image,latitude,longitude,fe_user,social_identifiers,',
+		'searchFields' => 'first_name,name,gender,title,organization,department,street,street_number,address_supplement,city,zip,country,state,closest_city,email,phone,mobile,fax,www,description,image,latitude,longitude,fe_user,social_identifiers,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Address.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressbook_domain_model_address.gif'
 	),

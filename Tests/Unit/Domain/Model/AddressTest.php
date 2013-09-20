@@ -73,17 +73,17 @@ class AddressTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @test
 	 */
-	public function getLastNameReturnsInitialValueForString() { }
+	public function getNameReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setLastNameForStringSetsLastName() { 
-		$this->fixture->setLastName('Conceived at T3CON10');
+	public function setNameForStringSetsName() { 
+		$this->fixture->setName('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getLastName()
+			$this->fixture->getName()
 		);
 	}
 	

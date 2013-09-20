@@ -1,0 +1,28 @@
+config.tx_extbase {
+    persistence {
+        classes {		
+			Undkonsorten\Addressbook\Domain\Model\Address {
+					mapping {
+						tableName = tx_addressbook_domain_model_address
+						recordType = Tx_Addressbook_Address
+					}
+					subclasses {
+						Tx_Addressbook_Person = Undkonsorten\Addressbook\Domain\Model\Address\Person
+						Tx_Addressbook_Organisation = Undkonsorten\Addressbook\Domain\Model\Address\Organisation
+					}
+			}
+			Undkonsorten\Addressbook\Domain\Model\Address\Organisation {
+				mapping {
+					tableName = tx_addressbook_domain_model_address
+					recordType = Tx_Addressbook_Organisation
+				}
+			} 
+			Undkonsorten\Addressbook\Domain\Model\Address\Person {
+				mapping {
+					tableName = tx_addressbook_domain_model_address
+					recordType = Tx_Addressbook_Person
+				}
+			}
+    	}
+    }
+}

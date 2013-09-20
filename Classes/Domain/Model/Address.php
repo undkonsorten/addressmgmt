@@ -33,36 +33,22 @@ namespace Undkonsorten\Addressbook\Domain\Model;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements AddressInterface {
 
 	/**
-	 * firstName
+	 * type
 	 *
 	 * @var \string
 	 */
-	protected $firstName;
+	protected $type;
 
 	/**
-	 * lastName
+	 * name
 	 *
 	 * @var \string
 	 * @validate NotEmpty
 	 */
-	protected $lastName;
-
-	/**
-	 * gender
-	 *
-	 * @var \integer
-	 */
-	protected $gender;
-
-	/**
-	 * title
-	 *
-	 * @var \string
-	 */
-	protected $title;
+	protected $name;
 
 	/**
 	 * organization
@@ -246,88 +232,50 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 	
 	/**
-	 * return full name as first name last name
+	 * Returns the type
+	 * 
+	 * @return \string
+	 */
+	public function getType() {
+		return $this->type;
+	}
+	
+	/**
+	 * Sets the type
+	 * 
+	 * @param \string $type
+	 * @return void
+	 */
+	public function setType($type) {
+		$this->type = $type;
+	}
+	
+	/**
+	 * Returns the Name
+	 *
+	 * @return \string $Name
+	 */
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
+	 * Sets the Name
+	 *
+	 * @param \string $name
+	 * @return void
+	 */
+	public function setName($name) {
+		$this->$name = $name;
+	}
+
+	/**
+	 * return full name
 	 * 
 	 * @return \string
 	 */
 	public function getFullName() {
-		return $this->getFirstName() . ' ' . $this->getLastName();
-	}
-
-	/**
-	 * Returns the firstName
-	 *
-	 * @return \string $firstName
-	 */
-	public function getFirstName() {
-		return $this->firstName;
-	}
-
-	/**
-	 * Sets the firstName
-	 *
-	 * @param \string $firstName
-	 * @return void
-	 */
-	public function setFirstName($firstName) {
-		$this->firstName = $firstName;
-	}
-
-	/**
-	 * Returns the lastName
-	 *
-	 * @return \string $lastName
-	 */
-	public function getLastName() {
-		return $this->lastName;
-	}
-
-	/**
-	 * Sets the lastName
-	 *
-	 * @param \string $lastName
-	 * @return void
-	 */
-	public function setLastName($lastName) {
-		$this->lastName = $lastName;
-	}
-
-	/**
-	 * Returns the gender
-	 *
-	 * @return \integer $gender
-	 */
-	public function getGender() {
-		return $this->gender;
-	}
-
-	/**
-	 * Sets the gender
-	 *
-	 * @param \integer $gender
-	 * @return void
-	 */
-	public function setGender($gender) {
-		$this->gender = $gender;
-	}
-
-	/**
-	 * Returns the title
-	 *
-	 * @return \string $title
-	 */
-	public function getTitle() {
-		return $this->title;
-	}
-
-	/**
-	 * Sets the title
-	 *
-	 * @param \string $title
-	 * @return void
-	 */
-	public function setTitle($title) {
-		$this->title = $title;
+		return $this->getName();
 	}
 
 	/**

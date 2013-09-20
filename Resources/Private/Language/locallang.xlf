@@ -10,8 +10,8 @@
 			<trans-unit id="tx_addressbook_domain_model_address.first_name">
 				<source>firstName</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.last_name">
-				<source>lastName</source>
+			<trans-unit id="tx_addressbook_domain_model_address.name">
+				<source>name</source>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.gender">
 				<source>gender</source>

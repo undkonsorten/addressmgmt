@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Addressbook\Domain\Repository;
+namespace Undkonsorten\Addressbook\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -33,19 +33,43 @@ namespace Undkonsorten\Addressbook\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+interface AddressInterface {
 	
 	/**
-	 * Sets repository-wide query settings
-	 *
+	 * Type field for person
+	 * 
+	 * @var \string
+	 */
+	const PERSON = 'Tx_Addressbook_Person';
+	
+	/**
+	 * Type field for organisation
+	 * 
+	 * @var \string
+	 */
+	const ORGANISATION = 'Tx_Addressbook_Organisation';
+
+	/**
+	 * return full name
+	 * 
+	 * @return \string
+	 */
+	public function getFullName();
+	
+	/**
+	 * return name
+	 * 
+	 * @return \string
+	 */
+	public function getName();
+	
+	/**
+	 * sets name
+	 * 
+	 * @param \string
 	 * @return void
 	 */
-	public function initializeObject() {
-		/* @var $querySettings \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings */
-		$querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
-		$querySettings->setRespectStoragePage(FALSE);
-		$this->setDefaultQuerySettings($querySettings);
-	}
-	
+	public function setName($name);
+
 }
 ?>

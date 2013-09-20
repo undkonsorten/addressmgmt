@@ -10,8 +10,17 @@
 			<trans-unit id="tx_addressbook_domain_model_address.first_name">
 				<source>First Name</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.last_name">
-				<source>Last Name</source>
+			<trans-unit id="tx_addressbook_domain_model_address.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.type_person">
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.type_organisation">
+				<source>Organisation</source>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.name">
+				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.gender">
 				<source>Gender</source>
@@ -128,7 +137,7 @@
 				<source>Description</source>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.tce.addressal_contact">
-				<source>Addressal contact</source>
+				<source>Contact</source>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.tce.name">
 				<source>Name</source>

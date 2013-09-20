@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Addressbook\Domain\Repository;
+namespace Undkonsorten\Addressbook\Domain\Model\Address;
 
 /***************************************************************
  *  Copyright notice
@@ -33,19 +33,7 @@ namespace Undkonsorten\Addressbook\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
-	
-	/**
-	 * Sets repository-wide query settings
-	 *
-	 * @return void
-	 */
-	public function initializeObject() {
-		/* @var $querySettings \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings */
-		$querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
-		$querySettings->setRespectStoragePage(FALSE);
-		$this->setDefaultQuerySettings($querySettings);
-	}
-	
+class Organisation extends \Undkonsorten\Addressbook\Domain\Model\Address {
+
 }
 ?>

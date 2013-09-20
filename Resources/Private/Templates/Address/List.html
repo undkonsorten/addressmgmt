@@ -19,7 +19,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <table  class="tx_addressbook" >
 	<tr>
 		<th><f:translate key="tx_addressbook_domain_model_address.first_name" /></th>
-		<th><f:translate key="tx_addressbook_domain_model_address.last_name" /></th>
+		<th><f:translate key="tx_addressbook_domain_model_address.name" /></th>
 		<th><f:translate key="tx_addressbook_domain_model_address.gender" /></th>
 		<th><f:translate key="tx_addressbook_domain_model_address.title" /></th>
 		<th><f:translate key="tx_addressbook_domain_model_address.organization" /></th>
@@ -48,7 +48,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<f:for each="{addresss}" as="address">
 		<tr>
 			<td><f:link.action action="show" arguments="{address : address}"> {address.firstName}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.lastName}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{address : address}"> {address.name}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{address : address}"> {address.gender}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{address : address}"> {address.title}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{address : address}"> {address.organization}</f:link.action></td>
