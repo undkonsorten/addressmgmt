@@ -394,6 +394,8 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 				),
 			),
 		),
+			
+			
 		'social_identifiers' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.social_identifiers',
