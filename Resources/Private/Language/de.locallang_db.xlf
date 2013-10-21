@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressbook">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_addressbook_domain_model_address">
+				<source>Anschrift</source>
+				<target state="translated"></target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.first_name">
+				<source>Vorname</source>
+				<target state="translated"></target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.type">
+				<source>Type</source>
+				<target state="translated">Typ</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.type_person">
+				<source>Person</source>	
+				<target state="translated">Person</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.type_organisation">
+				<source>Organisation</source>
+				<target state="translated">Organisation</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.name">
+				<source>Name</source>
+				<target state="translated"></target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.gender">
+				<source>Gender</source>
+				<target state="translated">Geschlecht</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.gender_female">
+				<source>female</source>
+				<target state="translated">weiblich</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.gender_male">
+				<source>male</source>
+				<target state="translated">männlich</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.gender_other">
+				<source>other</source>
+				<target state="translated">andere</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.title">
+				<source>Title</source>
+				<target state="translated">Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.organization">
+				<source>Organization</source>
+				<target state="translated">Organisation</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.department">
+				<source>Department</source>
+				<target state="translated">Abteilung</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.street">
+				<source>Street</source>
+				<target state="translated">Straße</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.street_number">
+				<source>Street Number</source>
+				<target state="translated">Nummer</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.address_supplement">
+				<source>Address Supplement</source>
+				<target state="translated">Adresszusatz</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.city">
+				<source>City</source>
+				<target state="translated">Stadt</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.zip">
+				<source>Zip</source>
+				<target state="translated">PLZ</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.country">
+				<source>Country</source>
+				<target state="translated">Land</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.state">
+				<source>State</source>
+				<target state="translated">Bundesland</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.closest_city">
+				<source>Closest City</source>
+				<target state="translated">Nächste größere Stadt</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.email">
+				<source>Email</source>
+				<target state="translated">E-Mail</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.phone">
+				<source>Phone</source>
+				<target state="translated">Telefon</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.mobile">
+				<source>Mobile</source>
+				<target state="translated">Handy</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.fax">
+				<source>Fax</source>
+				<target state="translated">Fax</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.www">
+				<source>Www</source>
+				<target state="translated">Internetseite</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.description">
+				<source>Description</source>
+				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.image">
+				<source>Image</source>
+				<target state="translated">Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.latitude">
+				<source>Geographische Breite</source>
+				<target state="translated"></target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.longitude">
+				<source>Geographische Länge</source>
+				<target state="translated"></target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.fe_user">
+				<source>Fe User</source>
+				<target state="translated">Website Benutzer</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.social_identifiers">
+				<source>Social Identifiers</source>
+				<target state="translated">Soziale Netzwerke</target>
+			</trans-unit>
+
+			<trans-unit id="tx_addressbook_domain_model_socialidentifier">
+				<source>Social Identifier</source>
+				<target state="translated"></target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialidentifier.identifier">
+				<source>Identifier</source>
+				<target state="translated">Eindeutiger Url-Parameter (z.B.: Abc für facebook.com/Abc)</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialidentifier.url_override">
+				<source>Url Override</source>
+				<target state="translated">Überschreiben der automatisch erzeugten Url mit:</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialidentifier.provider">
+				<source>Provider</source>
+				<target state="translated">Soziales Netzwerk</target>
+			</trans-unit>
+
+			<trans-unit id="tx_addressbook_domain_model_socialprovider">
+				<source>Social Provider</source>
+				<target state="translated">Soziales Netzwerk</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.name">
+				<source>Name</source>
+				<target state="translated">Name</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.url_scheme">
+				<source>Url Scheme</source>
+				<target state="translated">Url Schema</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.www">
+				<source>Www</source>
+				<target state="translated">Www</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.image">
+				<source>Image</source>
+				<target state="translated">Bild</target>
+			</trans-unit>
+
+			<trans-unit id="tx_addressbook_domain_model_address.tce.address">
+				<source>Address</source>
+				<target state="translated">Adresse</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.tce.description">
+				<source>Description</source>
+				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.tce.addressal_contact">
+				<source>Contact</source>
+				<target state="translated">Kontakt</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.tce.name">
+				<source>Name</source>
+				<target state="translated">Name</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.tce.coordinates">
+				<source>Coordinates</source>
+				<target state="translated">Koordinaten</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
