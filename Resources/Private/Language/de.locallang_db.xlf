@@ -5,12 +5,12 @@
 		<body>
 
 			<trans-unit id="tx_addressbook_domain_model_address">
-				<source>Anschrift</source>
-				<target state="translated"></target>
+				<source>Address</source>
+				<target state="translated">Anschrift</target>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.first_name">
-				<source>Vorname</source>
-				<target state="translated"></target>
+				<source>First Name</source>
+				<target state="translated">Vorname</target>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.type">
 				<source>Type</source>
@@ -62,7 +62,7 @@
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.street_number">
 				<source>Street Number</source>
-				<target state="translated">Nummer</target>
+				<target state="translated">Haus-Nr.</target>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.address_supplement">
 				<source>Address Supplement</source>
@@ -86,7 +86,7 @@
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.closest_city">
 				<source>Closest City</source>
-				<target state="translated">Nächste größere Stadt</target>
+				<target state="translated">Nächstgrößere Stadt</target>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_address.email">
 				<source>Email</source>
