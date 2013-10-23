@@ -379,15 +379,34 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.fe_user',
 			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'fe_users',
+				'type' => 'group',
+				'internal_type' => 'db',
+				'allowed' => 'fe_users',
+				'size' => 1,
+				'prepend_tname' => FALSE,
 				'minitems' => 0,
 				'maxitems' => 1,
-				'size' => 1,
-				'items' => array(
-					array('none' => ''),
-				),
 				'wizards' => array(
+					'_PADDING' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+					),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+						'params' => array(
+							'table' => 'fe_users',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+						),
+						'script' => 'wizard_add.php',
+					),
 					'suggest' => array(
 						'type' => 'suggest',
 					),
