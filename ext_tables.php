@@ -28,7 +28,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-		'sortby' => 'name',
+		'default_sortby' => 'name',
 
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
