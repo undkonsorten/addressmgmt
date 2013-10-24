@@ -363,7 +363,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'eval' => 'trim'
+				'eval' => 'Undkonsorten\Addressbook\Utility\Evaluation\Coordinate'
 			),
 		),
 		'longitude' => array(
@@ -372,7 +372,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'eval' => 'trim'
+				'eval' => 'Undkonsorten\Addressbook\Utility\Evaluation\Coordinate'
 			),
 		),
 		'fe_user' => array(
