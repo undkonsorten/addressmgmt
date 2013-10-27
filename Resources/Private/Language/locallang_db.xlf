@@ -3,6 +3,15 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressbook">
 		<header/>
 		<body>
+			<trans-unit id="div.naming">
+				<source>Naming</source>
+			</trans-unit>
+			<trans-unit id="palette.identifier">
+				<source>Identifier</source>
+			</trans-unit>
+			<trans-unit id="palette.url_override">
+				<source>Url override</source>
+			</trans-unit>
 
 			<trans-unit id="tx_addressbook_domain_model_address">
 				<source>Address</source>
@@ -120,8 +129,23 @@
 			<trans-unit id="tx_addressbook_domain_model_socialprovider.name">
 				<source>Name</source>
 			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.identifier_label">
+				<source>Label of identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.identifier_description">
+				<source>Description of identifier</source>
+			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_socialprovider.url_scheme">
 				<source>Url Scheme</source>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.url_override_label">
+				<source>Label of url override</source>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.url_override_description">
+				<source>Description of url override</source>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.show_url_override">
+				<source>Show url override</source>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_socialprovider.www">
 				<source>Www</source>

@@ -117,7 +117,12 @@ CREATE TABLE tx_addressbook_domain_model_socialprovider (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	name varchar(80) DEFAULT '' NOT NULL,
+	identifier_label varchar(80) DEFAULT '' NOT NULL,
+	identifier_description varchar(80) DEFAULT '' NOT NULL,
 	url_scheme varchar(255) DEFAULT '' NOT NULL,
+	url_override_label varchar(255) DEFAULT '' NOT NULL,
+	url_override_description varchar(255) DEFAULT '' NOT NULL,
+	show_url_override tinyint(4) DEFAULT '0' NOT NULL,
 	www varchar(120) DEFAULT '' NOT NULL,
 	image int(11) DEFAULT '0' NOT NULL,
 

@@ -9,10 +9,15 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, url_scheme, www, image',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, url_scheme, www, image,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, url_scheme, www, image, 
+			--div--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:div.naming,
+				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:palette.identifier;identifier, 
+				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:palette.url_override;url_override, 
+			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
-		'1' => array('showitem' => ''),
+		'identifier' => array('showitem' => 'identifier_label,--linebreak--,identifier_description', 'canNotCollapse' => TRUE),
+		'url_override' => array('showitem' => 'show_url_override,--linebreak--,url_override_label,--linebreak--,url_override_description', 'canNotCollapse' => TRUE),
 	),
 	'columns' => array(
 		'sys_language_uid' => array(
@@ -102,6 +107,25 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 				'eval' => 'trim,required'
 			),
 		),
+		'identifier_label' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.identifier_label',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+		'identifier_description' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.identifier_description',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 30,
+				'rows' => 4,
+				'eval' => 'trim'
+			),
+		),
 		'url_scheme' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.url_scheme',
@@ -109,6 +133,32 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
+			),
+		),
+		'url_override_label' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.url_override_label',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+		'url_override_description' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.url_override_description',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 30,
+				'rows' => 4,
+				'eval' => 'trim'
+			),
+		),
+		'show_url_override' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.show_url_override',
+			'config' => array(
+				'type' => 'check',
 			),
 		),
 		'www' => array(

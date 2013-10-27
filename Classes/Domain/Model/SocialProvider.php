@@ -44,11 +44,46 @@ class SocialProvider extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $name;
 
 	/**
+	 * identifier label
+	 *
+	 * @var \string
+	 */
+	protected $identifierLabel;
+
+	/**
+	 * identifier description
+	 *
+	 * @var \string
+	 */
+	protected $identifierDescription;
+
+	/**
 	 * urlScheme
 	 *
 	 * @var \string
 	 */
 	protected $urlScheme;
+
+	/**
+	 * url override label
+	 *
+	 * @var \string
+	 */
+	protected $urlOverrideLabel;
+
+	/**
+	 * url override description
+	 *
+	 * @var \string
+	 */
+	protected $urlOverrideDescription;
+
+	/**
+	 * show url override 
+	 *
+	 * @var \boolean
+	 */
+	protected $showUrlOverride;
 
 	/**
 	 * www
@@ -93,6 +128,44 @@ class SocialProvider extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
+	 * Gets the identifier label
+	 * 
+	 * @return \string
+	 */
+	public function getIdentifierLabel() {
+		return $this->identifierLabel;
+	}
+
+	/**
+	 * Sets the identifier label
+	 * 
+	 * @param \string $identifierLabel
+	 * @return void
+	 */
+	public function setIdentifierLabel($identifierLabel) {
+		$this->identifierLabel = $identifierLabel;
+	}
+
+	/**
+	 * Gets the identifier description
+	 * 
+	 * @return \string
+	 */
+	public function getIdentifierDescription() {
+		return $this->identifierDescription;
+	}
+
+	/**
+	 * Sets the identifier description
+	 * 
+	 * @param \string $identifierDescription
+	 * @return void
+	 */
+	public function setIdentifierDescription($identifierDescription) {
+		$this->identifierDescription = $identifierDescription;
+	}
+
+	/**
 	 * Returns the urlScheme
 	 *
 	 * @return \string $urlScheme
@@ -109,6 +182,63 @@ class SocialProvider extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setUrlScheme($urlScheme) {
 		$this->urlScheme = $urlScheme;
+	}
+
+	/**
+	 * Gets the url override label
+	 * 
+	 * @return \string
+	 */
+	public function getUrlOverrideLabel() {
+		return $this->urlOverrideLabel;
+	}
+
+	/**
+	 * Sets the url override label
+	 * 
+	 * @param \string $urlOverrideLabel
+	 * @return void
+	 */
+	public function setUrlOverrideLabel($urlOverrideLabel) {
+		$this->urlOverrideLabel = $urlOverrideLabel;
+	}
+
+	/**
+	 * Gets the url override description
+	 * 
+	 * @return \string
+	 */
+	public function getUrlOverrideDescription() {
+		return $this->urlOverrideDescription;
+	}
+
+	/**
+	 * Sets the url override description
+	 * 
+	 * @param \string $urlOverrideDescription
+	 * @return void
+	 */
+	public function setUrlOverrideDescription($urlOverrideDescription) {
+		$this->urlOverrideDescription = $urlOverrideDescription;
+	}
+
+	/**
+	 * Gets the status of show url override
+	 * 
+	 * @return \string
+	 */
+	public function getShowUrlOverride() {
+		return $this->showUrlOverride;
+	}
+
+	/**
+	 * Sets the status of show url override
+	 * 
+	 * @param \string $showUrlOverride
+	 * @return void
+	 */
+	public function setShowUrlOverride($showUrlOverride) {
+		$this->showUrlOverride = $showUrlOverride;
 	}
 
 	/**

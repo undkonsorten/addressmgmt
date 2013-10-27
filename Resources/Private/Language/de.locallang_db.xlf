@@ -3,6 +3,18 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressbook">
 		<header/>
 		<body>
+			<trans-unit id="div.naming">
+				<source>Naming</source>
+				<target state="translated">Benennung</target>
+			</trans-unit>
+			<trans-unit id="palette.identifier">
+				<source>Identifier</source>
+				<target state="translated">Identifier</target>
+			</trans-unit>
+			<trans-unit id="palette.url_override">
+				<source>Url override</source>
+				<target state="translated">Überschreiben der URL</target>
+			</trans-unit>
 
 			<trans-unit id="tx_addressbook_domain_model_address">
 				<source>Address</source>
@@ -158,9 +170,29 @@
 				<source>Name</source>
 				<target state="translated">Name</target>
 			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.identifier_label">
+				<source>Label of identifier</source>
+				<target state="translated">Label des Identifiers</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.identifier_description">
+				<source>Description of identifier</source>
+				<target state="translated">Beschreibung des Identifiers</target>
+			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_socialprovider.url_scheme">
 				<source>Url Scheme</source>
 				<target state="translated">Url Schema</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.url_override_label">
+				<source>Label of url override</source>
+				<target state="translated">Label für Url-Überschreiben</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.url_override_description">
+				<source>Description of url override</source>
+				<target state="translated">Beschreibung Url-Überschreiben</target>
+			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_socialprovider.show_url_override">
+				<source>Show url override</source>
+				<target state="translated">Url-Überschreiben anzeigen</target>
 			</trans-unit>
 			<trans-unit id="tx_addressbook_domain_model_socialprovider.www">
 				<source>Www</source>
