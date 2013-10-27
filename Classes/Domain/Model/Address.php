@@ -266,7 +266,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @return void
 	 */
 	public function setName($name) {
-		$this->$name = $name;
+		$this->name = $name;
 	}
 
 	/**
