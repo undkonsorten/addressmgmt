@@ -33,7 +33,7 @@ namespace Undkonsorten\Addressbook\Domain\Model;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
+class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * identifier
@@ -97,7 +97,7 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObje
 		} elseif ($this->getProvider()->getUrlScheme()) {
 			return sprintf($this->getProvider()->getUrlScheme(), $this->getIdentifier());
 		}
-		return $this->getIdentifier();
+		return null;
 	}
 
 	/**
