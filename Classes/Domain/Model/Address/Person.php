@@ -39,6 +39,7 @@ class Person extends \Undkonsorten\Addressbook\Domain\Model\Address {
 	 * firstName
 	 *
 	 * @var \string
+	 * @validate NotEmpty
 	 */
 	protected $firstName;
 
