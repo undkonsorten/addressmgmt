@@ -41,6 +41,11 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		'addressal_contact' => array('showitem' => 'email, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
+		'pid' => array(
+			'config' => array(
+				'type' => 'passthrough',
+			),
+		),
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
