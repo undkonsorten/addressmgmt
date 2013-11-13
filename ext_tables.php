@@ -16,6 +16,17 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Addressbook');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_addressbook_domain_model_address', 'EXT:addressbook/Resources/Private/Language/locallang_csh_tx_addressbook_domain_model_address.xlf');
+
+// Need pid in fe_user to be able to move records from FE
+$frontendUserColumns = array(
+	'pid' => array(
+		'config' => array(
+			'type' => 'passthrough',
+		),
+	),
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users',$frontendUserColumns,1);
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_addressbook_domain_model_address');
 $TCA['tx_addressbook_domain_model_address'] = array(
 	'ctrl' => array(
