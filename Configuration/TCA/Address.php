@@ -37,7 +37,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		'department' => array('showitem' => 'department', 'canNotCollapse' => 1),
 		'additional_organisation' => array('showitem' => 'organisation', 'canNotCollapse' => 1),
 		'address' => array('showitem' => 'street, street_number, address_supplement, --linebreak--, zip, city, --linebreak--, state, country', 'canNotCollapse' => 1),
-		'coordinates' => array('showitem' => 'closest_city, --linebreak--, longitude, latitude', 'canNotCollapse' => 1),
+		'coordinates' => array('showitem' => 'closest_city, --linebreak--, latitude, longitude', 'canNotCollapse' => 1),
 		'addressal_contact' => array('showitem' => 'email, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
