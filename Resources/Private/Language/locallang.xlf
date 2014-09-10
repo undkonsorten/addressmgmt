@@ -4,111 +4,111 @@
 		<header/>
 		<body>
 
-			<trans-unit id="tx_addressbook_domain_model_address">
+			<trans-unit id="tx_addressmgmt_domain_model_address">
 				<source>Address records</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.first_name">
+			<trans-unit id="tx_addressmgmt_domain_model_address.first_name">
 				<source>firstName</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.name">
+			<trans-unit id="tx_addressmgmt_domain_model_address.name">
 				<source>name</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.gender">
+			<trans-unit id="tx_addressmgmt_domain_model_address.gender">
 				<source>gender</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.title">
+			<trans-unit id="tx_addressmgmt_domain_model_address.title">
 				<source>title</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.organization">
+			<trans-unit id="tx_addressmgmt_domain_model_address.organization">
 				<source>organization</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.department">
+			<trans-unit id="tx_addressmgmt_domain_model_address.department">
 				<source>department</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.street">
+			<trans-unit id="tx_addressmgmt_domain_model_address.street">
 				<source>street</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.street_number">
+			<trans-unit id="tx_addressmgmt_domain_model_address.street_number">
 				<source>streetNumber</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.address_supplement">
+			<trans-unit id="tx_addressmgmt_domain_model_address.address_supplement">
 				<source>addressSupplement</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.city">
+			<trans-unit id="tx_addressmgmt_domain_model_address.city">
 				<source>city</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.zip">
+			<trans-unit id="tx_addressmgmt_domain_model_address.zip">
 				<source>zip</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.country">
+			<trans-unit id="tx_addressmgmt_domain_model_address.country">
 				<source>country</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.state">
+			<trans-unit id="tx_addressmgmt_domain_model_address.state">
 				<source>state</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.closest_city">
+			<trans-unit id="tx_addressmgmt_domain_model_address.closest_city">
 				<source>closestCity</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.email">
+			<trans-unit id="tx_addressmgmt_domain_model_address.email">
 				<source>email</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.phone">
+			<trans-unit id="tx_addressmgmt_domain_model_address.phone">
 				<source>phone</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.mobile">
+			<trans-unit id="tx_addressmgmt_domain_model_address.mobile">
 				<source>mobile</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.fax">
+			<trans-unit id="tx_addressmgmt_domain_model_address.fax">
 				<source>fax</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.www">
+			<trans-unit id="tx_addressmgmt_domain_model_address.www">
 				<source>www</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.description">
+			<trans-unit id="tx_addressmgmt_domain_model_address.description">
 				<source>description</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.image">
+			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>image</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.latitude">
+			<trans-unit id="tx_addressmgmt_domain_model_address.latitude">
 				<source>latitude</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.longitude">
+			<trans-unit id="tx_addressmgmt_domain_model_address.longitude">
 				<source>longitude</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.fe_user">
+			<trans-unit id="tx_addressmgmt_domain_model_address.fe_user">
 				<source>feUser</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.social_identifiers">
+			<trans-unit id="tx_addressmgmt_domain_model_address.social_identifiers">
 				<source>socialIdentifiers</source>
 			</trans-unit>
 			
-			<trans-unit id="tx_addressbook_domain_model_socialidentifier">
+			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">
 				<source>SocialIdentifier</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_socialidentifier.identifier">
+			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.identifier">
 				<source>identifier</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_socialidentifier.url_override">
+			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.url_override">
 				<source>urlOverride</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_socialidentifier.provider">
+			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.provider">
 				<source>provider</source>
 			</trans-unit>
 			
-			<trans-unit id="tx_addressbook_domain_model_socialprovider">
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider">
 				<source>SocialProvider</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_socialprovider.name">
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.name">
 				<source>name</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_socialprovider.url_scheme">
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.url_scheme">
 				<source>urlScheme</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_socialprovider.www">
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.www">
 				<source>www</source>
 			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_socialprovider.image">
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.image">
 				<source>image</source>
 			</trans-unit>
 			

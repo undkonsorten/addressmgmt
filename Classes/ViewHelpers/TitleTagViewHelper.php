@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Addressbook\ViewHelpers;
+namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
 /***************************************************************
 *  Copyright notice

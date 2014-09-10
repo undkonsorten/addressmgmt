@@ -1,6 +1,6 @@
 <?php
 
-namespace Undkonsorten\Addressbook\Tests;
+namespace Undkonsorten\Addressmgmt\Tests;
 /***************************************************************
  *  Copyright notice
  *
@@ -27,7 +27,7 @@ namespace Undkonsorten\Addressbook\Tests;
  ***************************************************************/
 
 /**
- * Test case for class \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier.
+ * Test case for class \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -41,12 +41,12 @@ namespace Undkonsorten\Addressbook\Tests;
  */
 class SocialIdentifierTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
-	 * @var \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier();
+		$this->fixture = new \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier();
 	}
 
 	public function tearDown() {

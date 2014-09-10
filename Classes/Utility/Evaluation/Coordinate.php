@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Addressbook\Utility\Evaluation;
+namespace Undkonsorten\Addressmgmt\Utility\Evaluation;
 
 /***************************************************************
  *  Copyright notice

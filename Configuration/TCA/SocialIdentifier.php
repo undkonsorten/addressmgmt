@@ -3,8 +3,8 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_addressbook_domain_model_socialidentifier'] = array(
-	'ctrl' => $TCA['tx_addressbook_domain_model_socialidentifier']['ctrl'],
+$TCA['tx_addressmgmt_domain_model_socialidentifier'] = array(
+	'ctrl' => $TCA['tx_addressmgmt_domain_model_socialidentifier']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, identifier, url_override, provider',
 	),
@@ -37,8 +37,8 @@ $TCA['tx_addressbook_domain_model_socialidentifier'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_addressbook_domain_model_socialidentifier',
-				'foreign_table_where' => 'AND tx_addressbook_domain_model_socialidentifier.pid=###CURRENT_PID### AND tx_addressbook_domain_model_socialidentifier.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_addressmgmt_domain_model_socialidentifier',
+				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_socialidentifier.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_socialidentifier.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -95,7 +95,7 @@ $TCA['tx_addressbook_domain_model_socialidentifier'] = array(
 		),
 		'identifier' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialidentifier.identifier',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialidentifier.identifier',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -104,7 +104,7 @@ $TCA['tx_addressbook_domain_model_socialidentifier'] = array(
 		),
 		'url_override' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialidentifier.url_override',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialidentifier.url_override',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -113,10 +113,10 @@ $TCA['tx_addressbook_domain_model_socialidentifier'] = array(
 		),
 		'provider' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialidentifier.provider',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialidentifier.provider',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_addressbook_domain_model_socialprovider',
+				'foreign_table' => 'tx_addressmgmt_domain_model_socialprovider',
 				'minitems' => 0,
 				'maxitems' => 1,
 				'wizards' => array(

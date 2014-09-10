@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Addressbook\Domain\Model;
+namespace Undkonsorten\Addressmgmt\Domain\Model;
 
 /***************************************************************
  *  Copyright notice

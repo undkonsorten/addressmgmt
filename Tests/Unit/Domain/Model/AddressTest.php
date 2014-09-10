@@ -1,6 +1,6 @@
 <?php
 
-namespace Undkonsorten\Addressbook\Tests;
+namespace Undkonsorten\Addressmgmt\Tests;
 /***************************************************************
  *  Copyright notice
  *
@@ -27,7 +27,7 @@ namespace Undkonsorten\Addressbook\Tests;
  ***************************************************************/
 
 /**
- * Test case for class \Undkonsorten\Addressbook\Domain\Model\Address.
+ * Test case for class \Undkonsorten\Addressmgmt\Domain\Model\Address.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -41,12 +41,12 @@ namespace Undkonsorten\Addressbook\Tests;
  */
 class AddressTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
-	 * @var \Undkonsorten\Addressbook\Domain\Model\Address
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new \Undkonsorten\Addressbook\Domain\Model\Address();
+		$this->fixture = new \Undkonsorten\Addressmgmt\Domain\Model\Address();
 	}
 
 	public function tearDown() {
@@ -474,7 +474,7 @@ class AddressTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setSocialIdentifiersForObjectStorageContainingSocialIdentifierSetsSocialIdentifiers() { 
-		$socialIdentifier = new \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier();
+		$socialIdentifier = new \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier();
 		$objectStorageHoldingExactlyOneSocialIdentifiers = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$objectStorageHoldingExactlyOneSocialIdentifiers->attach($socialIdentifier);
 		$this->fixture->setSocialIdentifiers($objectStorageHoldingExactlyOneSocialIdentifiers);
@@ -489,7 +489,7 @@ class AddressTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function addSocialIdentifierToObjectStorageHoldingSocialIdentifiers() {
-		$socialIdentifier = new \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier();
+		$socialIdentifier = new \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier();
 		$objectStorageHoldingExactlyOneSocialIdentifier = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$objectStorageHoldingExactlyOneSocialIdentifier->attach($socialIdentifier);
 		$this->fixture->addSocialIdentifier($socialIdentifier);
@@ -504,7 +504,7 @@ class AddressTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function removeSocialIdentifierFromObjectStorageHoldingSocialIdentifiers() {
-		$socialIdentifier = new \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier();
+		$socialIdentifier = new \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier();
 		$localObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$localObjectStorage->attach($socialIdentifier);
 		$localObjectStorage->detach($socialIdentifier);

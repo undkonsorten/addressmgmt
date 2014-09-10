@@ -3,16 +3,16 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_addressbook_domain_model_socialprovider'] = array(
-	'ctrl' => $TCA['tx_addressbook_domain_model_socialprovider']['ctrl'],
+$TCA['tx_addressmgmt_domain_model_socialprovider'] = array(
+	'ctrl' => $TCA['tx_addressmgmt_domain_model_socialprovider']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, url_scheme, www, image',
 	),
 	'types' => array(
 		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, url_scheme, www, image, 
-			--div--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:div.naming,
-				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:palette.identifier;identifier, 
-				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:palette.url_override;url_override, 
+			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:div.naming,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.identifier;identifier, 
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.url_override;url_override, 
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
@@ -42,8 +42,8 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_addressbook_domain_model_socialprovider',
-				'foreign_table_where' => 'AND tx_addressbook_domain_model_socialprovider.pid=###CURRENT_PID### AND tx_addressbook_domain_model_socialprovider.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_addressmgmt_domain_model_socialprovider',
+				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_socialprovider.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_socialprovider.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -100,7 +100,7 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 		),
 		'name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.name',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -109,7 +109,7 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 		),
 		'identifier_label' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.identifier_label',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.identifier_label',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -118,7 +118,7 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 		),
 		'identifier_description' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.identifier_description',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.identifier_description',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 30,
@@ -128,7 +128,7 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 		),
 		'url_scheme' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.url_scheme',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_scheme',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -137,7 +137,7 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 		),
 		'url_override_label' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.url_override_label',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_override_label',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -146,7 +146,7 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 		),
 		'url_override_description' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.url_override_description',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_override_description',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 30,
@@ -156,14 +156,14 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 		),
 		'show_url_override' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.show_url_override',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.show_url_override',
 			'config' => array(
 				'type' => 'check',
 			),
 		),
 		'www' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.www',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.www',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -172,7 +172,7 @@ $TCA['tx_addressbook_domain_model_socialprovider'] = array(
 		),
 		'image' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_socialprovider.image',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'image', 
 				array(

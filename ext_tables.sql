@@ -1,7 +1,7 @@
 #
-# Table structure for table 'tx_addressbook_domain_model_address'
+# Table structure for table 'tx_addressmgmt_domain_model_address'
 #
-CREATE TABLE tx_addressbook_domain_model_address (
+CREATE TABLE tx_addressmgmt_domain_model_address (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -64,9 +64,9 @@ CREATE TABLE tx_addressbook_domain_model_address (
 );
 
 #
-# Table structure for table 'tx_addressbook_domain_model_socialidentifier'
+# Table structure for table 'tx_addressmgmt_domain_model_socialidentifier'
 #
-CREATE TABLE tx_addressbook_domain_model_socialidentifier (
+CREATE TABLE tx_addressmgmt_domain_model_socialidentifier (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -109,9 +109,9 @@ CREATE TABLE tx_addressbook_domain_model_socialidentifier (
 );
 
 #
-# Table structure for table 'tx_addressbook_domain_model_socialprovider'
+# Table structure for table 'tx_addressmgmt_domain_model_socialprovider'
 #
-CREATE TABLE tx_addressbook_domain_model_socialprovider (
+CREATE TABLE tx_addressmgmt_domain_model_socialprovider (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,

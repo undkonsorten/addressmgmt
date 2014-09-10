@@ -3,30 +3,30 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_addressbook_domain_model_address'] = array(
-	'ctrl' => $TCA['tx_addressbook_domain_model_address']['ctrl'],
+$TCA['tx_addressmgmt_domain_model_address'] = array(
+	'ctrl' => $TCA['tx_addressmgmt_domain_model_address']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, first_name, name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, image, latitude, longitude, fe_user, social_identifiers',
 	),
 	'types' => array(
 		'Tx_Addressbook_Person' => array('showitem' => '
-				type,--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.name;name, fe_user, organization;;department, 
-				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.addressal_contact;addressal_contact,social_identifiers,
-			--div--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.description,image,description,  
-			--div--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.address,
-				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.address;address,
-				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.coordinates;coordinates,
+				type,--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.name;name, fe_user, organization;;department, 
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact,social_identifiers,
+			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,image,description,  
+			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.coordinates;coordinates,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
 				sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,  
 			'
 		),
 		'Tx_Addressbook_Organisation' => array('showitem' => '
 				type, name;;department, fe_user, organization, 
-				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.addressal_contact;addressal_contact,social_identifiers,
-			--div--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.description,image,description,  
-			--div--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.address,
-				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.address;address,
-				--palette--;LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.tce.coordinates;coordinates,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact,social_identifiers,
+			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,image,description,  
+			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.coordinates;coordinates,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
 				sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,  
 			'
@@ -68,8 +68,8 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_addressbook_domain_model_address',
-				'foreign_table_where' => 'AND tx_addressbook_domain_model_address.pid=###CURRENT_PID### AND tx_addressbook_domain_model_address.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_addressmgmt_domain_model_address',
+				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_address.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_address.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -125,20 +125,20 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 			),
 		),
 		'type' => array(
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.type',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type',
 			'config' => array(
 				'type' => 'select',
 				'default' => 'Tx_Addressbook_Organisation',
 				'suppress_icons' => 1,
 				'items' => array(
-					array('LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.type_person', 'Tx_Addressbook_Person'),
-					array('LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.type_organisation', 'Tx_Addressbook_Organisation'),
+					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_person', 'Tx_Addressbook_Person'),
+					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_organisation', 'Tx_Addressbook_Organisation'),
 				),
 			),
 		),
 		'first_name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.first_name',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.first_name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -147,7 +147,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.name',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 40,
@@ -156,14 +156,14 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'gender' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.gender',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.gender',
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
 					array('', ''),
-					array('LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.gender_female', 1),
-					array('LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.gender_male', 2),
-					array('LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.gender_other', 3),
+					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.gender_female', 1),
+					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.gender_male', 2),
+					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.gender_other', 3),
 				),
 				'size' => 1,
 				'maxitems' => 1,
@@ -172,7 +172,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'title' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.title',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.title',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
@@ -181,7 +181,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'organization' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.organization',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.organization',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -190,7 +190,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'department' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.department',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.department',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -199,7 +199,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'street' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.street',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.street',
 			'config' => array(
 				'type' => 'input',
 				'size' => 20,
@@ -208,7 +208,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'street_number' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.street_number',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.street_number',
 			'config' => array(
 				'type' => 'input',
 				'size' => 4,
@@ -217,7 +217,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'address_supplement' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.address_supplement',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.address_supplement',
 			'config' => array(
 				'type' => 'input',
 				'size' => 8,
@@ -226,7 +226,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'city' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.city',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.city',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -235,7 +235,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'zip' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.zip',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.zip',
 			'config' => array(
 				'type' => 'input',
 				'size' => 6,
@@ -244,7 +244,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'country' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.country',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.country',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -253,7 +253,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'state' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.state',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.state',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -262,7 +262,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'closest_city' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.closest_city',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.closest_city',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
@@ -271,7 +271,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'email' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.email',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.email',
 			'config' => array(
 				'type' => 'input',
 				'size' => 25,
@@ -280,7 +280,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'phone' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.phone',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.phone',
 			'config' => array(
 				'type' => 'input',
 				'size' => 12,
@@ -289,7 +289,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'mobile' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.mobile',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.mobile',
 			'config' => array(
 				'type' => 'input',
 				'size' => 12,
@@ -298,7 +298,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'fax' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.fax',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.fax',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
@@ -307,7 +307,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'www' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.www',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.www',
 			'config' => array(
 				'type' => 'input',
 				'size' => 20,
@@ -316,7 +316,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'description' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.description',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.description',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
@@ -337,7 +337,7 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'image' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.image',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'image', 
 				array(
@@ -364,25 +364,25 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 		),
 		'latitude' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.latitude',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.latitude',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'eval' => 'Undkonsorten\Addressbook\Utility\Evaluation\Coordinate'
+				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
 			),
 		),
 		'longitude' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.longitude',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.longitude',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'eval' => 'Undkonsorten\Addressbook\Utility\Evaluation\Coordinate'
+				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
 			),
 		),
 		'fe_user' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.fe_user',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.fe_user',
 			'config' => array(
 				'type' => 'group',
 				'internal_type' => 'db',
@@ -422,10 +422,10 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 			
 		'social_identifiers' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.social_identifiers',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.social_identifiers',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_addressbook_domain_model_socialidentifier',
+				'foreign_table' => 'tx_addressmgmt_domain_model_socialidentifier',
 				'foreign_field' => 'address',
 				'maxitems'      => 9999,
 				'appearance' => array(
@@ -443,9 +443,9 @@ $TCA['tx_addressbook_domain_model_address'] = array(
 
 $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['addressbook']);
 if(!$settings['feUserRelation']) {
-	$TCA['tx_addressbook_domain_model_address']['columns']['fe_user'] = array(
+	$TCA['tx_addressmgmt_domain_model_address']['columns']['fe_user'] = array(
 		'exclude' => 1,
-		'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.fe_user',
+		'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.fe_user',
 		'config' => array(
 			'type' => 'passthrough',
 		),

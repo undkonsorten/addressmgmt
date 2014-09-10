@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Addressbook\Domain\Repository\Address;
+namespace Undkonsorten\Addressmgmt\Domain\Repository\Address;
 
 /***************************************************************
  *  Copyright notice
@@ -33,6 +33,6 @@ namespace Undkonsorten\Addressbook\Domain\Repository\Address;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class OrganisationRepository extends \Undkonsorten\Addressbook\Domain\Repository\AddressRepository {
+class OrganisationRepository extends \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository {
 }
 ?>

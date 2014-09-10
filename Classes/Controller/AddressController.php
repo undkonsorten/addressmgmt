@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Addressbook\Controller;
+namespace Undkonsorten\Addressmgmt\Controller;
 
 /***************************************************************
  *  Copyright notice
@@ -38,7 +38,7 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	/**
 	 * addressRepository
 	 *
-	 * @var \Undkonsorten\Addressbook\Domain\Repository\AddressRepository
+	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
 	 * @inject
 	 */
 	protected $addressRepository;
@@ -46,7 +46,7 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	/**
 	 * personRepository
 	 *
-	 * @var \Undkonsorten\Addressbook\Domain\Repository\Address\PersonRepository
+	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\PersonRepository
 	 * @inject
 	 */
 	protected $personRepository;
@@ -54,7 +54,7 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	/**
 	 * organisationRepository
 	 *
-	 * @var \Undkonsorten\Addressbook\Domain\Repository\Address\OrganisationRepository
+	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\OrganisationRepository
 	 * @inject
 	 */
 	protected $organisationRepository;
@@ -72,10 +72,10 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	/**
 	 * action show
 	 *
-	 * @param \Undkonsorten\Addressbook\Domain\Model\Address $address
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
 	 * @return void
 	 */
-	public function showAction(\Undkonsorten\Addressbook\Domain\Model\Address $address) {
+	public function showAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address) {
 		$this->view->assign('address', $address);
 	}
 

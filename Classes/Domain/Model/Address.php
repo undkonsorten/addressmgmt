@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Addressbook\Domain\Model;
+namespace Undkonsorten\Addressmgmt\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -167,7 +167,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
-	protected $image;
+	protected $image = NULL;
 
 	/**
 	 * latitude
@@ -188,12 +188,12 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 	 */
-	protected $feUser;
+	protected $feUser = NULL;
 
 	/**
 	 * socialIdentifiers
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier>
 	 * @lazy
 	 */
 	protected $socialIdentifiers;
@@ -673,27 +673,27 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * Adds a SocialIdentifier
 	 *
-	 * @param \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier $socialIdentifier
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier $socialIdentifier
 	 * @return void
 	 */
-	public function addSocialIdentifier(\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier $socialIdentifier) {
+	public function addSocialIdentifier(\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier $socialIdentifier) {
 		$this->socialIdentifiers->attach($socialIdentifier);
 	}
 
 	/**
 	 * Removes a SocialIdentifier
 	 *
-	 * @param \Undkonsorten\Addressbook\Domain\Model\SocialIdentifier $socialIdentifierToRemove The SocialIdentifier to be removed
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier $socialIdentifierToRemove The SocialIdentifier to be removed
 	 * @return void
 	 */
-	public function removeSocialIdentifier(\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier $socialIdentifierToRemove) {
+	public function removeSocialIdentifier(\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier $socialIdentifierToRemove) {
 		$this->socialIdentifiers->detach($socialIdentifierToRemove);
 	}
 
 	/**
 	 * Returns the socialIdentifiers
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier> $socialIdentifiers
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier> $socialIdentifiers
 	 */
 	public function getSocialIdentifiers() {
 		return $this->socialIdentifiers;
@@ -702,7 +702,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * Sets the socialIdentifiers
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressbook\Domain\Model\SocialIdentifier> $socialIdentifiers
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier> $socialIdentifiers
 	 * @return void
 	 */
 	public function setSocialIdentifiers(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $socialIdentifiers) {

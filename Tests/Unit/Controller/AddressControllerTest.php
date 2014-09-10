@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Addressbook\Tests;
+namespace Undkonsorten\Addressmgmt\Tests;
 /***************************************************************
  *  Copyright notice
  *
@@ -45,7 +45,7 @@ class AddressControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new \Undkonsorten\Addressbook\Domain\Model\Address();
+		$this->fixture = new \Undkonsorten\Addressmgmt\Domain\Model\Address();
 	}
 
 	public function tearDown() {

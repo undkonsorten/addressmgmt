@@ -1,14 +1,14 @@
-plugin.tx_addressbook {
+plugin.tx_addressmgmt {
 	view {
-		# cat=plugin.tx_addressbook/file; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:addressbook/Resources/Private/Templates/
-		# cat=plugin.tx_addressbook/file; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:addressbook/Resources/Private/Partials/
-		# cat=plugin.tx_addressbook/file; type=string; label=Path to template layouts (FE)
-		layoutRootPath = EXT:addressbook/Resources/Private/Layouts/
+		# cat=plugin.tx_addressmgmt/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:addressmgmt/Resources/Private/Templates/
+		# cat=plugin.tx_addressmgmt/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:addressmgmt/Resources/Private/Partials/
+		# cat=plugin.tx_addressmgmt/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:addressmgmt/Resources/Private/Layouts/
 	}
 	persistence {
-		# cat=plugin.tx_addressbook//a; type=string; label=Default storage PID
+		# cat=plugin.tx_addressmgmt//a; type=string; label=Default storage PID
 		storagePid =
 	}
 }
