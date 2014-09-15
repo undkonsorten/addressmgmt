@@ -223,6 +223,10 @@
 				<source>Coordinates</source>
 				<target state="translated">Koordinaten</target>
 			</trans-unit>
+			<trans-unit id="tx_addressbook_domain_model_address.closest_city">
+				<source>Closest City</source>
+				<target state="translated">Nächste größere Stadt</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

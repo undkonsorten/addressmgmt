@@ -109,6 +109,11 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.social_identifiers">
 				<source>Social Identifiers</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_addressbook_domain_model_address.closest_city">
+				<source>Closest City</source>
+			</trans-unit>
+			
 
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">
 				<source>Social Identifier</source>
