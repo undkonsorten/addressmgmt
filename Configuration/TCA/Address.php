@@ -306,12 +306,21 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'www' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.www',
 			'config' => array(
-				'type' => 'input',
-				'size' => 20,
-				'eval' => 'trim'
+				'type' => 'inline',
+				'foreign_table' => 'tx_addressmgmt_domain_model_link',
+				'minitems' => 0,
+				'maxitems' => 1,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'collapseAll' => TRUE,
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
 			),
 		),
 		'description' => array(

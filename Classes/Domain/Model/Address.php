@@ -77,6 +77,13 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \string
 	 */
 	protected $streetNumber;
+	
+	/**
+	 * The link to the event page
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Link
+	 */
+	protected $link;
 
 	/**
 	 * addressSupplement
@@ -707,6 +714,25 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 */
 	public function setSocialIdentifiers(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $socialIdentifiers) {
 		$this->socialIdentifiers = $socialIdentifiers;
+	}
+	
+	/**
+	 * Returns the link
+	 *
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Link $link
+	 */
+	public function getLink() {
+		return $this->link;
+	}
+	
+	/**
+	 * Sets the link
+	 *
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Link $link
+	 * @return void
+	 */
+	public function setLink(\Undkonsorten\Addressmgmt\Domain\Model\Link $link) {
+		$this->link = $link;
 	}
 
 }
