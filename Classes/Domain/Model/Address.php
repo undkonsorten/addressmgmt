@@ -158,7 +158,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * www
 	 *
-	 * @var \string
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Link
 	 */
 	protected $www;
 
@@ -554,7 +554,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * Returns the www
 	 *
-	 * @return \string $www
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Link $www
 	 */
 	public function getWww() {
 		return $this->www;
@@ -563,7 +563,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * Sets the www
 	 *
-	 * @param \string $www
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Link $www
 	 * @return void
 	 */
 	public function setWww($www) {
