@@ -175,10 +175,10 @@
 				<source>Coordinates</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_link.text">
-				<source>Text</source>
+				<source>Link text</source>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_link.text">
-				<source>>Link</source>
+			<trans-unit id="tx_addressmgmt_domain_model_link.link">
+				<source>Link target</source>
 			</trans-unit>
 			
 			
