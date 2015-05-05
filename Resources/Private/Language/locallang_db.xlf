@@ -180,7 +180,9 @@
 			<trans-unit id="tx_addressmgmt_domain_model_link.link">
 				<source>Link target</source>
 			</trans-unit>
-			
+			<trans-unit id="tx_addressmgmt_domain_model_address.map_zoom">
+				<source>Map zoom</source>
+			</trans-unit>
 			
 			
 

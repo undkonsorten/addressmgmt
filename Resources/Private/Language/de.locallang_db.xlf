@@ -227,6 +227,11 @@
 				<source>Closest City</source>
 				<target state="translated">Nächste größere Stadt</target>
 			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_address.map_zoom">
+				<source>Map zoom</source>
+				<target state="translated">Karten zoom</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

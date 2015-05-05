@@ -49,6 +49,13 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @validate NotEmpty
 	 */
 	protected $name;
+	
+	/**
+	 * map zoom
+	 *
+	 * @var integer
+	 */
+	protected $mapZoom = NULL;
 
 	/**
 	 * organization
@@ -734,6 +741,24 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setLink(\Undkonsorten\Addressmgmt\Domain\Model\Link $link) {
 		$this->link = $link;
 	}
-
+	
+	/**
+	 * 
+	 * @return integer
+	 */
+	public function getMapZoom() {
+		return $this->mapZoom;
+	}
+	
+	/**
+	 * 
+	 * @param integer $mapZoom
+	 */
+	public function setMapZoom($mapZoom) {
+		$this->mapZoom = $mapZoom;
+	}
+	
+	
+	
 }
 ?>

@@ -33,6 +33,7 @@ CREATE TABLE tx_addressmgmt_domain_model_address (
 	fe_user int(11) unsigned DEFAULT '0' NOT NULL,
 	social_identifiers int(11) unsigned DEFAULT '0' NOT NULL,
 	link int(11) unsigned DEFAULT '0',
+	map_zoom int(11) unsigned DEFAULT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
