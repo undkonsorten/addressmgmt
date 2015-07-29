@@ -58,7 +58,7 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @param array $categories
 	 * @param array $orderings
 	 */
-	public function findByCategories($categories, $orderings){
+	public function findByCategories($categories, $orderings=NULL){
 		$query = $this->createQuery();
 		$constraints = array();
 		if(count($categories)>1){
@@ -73,7 +73,9 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 					$query->contains('category', $categories)
 			);
 		}
-		$query->setOrderings($orderings);
+		if($orderings){
+			$query->setOrderings($orderings);
+		}
 		return $query->execute();
 	}
 }
