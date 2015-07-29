@@ -459,7 +459,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 	),
 );
 
-$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['addressbook']);
+$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['addressmgmt']);
 if(!$settings['feUserRelation']) {
 	$TCA['tx_addressmgmt_domain_model_address']['columns']['fe_user'] = array(
 		'exclude' => 1,
