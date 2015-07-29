@@ -1,2 +1,4 @@
 # cat=basic;type=boolean; label=Relation to fe_users
 feUserRelation = 1
+# cat=basic;type=input; label=Root category for addresses
+rootCategory = 

@@ -34,6 +34,7 @@ CREATE TABLE tx_addressmgmt_domain_model_address (
 	social_identifiers int(11) unsigned DEFAULT '0' NOT NULL,
 	link int(11) unsigned DEFAULT '0',
 	map_zoom int(11) unsigned DEFAULT NULL,
+	category int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -197,4 +198,18 @@ CREATE TABLE tx_addressmgmt_domain_model_link (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
 
+);
+
+#
+# Table structure for table 'tx_eventmgmt_event_category_mm'
+#
+CREATE TABLE tx_addressmgmt_address_category_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	field varchar(50) DEFAULT '' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
 );
