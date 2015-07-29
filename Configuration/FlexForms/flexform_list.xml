@@ -176,10 +176,18 @@
 							</config>
 						</TCEforms>
 					</settings.detailPid>
-					<settings.storageFolder>
+					<persistence.storagePid>
 						<TCEforms>
 							<exclude>1</exclude>
 							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.storageFolder</label>
+							<displayCond>
+								<AND>
+									<numIndex>FIELD:settings.listType:=:all</numIndex>
+									<AND>
+										<numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
+									</AND>
+								</AND>
+							</displayCond>
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>
@@ -195,7 +203,7 @@
 								</wizards>
 							</config>
 						</TCEforms>
-				</settings.storageFolder>
+				</persistence.storagePid>
 				<settings.templateLayout>
 	                <TCEforms>
 	                 <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.templateLayout</label>
