@@ -72,8 +72,16 @@ class AddressController extends BaseController{
 		}
 		if($this->settings['listType']=='all' && $this->settings['category']){
 			$addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',', $this->settings['category']),$orderings);
-			
-		}else{
+		}
+		
+		if($this->settings['listType']=='manual' && $this->settings['addresses']){
+			$addresses = array();
+			foreach(GeneralUtility::intExplode(',', $this->settings['addresses']) as $uid){
+				$addresses[] = $this->addressRepository->findByUid($uid);
+			}
+		}
+		
+		if(!addresses){
 			$addresses = $this->addressRepository->findAll();
 		}
 		
