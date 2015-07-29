@@ -1,6 +1,8 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 /***************************************************************
  *  Copyright notice
  *
@@ -33,7 +35,7 @@ namespace Undkonsorten\Addressmgmt\Controller;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class AddressController extends BaseController{
 
 	/**
 	 * addressRepository
@@ -65,7 +67,14 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return void
 	 */
 	public function listAction() {
-		$addresses = $this->addressRepository->findAll();
+		
+		if($this->settings['listType']=='all' && $this->settings['category']){
+			$addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',', $this->settings['category']));
+			
+		}else{
+			$addresses = $this->addressRepository->findAll();
+		}
+		
 		$this->view->assign('addresss', $addresses);
 	}
 

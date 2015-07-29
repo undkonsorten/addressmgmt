@@ -201,12 +201,9 @@
 	                 <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.templateLayout</label>
 	                         <config>
 	                                 <type>select</type>
+	                                 <itemsProcFunc>Undkonsorten\Addressmgmt\Hooks\ItemsProcFunc->user_templateLayout</itemsProcFunc>
 	                                 <items>
 	                                         <numIndex index="0" type="array">
-	                                                 <numIndex index="0"></numIndex>
-	                                                 <numIndex index="1"></numIndex>
-	                                         </numIndex>
-	                                         <numIndex index="1" type="array">
 	                                                 <numIndex index="0"></numIndex>
 	                                                 <numIndex index="1"></numIndex>
 	                                         </numIndex>

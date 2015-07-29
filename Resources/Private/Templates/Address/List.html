@@ -12,69 +12,34 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Listing for Address</h1>
 
 <f:flashMessages />
 
-<table  class="tx_addressmgmt" >
-	<tr>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.first_name" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.name" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.gender" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.title" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.organization" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.department" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.street" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.street_number" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.address_supplement" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.city" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.zip" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.country" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.state" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.closest_city" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.email" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.phone" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.mobile" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.fax" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.www" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.description" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.image" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.latitude" /></th>
-		<th><f:translate key="tx_addressmgmt_domain_model_address.longitude" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
-
-	<f:for each="{addresss}" as="address">
-		<tr>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.firstName}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.name}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.gender}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.title}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.organization}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.department}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.street}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.streetNumber}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.addressSupplement}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.city}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.zip}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.country}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.state}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.closestCity}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.email}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.phone}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.mobile}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.fax}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.www}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.description}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.image}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.latitude}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{address : address}"> {address.longitude}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{address : address}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{address : address}">Delete</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
-
-<f:link.action action="new">New Address</f:link.action>
+<f:if condition="{addresss}">
+		<f:then>
+			<f:if condition="{settings.templateLayout} == 99">
+				<f:then>
+					<div class="news well news-special">
+						<f:for each="{addresss}" as="address">
+							<f:render partial="List/Item-special" arguments="{address: address}"/>
+						</f:for>
+					</div>
+				</f:then>
+				<f:else>
+					<section class="module-list.addressmgmt">
+						<ul class="list-items">
+							<f:for each="{addresss}" as="address">
+								<li class="ist-irem#{address.uid}">
+									<f:render partial="List/Item" arguments="{address: address}"/>
+								</li>
+							</f:for>
+						</ul>
+					</section>
+				</f:else>
+			</f:if>
+		</f:then>
+		<f:else>
+			<div class="no-news-found"><f:translate key="list_nonewsfound" /></div>
+		</f:else>
+	</f:if>
 </f:section>

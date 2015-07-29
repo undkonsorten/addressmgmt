@@ -46,6 +46,27 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$querySettings->setRespectStoragePage(FALSE);
 		$this->setDefaultQuerySettings($querySettings);
 	}
-	
+
+	/**
+	 * Find addresses by categories
+	 * @param array $categories
+	 */
+	public function findByCategories($categories){
+		$query = $this->createQuery();
+		$constraints = array();
+		if(count($categories)>1){
+			foreach ($categories as $category){
+				$constraints[] = $query->contains('category', $category);
+			}
+			$query->matching(
+					$query->logicalAnd($constraints)
+			);
+		}else{
+			$query->matching(
+					$query->contains('category', $categories)
+			);
+		}
+		return $query->execute();
+	}
 }
 ?>

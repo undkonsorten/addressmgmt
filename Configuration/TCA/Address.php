@@ -161,9 +161,9 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 				'type' => 'select',
 				'items' => array(
 					array('', ''),
-					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.gender_female', 1),
-					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.gender_male', 2),
-					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.gender_other', 3),
+					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.1', 1),
+					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.2', 2),
+					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.3', 3),
 				),
 				'size' => 1,
 				'maxitems' => 1,
@@ -444,9 +444,6 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 								),
 						),
 						'MM' => 'tx_addressmgmt_address_category_mm',
-						'MM_match_fields' => array(
-								'field' => 'category'
-						),
 						'size' => 10,
 						'autoSizeMax' => 30,
 						'maxitems' => 9999,

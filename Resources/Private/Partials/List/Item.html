@@ -1,0 +1,57 @@
+<div class="tx-addressbook" >
+
+<h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}">Gender</f:translate> {address.title} {address.firstName} {address.Name}</h3>
+
+{address.organization}
+
+{address.department}
+
+{address.street}
+
+{address.streetNumber}
+
+{address.addressSupplement}
+
+{address.city}
+
+{address.zip}
+
+{address.country}
+
+{address.state}
+
+{address.closestCity}
+
+<f:if condition="{address.feUser}">
+	<f:then>{address.feUser.username}</f:then>
+	<f:else>{address.email}</f:else>
+</f:if>
+
+{address.phone}
+
+{address.mobile}
+
+{address.fax}
+
+{address.www}
+
+{address.description}
+<f:if condition="{address.image}">
+	<figure>
+		<f:image src="{address.image.originalResource.forLocalProcessing}" alt="nada" width="300" />
+	</figure>
+</f:if>
+
+{address.latitude}
+
+{address.longitude}
+
+<f:for each="{address.socialIdentifiers}" as="identifier">
+<div>
+	<f:if condition="{identifier.provider.image}">
+		<f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
+	</f:if>
+	<strong>{identifier.provider.name}:</strong> 
+	{identifier.url}
+</div>
+</f:for>
