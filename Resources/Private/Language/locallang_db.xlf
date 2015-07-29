@@ -184,8 +184,63 @@
 				<source>Map zoom</source>
 			</trans-unit>
 			
-			
-
+			<trans-unit id="flexform.switchableControllerActions.addressList">
+				<source>List</source>
+			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.addressDetail">
+				<source>Detail</source>
+			</trans-unit>
+			<trans-unit id="flexform.listType">
+				<source>Show items by</source>
+			</trans-unit>
+			<trans-unit id="flexform.listType.all">
+				<source>Folder and category</source>
+			</trans-unit>
+			<trans-unit id="flexform.listType.manual">
+				<source>Select manually</source>
+			</trans-unit>
+			<trans-unit id="flexform.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="flexform.addresses">
+				<source>Addresses</source>
+			</trans-unit>
+			<trans-unit id="flexform.detailPid">
+				<source>Detail Pid</source>
+			</trans-unit>
+			<trans-unit id="flexform.storageFolder">
+				<source>Storage Pid</source>
+			</trans-unit>
+			<trans-unit id="flexform.orderBy">
+				<source>Sort by</source>
+			</trans-unit>
+			<trans-unit id="flexform.definedByTs">
+				<source>Defined by TS</source>
+			</trans-unit>
+			<trans-unit id="flexform.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<source>Sorting direction</source>
+			</trans-unit>
+			<trans-unit id="flexform.asc">
+				<source>Ascending</source>
+			</trans-unit>
+			<trans-unit id="flexform.desc">
+				<source>Descending</source>
+			</trans-unit>
+			<trans-unit id="flexforms.templateLayout">
+				<source>Descending</source>
+			</trans-unit>
+			<trans-unit id="flexforms.templateLayout">
+				<source>Template layout</source>
+			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions">
+				<source>What to display</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.category">
+				<source>Category</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
