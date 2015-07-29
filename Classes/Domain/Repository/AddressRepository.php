@@ -1,6 +1,8 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 /***************************************************************
  *  Copyright notice
  *
@@ -35,6 +37,10 @@ namespace Undkonsorten\Addressmgmt\Domain\Repository;
  */
 class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	
+	protected $defaultOrderings = array(
+			'name' => QueryInterface::ORDER_DESCENDING,
+	);
+	
 	/**
 	 * Sets repository-wide query settings
 	 *
@@ -50,8 +56,9 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	/**
 	 * Find addresses by categories
 	 * @param array $categories
+	 * @param array $orderings
 	 */
-	public function findByCategories($categories){
+	public function findByCategories($categories, $orderings){
 		$query = $this->createQuery();
 		$constraints = array();
 		if(count($categories)>1){
@@ -66,6 +73,7 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 					$query->contains('category', $categories)
 			);
 		}
+		$query->setOrderings($orderings);
 		return $query->execute();
 	}
 }

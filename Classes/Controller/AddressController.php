@@ -67,9 +67,11 @@ class AddressController extends BaseController{
 	 * @return void
 	 */
 	public function listAction() {
-		
+		if($this->settings['orderBy'] && $this->settings['orderDirection']){
+			$orderings = array($this->settings['orderBy'] => $this->settings['orderDirection']);
+		}
 		if($this->settings['listType']=='all' && $this->settings['category']){
-			$addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',', $this->settings['category']));
+			$addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',', $this->settings['category']),$orderings);
 			
 		}else{
 			$addresses = $this->addressRepository->findAll();

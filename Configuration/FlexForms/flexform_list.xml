@@ -120,7 +120,7 @@
 									</numIndex>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.name</numIndex>
-										<numIndex index="1">start</numIndex>
+										<numIndex index="1">name</numIndex>
 									</numIndex>
 								</items>
 							</config>
@@ -146,11 +146,11 @@
 									</numIndex>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.asc</numIndex>
-										<numIndex index="1">asc</numIndex>
+										<numIndex index="1">ASC</numIndex>
 									</numIndex>
 									<numIndex index="2">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.desc</numIndex>
-										<numIndex index="1">desc</numIndex>
+										<numIndex index="1">DESC</numIndex>
 									</numIndex>
 								</items>
 							</config>
