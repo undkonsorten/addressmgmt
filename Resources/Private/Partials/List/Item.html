@@ -1,6 +1,17 @@
 <div class="tx-addressbook" >
 
-<h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}">Gender</f:translate> {address.title} {address.firstName} {address.Name}</h3>
+<f:if condition="{settings.detailPid}">
+	<f:then>
+		<f:link.action action="show" pageUid="{settings.detailPid}" arguments="{address:address}"><h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3></f:link.action>
+	</f:then>
+	<f:else>
+		<f:link.action action="show" arguments="{address:address}"><h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3></f:link.action>
+	</f:else>
+</f:if>
+
+<f:for each="{address.category}" as="category">
+	{category.title}
+</f:for>
 
 {address.organization}
 

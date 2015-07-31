@@ -35,6 +35,13 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
  */
 abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements AddressInterface {
 
+	
+	/**
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 */
+	protected $category;
+	
 	/**
 	 * type
 	 *
@@ -757,6 +764,24 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setMapZoom($mapZoom) {
 		$this->mapZoom = $mapZoom;
 	}
+	
+	/**
+	 * 
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 */
+	public function getCategory() {
+		return $this->category;
+	}
+	
+	/**
+	 * 
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
+	 * 
+	 */
+	public function setCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
+		$this->category = $category;
+	}
+	
 	
 	
 	

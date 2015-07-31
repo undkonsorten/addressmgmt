@@ -90,7 +90,14 @@
 					<TCEforms>
 						<exclude>1</exclude>
 						<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.addresses</label>
-						<displayCond>FIELD:settings.listType:=:manual</displayCond>
+						<displayCond>
+							<AND>
+								<numIndex>FIELD:settings.listType:=:manual</numIndex>
+								<AND>
+									<numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
+								</AND>
+							</AND>
+						</displayCond>
 						<config>
 							<type>select</type>
                             <foreign_table>tx_addressmgmt_domain_model_address</foreign_table> 

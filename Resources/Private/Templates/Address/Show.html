@@ -17,7 +17,65 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <h1>Single View for Address</h1>
 
 <f:flashMessages />
-<f:render partial="Address/Properties" arguments="{address:address}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Address</f:link.action>
+<div class="tx-addressbook" >
+
+<h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3>
+
+<f:for each="{address.category}" as="category">
+	{category.title}
+</f:for>
+
+{address.organization}
+
+{address.department}
+
+{address.street}
+
+{address.streetNumber}
+
+{address.addressSupplement}
+
+{address.city}
+
+{address.zip}
+
+{address.country}
+
+{address.state}
+
+{address.closestCity}
+
+<f:if condition="{address.feUser}">
+	<f:then>{address.feUser.username}</f:then>
+	<f:else>{address.email}</f:else>
+</f:if>
+
+{address.phone}
+
+{address.mobile}
+
+{address.fax}
+
+{address.www}
+
+{address.description}
+<f:if condition="{address.image}">
+	<figure>
+		<f:image src="{address.image.originalResource.forLocalProcessing}" alt="nada" width="300" />
+	</figure>
+</f:if>
+
+{address.latitude}
+
+{address.longitude}
+
+<f:for each="{address.socialIdentifiers}" as="identifier">
+<div>
+	<f:if condition="{identifier.provider.image}">
+		<f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
+	</f:if>
+	<strong>{identifier.provider.name}:</strong> 
+	{identifier.url}
+</div>
+</f:for>
 </f:section>
