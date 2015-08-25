@@ -137,7 +137,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'first_name' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.first_name',
 			'config' => array(
 				'type' => 'input',
@@ -146,7 +146,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'name' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.name',
 			'config' => array(
 				'type' => 'input',
@@ -155,7 +155,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'gender' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.gender',
 			'config' => array(
 				'type' => 'select',
@@ -171,7 +171,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'title' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.title',
 			'config' => array(
 				'type' => 'input',
@@ -180,7 +180,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'organization' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.organization',
 			'config' => array(
 				'type' => 'input',
@@ -189,7 +189,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'department' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.department',
 			'config' => array(
 				'type' => 'input',
@@ -198,7 +198,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'street' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.street',
 			'config' => array(
 				'type' => 'input',
@@ -207,7 +207,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'street_number' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.street_number',
 			'config' => array(
 				'type' => 'input',
@@ -216,7 +216,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'address_supplement' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.address_supplement',
 			'config' => array(
 				'type' => 'input',
@@ -225,7 +225,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'city' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.city',
 			'config' => array(
 				'type' => 'input',
@@ -234,7 +234,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'zip' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.zip',
 			'config' => array(
 				'type' => 'input',
@@ -243,7 +243,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'country' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.country',
 			'config' => array(
 				'type' => 'input',
@@ -252,7 +252,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'state' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.state',
 			'config' => array(
 				'type' => 'input',
@@ -270,7 +270,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'email' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.email',
 			'config' => array(
 				'type' => 'input',
@@ -279,7 +279,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'phone' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.phone',
 			'config' => array(
 				'type' => 'input',
@@ -288,7 +288,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'mobile' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.mobile',
 			'config' => array(
 				'type' => 'input',
@@ -297,7 +297,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'fax' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.fax',
 			'config' => array(
 				'type' => 'input',
@@ -486,7 +486,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 		),
 		'map_zoom' => array(
-				'exclude' => 0,
+				'exclude' => 1,
 				'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.map_zoom',
 				'config' => array(
 						'type' => 'input',
