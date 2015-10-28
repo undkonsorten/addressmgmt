@@ -100,7 +100,8 @@
 						</displayCond>
 						<config>
 							<type>select</type>
-                            <foreign_table>tx_addressmgmt_domain_model_address</foreign_table> 
+                            <foreign_table>tx_addressmgmt_domain_model_address</foreign_table>
+                            <foreign_table_where>AND tx_addressmgmt_domain_model_address.sys_language_uid = ###REC_FIELD_sys_language_uid###</foreign_table_where> 
                              <size>15</size>
                              <maxitems>10</maxitems>
                              <minitems>1</minitems>
