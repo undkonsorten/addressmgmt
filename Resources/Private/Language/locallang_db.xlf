@@ -143,6 +143,14 @@
 				<source>Location</source>
 			</trans-unit>
 			
+			<trans-unit id="tx_addressmgmt_domain_model_address.relation">
+				<source>Room-Location relation</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_address.tce.rooms">
+				<source>Room</source>
+			</trans-unit>
+			
 			
 
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">

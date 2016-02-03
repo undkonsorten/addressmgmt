@@ -38,6 +38,8 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.coordinates;coordinates,
+	        --div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.rooms,
+				--palette--;;rooms,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
 				sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,
 			'
@@ -50,6 +52,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		'address' => array('showitem' => 'street, street_number, address_supplement, --linebreak--, zip, city, --linebreak--, state, country, --linebreak--, directions', 'canNotCollapse' => 1),
 		'coordinates' => array('showitem' => 'closest_city, --linebreak--, latitude, longitude, map_zoom', 'canNotCollapse' => 1),
 		'addressal_contact' => array('showitem' => 'email , counterpart,--linebreak--, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
+	    'rooms' => array('showitem' => 'relation','canNotCollapse' => 1),
 	),
 	'columns' => array(
 		'pid' => array(
@@ -539,6 +542,29 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 						'eval' => 'num,null',
 				),
 		),
+	    'relation' => Array (
+	        "exclude" => 1,
+	        "label" => "LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.relation",
+	        "l10n_mode" => "exclude",
+	        "config" => Array (
+	            'type' => 'inline',
+	            'foreign_table' => 'tx_addressmgmt_domain_model_relation',
+	            'foreign_field' => 'location',
+	            'foreign_label' => 'room',
+	            'appearance' => Array(
+	                'collapseAll' => 1,
+	                'expandSingle' => 1,
+	                'newRecordLinkAddTitle' => TRUE,
+	                ),
+	            'wizards' => array(
+	                '_PADDING' => 1,
+	                '_VERTICAL' => 1,
+	                'suggest' => array(
+	                    'type' => 'suggest'
+	                ),
+	            ),
+	            ),
+	        ),
 	),
 );
 
