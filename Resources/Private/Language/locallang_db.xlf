@@ -97,6 +97,9 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.description">
 				<source>Description</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.directions">
+				<source>Directions</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>Image</source>
 			</trans-unit>

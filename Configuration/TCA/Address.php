@@ -47,7 +47,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		'name' => array('showitem' => 'gender, title, --linebreak--, first_name, name', 'canNotCollapse' => 1),
 		'department' => array('showitem' => 'department', 'canNotCollapse' => 1),
 		'additional_organisation' => array('showitem' => 'organisation', 'canNotCollapse' => 1),
-		'address' => array('showitem' => 'street, street_number, address_supplement, --linebreak--, zip, city, --linebreak--, state, country', 'canNotCollapse' => 1),
+		'address' => array('showitem' => 'street, street_number, address_supplement, --linebreak--, zip, city, --linebreak--, state, country, --linebreak--, directions', 'canNotCollapse' => 1),
 		'coordinates' => array('showitem' => 'closest_city, --linebreak--, latitude, longitude, map_zoom', 'canNotCollapse' => 1),
 		'addressal_contact' => array('showitem' => 'email,--linebreak--, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
 	),
@@ -356,6 +356,27 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			),
 			'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts]',
 		),
+	    'directions' => array(
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.directions',
+	        'config' => array(
+	            'type' => 'text',
+	            'cols' => 40,
+	            'rows' => 15,
+	            'eval' => 'trim',
+	            'wizards' => array(
+	                'RTE' => array(
+	                    'icon' => 'wizard_rte2.gif',
+	                    'notNewRecords'=> 1,
+	                    'RTEonly' => 1,
+	                    'script' => 'wizard_rte.php',
+	                    'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
+	                    'type' => 'script'
+	                )
+	            )
+	        ),
+	        'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts]',
+	    ),
 		'image' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.image',

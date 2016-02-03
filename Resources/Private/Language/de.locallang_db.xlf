@@ -25,7 +25,6 @@
 				<target state="translated">Vorname</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.type">
-				<source>Type</source>
 				<target state="translated">Typ</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.type_person">
@@ -127,6 +126,10 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.description">
 				<source>Description</source>
 				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.directions">
+				<source>Directions</source>
+				<target state="translated">Anfahrtsbeschreibung</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>Image</source>

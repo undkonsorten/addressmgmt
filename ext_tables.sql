@@ -27,6 +27,7 @@ CREATE TABLE tx_addressmgmt_domain_model_address (
 	fax varchar(60) DEFAULT '' NOT NULL,
 	www varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
+    directions text NOT NULL,
 	image int(11) unsigned DEFAULT '0',
 	latitude decimal(9,6) DEFAULT '0.000000' NOT NULL,
 	longitude decimal(9,6) DEFAULT '0.000000' NOT NULL,

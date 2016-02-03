@@ -182,6 +182,13 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \string
 	 */
 	protected $description;
+	
+	/**
+	 * directions
+	 *
+	 * @var \string
+	 */
+	protected $directions;
 
 	/**
 	 * image
@@ -781,6 +788,24 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
 		$this->category = $category;
 	}
+
+    /**
+     * 
+     */
+    public function getDirections()
+    {
+        return $this->directions;
+    }
+
+    /**
+     * 
+     * @param string $directions
+     */
+    public function setDirections($directions)
+    {
+        $this->directions = $directions;
+    }
+ 
 	
 	
 	
