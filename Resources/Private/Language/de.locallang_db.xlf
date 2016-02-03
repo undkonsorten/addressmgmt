@@ -36,6 +36,10 @@
 				<source>Organisation</source>
 				<target state="translated">Organisation</target>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.type_location">
+				<source>Location</source>
+				<target state="translated">Ort</target>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.name">
 				<source>Name</source>
 				<target state="translated"></target>

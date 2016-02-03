@@ -28,6 +28,9 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.type_organisation">
 				<source>Organisation</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.type_location">
+				<source>Location</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.name">
 				<source>Name</source>
 			</trans-unit>
