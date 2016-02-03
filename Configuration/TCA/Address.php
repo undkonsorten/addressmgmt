@@ -49,7 +49,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		'additional_organisation' => array('showitem' => 'organisation', 'canNotCollapse' => 1),
 		'address' => array('showitem' => 'street, street_number, address_supplement, --linebreak--, zip, city, --linebreak--, state, country, --linebreak--, directions', 'canNotCollapse' => 1),
 		'coordinates' => array('showitem' => 'closest_city, --linebreak--, latitude, longitude, map_zoom', 'canNotCollapse' => 1),
-		'addressal_contact' => array('showitem' => 'email,--linebreak--, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
+		'addressal_contact' => array('showitem' => 'email , counterpart,--linebreak--, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
 		'pid' => array(
@@ -335,13 +335,23 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 				),
 			),
 		),
+	    'counterpart' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.counterpart',
+			'config' => array(
+				'type' => 'text',
+					'cols' => 20,
+				    'rows' => 5,
+				'eval' => 'trim'
+			),
+		),
 		'description' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.description',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 15,
+				'rows' => 10,
 				'eval' => 'trim',
 				'wizards' => array(
 					'RTE' => array(

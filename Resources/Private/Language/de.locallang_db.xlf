@@ -131,6 +131,31 @@
 				<source>Directions</source>
 				<target state="translated">Anfahrtsbeschreibung</target>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.counterpart">
+				<source>Counterpart</source>
+				<target state="translated">Ansprechpartner</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_room">
+				<source>Room</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation">
+				<source>Relation</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_room.name">
+				<source>Name</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation.room">
+				<source>Room</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation.location">
+				<source>Location</source>
+			</trans-unit>
+			
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>Image</source>
 				<target state="translated">Bild</target>

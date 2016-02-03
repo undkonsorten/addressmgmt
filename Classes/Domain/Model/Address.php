@@ -225,6 +225,12 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @lazy
 	 */
 	protected $socialIdentifiers;
+	
+	/**
+	 * 
+	 * @var string $counterpart
+	 */
+	protected $counterpart;
 
 	/**
 	 * __construct
@@ -789,9 +795,10 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 		$this->category = $category;
 	}
 
-    /**
-     * 
-     */
+
+	/**
+	 * 
+	 */
     public function getDirections()
     {
         return $this->directions;
@@ -805,6 +812,25 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     {
         $this->directions = $directions;
     }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getCounterpart()
+    {
+        return $this->counterpart;
+    }
+
+    /**
+     * 
+     * @param string $counterpart
+     */
+    public function setCounterpart($counterpart)
+    {
+        $this->counterpart = $counterpart;
+    }
+ 
  
 	
 	

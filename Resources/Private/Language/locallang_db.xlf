@@ -100,6 +100,9 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.directions">
 				<source>Directions</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.counterpart">
+				<source>Counterpart</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>Image</source>
 			</trans-unit>
@@ -119,6 +122,27 @@
 			<trans-unit id="tx_addressbook_domain_model_address.closest_city">
 				<source>Closest City</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_room">
+				<source>Room</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation">
+				<source>Relation</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_room.name">
+				<source>Name</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation.room">
+				<source>Room</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation.location">
+				<source>Location</source>
+			</trans-unit>
+			
 			
 
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">
