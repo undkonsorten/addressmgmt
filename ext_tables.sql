@@ -273,7 +273,9 @@ CREATE TABLE tx_addressmgmt_domain_model_room (
 	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	starttime int(11) unsigned DEFAULT '0' NOT NULL,
 	endtime int(11) unsigned DEFAULT '0' NOT NULL,
-
+	capacity int(11) unsigned DEFAULT '0' NOT NULL,
+	description text NOT NULL,
+	
 	t3ver_oid int(11) DEFAULT '0' NOT NULL,
 	t3ver_id int(11) DEFAULT '0' NOT NULL,
 	t3ver_wsid int(11) DEFAULT '0' NOT NULL,

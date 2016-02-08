@@ -33,7 +33,7 @@ namespace Undkonsorten\Addressmgmt\Domain\Model\Address;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Person extends \Undkonsorten\Addressmgmt\Domain\Model\Address {
+class Location extends \Undkonsorten\Addressmgmt\Domain\Model\Address {
 
 
 }

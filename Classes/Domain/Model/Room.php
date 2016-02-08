@@ -37,6 +37,18 @@ class Room extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $name = '';
+	
+	/**
+	 * 
+	 * @var integer
+	 */
+	protected $capacity = 0;
+	
+	/**
+	 * 
+	 * @var string
+	 */
+	protected $description = '';
 
 	/**
 	 * Returns the name
@@ -57,4 +69,41 @@ class Room extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->name = $name;
 	}
 
+	/**
+	 * 
+	 */
+    public function getCapacity()
+    {
+        return $this->capacity;
+    }
+
+    /**
+     * 
+     * @param integer $capacity
+     */
+    public function setCapacity($capacity)
+    {
+        $this->capacity = $capacity;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * 
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+ 
+
+	
 }

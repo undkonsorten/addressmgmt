@@ -144,6 +144,13 @@
 				<source>Room-Location relation</source>
 			</trans-unit>
 			
+			<trans-unit id="tx_addressmgmt_domain_model_room.capacity">
+				<source>Capacity</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_room.description">
+				<source>Description</source>
+			</trans-unit>
+			
 			<trans-unit id="tx_addressmgmt_domain_model_relation">
 				<source>Relation</source>
 			</trans-unit>

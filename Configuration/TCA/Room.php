@@ -5,10 +5,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_addressmgmt_domain_model_room'] = array(
 	'ctrl' => $TCA['tx_addressmgmt_domain_model_room']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, name',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, name, capacity, description',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource,name'),
+		'1' => array('showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, name, capacity, description'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -105,6 +105,40 @@ $TCA['tx_addressmgmt_domain_model_room'] = array(
 				'eval' => 'trim'
 			),
 		),
+	    'capacity' => array(
+	        'exclude' => 1,
+	        'l10n_mode' => 'mergeIfNotBlank',
+	        'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.capacity',
+	        'config' => array(
+	            'type' => 'input',
+	            'size' => 13,
+	            'max' => 20,
+	            'eval' => 'int',
+	            'checkbox' => 0,
+	            'default' => 0,
+	        ),
+	    ),
+	    'description' => array(
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.description',
+	        'config' => array(
+	            'type' => 'text',
+	            'cols' => 40,
+	            'rows' => 10,
+	            'eval' => 'trim',
+	            'wizards' => array(
+	                'RTE' => array(
+	                    'icon' => 'wizard_rte2.gif',
+	                    'notNewRecords'=> 1,
+	                    'RTEonly' => 1,
+	                    'script' => 'wizard_rte.php',
+	                    'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
+	                    'type' => 'script'
+	                )
+	            )
+	        ),
+	        'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts]',
+	    ),
 		
 	),
 );
