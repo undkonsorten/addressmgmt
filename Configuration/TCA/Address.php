@@ -33,7 +33,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		),
 	    'Tx_Addressbook_Location' => array('showitem' => '
 				type, name;;department, fe_user, organization,
-				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, category, social_identifiers,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, counterpart, category, social_identifiers,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,image,description,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
@@ -51,7 +51,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		'additional_organisation' => array('showitem' => 'organisation', 'canNotCollapse' => 1),
 		'address' => array('showitem' => 'street, street_number, address_supplement, --linebreak--, zip, city, --linebreak--, state, country, --linebreak--, directions', 'canNotCollapse' => 1),
 		'coordinates' => array('showitem' => 'closest_city, --linebreak--, latitude, longitude, map_zoom', 'canNotCollapse' => 1),
-		'addressal_contact' => array('showitem' => 'email , counterpart,--linebreak--, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
+		'addressal_contact' => array('showitem' => 'email ,--linebreak--, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
 	    'rooms' => array('showitem' => 'relation','canNotCollapse' => 1),
 	),
 	'columns' => array(

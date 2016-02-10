@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_addressmgmt_domain_model_relation'] = array(
 	'ctrl' => $TCA['tx_addressmgmt_domain_model_relation']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'room, location',
+		'showRecordFieldList' => 'location, room',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'room, location'),
+		'1' => array('showitem' => 'location, room'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
