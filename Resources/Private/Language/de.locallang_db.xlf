@@ -137,7 +137,7 @@
 			</trans-unit>
 			
 			<trans-unit id="tx_addressmgmt_domain_model_room">
-				<source>Room</source>
+				<source>Raum</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_addressmgmt_domain_model_address.tce.rooms">
