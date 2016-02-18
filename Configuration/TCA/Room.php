@@ -126,18 +126,7 @@ $TCA['tx_addressmgmt_domain_model_room'] = array(
 	            'cols' => 40,
 	            'rows' => 10,
 	            'eval' => 'trim',
-	            'wizards' => array(
-	                'RTE' => array(
-	                    'icon' => 'wizard_rte2.gif',
-	                    'notNewRecords'=> 1,
-	                    'RTEonly' => 1,
-	                    'script' => 'wizard_rte.php',
-	                    'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-	                    'type' => 'script'
-	                )
-	            )
 	        ),
-	        'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts]',
 	    ),
 		
 	),
