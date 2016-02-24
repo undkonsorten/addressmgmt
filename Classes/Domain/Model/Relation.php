@@ -41,7 +41,7 @@ class Relation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * location
 	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Location
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Location
 	 */
 	protected $location = NULL;
 
@@ -87,7 +87,7 @@ class Relation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the location
 	 *
-	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Location $location
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location
 	 */
 	public function getLocation() {
 		return $this->location;
@@ -96,7 +96,7 @@ class Relation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the location
 	 *
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Location $location
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location
 	 * @return void
 	 */
 	public function setLocation(\Undkonsorten\Addressmgmt\Domain\Model\Location $location) {
