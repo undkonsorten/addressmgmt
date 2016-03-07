@@ -29,7 +29,7 @@ CREATE TABLE tx_addressmgmt_domain_model_address (
 	description text NOT NULL,
     directions text NOT NULL,
     counterpart text NOT NULL,
-	image int(11) unsigned DEFAULT '0',
+	images int(11) unsigned DEFAULT '0',
 	latitude decimal(9,6) DEFAULT '0.000000' NOT NULL,
 	longitude decimal(9,6) DEFAULT '0.000000' NOT NULL,
 	fe_user int(11) unsigned DEFAULT '0' NOT NULL,

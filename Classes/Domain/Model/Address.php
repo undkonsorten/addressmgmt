@@ -193,9 +193,9 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * image
 	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
 	 */
-	protected $image = NULL;
+	protected $images = NULL;
 
 	/**
 	 * latitude
@@ -619,20 +619,20 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * Returns the image
 	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $images
 	 */
-	public function getImage() {
-		return $this->image;
+	public function getImages() {
+		return $this->images;
 	}
 
 	/**
 	 * Sets the image
 	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $images
 	 * @return void
 	 */
-	public function setImage($image) {
-		$this->image = $image;
+	public function setImages($images) {
+		$this->image = $images;
 	}
 	
 	/**
@@ -830,7 +830,6 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     {
         $this->counterpart = $counterpart;
     }
- 
  
 	
 	

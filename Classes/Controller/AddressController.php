@@ -81,8 +81,9 @@ class AddressController extends BaseController{
 			}
 		}
 		
-		if(!addresses){
+		if(!$addresses){
 			$addresses = $this->addressRepository->findAll();
+			$this->debugQuery($this->addressRepository->findAll());
 		}
 		
 		$this->view->assign('addresss', $addresses);
