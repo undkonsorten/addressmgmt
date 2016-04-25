@@ -25,5 +25,10 @@
     "version": "1.0.0",
     "require": {
         "typo3/cms": ">=6.2,>=7.6"
-    }
+    }  
+    "autoload": {
+		"psr-4": {
+		 "Undkonsorten\\ThemeUk\\": "Classes"
+		}
+  },
 }
