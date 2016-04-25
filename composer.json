@@ -1,12 +1,18 @@
 {
     "name": "undkonsorten/addressmgmt",
     "type": "typo3-cms-extension",
-    "description": "Adressmanagement",
+    "description": "Addressbook",
     "homepage": "https://www.undkonsorten.com",
     "authors": [
 		{
 			"name": "Eike Starkmann",
 			"email": "starkmann@undkonsorten.com",
+			"homepage": "http://undkonsorten.com",
+			"role": "Developer"
+		},
+		{
+			"name": "Felix Althaus",
+			"email": "althaus@undkonsorten.com",
 			"homepage": "http://undkonsorten.com",
 			"role": "Developer"
 		},
