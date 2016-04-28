@@ -51,6 +51,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => array(
@@ -336,7 +337,9 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 						'icon' => 'wizard_rte2.gif',
 						'notNewRecords'=> 1,
 						'RTEonly' => 1,
-						'script' => 'wizard_rte.php',
+						'module' => array(
+							'name' => 'wizard_rte',
+						),
 						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
 						'type' => 'script'
 					)
@@ -407,7 +410,9 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
+						'module' => array(
+							'name' => 'wizard_edit',
+						),
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
@@ -421,7 +426,9 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 						),
-						'script' => 'wizard_add.php',
+						'module' => array(
+							'name' => 'wizard_add',
+						),
 					),
 					'suggest' => array(
 						'type' => 'suggest',
@@ -462,12 +469,13 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 												'pid' => '###CURRENT_PID###',
 												'setValue' => 'prepend'
 										),
-										'script' => 'wizard_add.php',
+										'module' => array(
+											'name' => 'wizard_add',
+										),
 								),
 						),
 				),
 		),
-			
 			
 		'social_identifiers' => array(
 			'exclude' => 1,
