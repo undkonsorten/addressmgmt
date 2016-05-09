@@ -1,8 +1,17 @@
 plugin.tx_addressmgmt {
 	view {
-		templateRootPath = {$plugin.tx_addressmgmt.view.templateRootPath}
-		partialRootPath = {$plugin.tx_addressmgmt.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_addressmgmt.view.layoutRootPath}
+		templateRootPaths {
+			0 = EXT:addressmgmt/Resources/Private/Templates/
+			10 = {$plugin.tx_addressmgmt.view.templateRootPath}
+		}
+		partialRootPaths {
+			0 = EXT:addressmgmt/Resources/Private/Partials/
+			10 = {$plugin.tx_addressmgmt.view.partialRootPath}
+		}
+		layoutRootPaths {
+			0 = EXT:addressmgmt/Resources/Private/Layouts/
+			10 = {$plugin.tx_addressmgmt.view.layoutRootPath}
+		}
 	}
 	persistence {
 		storagePid = {$plugin.tx_addressmgmt.persistence.storagePid}
