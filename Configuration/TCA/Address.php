@@ -10,25 +10,25 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 	),
 	'types' => array(
 		'Tx_Addressbook_Person' => array('showitem' => '
-				type,--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.name;name, fe_user, organization;;department, 
+				type,--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.name;name, fe_user, organization;;department,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, category, social_identifiers,
-			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,images,description,  
+			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,images,description,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.coordinates;coordinates,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,  
+				sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,
 			'
 		),
 		'Tx_Addressbook_Organisation' => array('showitem' => '
-				type, name;;department, fe_user, organization, 
+				type, name;;department, fe_user, organization,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, category, social_identifiers,
-			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,images,description,  
+			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,images,description,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.coordinates;coordinates,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,  
+				sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden, starttime, endtime,
 			'
 		),
 	    'Tx_Addressbook_Location' => array('showitem' => '
@@ -388,7 +388,9 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 	                    'icon' => 'wizard_rte2.gif',
 	                    'notNewRecords'=> 1,
 	                    'RTEonly' => 1,
-	                    'script' => 'wizard_rte.php',
+	                    'module' => array(
+											  'name' => 'wizard_rte',
+											),
 	                    'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
 	                    'type' => 'script'
 	                )
@@ -400,7 +402,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-				'image', 
+				'image',
 				array(
 					'maxitems' => 999,
 					'appearance' => array(
@@ -418,8 +420,8 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 							--palette--;;filePalette'
 						),
 					),
-									
-				), 
+
+				),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 		),
@@ -439,7 +441,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'default' => '0.000000', 
+				'default' => '0.000000',
 				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
 			),
 		),
@@ -526,7 +528,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 						),
 				),
 		),
-			
+
 		'social_identifiers' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.social_identifiers',
@@ -536,7 +538,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 				'foreign_field' => 'address',
 				'maxitems'      => 9999,
 				'appearance' => array(
-					'expandSingle' => TRUE,	
+					'expandSingle' => TRUE,
 					'collapseAll' => 1,
 					'levelLinksPosition' => 'top',
 					'showSynchronizationLink' => 1,
