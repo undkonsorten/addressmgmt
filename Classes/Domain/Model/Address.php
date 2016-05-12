@@ -182,13 +182,20 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \string
 	 */
 	protected $description;
+	
+	/**
+	 * directions
+	 *
+	 * @var \string
+	 */
+	protected $directions;
 
 	/**
 	 * image
 	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
 	 */
-	protected $image = NULL;
+	protected $images = NULL;
 
 	/**
 	 * latitude
@@ -218,6 +225,12 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @lazy
 	 */
 	protected $socialIdentifiers;
+	
+	/**
+	 * 
+	 * @var string $counterpart
+	 */
+	protected $counterpart;
 
 	/**
 	 * __construct
@@ -606,20 +619,20 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * Returns the image
 	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $images
 	 */
-	public function getImage() {
-		return $this->image;
+	public function getImages() {
+		return $this->images;
 	}
 
 	/**
 	 * Sets the image
 	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $images
 	 * @return void
 	 */
-	public function setImage($image) {
-		$this->image = $image;
+	public function setImages($images) {
+		$this->image = $images;
 	}
 	
 	/**
@@ -781,6 +794,43 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
 		$this->category = $category;
 	}
+
+
+	/**
+	 * 
+	 */
+    public function getDirections()
+    {
+        return $this->directions;
+    }
+
+    /**
+     * 
+     * @param string $directions
+     */
+    public function setDirections($directions)
+    {
+        $this->directions = $directions;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getCounterpart()
+    {
+        return $this->counterpart;
+    }
+
+    /**
+     * 
+     * @param string $counterpart
+     */
+    public function setCounterpart($counterpart)
+    {
+        $this->counterpart = $counterpart;
+    }
+ 
 	
 	
 	

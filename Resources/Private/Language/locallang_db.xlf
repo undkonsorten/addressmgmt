@@ -28,6 +28,9 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.type_organisation">
 				<source>Organisation</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.type_location">
+				<source>Location</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.name">
 				<source>Name</source>
 			</trans-unit>
@@ -94,6 +97,12 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.description">
 				<source>Description</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.directions">
+				<source>Directions</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.counterpart">
+				<source>Counterpart</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>Image</source>
 			</trans-unit>
@@ -113,6 +122,41 @@
 			<trans-unit id="tx_addressbook_domain_model_address.closest_city">
 				<source>Closest City</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_room">
+				<source>Room</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation">
+				<source>Relation</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_room.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_room.capacity">
+				<source>Capacity</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_room.description">
+				<source>Description</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation.room">
+				<source>Room</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation.location">
+				<source>Location</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_address.relation">
+				<source>Room-Location relation</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_address.tce.rooms">
+				<source>Room</source>
+			</trans-unit>
+			
 			
 
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">
