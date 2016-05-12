@@ -9,6 +9,7 @@ config.tx_extbase {
 					subclasses {
 						Tx_Addressbook_Person = Undkonsorten\Addressmgmt\Domain\Model\Address\Person
 						Tx_Addressbook_Organisation = Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation
+						Tx_Addressbook_Location = Undkonsorten\Addressmgmt\Domain\Model\Address\Location
 					}
 			}
 			Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation {
@@ -21,6 +22,12 @@ config.tx_extbase {
 				mapping {
 					tableName = tx_addressmgmt_domain_model_address
 					recordType = Tx_Addressbook_Person
+				}
+			}
+			Undkonsorten\Addressmgmt\Domain\Model\Address\Location {
+				mapping {
+					tableName = tx_addressmgmt_domain_model_address
+					recordType = Tx_Addressbook_Location
 				}
 			}
     	}
