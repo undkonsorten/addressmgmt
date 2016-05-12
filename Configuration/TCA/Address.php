@@ -66,7 +66,6 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => array(
 				'type' => 'select',
-			    'renderType' => 'selectSingle',
 				'items' => array(
 					array('', 0),
 				),
@@ -130,7 +129,6 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type',
 			'config' => array(
 				'type' => 'select',
-			    'renderType' => 'selectSingle',
 				'default' => 'Tx_Addressbook_Organisation',
 				'suppress_icons' => 1,
 				'items' => array(
@@ -162,7 +160,6 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.gender',
 			'config' => array(
 				'type' => 'select',
-			    'renderType' => 'selectSingle',
 				'items' => array(
 					array('', ''),
 					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.1', 1),
@@ -416,14 +413,14 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 						'module' => array(
 							'name' => 'wizard_edit',
 						),
-						'icon' => 'actions-open',
+						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'actions-add',
+						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
 						'params' => array(
 							'table' => 'fe_users',
 							'pid' => '###CURRENT_PID###',
@@ -444,7 +441,6 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 				'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.category',
 				'config' => array(
 						'type' => 'select',
-				        'renderType' => 'selectTree',
 						'foreign_table' => 'sys_category',
 						'foreign_table_where' => 'AND sys_category.hidden=0 AND sys_category.sys_language_uid IN (-1,0)',
 						'renderMode' => 'tree',
