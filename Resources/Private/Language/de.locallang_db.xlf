@@ -247,6 +247,11 @@
 				<source>Map zoom</source>
 				<target state="translated">Karten zoom</target>
 			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_address.geojson">
+				<source>GeoJson</source>
+				<target state="translated">GeoJson</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

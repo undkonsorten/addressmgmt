@@ -30,6 +30,7 @@ CREATE TABLE tx_addressmgmt_domain_model_address (
 	image int(11) unsigned DEFAULT '0',
 	latitude decimal(9,6) DEFAULT '0.000000' NOT NULL,
 	longitude decimal(9,6) DEFAULT '0.000000' NOT NULL,
+    geojson LONGTEXT NOT NULL,
 	fe_user int(11) unsigned DEFAULT '0' NOT NULL,
 	social_identifiers int(11) unsigned DEFAULT '0' NOT NULL,
 	link int(11) unsigned DEFAULT '0',

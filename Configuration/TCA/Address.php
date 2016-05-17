@@ -6,7 +6,7 @@ $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['addressmg
 $TCA['tx_addressmgmt_domain_model_address'] = array(
 	'ctrl' => $TCA['tx_addressmgmt_domain_model_address']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, first_name, name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, image, latitude, longitude, fe_user, social_identifiers',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, first_name, name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, image, latitude, longitude, geojson, fe_user, social_identifiers',
 	),
 	'types' => array(
 		'Tx_Addressbook_Person' => array('showitem' => '
@@ -37,7 +37,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		'department' => array('showitem' => 'department', 'canNotCollapse' => 1),
 		'additional_organisation' => array('showitem' => 'organisation', 'canNotCollapse' => 1),
 		'address' => array('showitem' => 'street, street_number, address_supplement, --linebreak--, zip, city, --linebreak--, state, country', 'canNotCollapse' => 1),
-		'coordinates' => array('showitem' => 'closest_city, --linebreak--, latitude, longitude, map_zoom', 'canNotCollapse' => 1),
+		'coordinates' => array('showitem' => 'closest_city, --linebreak--, latitude, longitude, map_zoom, geojson', 'canNotCollapse' => 1),
 		'addressal_contact' => array('showitem' => 'email,--linebreak--, www, --linebreak--, phone, mobile, fax', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
@@ -397,6 +397,13 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
 			),
 		),
+	    'geojson' => array(
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.geojson',
+	        'config' => array(
+	            'type' => 'text',
+	        ),
+	    ),
 		'fe_user' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.fe_user',
