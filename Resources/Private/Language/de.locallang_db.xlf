@@ -25,7 +25,6 @@
 				<target state="translated">Vorname</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.type">
-				<source>Type</source>
 				<target state="translated">Typ</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.type_person">
@@ -35,6 +34,10 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.type_organisation">
 				<source>Organisation</source>
 				<target state="translated">Organisation</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.type_location">
+				<source>Location</source>
+				<target state="translated">Location</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.name">
 				<source>Name</source>
@@ -124,6 +127,58 @@
 				<source>Description</source>
 				<target state="translated">Beschreibung</target>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.directions">
+				<source>Directions</source>
+				<target state="translated">Anfahrtsbeschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.counterpart">
+				<source>Counterpart</source>
+				<target state="translated">Ansprechpartner</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_room">
+				<source>Raum</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_address.tce.rooms">
+				<source>Raum</source>
+				<target state="translated">Räume</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_address.relation">
+				<source>Room-Location relation</source>
+				<target state="translated">Räume in dieser Location</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_room.capacity">
+				<source>Capacity</source>
+				<target state="translated">Kapazität</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_room.description">
+				<source>Description</source>
+				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation">
+				<source>Relation</source>
+				<target state="translated">Relation</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_room.name">
+				<source>Name</source>
+				<target state="translated">Name</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation.room">
+				<source>Room</source>
+				<target state="translated">Raum</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_relation.location">
+				<source>Location</source>
+				<target state="translated">Location</target>
+			</trans-unit>
+			
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>Image</source>
 				<target state="translated">Bild</target>
@@ -196,7 +251,7 @@
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.www">
 				<source>Www</source>
-				<target state="translated">Www</target>
+				<target state="translated">Webseite</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.image">
 				<source>Image</source>
@@ -245,7 +300,11 @@
 			
 			<trans-unit id="tx_addressmgmt_domain_model_address.map_zoom">
 				<source>Map zoom</source>
-				<target state="translated">Karten zoom</target>
+				<target state="translated">Karten-Zoom</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.category">
+				<source>Category</source>
+				<target state="translated">Kategorie</target>
 			</trans-unit>
 			
 			<trans-unit id="tx_addressmgmt_domain_model_address.geojson">
