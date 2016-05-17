@@ -288,6 +288,37 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.category">
 				<source>Category</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_addressmgmt_domain_model_address.geojson">
+				<source>GeoJson</source>
+			</trans-unit>
+			
+			<trans-unit id="flexforms.maxZoom">
+				<source>Max zoom</source>
+			</trans-unit>
+			<trans-unit id="flexforms.zoom">
+				<source>Zoom</source>
+			</trans-unit>
+			<trans-unit id="flexforms.latitude">
+				<source>Latitude</source>
+			</trans-unit>
+			<trans-unit id="flexforms.longitude">
+				<source>Longitude</source>
+			</trans-unit>
+			<trans-unit id="flexforms.accessToken">
+				<source>Access token (mapbox)</source>
+			</trans-unit>
+			<trans-unit id="flexforms.mapId">
+				<source>Map id (mapbox)</source>
+			</trans-unit>
+			
+			
+			
+			
+			
+			
+			
+			
 		</body>
 	</file>
 </xliff>

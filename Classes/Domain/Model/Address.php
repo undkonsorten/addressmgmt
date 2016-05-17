@@ -210,6 +210,12 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \string
 	 */
 	protected $longitude;
+	
+	/**
+	 * 
+	 * @var \string $geojson
+	 */
+	protected $geojson;
 
 	/**
 	 * feUser
@@ -794,8 +800,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
 		$this->category = $category;
 	}
-
-
+	
 	/**
 	 * 
 	 */
@@ -832,8 +837,23 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     }
  
 	
-	
-	
+/**
+	 * @return \string
+	 */
+    public function getGeojson()
+    {
+        return $this->geojson;
+    }
+
+    /**
+     * 
+     * @param \string $geojson
+     */
+    public function setGeojson($geojson)
+    {
+        $this->geojson = $geojson;
+    }
+ 
 	
 }
 ?>
