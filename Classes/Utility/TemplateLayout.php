@@ -34,7 +34,7 @@ class TemplateLayout implements SingletonInterface {
 
 		// Check if the layouts are extended by ext_tables
 		if (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['addressmgmt']['templateLayouts'])
-			&& is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['templateLayouts'])
+			&& is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['addressmgmt']['templateLayouts'])
 		) {
 			$templateLayouts = $GLOBALS['TYPO3_CONF_VARS']['EXT']['addressmgmt']['templateLayouts'];
 		}
