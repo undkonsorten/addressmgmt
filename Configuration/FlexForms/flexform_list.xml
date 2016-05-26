@@ -216,7 +216,7 @@
 					</settings.detailPid>
 				<settings.templateLayout>
 	                <TCEforms>
-			<exclude>1</exclude>
+					<exclude>1</exclude>
 	                 <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.templateLayout</label>
 	                         <config>
 	                                 <type>select</type>
