@@ -87,6 +87,7 @@ class AddressController extends BaseController{
 		}
 		
 		$this->view->assign('addresss', $addresses);
+		$this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
 	}
 
 	/**
