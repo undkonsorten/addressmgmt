@@ -17,7 +17,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:if condition="{addresss}">
 		<f:then>
-			<f:render partial="Map/Show" arguments="{addresses:addresss}"/>
+			<f:render partial="Map/Show" arguments="{addresses:addresss, contendUid:contendUid}"/>
 			<f:if condition="{settings.templateLayout} == 99">
 				<f:then>
 					<div class="news well news-special">
