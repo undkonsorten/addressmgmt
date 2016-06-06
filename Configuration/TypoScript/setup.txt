@@ -20,6 +20,15 @@ plugin.tx_addressmgmt {
 		# uncomment the following line to enable the new Property Mapper.
 		rewrittenPropertyMapper = 1
 	}
+	settings{
+		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
+		mapId = {$plugin.tx_addressmgmt.settings.mapId}
+		accessToken = {$plugin.tx_addressmgmt.settings.accessToken}
+		longitude = {$plugin.tx_addressmgmt.settings.longitude}
+		latitude = {$plugin.tx_addressmgmt.settings.latitude}
+		mapZoom = {$plugin.tx_addressmgmt.settings.mapZoom}
+		maxZoom = {$plugin.tx_addressmgmt.settings.maxZoom}
+	}
 }
 
 page.includeCSS.tx_addressmgmt = EXT:addressmgmt/Resources/Public/Css/leaflet.css

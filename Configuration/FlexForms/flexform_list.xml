@@ -230,13 +230,13 @@
 	                         </config>
 	                 </TCEforms>
                </settings.templateLayout>
-               <settings.maxZoom>
-	    <TCEforms>
-	      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.maxZoom</label>
-		      <config>
-			<type>input</type>
-		      </config>
-		    </TCEforms>
+         <settings.maxZoom>
+		    <TCEforms>
+		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.maxZoom</label>
+			      <config>
+				<type>input</type>
+			      </config>
+			    </TCEforms>
 		  </settings.maxZoom>	
 		  
 		  <settings.mapZoom>
@@ -275,14 +275,14 @@
 		    </TCEforms>
 		  </settings.accessToken>
 		  
-		  <settings.id>
+		  <settings.mapId>
 		    <TCEforms>
 		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.mapId</label>
 		      <config>
 			<type>input</type>
 		      </config>
 		    </TCEforms>
-		  </settings.id>
+		  </settings.mapId>
 				</el>
 			</ROOT>
 		</sDEF>
