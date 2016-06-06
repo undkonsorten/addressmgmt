@@ -11,4 +11,21 @@ plugin.tx_addressmgmt {
 		# cat=plugin.tx_addressmgmt//a; type=string; label=Default storage PID
 		storagePid = 
 	}
+	
+	settings{
+		# cat=plugin.tx_addressmgmt//b; type=string; label=Map Id (Mapbox.com)
+		mapId = 
+		# cat=plugin.tx_addressmgmt//c; type=string; label=Access Token (Mapbox.com)
+		accessToken = 
+		# cat=plugin.tx_addressmgmt//d; type=string; label=Longitude
+		longitude =
+		# cat=plugin.tx_addressmgmt//e; type=string; label=Latitude
+		latitude =
+		# cat=plugin.tx_addressmgmt//f; type=string; label=Map Zoom
+		mapZoom = 
+		# cat=plugin.tx_addressmgmt//g; type=string; label=Max Zoom
+		maxZoom = 
+		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
+		overrideFlexformSettingsIfEmpty = mapId, accessToken, longitude, latitude, mapZoom, maxZoom
+	}
 }

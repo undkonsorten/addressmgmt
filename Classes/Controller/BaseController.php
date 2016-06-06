@@ -4,6 +4,7 @@ namespace Undkonsorten\Addressmgmt\Controller;
 
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 /***************************************************************
  *
  *  Copyright notice
@@ -93,18 +94,22 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 *
 	 * @return void
 	 */
-	protected function overrideFlexformSettings() {
-
+	public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager) {
+        $this->configurationManager = $configurationManager;
 		$originalSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
-		$typoScriptSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, $this->extensionName);
+		$typoScriptSettings = $this->configurationManager->getConfiguration(
+		    \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 
+		    'addressmgmt',
+		    'addressmgmt_list'
+		    );
 		if(isset($typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'])) {
 			$overrideIfEmpty = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'], TRUE);
 			foreach ($overrideIfEmpty as $settingToOverride) {
 				// if flexform setting is empty and value is available in TS
 				if ((!isset($originalSettings[$settingToOverride]) || empty($originalSettings[$settingToOverride]))
 						&& isset($typoScriptSettings['settings'][$settingToOverride])) {
-							$originalSettings[$settingToOverride] = $typoScriptSettings['settings'][$settingToOverride];
-						}
+					$originalSettings[$settingToOverride] = $typoScriptSettings['settings'][$settingToOverride];
+				}				
 			}
 			$this->settings = $originalSettings;
 		}
