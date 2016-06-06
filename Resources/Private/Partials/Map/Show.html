@@ -16,12 +16,12 @@
 		<f:if condition="{address.latitude}">
 			<f:if condition="{address.longitude}">
 				L.marker([{address.latitude}, {address.longitude}]).addTo(map).bindPopup('<b>{address.name}</b>')
-		   		 <f:if condition="{address.geojson}">
-			   	 	var geojson{address.uid} = <f:format.raw>{address.geojson}</f:format.raw>;
-					L.geoJson(geojson{address.uid}).addTo(map);
-		    	</f:if>
 			</f:if>
 		</f:if>
+		<f:if condition="{address.geojson}">
+	   	 	var geojson{address.uid} = <f:format.raw>{address.geojson}</f:format.raw>;
+			L.geoJson(geojson{address.uid}).addTo(map);
+ 		</f:if>
 	</f:for>
 
 </script>
