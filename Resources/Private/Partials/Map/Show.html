@@ -1,7 +1,7 @@
 {namespace u = Undkonsorten\Addressmgmt\ViewHelpers}
 <div id="map{contendUid}" style="width: 490px; height: 620px"></div>
 <script>
-	 var map = L.map("map{contendUid}").setView([{settings.latitude}, {settings.longitude}], 10);
+	 var map = L.map("map{contendUid}").setView([{settings.latitude}, {settings.longitude}], {settings.mapZoom});
 
 	
 	<u:mapBoxTileLayer 
