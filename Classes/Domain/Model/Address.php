@@ -800,8 +800,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
 		$this->category = $category;
 	}
-
-
+	
 	/**
 	 * @return \string
 	 */
@@ -857,8 +856,23 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
  
 
 	
-	
-	
+/**
+	 * @return \string
+	 */
+    public function getGeojson()
+    {
+        return $this->geojson;
+    }
+
+    /**
+     * 
+     * @param \string $geojson
+     */
+    public function setGeojson($geojson)
+    {
+        $this->geojson = $geojson;
+    }
+ 
 	
 }
 ?>
