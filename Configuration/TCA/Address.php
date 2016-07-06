@@ -469,14 +469,14 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 						'module' => array(
 							'name' => 'wizard_edit',
 						),
-						'icon' => 'actions-open',
+						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'actions-add',
+						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
 						'params' => array(
 							'table' => 'fe_users',
 							'pid' => '###CURRENT_PID###',
