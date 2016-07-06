@@ -802,14 +802,6 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	}
 	
 	/**
-	 * @return \string
-	 */
-    public function getGeojson()
-    {
-        return $this->geojson;
-    }
-
-	/**
 	 * 
 	 */
     public function getDirections()
