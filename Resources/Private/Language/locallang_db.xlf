@@ -22,6 +22,9 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.type">
 				<source>Type</source>
 			</trans-unit>
+            <trans-unit id="tx_addressmgmt_domain_model_address.choose_type">
+				<source>Please choose:</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.type_person">
 				<source>Person</source>
 			</trans-unit>
