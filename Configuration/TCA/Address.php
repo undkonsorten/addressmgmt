@@ -145,7 +145,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'select',
 			    'renderType' => 'selectSingle',
-				'default' => 'Tx_Addressbook_Organisation',
+				'default' => 'Tx_Addressbook_Location',
 				'suppress_icons' => 1,
 				'items' => array(
 					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_person', 'Tx_Addressbook_Person'),
