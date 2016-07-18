@@ -135,14 +135,14 @@ $TCA['tx_addressmgmt_domain_model_relation'] = array(
 	                    'module' => array(
                         'name' => 'wizard_edit',
                       ),
-	                    'icon' => 'edit2.gif',
+	                    'icon' => 'actions-open',
 	                    'popup_onlyOpenIfSelected' => 1,
 	                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 	                ),
 	                'add' => Array(
 	                    'type' => 'script',
 	                    'title' => 'Create new',
-	                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+	                    'icon' => 'actions-add',
 	                    'params' => array(
 	                        'table' => 'tx_addressmgmt_domain_model_address',
 	                        'pid' => '###CURRENT_PID###',
@@ -161,3 +161,8 @@ $TCA['tx_addressmgmt_domain_model_relation'] = array(
 
 	),
 );
+if( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+    $TCA['tx_addressmgmt_domain_model_relation']['columns']['location']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_addressmgmt_domain_model_relation']['columns']['location']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+
+}
