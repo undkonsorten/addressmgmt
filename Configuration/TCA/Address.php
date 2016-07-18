@@ -436,7 +436,6 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'default' => '0.000000',
 				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
 			),
 		),
@@ -446,7 +445,6 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'default' => '0.000000',
 				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
 			),
 		),
