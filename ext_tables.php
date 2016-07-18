@@ -87,7 +87,7 @@ $TCA['tx_addressmgmt_domain_model_socialidentifier'] = array(
 		),
 		'searchFields' => 'identifier,url_override,provider,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/SocialIdentifier.php',
-	    'iconfile' =>'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_addressmgmt_domain_model_socialidentifier.png'
+	    'iconfile' =>'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_addressmgmt_domain_model_relation.png'
 	),
 );
 
@@ -213,7 +213,7 @@ if( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(
     $TCA['tx_addressmgmt_domain_model_relation']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_relation.png';
     $TCA['tx_addressmgmt_domain_model_link']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_link.png';
     $TCA['tx_addressmgmt_domain_model_socialprovider']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_socialprovider.png';
-    $TCA['tx_addressmgmt_domain_model_socialidentifier']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_socialidentifier.png';
+    $TCA['tx_addressmgmt_domain_model_socialidentifier']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_relation.png';
     $TCA['tx_addressmgmt_domain_model_address']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_address.png';
 }
 
