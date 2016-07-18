@@ -15,12 +15,13 @@ $TCA['tx_addressmgmt_domain_model_relation'] = array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
 			'config' => array(
 				'type' => 'select',
+        'renderType' => 'selectSingle',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => array(
@@ -35,6 +36,7 @@ $TCA['tx_addressmgmt_domain_model_relation'] = array(
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => array(
 				'type' => 'select',
+        'renderType' => 'selectSingle',
 				'items' => array(
 					array('', 0),
 				),
@@ -56,7 +58,7 @@ $TCA['tx_addressmgmt_domain_model_relation'] = array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -120,6 +122,7 @@ $TCA['tx_addressmgmt_domain_model_relation'] = array(
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_relation.location',
 			'config' => array(
 				'type' => 'select',
+        'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_addressmgmt_domain_model_address',
 			    'foreign_table_where' => 'AND tx_addressmgmt_domain_model_address.type = \'Tx_Addressbook_Location\'',
 				'minitems' => 0,
@@ -129,21 +132,25 @@ $TCA['tx_addressmgmt_domain_model_relation'] = array(
 	                'edit' => array(
 	                    'type' => 'popup',
 	                    'title' => 'Edit',
-	                    'script' => 'wizard_edit.php',
-	                    'icon' => 'edit2.gif',
+	                    'module' => array(
+                        'name' => 'wizard_edit',
+                      ),
+	                    'icon' => 'actions-open',
 	                    'popup_onlyOpenIfSelected' => 1,
 	                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 	                ),
 	                'add' => Array(
 	                    'type' => 'script',
 	                    'title' => 'Create new',
-	                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+	                    'icon' => 'actions-add',
 	                    'params' => array(
 	                        'table' => 'tx_addressmgmt_domain_model_address',
 	                        'pid' => '###CURRENT_PID###',
 	                        'setValue' => 'prepend'
 	                    ),
-	                    'script' => 'wizard_add.php',
+	                    'module' => array(
+                        'name' => 'wizard_add',
+                      ),
 	                    ),
 	                'suggest' => array(
 	                    'type' => 'suggest',
@@ -151,6 +158,11 @@ $TCA['tx_addressmgmt_domain_model_relation'] = array(
 	            ),
 			),
 		),
-		
+
 	),
 );
+if( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+    $TCA['tx_addressmgmt_domain_model_relation']['columns']['location']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_addressmgmt_domain_model_relation']['columns']['location']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+
+}
