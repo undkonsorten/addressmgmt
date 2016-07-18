@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressbook">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressmgmt">
 		<header/>
 		<body>
 			<trans-unit id="div.naming">
@@ -21,6 +21,9 @@
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.type">
 				<source>Type</source>
+			</trans-unit>
+            <trans-unit id="tx_addressmgmt_domain_model_address.choose_type">
+				<source>Please choose:</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.type_person">
 				<source>Person</source>

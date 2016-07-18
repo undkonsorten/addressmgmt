@@ -11,10 +11,10 @@
 Extension Name
 =================
 
-:Extension name: Addressbook
-:Extension key: addressbook
+:Extension name: Address Management
+:Extension key: addressmgmt
 :Version: 
-:Description: manuals covering TYPO3 extension "Addressbook"
+:Description: manuals covering TYPO3 extension "Address Management"
 :Language: en
 :Author: Felix Althaus, Eike Starkmann
 :Creation: 2013-09-17
@@ -46,7 +46,7 @@ The content of this document is related to TYPO3, a GNU/GPL CMS/Framework availa
 What does it do?
 =================
 
-In this chapter should be given a brief overview of the extension. What does it do? What problem does it solve? Who is interested in this? Basically, this section includes everything addressbook need to know to decide whether they should go on with this extension.
+In this chapter should be given a brief overview of the extension. What does it do? What problem does it solve? Who is interested in this? Basically, this section includes everything addressmgmt need to know to decide whether they should go on with this extension.
 
 .. figure:: Images/IntroductionPackage.png
 		:width: 500px
