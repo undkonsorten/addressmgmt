@@ -116,6 +116,7 @@ $TCA['tx_addressmgmt_domain_model_socialidentifier'] = array(
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialidentifier.provider',
 			'config' => array(
 				'type' => 'select',
+			    'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_addressmgmt_domain_model_socialprovider',
 				'minitems' => 0,
 				'maxitems' => 1,
