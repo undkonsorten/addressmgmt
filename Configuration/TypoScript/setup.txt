@@ -45,16 +45,16 @@ plugin.tx_addressmgmt._CSS_DEFAULT_STYLE (
 		border: 1px #FF0000 solid;
 	}
 
-	.tx-addressbook table {
+	.tx-addressmgmt table {
 		border-collapse:separate;
 		border-spacing:10px;
 	}
 
-	.tx-addressbook table th {
+	.tx-addressmgmt table th {
 		font-weight:bold;
 	}
 
-	.tx-addressbook table td {
+	.tx-addressmgmt table td {
 		vertical-align:top;
 	}
 )

@@ -1,4 +1,4 @@
-﻿=====================
+=====================
 Project Information
 =====================
 
@@ -6,7 +6,7 @@ Give `general information`_ about the project:
 
 * When the project started and under what circumstances?
 * Quote possible sponsors.
-* How can addressbook contribute to the project?
+* How can addressmgmt contribute to the project?
 
 .. _general information: http://forge.typo3.org/projects/typo3v4-official_extension_template
 

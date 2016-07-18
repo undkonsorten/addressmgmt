@@ -6,14 +6,14 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,
 	'List',
-	'Addressbook'
+	'Address Management'
 );
 
 $pluginSignature = str_replace('_','',$_EXTKEY) . '_list';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_list.xml');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Addressbook');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Address Management');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_addressmgmt_domain_model_address', 'EXT:addressmgmt/Resources/Private/Language/locallang_csh_tx_addressmgmt_domain_model_address.xlf');
 
@@ -55,7 +55,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		),
 		'searchFields' => 'first_name,name,gender,title,organization,department,street,street_number,address_supplement,city,zip,country,state,closest_city,email,phone,mobile,fax,www,description,image,latitude,longitude,fe_user,social_identifiers,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Address.php',
-	    'iconfile' =>'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_addressmgmt_domain_model_address.png'
+	    'iconfile' =>\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_address.png'
 	),
 );
 
@@ -87,7 +87,7 @@ $TCA['tx_addressmgmt_domain_model_socialidentifier'] = array(
 		),
 		'searchFields' => 'identifier,url_override,provider,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/SocialIdentifier.php',
-	    'iconfile' =>'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_addressmgmt_domain_model_socialidentifier.png'
+	    'iconfile' =>\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_socialidentifier.png'
 	),
 );
 
@@ -116,7 +116,7 @@ $TCA['tx_addressmgmt_domain_model_socialprovider'] = array(
 		),
 		'searchFields' => 'name,url_scheme,www,image,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/SocialProvider.php',
-	    'iconfile' =>'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_addressmgmt_domain_model_socialprovider.png'
+	    'iconfile' =>\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_socialprovider.png'
 	),
 );
 
@@ -145,7 +145,7 @@ $TCA['tx_addressmgmt_domain_model_link'] = array(
 				),
 				'searchFields' => 'text,link,',
 				'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Link.php',
-		        'iconfile' =>'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_addressmgmt_domain_model_link.png'
+		        'iconfile' =>\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_addressmgmt_domain_model_link.png'
 		),
 );
 
@@ -191,6 +191,7 @@ $TCA['tx_addressmgmt_domain_model_room'] = array(
 		'dividers2tabs' => TRUE,
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
+        'hideTable' => TRUE,
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',

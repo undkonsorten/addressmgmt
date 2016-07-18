@@ -9,6 +9,10 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, first_name, name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, images, latitude, longitude, geojson, fe_user, social_identifiers',
 	),
 	'types' => array(
+	   '0' => array('showitem' => '
+				type,
+			'
+		),
 		'Tx_Addressbook_Person' => array('showitem' => '
 				type,--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.name;name, fe_user, organization;;department, 
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, category, social_identifiers,
@@ -145,9 +149,10 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'select',
 			    'renderType' => 'selectSingle',
-				'default' => 'Tx_Addressbook_Location',
+				'default' => '',
 				'suppress_icons' => 1,
 				'items' => array(
+				    array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.choose_type', '0'),
 					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_person', 'Tx_Addressbook_Person'),
 					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_organisation', 'Tx_Addressbook_Organisation'),
 				    array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_location', 'Tx_Addressbook_Location'),
@@ -469,14 +474,14 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 						'module' => array(
 							'name' => 'wizard_edit',
 						),
-						'icon' => 'actions-open',
+						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'actions-add',
+						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
 						'params' => array(
 							'table' => 'fe_users',
 							'pid' => '###CURRENT_PID###',
