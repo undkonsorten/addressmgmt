@@ -34,7 +34,7 @@ namespace Undkonsorten\Addressmgmt\Tests;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Addressbook
+ * @subpackage Address Management
  *
  * @author Felix Althaus <felix.althaus@undkonsorten.com>
  * @author Eike Starkmann <eike.starkmann@undkonsorten.com>

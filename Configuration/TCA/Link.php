@@ -115,7 +115,7 @@ $TCA['tx_addressmgmt_domain_model_link'] = array(
 	                'link' => array(
 	                    'type' => 'popup',
 	                    'title' => 'LLL:EXT:cms/locallang_ttc.xml:header_link_formlabel',
-	                    'icon' => 'link_popup.gif',
+	                    'icon' => 'actions-document-new',
 						'module' => array(
 							'name' => 'wizard_element_browser',
 							'urlParameters' => array(
@@ -130,5 +130,8 @@ $TCA['tx_addressmgmt_domain_model_link'] = array(
 		),
 	),
 );
+if( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+    $TCA['tx_addressmgmt_domain_model_link']['columns']['link']['config']['wizards']['link']['icon'] = 'link_popup.gif';
+}
 
 ?>

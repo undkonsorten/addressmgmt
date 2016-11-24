@@ -29,7 +29,7 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
 /**
  *
  *
- * @package addressbook
+ * @package addressmgmt
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
@@ -210,6 +210,12 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \string
 	 */
 	protected $longitude;
+	
+	/**
+	 * 
+	 * @var \string $geojson
+	 */
+	protected $geojson;
 
 	/**
 	 * feUser
@@ -794,8 +800,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
 		$this->category = $category;
 	}
-
-
+	
 	/**
 	 * 
 	 */

@@ -9,6 +9,10 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, first_name, name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, images, latitude, longitude, geojson, fe_user, social_identifiers',
 	),
 	'types' => array(
+	   '0' => array('showitem' => '
+				type,
+			'
+		),
 		'Tx_Addressbook_Person' => array('showitem' => '
 				type,--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.name;name, fe_user, organization;;department,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, category, social_identifiers,
@@ -145,9 +149,10 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'select',
 			    'renderType' => 'selectSingle',
-				'default' => 'Tx_Addressbook_Organisation',
+				'default' => '',
 				'suppress_icons' => 1,
 				'items' => array(
+				    array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.choose_type', '0'),
 					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_person', 'Tx_Addressbook_Person'),
 					array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_organisation', 'Tx_Addressbook_Organisation'),
 				    array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_location', 'Tx_Addressbook_Location'),
@@ -362,7 +367,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 				'eval' => 'trim',
 				'wizards' => array(
 					'RTE' => array(
-						'icon' => 'wizard_rte2.gif',
+						'icon' => 'actions-document-open',
 						'notNewRecords'=> 1,
 						'RTEonly' => 1,
 						'module' => array(
@@ -385,7 +390,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 	            'eval' => 'trim',
 	            'wizards' => array(
 	                'RTE' => array(
-	                    'icon' => 'wizard_rte2.gif',
+	                    'icon' => 'actions-document-open',
 	                    'notNewRecords'=> 1,
 	                    'RTEonly' => 1,
 	                    'module' => array(
@@ -431,7 +436,6 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'default' => '0.000000',
 				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
 			),
 		),
@@ -441,7 +445,6 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'default' => '0.000000',
 				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
 			),
 		),
@@ -522,7 +525,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 								'add' => Array(
 										'type' => 'script',
 										'title' => 'Create new',
-										'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+										'icon' => 'actions-add',
 										'params' => array(
 												'table' => 'sys_category',
 												'pid' => '###CURRENT_PID###',
@@ -598,5 +601,13 @@ if(!$settings['feUserRelation']) {
 			'type' => 'passthrough',
 		),
 	);
+}
+if( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+    $TCA['tx_addressmgmt_domain_model_address']['columns']['description']['config']['wizards']['RTE']['icon'] = 'wizard_rte2.gif';
+    $TCA['tx_addressmgmt_domain_model_address']['columns']['directions']['config']['wizards']['RTE']['icon'] = 'wizard_rte2.gif';
+    $TCA['tx_addressmgmt_domain_model_address']['columns']['category']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_addressmgmt_domain_model_address']['columns']['fe_user']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_addressmgmt_domain_model_address']['columns']['fe_user']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+
 }
 ?>

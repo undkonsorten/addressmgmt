@@ -1,7 +1,7 @@
 {
     "name": "undkonsorten/addressmgmt",
     "type": "typo3-cms-extension",
-    "description": "Addressbook",
+    "description": "Address Management",
     "homepage": "https://www.undkonsorten.com",
     "authors": [
 		{
