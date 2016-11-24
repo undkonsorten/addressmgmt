@@ -827,8 +827,18 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
         return $this->counterpart;
     }
 
+    
     /**
      * 
+     * @param \string $geojson
+     */
+    public function setGeojson($geojson)
+    {
+        $this->geojson = $geojson;
+    }
+ 
+	
+    /**
      * @param string $counterpart
      */
     public function setCounterpart($counterpart)
@@ -836,6 +846,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
         $this->counterpart = $counterpart;
     }
  
+
 	
 /**
 	 * @return \string

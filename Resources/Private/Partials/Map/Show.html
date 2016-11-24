@@ -1,5 +1,5 @@
 {namespace u = Undkonsorten\Addressmgmt\ViewHelpers}
-<div id="map{contendUid}" style="width: 490px; height: 620px"></div>
+<div id="map{contendUid}" style="height:400px; width:600px;" ></div>
 <script>
 	 var map = L.map("map{contendUid}").setView([{settings.latitude}, {settings.longitude}], {settings.mapZoom});
 
@@ -20,8 +20,7 @@
 		</f:if>
 		<f:if condition="{address.geojson}">
 	   	 	var geojson{address.uid} = <f:format.raw>{address.geojson}</f:format.raw>;
-			L.geoJson(geojson{address.uid}).addTo(map);
+			L.geoJson(geojson{address.uid}).addTo(map).bindPopup('<b>{address.name}</b>');
  		</f:if>
 	</f:for>
-
 </script>
