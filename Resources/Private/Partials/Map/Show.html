@@ -4,6 +4,13 @@
 <div class="map" id="map42" data-map-info-layer="#map42-info-layer" data-map-wrap="#map42-wrap" data-is-map="true" data-poi-list="#map42-items" 
 data-map-configuration='{u:mapConfiguration(latitude:"{settings.latitude}",longitude:"{settings.longitude}", zoom:"{settings.mapZoom}", padding:"40")}'
 data-map-tilelayer='{u:mapBoxTileLayer(id:"{settings.mapId}", accesssToken:"{settings.accessToken}",maxZoom:"{settings.maxZoom}")}'>
-
+<ul id="map42-items">
+	<f:for each="{addresses}" as="address">
+		<li data-poi='{u:marker(latitude:"{address.latitude}", longitude:"{address.longitude}", geoJson:"{address.geoJson}")}'>
+		    <h4 class="title">{address.name}</h4>
+		    <p class="description">{address.decription}</p>
+		</li>
+	</f:for>
+</ul>
 </div>
 <div class="map-info-layer" id="map42-info-layer"></div>

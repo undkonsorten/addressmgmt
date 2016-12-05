@@ -31,8 +31,16 @@ plugin.tx_addressmgmt {
 	}
 }
 
-page.includeCSS.tx_addressmgmt = EXT:addressmgmt/Resources/Public/Css/leaflet.css
-page.includeJS.tx_addressmgmt = EXT:addressmgmt/Resources/Public/Javascript/leaflet.js
+page.includeCSS.leaflet = EXT:addressmgmt/Resources/Public/Css/leaflet.css
+page.includeCSS.styles = EXT:addressmgmt/Resources/Public/Css/styles.css
+page.includeJSFooter.leaflet = EXT:addressmgmt/Resources/Public/Javascript/leaflet.js
+page.includeJSFooter.jQuery = EXT:addressmgmt/Resources/Public/Javascript/jquery-3.1.0.js
+page.includeJSFooter.mapConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/mapConfigurationParser.js
+page.includeJSFooter.tileConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/tileLayerParser.js
+page.includeJSFooter.poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
+page.includeJSFooter.popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
+page.includeJSFooter.map = EXT:addressmgmt/Resources/Public/Javascript/map.js
+
 
 plugin.tx_addressmgmt._CSS_DEFAULT_STYLE (
 	textarea.f3-form-error {

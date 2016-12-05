@@ -13,8 +13,8 @@ class MapConfigurationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstra
      * @param string $attribution
      */
     public function render($latitude, $longitude, $zoom, $padding) {
-        $configuration = array('center' => array('latitude' => $latitude, 'longitude' => $longitude), 'zoom' => $zoom, 'padding' => $padding);
-        return json_encode($configuration);
+        $configuration = array('center' => array($latitude, $longitude), 'zoom' => $zoom, 'padding' => $padding);
+        return json_encode($configuration, JSON_UNESCAPED_SLASHES);
     }
 }
 ?>

@@ -19,7 +19,7 @@ class MapBoxTileLayerViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstrac
                 'accessToken' => $accesssToken
             )
         );
-        return json_encode($result);
+        return json_encode($result, JSON_UNESCAPED_SLASHES);
     }
 }
 ?>
