@@ -10,15 +10,16 @@ class MapBoxTileLayerViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstrac
      * @param string $attribution
      */
     public function render($id, $accesssToken, $maxZoom = 16, $attribution = "") {
-        $result = "
-              L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-	     	  attribution: '$attribution',
-	     	  maxZoom: $maxZoom,
-	     	  id: '$id',
-	     	  accessToken: '$accesssToken'
-	     	}).addTo(map);
-            ";
-        return $result;
+        $result = array(
+            'urlTemplate' => 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
+            'options' => array(
+                'attribution' => $attribution,
+                'maxZoom' => $maxZoom,
+                'id' => $id,
+                'accessToken' => $accesssToken
+            )
+        );
+        return json_encode($result);
     }
 }
 ?>
