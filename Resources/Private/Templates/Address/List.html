@@ -30,7 +30,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 					<section class="module-list.addressmgmt">
 						<ul class="list-items">
 							<f:for each="{addresss}" as="address">
-								<li class="ist-irem#{address.uid}">
+								<li class="list-item" id="addr{address.uid}">
 									<f:render partial="List/Item" arguments="{address: address}"/>
 								</li>
 							</f:for>
