@@ -15,7 +15,7 @@ class MarkerViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelp
     public function render($latitude = NULL, $longitude = NULL , $geoJson = NULL) {
         $configuration = array();
         if($latitude && $longitude){
-            $configuration = array('type' => 'marker','coordinates' => array($latitude, $longitude));
+            $configuration = array('type' => 'marker','coordinates' => array((float)$latitude, (float)$longitude));
         }
         if($geoJson != ""){
            $geoJson = json_decode(str_replace('&quot;', '"', $geoJson),true);
