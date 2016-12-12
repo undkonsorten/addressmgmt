@@ -9,6 +9,6 @@
 }(this, function ($) {
   "use strict";
   return function(node, poi) {
-    return $(node).find('h4.title').html();
+    return $(node).find('.title').html();
   }
 }));
