@@ -8,7 +8,7 @@ data-map-tilelayer='{u:mapBoxTileLayer(id:"{settings.mapId}", accesssToken:"{set
 	<f:for each="{addresses}" as="address">
 		<li data-poi='{u:marker(latitude:"{address.latitude}", longitude:"{address.longitude}", geoJson:"{address.geoJson}")}'>
 		    <h4 class="title">{address.name}</h4>
-		    <p class="description">{address.decription}</p>
+		    <p class="description">{address.description}</p>
 		</li>
 	</f:for>
 </ul>
