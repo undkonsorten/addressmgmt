@@ -11,6 +11,8 @@ With each address item can have store the geoposition (Lat, Lang) or you can als
 {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[13.47791940161274,51.45391309412658], ...[13.47791940161274,51.45391309412658]]]}}
 </pre>
 
+To see the map you need to insert the Plugin "Address Management", What to display: "List", Show Items by: "Select Manually".
+
 h3. TypoScript Settings / Constants for the Map:
 
 h4. Constants
