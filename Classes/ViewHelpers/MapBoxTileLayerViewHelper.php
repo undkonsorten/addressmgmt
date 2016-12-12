@@ -14,7 +14,7 @@ class MapBoxTileLayerViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstrac
             'urlTemplate' => 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
             'options' => array(
                 'attribution' => $attribution,
-                'maxZoom' => $maxZoom,
+                'maxZoom' => (int)$maxZoom,
                 'id' => $id,
                 'accessToken' => $accesssToken
             )
