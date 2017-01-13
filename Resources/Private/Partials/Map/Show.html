@@ -3,13 +3,13 @@
 <div class="map" id="map{contendUid}" data-map-info-layer="#map{contendUid}-info-layer" data-map-wrap="#map{contendUid}-wrap" data-is-map="true" data-poi-list="#map{contendUid}-items" 
 data-map-configuration='{u:mapConfiguration(latitude:"{settings.latitude}",longitude:"{settings.longitude}", zoom:"{settings.mapZoom}", padding:"40")}'
 data-map-tilelayer='{u:mapBoxTileLayer(id:"{settings.mapId}", accesssToken:"{settings.accessToken}",maxZoom:"{settings.maxZoom}")}'>
-<ul id="map{contendUid}-items">
+</div>
+<div class="map-info-layer" id="map{contendUid}-info-layer"></div>
+<ul id="map{contendUid}-items" style="display:none">
 	<f:for each="{addresses}" as="address">
-		<li data-poi='{u:marker(latitude:"{address.latitude}", longitude:"{address.longitude}", geoJson:"{address.geoJson}")}'>
+		<li data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}">
 		    <h4 class="title">{address.name}</h4>
 		    <p class="description">{address.description}</p>
 		</li>
 	</f:for>
 </ul>
-</div>
-<div class="map-info-layer" id="map{contendUid}-info-layer"></div>
