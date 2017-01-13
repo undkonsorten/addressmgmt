@@ -7,9 +7,22 @@ data-map-tilelayer='{u:mapBoxTileLayer(id:"{settings.mapId}", accesssToken:"{set
 <div class="map-info-layer" id="map{contendUid}-info-layer"></div>
 <ul id="map{contendUid}-items" style="display:none">
 	<f:for each="{addresses}" as="address">
-		<li data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}">
-		    <h4 class="title">{address.name}</h4>
-		    <p class="description">{address.description}</p>
-		</li>
+		<f:if condition="{address.latitude}">
+			<f:then>
+				<li data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}">
+					<h4 class="title">{address.name}</h4>
+					<p class="description">{address.description}</p>
+				</li>
+			</f:then>
+			<f:else>
+				<f:if condition="{address.geoJson}">
+					<li data-poi="{u:format.json(additionalAttributes:{type:'geoJson',geoJson:address.geoJsonObject}) -> f:format.htmlspecialchars()}">
+						<h4 class="title">{address.name}</h4>
+						<p class="description">{address.description}</p>
+					</li>
+				</f:if>
+			</f:else>
+		</f:if>
+
 	</f:for>
 </ul>
