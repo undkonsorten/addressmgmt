@@ -22,12 +22,18 @@ plugin.tx_addressmgmt {
 	}
 	settings{
 		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
-		mapId = {$plugin.tx_addressmgmt.settings.mapId}
-		accessToken = {$plugin.tx_addressmgmt.settings.accessToken}
-		longitude = {$plugin.tx_addressmgmt.settings.longitude}
-		latitude = {$plugin.tx_addressmgmt.settings.latitude}
-		mapZoom = {$plugin.tx_addressmgmt.settings.mapZoom}
-		maxZoom = {$plugin.tx_addressmgmt.settings.maxZoom}
+		mapConfiguration {
+			latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}
+			longitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.longitude}
+			zoom = {$plugin.tx_addressmgmt.settings.mapConfiguration.zoom}
+		}
+		tileLayerConfiguration {
+			urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}
+			options {
+				id = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.id}
+				accessToken = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.accessToken}
+			}
+		}
 	}
 }
 

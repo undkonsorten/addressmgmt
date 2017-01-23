@@ -1,3 +1,5 @@
+# customsubcategory=map=Map
+# customsubcategory=tileServer=Tile server configuration
 plugin.tx_addressmgmt {
 	view {
 		# cat=plugin.tx_addressmgmt/file; type=string; label=Path to template root (FE)
@@ -13,19 +15,27 @@ plugin.tx_addressmgmt {
 	}
 	
 	settings{
-		# cat=plugin.tx_addressmgmt//b; type=string; label=Map Id (Mapbox.com)
-		mapId = 
-		# cat=plugin.tx_addressmgmt//c; type=string; label=Access Token (Mapbox.com)
-		accessToken = 
-		# cat=plugin.tx_addressmgmt//d; type=string; label=Longitude
-		longitude =
-		# cat=plugin.tx_addressmgmt//e; type=string; label=Latitude
-		latitude =
-		# cat=plugin.tx_addressmgmt//f; type=string; label=Map Zoom
-		mapZoom = 
-		# cat=plugin.tx_addressmgmt//g; type=string; label=Max Zoom
-		maxZoom = 
+		mapConfiguration {
+			# cat=plugin.tx_addressmgmt/map/0010; type=string; label=Latitude: latitude of map center
+			latitude = 
+			# cat=plugin.tx_addressmgmt/map/0020; type=string; label=Longitude: longitude of map center
+			longitude = 
+			# cat=plugin.tx_addressmgmt/map/0040; type=int; label=Zoom: initial zoom of map
+			zoom = 
+		}
+		tileLayerConfiguration {
+			# cat=plugin.tx_addressmgmt/tileServer/0060; type=string; label=URL Template: url template for tile server
+			urlTemplate = https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}
+			options {
+				# cat=plugin.tx_addressmgmt/tileServer/0070; type=string; label=ID: identification for tile server
+				id = 
+				# cat=plugin.tx_addressmgmt/tileServer/0080; type=string; label=Access token
+				accessToken = 
+				# cat=plugin.tx_addressmgmt/tileServer/0090; type=string; label=Max zoom: Maximum zoom level for tile server
+				maxZoom =
+			}
+		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
-		overrideFlexformSettingsIfEmpty = mapId, accessToken, longitude, latitude, mapZoom, maxZoom
+		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom
 	}
 }

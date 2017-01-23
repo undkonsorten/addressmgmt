@@ -1,8 +1,8 @@
 {namespace u = Undkonsorten\Addressmgmt\ViewHelpers}
 <div class="map-wrap" id="map{contendUid}-wrap">
 <div class="map" id="map{contendUid}" data-map-info-layer="#map{contendUid}-info-layer" data-map-wrap="#map{contendUid}-wrap" data-is-map="true" data-poi-list="#map{contendUid}-items" 
-data-map-configuration='{u:mapConfiguration(latitude:"{settings.latitude}",longitude:"{settings.longitude}", zoom:"{settings.mapZoom}", padding:"40")}'
-data-map-tilelayer='{u:mapBoxTileLayer(id:"{settings.mapId}", accesssToken:"{settings.accessToken}",maxZoom:"{settings.maxZoom}")}'>
+data-map-configuration="{settings.mapConfiguration -> u:format.json() -> f:format.htmlspecialchars()}"
+data-map-tilelayer="{settings.tileLayerConfiguration -> u:format.json() -> f:format.htmlspecialchars()}">
 </div>
 <div class="map-info-layer" id="map{contendUid}-info-layer"></div>
 <ul id="map{contendUid}-items" style="display:none">
