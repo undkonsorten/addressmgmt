@@ -39,7 +39,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="list">
   <section class="module-list-items addressmgmt">
-    <ul id="map{contendUid}-items" class="list-items">
+    <ul id="map{contendUid}-list-items" class="list-items">
       <f:for each="{addresses}" as="address">
         <li class="list-item item#{address.uid}">
           <f:render partial="List/Item" arguments="{address: address}"/>
