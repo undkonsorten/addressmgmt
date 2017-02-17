@@ -1,6 +1,6 @@
 
 tx_addressmgmt.templateLayouts {
-  short = Short
-  gridRef = Grid Ref
-  gridNews = Grid News
+    map = Karte
+    map-list = Karte und Liste
+    list = Liste
 }

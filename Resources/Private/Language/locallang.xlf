@@ -121,6 +121,10 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.3">
 				<source></source>
 			</trans-unit>
+
+			<trans-unit id="list.emptyList">
+				<source>No result</source>
+			</trans-unit>
 			
 		</body>
 	</file>

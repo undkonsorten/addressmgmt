@@ -1,3 +1,4 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -15,32 +16,37 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 
-<f:if condition="{addresss}">
+  <f:if condition="{addresss}">
 		<f:then>
-			<f:render partial="Map/Show" arguments="{addresses:addresss, contendUid:contendUid}"/>
-			<f:if condition="{settings.templateLayout} == 99">
-				<f:then>
-					<div class="news well news-special">
-						<f:for each="{addresss}" as="address">
-							<f:render partial="List/Item-special" arguments="{address: address}"/>
-						</f:for>
-					</div>
-				</f:then>
-				<f:else>
-					<section class="module-list.addressmgmt">
-						<ul class="list-items">
-							<f:for each="{addresss}" as="address">
-								<li class="list-item" id="addr{address.uid}">
-									<f:render partial="List/Item" arguments="{address: address}"/>
-								</li>
-							</f:for>
-						</ul>
-					</section>
-				</f:else>
-			</f:if>
+      <f:switch expression="{settings.templateLayout}">
+        <f:case value="map">
+          <f:render partial="Map/Show" arguments="{addresses:addresss, contendUid:contendUid}"/>
+        </f:case>
+        <f:case value="map-list">
+          <f:render partial="Map/Show" arguments="{addresses:addresss, contendUid:contendUid}"/>
+          <f:render section="list" arguments="{addresses:addresss, contendUid:contendUid}"/>
+        </f:case>
+        <f:case default="true">
+          <f:render section="list" arguments="{addresses:addresss, contendUid:contendUid}"/>
+        </f:case>
+      </f:switch>
 		</f:then>
 		<f:else>
-			<div class="no-news-found"><f:translate key="list_nonewsfound" /></div>
+			<div class="no-addresses-found"><f:translate key="list.emptyList" /></div>
 		</f:else>
 	</f:if>
 </f:section>
+
+<f:section name="list">
+  <section class="module-list-items addressmgmt">
+    <ul id="map{contendUid}-items" class="list-items">
+      <f:for each="{addresses}" as="address">
+        <li class="list-item item#{address.uid}">
+          <f:render partial="List/Item" arguments="{address: address}"/>
+        </li>
+      </f:for>
+    </ul>
+  </section>
+</f:section>
+
+</html>
