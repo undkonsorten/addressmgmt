@@ -40,17 +40,17 @@ plugin.tx_addressmgmt {
 # leaflet 1.0.2 marker class: leaflet-marker-icon leaflet-zoom-animated leaflet-interactive
 # leaflet 0.7.7 marker class: leaflet-marker-icon leaflet-zoom-animated leaflet-clickable
 
-page.includeCSS.leaflet = EXT:addressmgmt/Resources/Public/Css/leaflet.css
-page.includeCSS.styles = EXT:addressmgmt/Resources/Public/Css/styles.css
+page.includeCSS.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Css/leaflet.css
+page.includeCSS.tx_addressmgmt_styles = EXT:addressmgmt/Resources/Public/Css/styles.css
 
-#page.includeJSFooter.leaflet = EXT:addressmgmt/Resources/Public/Javascript/leaflet.js
-page.includeJSFooter.leaflet = http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js
-page.includeJSFooter.jQuery = EXT:addressmgmt/Resources/Public/Javascript/jquery-3.1.0.js
-page.includeJSFooter.mapConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/mapConfigurationParser.js
-page.includeJSFooter.tileConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/tileLayerParser.js
-page.includeJSFooter.poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
-page.includeJSFooter.popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
-page.includeJSFooter.map = EXT:addressmgmt/Resources/Public/Javascript/map.js
+#page.includeJSFooter.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Javascript/leaflet.js
+page.includeJSFooter.tx_addressmgmt_leaflet = http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js
+page.includeJSFooter.tx_addressmgmt_jQuery = EXT:addressmgmt/Resources/Public/Javascript/jquery-3.1.0.js
+page.includeJSFooter.tx_addressmgmt_mapConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/mapConfigurationParser.js
+page.includeJSFooter.tx_addressmgmt_tileConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/tileLayerParser.js
+page.includeJSFooter.tx_addressmgmt_poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
+page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
+page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
 
 
 plugin.tx_addressmgmt._CSS_DEFAULT_STYLE (
