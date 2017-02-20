@@ -15,7 +15,7 @@
 
   var markerIcon = {
     default: new L.Icon.Default(),
-    active: L.icon({iconUrl: 'img/project/map/marker-green.png'})
+    active: L.icon({iconUrl: '/typo3conf/ext/addressmgmt/Resources/Public/Icons/marker-icon-active.png'})
   };
   var areaStyle = {
     default: {color: '#0033ff'},
