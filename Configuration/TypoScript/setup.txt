@@ -1,3 +1,7 @@
+
+
+
+
 plugin.tx_addressmgmt {
 	view {
 		templateRootPaths {
@@ -26,6 +30,8 @@ plugin.tx_addressmgmt {
 			latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}
 			longitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.longitude}
 			zoom = {$plugin.tx_addressmgmt.settings.mapConfiguration.zoom}
+			#map padding in px-units
+			padding = {$plugin.tx_addressmgmt.settings.mapConfiguration.padding}
 		}
 		tileLayerConfiguration {
 			urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}

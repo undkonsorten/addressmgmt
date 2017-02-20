@@ -27,7 +27,7 @@
     var mapConfiguration = mapConfigurationParser(this);
     var tileLayerConfiguration = tileLayerParser(this);
     var fitBoundConfiguration = mapConfiguration.padding
-      ? {padding: [mapConfiguration.padding,mapConfiguration.padding] }
+      ? {padding: [parseInt(mapConfiguration.padding),parseInt(mapConfiguration.padding)] }
       : null;
     var map = L.map(this, mapConfiguration);
     var poiLayerGroup = L.featureGroup().addTo(map);

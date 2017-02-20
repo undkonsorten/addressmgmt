@@ -22,6 +22,8 @@ plugin.tx_addressmgmt {
 			longitude = 
 			# cat=plugin.tx_addressmgmt/map/0040; type=int; label=Zoom: initial zoom of map
 			zoom = 
+			# cat=plugin.tx_addressmgmt/map/0050; type=int; label=Padding: marker padding/spacing in px
+			padding = 30
 		}
 		tileLayerConfiguration {
 			# cat=plugin.tx_addressmgmt/tileServer/0060; type=string; label=URL Template: url template for tile server
@@ -33,6 +35,9 @@ plugin.tx_addressmgmt {
 				accessToken = 
 				# cat=plugin.tx_addressmgmt/tileServer/0090; type=string; label=Max zoom: Maximum zoom level for tile server
 				maxZoom =
+
+
+
 			}
 		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
