@@ -46,40 +46,19 @@ plugin.tx_addressmgmt {
 # leaflet 1.0.2 marker class: leaflet-marker-icon leaflet-zoom-animated leaflet-interactive
 # leaflet 0.7.7 marker class: leaflet-marker-icon leaflet-zoom-animated leaflet-clickable
 
-page.includeCSS.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Css/leaflet.css
+# CSS optional addressmgmt default styles (can be removed in your own project)
 page.includeCSS.tx_addressmgmt_styles = EXT:addressmgmt/Resources/Public/Css/styles.css
 
-#page.includeJSFooter.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Javascript/leaflet.js
-page.includeJSFooter.tx_addressmgmt_leaflet = http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js
-page.includeJSFooter.tx_addressmgmt_jQuery = EXT:addressmgmt/Resources/Public/Javascript/jquery-3.1.0.js
+# JQUERY is needed
+page.includeJSFooterlibs.tx_addressmgmt_jQuery = EXT:addressmgmt/Resources/Public/Javascript/jquery-3.1.0.js
+
+# LEAFLET
+page.includeCSS.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Leaflet/leaflet.css
+page.includeJSFooterlibs.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Leaflet/leaflet.js
+
+# OWN MAP JavaScript
 page.includeJSFooter.tx_addressmgmt_mapConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/mapConfigurationParser.js
 page.includeJSFooter.tx_addressmgmt_tileConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/tileLayerParser.js
 page.includeJSFooter.tx_addressmgmt_poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
 page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
 page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
-
-
-plugin.tx_addressmgmt._CSS_DEFAULT_STYLE (
-	textarea.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
-
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
-
-	.tx-addressmgmt table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
-
-	.tx-addressmgmt table th {
-		font-weight:bold;
-	}
-
-	.tx-addressmgmt table td {
-		vertical-align:top;
-	}
-)
