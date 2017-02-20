@@ -1,12 +1,12 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(['leaflet', 'jquery', 'map/mapConfigurationParser', 'map/tileLayerParser', 'map/poiConfigurationParser', 'map/popupMarkupCreator'], factory);
+        define(['leaflet', 'leafletMarkerCluster', 'jquery', 'map/mapConfigurationParser', 'map/tileLayerParser', 'map/poiConfigurationParser', 'map/popupMarkupCreator'], factory);
     } else {
         // Browser globals
-        root.map = factory(root.L, root.jQuery, root.mapConfigurationParser, root.tileLayerParser, root.poiConfigurationParser, root.popupMarkupCreator);
+        root.map = factory(root.L, root.leafletMarkerCluster, root.jQuery, root.mapConfigurationParser, root.tileLayerParser, root.poiConfigurationParser, root.popupMarkupCreator);
     }
-}(this, function (L, $, mapConfigurationParser, tileLayerParser, poiConfigurationParser, popupMarkupCreator) {
+}(this, function (L, leafletMarkerCluster, $, mapConfigurationParser, tileLayerParser, poiConfigurationParser, popupMarkupCreator) {
   "use strict";
 
   var INFO_LAYER_MARKUP = '<span class="close">×</span><div class="info-layer-content"></div>';
@@ -30,7 +30,12 @@
       ? {padding: [parseInt(mapConfiguration.padding),parseInt(mapConfiguration.padding)] }
       : null;
     var map = L.map(this, mapConfiguration);
-    var poiLayerGroup = L.featureGroup().addTo(map);
+    var poiLayerGroup;
+    if ($(this).data('map-clusters')) {
+		poiLayerGroup = L.markerClusterGroup().addTo(map);
+	} else {
+		poiLayerGroup = L.featureGroup().addTo(map);
+	}
     var tileLayer = L.tileLayer(tileLayerConfiguration.urlTemplate, tileLayerConfiguration.options).addTo(map);
     var mapWrap = $($(this).data('map-wrap'));
     var infoLayer = $($(this).data('map-info-layer'));

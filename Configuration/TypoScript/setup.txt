@@ -25,6 +25,9 @@ plugin.tx_addressmgmt {
 		rewrittenPropertyMapper = 1
 	}
 	settings{
+		# Remove # (hash) from constant to enable marker clusters
+		{$plugin.tx_addressmgmt.settings.useMarkerClusters} useMarkerClusters = 1
+		
 		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
 		mapConfiguration {
 			latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}
@@ -55,6 +58,11 @@ page.includeJSFooterlibs.tx_addressmgmt_jQuery = EXT:addressmgmt/Resources/Publi
 # LEAFLET
 page.includeCSS.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Leaflet/leaflet.css
 page.includeJSFooterlibs.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Leaflet/leaflet.js
+
+# LEAFLET Marker Cluster
+{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeCSS.tx_addressmgmt_leaflet_markerCluster = EXT:addressmgmt/Resources/Public/MarkerCluster/MarkerCluster.css
+{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeCSS.tx_addressmgmt_leaflet_markerCluster_Default = EXT:addressmgmt/Resources/Public/MarkerCluster/MarkerCluster.Default.css
+{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeJSFooterlibs.tx_addressmgmt_leaflet_markerCluster = EXT:addressmgmt/Resources/Public/MarkerCluster/leaflet.markercluster.js
 
 # OWN MAP JavaScript
 page.includeJSFooter.tx_addressmgmt_mapConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/mapConfigurationParser.js
