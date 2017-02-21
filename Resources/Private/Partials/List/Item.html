@@ -1,69 +1,17 @@
-<div class="tx-addressmgmt" >
-
-<f:if condition="{settings.detailPid}">
-	<f:then>
-		<f:link.action action="show" pageUid="{settings.detailPid}" arguments="{address:address}"><h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3></f:link.action>
-	</f:then>
-	<f:else>
-		<f:link.action action="show" arguments="{address:address}"><h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3></f:link.action>
-	</f:else>
-</f:if>
-
-<f:for each="{address.category}" as="category">
-	{category.title}
-</f:for>
-
-{address.organization}
-
-{address.department}
-
-{address.street}
-
-{address.streetNumber}
-
-{address.addressSupplement}
-
-{address.city}
-
-{address.zip}
-
-{address.country}
-
-{address.state}
-
-{address.closestCity}
-
-<f:if condition="{address.feUser}">
-	<f:then>{address.feUser.username}</f:then>
-	<f:else>{address.email}</f:else>
-</f:if>
-
-{address.phone}
-
-{address.mobile}
-
-{address.fax}
-
-<f:link.external uri="{address.www.link}">{address.www.text}</f:link.external>
-
-{address.description}
-<f:if condition="{address.image}">
-	<figure>
-		<f:image src="{address.image.originalResource.forLocalProcessing}" alt="nada" width="300" />
-	</figure>
-</f:if>
-
-{address.latitude}
-
-{address.longitude}
-
-<f:for each="{address.socialIdentifiers}" as="identifier">
-<div>
-	<f:if condition="{identifier.provider.image}">
-		<f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
-	</f:if>
-	<strong>{identifier.provider.name}:</strong> 
-	{identifier.url}
-</div>
-</f:for>
+<f:render partial="Media/Media" arguments="{media:address.images}" />
+<div class="text-wrap">
+  <f:render partial="Meta" arguments="{address:address}" />
+  <h3 class="title headline">
+    <f:if condition="{settings.detailPid}">
+      <f:then>
+        <f:link.action action="show" pageUid="{settings.detailPid}" arguments="{address:address}" class="{linkClass}">{address.name}</f:link.action>
+      </f:then>
+      <f:else>
+        <f:link.action action="show" arguments="{address:address}" class="{linkClass}">{address.name}</f:link.action>
+      </f:else>
+    </f:if>
+  </h3>
+  <div class="teaser">
+    <f:format.crop maxCharacters="100">{f:format.stripTags(value:address.description)}</f:format.crop>
+  </div>
 </div>

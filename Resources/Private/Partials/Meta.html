@@ -1,0 +1,12 @@
+<div class="meta">
+  <f:if condition="{address.city}">
+    <span class="city">{address.city}</span>
+  </f:if>
+  <f:if condition="{address.category}">
+    <ul class="categories">
+      <f:for each="{address.category}" as="category">
+        <li class="category">{category.title}</li>
+      </f:for>
+    </ul>
+  </f:if>
+</div>

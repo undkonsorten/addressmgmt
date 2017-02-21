@@ -127,14 +127,17 @@
 			</trans-unit>
 
 			<trans-unit id="addressmgmt.read-more-link">
-                <source>read more</source>
-            </trans-unit>
-            <trans-unit id="addressmgmt.show-more">
-                <source>show more</source>
-            </trans-unit>
-            <trans-unit id="addressmgmt.show-less">
-                <source>show less</source>
-            </trans-unit>
+				<source>read more</source>
+				<target state="translated">mehr</target>
+			</trans-unit>
+			<trans-unit id="addressmgmt.show-more">
+				<source>show more</source>
+				<target state="translated">mehr</target>
+			</trans-unit>
+			<trans-unit id="addressmgmt.show-less">
+				<source>show less</source>
+				<target state="translated">weniger</target>
+			</trans-unit>
 			
 		</body>
 	</file>
