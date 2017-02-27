@@ -103,9 +103,11 @@ class AddressController extends BaseController{
 		}
 		foreach($this->settings['filterConfiguration'] as $key => $filter){
 		    $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
-		    $sorting = array($filter['orderBy'] => $filter['sorting']);
-		    $filterCategories = $this->categoryService->findAllDescendants($parent, $sorting);
-		    $this->view->assign($key, $filterCategories);
+		    if($parent){
+    		    $sorting = array($filter['orderBy'] => $filter['sorting']);
+    		    $filterCategories = $this->categoryService->findAllDescendants($parent, $sorting);
+    		    $this->view->assign($key, $filterCategories);
+		    }
 		}
 		
 		$this->view->assign('addresss', $addresses);
