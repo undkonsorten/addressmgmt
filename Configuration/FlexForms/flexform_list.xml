@@ -230,6 +230,12 @@
 	                         </config>
 	                 </TCEforms>
                </settings.templateLayout>
+               <settings.showFiler>
+	               	<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.showFilter</label>
+					<config>
+					  <type>check</type>
+					</config>
+               </settings.showFiler>
          <settings.maxZoom>
 		    <TCEforms>
 		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.maxZoom</label>
