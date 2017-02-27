@@ -282,6 +282,9 @@
 			<trans-unit id="flexforms.showFilter">
 				<source>Show Filter</source>
 			</trans-unit>
+			<trans-unit id="flexforms.recursive">
+				<source>Recursive</source>
+			</trans-unit>
 			<trans-unit id="flexforms.templateLayout">
 				<source>Template layout</source>
 			</trans-unit>
