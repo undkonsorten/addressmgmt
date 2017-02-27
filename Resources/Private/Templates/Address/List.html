@@ -15,10 +15,14 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-
 <f:flashMessages />
   <f:if condition="{addresss}">
 		<f:then>
+		<f:for each="{settings.filterConfiguration}" key="filterName" as="filter">
+			<f:for each="{u:property(object: '{_all}', property: filterName)}" as="object">
+				{object.title}
+			</f:for>
+		</f:for>
       <f:switch expression="{settings.templateLayout}">
         <f:case value="map">
           <f:render partial="Map/Show" arguments="{addresses:addresss, contendUid:contendUid}"/>
