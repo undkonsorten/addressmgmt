@@ -62,6 +62,14 @@ class AddressController extends BaseController{
 	protected $organisationRepository;
 
 	/**
+	 * Constructor
+	 */
+	public function initializeAction(){
+	    $this->overrideFlexformSettings();
+	    $this->storagePidFallback();
+	}
+	
+	/**
 	 * action list
 	 *
 	 * @return void
