@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:for each="{settings.filterConfiguration}" key="filterName" as="filter">
+  
+  <f:groupedFor each="{u:property(object: '{_all}', property: filterName)}" as="objects" groupBy="parent" groupKey="parent">
+    <div class="form-field-wrap filter-{parent.uid}">
+      <label for="filter-{parent.uid}">{parent.title}</label>
+      <select id="filter-{parent.uid}" name="filter-{parent.title}">
+        <option value="0">{f:if(condition:parent.description,then:parent.description,else:parent.title)}</option>
+        <f:for each="{objects}" as="category">
+          <option value="{category.uid}">{category.title}</option>
+        </f:for>
+      </select>
+    </div>
+  </f:groupedFor>
+  
+</f:for>
+
+
+
+
+<f:comment>
+  <div class="form-field-wrap map-topics">
+    <label for="map-topics">Themen</label>
+    <select id="map-topics" name="map-topics">
+      <option value="">Themen (Alle)</option>
+      <option value="30">Lorem ipsum dolor</option>
+      <option value="31">Consetetur sadipscing</option>
+      <option value="32">Diam voluptua</option>
+      <option value="33">Stetclitakasd</option>
+      <option value="34">Typoblindtexte</option>
+      <option value="35">Kasd gubergren</option>
+      <option value="36">Europan lingues</option>
+      <option value="37">Browseroptimierung</option>
+      <option value="38">Lückenfüller</option>
+    </select>
+  </div>
+  </select>
+
+
+</f:comment>

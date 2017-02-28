@@ -2,7 +2,10 @@
       xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
-<div class="map-wrap" id="map{contendUid}-wrap">
+<div class="map-wrap map-with-filter" id="map{contendUid}-wrap">
+  <div class="map-filter">
+    <f:render partial="Filter/Form" arguments="{_all}" />
+  </div>
   <div class="map" id="map{contendUid}" data-map-clusters="{settings.useMarkerClusters}" data-map-info-layer="#map{contendUid}-info-layer" data-map-wrap="#map{contendUid}-wrap" data-is-map="true" data-poi-list="#map{contendUid}-items"
   data-map-configuration="{settings.mapConfiguration -> u:format.json() -> f:format.htmlspecialchars()}"
   data-map-tilelayer="{settings.tileLayerConfiguration -> u:format.json() -> f:format.htmlspecialchars()}">
