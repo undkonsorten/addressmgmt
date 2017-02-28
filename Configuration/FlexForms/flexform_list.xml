@@ -25,6 +25,18 @@
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.addressDetail</numIndex>
 										<numIndex index="1">Address->show</numIndex>
 									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.create</numIndex>
+										<numIndex index="1">Address->new;Address->create;Address->dash</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.edit</numIndex>
+										<numIndex index="1">Address->edit;Address->update;Address->dash</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.dash</numIndex>
+										<numIndex index="1">Address->dash;Image->new;Image->edit;Image->create;Image->delete;Address->publish</numIndex>
+									</numIndex>
 								</items>
 								<default>Address->list;Address->show</default>
 							</config>

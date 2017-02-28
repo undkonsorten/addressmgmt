@@ -625,7 +625,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * Returns the image
 	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $images
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $images
 	 */
 	public function getImages() {
 		return $this->images;
@@ -634,7 +634,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * Sets the image
 	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $images
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $images
 	 * @return void
 	 */
 	public function setImages($images) {

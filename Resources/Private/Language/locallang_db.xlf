@@ -291,6 +291,15 @@
 			<trans-unit id="flexform.switchableControllerActions">
 				<source>What to display</source>
 			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.create">
+				<source>Create</source>
+			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.edit">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.dash">
+				<source>Dashboard</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.category">
 				<source>Category</source>
 			</trans-unit>

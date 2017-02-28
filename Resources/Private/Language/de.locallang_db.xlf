@@ -338,6 +338,19 @@
 				<source>Map clustering</source>
 				<target state="translated">Marker gruppieren</target>
 			</trans-unit>
+			
+			<trans-unit id="flexform.switchableControllerActions.create">
+				<source>Create</source>
+				<target state="translated">Erstellen</target>
+			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.edit">
+				<source>Edit</source>
+				<target state="translated">Editieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.dash">
+				<source>Dashboard</source>
+				<target state="translated">Dashboard</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
