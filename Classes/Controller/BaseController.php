@@ -168,5 +168,58 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 		//#DebuggerUtility::var_dump($this->controllerContext->getArguments()->getValidationResults()->getFlattenedErrors());
 		return FALSE;
 	}
+	
+	/**
+	 * StoragePid fallback: Plugin->TS->CurrentPid
+	 */
+	protected function storagePidFallback() {
+	    $configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+	
+	    //Check if storage PID is set in plugin
+	    if($configuration['settings']['storageFolder']){
+	        $pid['persistence']['storagePid'] = $configuration['settings']['storageFolder'];
+	        $this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+	        	
+	        //Check if storage PID is set in TS
+	    }elseif($configuration['persistence']['storagePid']){
+	        $pid['persistence']['storagePid'] = $configuration['persistence']['storagePid'];
+	        $this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+	        	
+	    }else{
+	        // Use current PID as storage PID
+	        $pid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;
+	        $this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+	    }
+	
+	    //Check if storage PID is set in plugin
+	    if($configuration['settings']['recursive']){
+	        $recursive['persistence']['recursive'] = $configuration['settings']['recursive'];
+	        $this->configurationManager->setConfiguration(array_merge($configuration, $recursive));
+	    }
+	}
+	
+	/**
+	 * overrides flexform settings with original typoscript values when
+	 * flexform value is empty and settings key is defined in
+	 * 'settings.overrideFlexformSettingsIfEmpty'
+	 *
+	 * @return void
+	 */
+	public function overrideFlexformSettings() {
+	
+	    $originalSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
+	    $typoScriptSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'eventmgmt', 'event_list');
+	    if(isset($typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'])) {
+	        $overrideIfEmpty = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'], TRUE);
+	        foreach ($overrideIfEmpty as $settingToOverride) {
+	            // if flexform setting is empty and value is available in TS
+	            if ((!isset($originalSettings[$settingToOverride]) || empty($originalSettings[$settingToOverride]))
+	                && isset($typoScriptSettings['settings'][$settingToOverride])) {
+	                    $originalSettings[$settingToOverride] = $typoScriptSettings['settings'][$settingToOverride];
+	                }
+	        }
+	        $this->settings = $originalSettings;
+	    }
+	}
 
 }
