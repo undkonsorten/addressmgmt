@@ -27,45 +27,58 @@
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.street">
 				<source>street</source>
+				<target state="translated">Straße</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.street_number">
 				<source>streetNumber</source>
+				<target state="translated">Hausnummer</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.address_supplement">
 				<source>addressSupplement</source>
+				<target state="translated">Adresszusatz</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.city">
 				<source>city</source>
+				<target state="translated">Stadt</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.zip">
 				<source>zip</source>
+				<target state="translated">PLZ</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.country">
 				<source>country</source>
+				<target state="translated">Land</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.state">
 				<source>state</source>
+				<target state="translated">Bundesland</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.closest_city">
 				<source>closestCity</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.email">
 				<source>email</source>
+				<target state="translated">E-Mail</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.phone">
 				<source>phone</source>
+				<target state="translated">Telefon</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.mobile">
 				<source>mobile</source>
+				<target state="translated">Mobil</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.fax">
 				<source>fax</source>
+				<target state="translated">Fax</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.www">
 				<source>www</source>
+				<target state="translated">Internet</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.description">
 				<source>description</source>
+				<target state="translated">Beschreibung</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>image</source>
@@ -138,6 +151,16 @@
 				<source>show less</source>
 				<target state="translated">weniger</target>
 			</trans-unit>
+
+			<trans-unit id="addressmgmt.label.counterpart">
+                <source>Counterpart</source>
+                <target state="translated">Ansprechpartner</target>
+            </trans-unit>
+            <trans-unit id="addressmgmt.label.contactdata">
+                <source>Contact data</source>
+                <target state="translated">Kontaktdaten</target>
+            </trans-unit>
+
 			
 		</body>
 	</file>

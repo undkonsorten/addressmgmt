@@ -135,6 +135,13 @@
             <trans-unit id="addressmgmt.show-less">
                 <source>show less</source>
             </trans-unit>
+
+            <trans-unit id="addressmgmt.label.counterpart">
+                <source>Counterpart</source>
+            </trans-unit>
+            <trans-unit id="addressmgmt.label.contactdata">
+                <source>Contact data</source>
+            </trans-unit>
 			
 		</body>
 	</file>
