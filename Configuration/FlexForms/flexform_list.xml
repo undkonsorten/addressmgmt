@@ -230,6 +230,12 @@
 	                         </config>
 	                 </TCEforms>
                </settings.templateLayout>
+               <settings.mapClustering>
+	               	<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.mapClustering</label>
+					<config>
+					  <type>check</type>
+					</config>
+               </settings.mapClustering>
          <settings.maxZoom>
 		    <TCEforms>
 		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.maxZoom</label>

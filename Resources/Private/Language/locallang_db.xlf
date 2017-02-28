@@ -314,6 +314,9 @@
 			<trans-unit id="flexforms.mapId">
 				<source>Map id (mapbox)</source>
 			</trans-unit>
+				<trans-unit id="flexforms.mapClustering">
+				<source>Map clustering</source>
+			</trans-unit>
 			
 			<trans-unit id="tx_addressmgmt.templateLayout.map">
                 <source>Only map</source>

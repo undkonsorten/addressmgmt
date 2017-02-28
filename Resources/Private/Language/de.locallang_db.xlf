@@ -324,6 +324,11 @@
 				<source>Map and list</source>
 				<target state="translated">Karte und Liste</target>
 			</trans-unit>
+			
+			<trans-unit id="flexforms.mapClustering">
+				<source>Map clustering</source>
+				<target state="translated">Marker gruppieren</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
