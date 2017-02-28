@@ -138,6 +138,15 @@
 							</config>
 						</TCEforms>
 				</persistence.storagePid>
+				<settings.recursive>
+				    <TCEforms>
+				      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.recursive</label>
+					      <config>
+							<type>input</type>	
+							<default>9</default>
+					      </config>
+					    </TCEforms>
+				</settings.recursive>	
 				<settings.orderBy>
 						<TCEforms>
 							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>
@@ -213,7 +222,8 @@
 								</wizards>
 							</config>
 						</TCEforms>
-					</settings.detailPid>
+				</settings.detailPid>
+			
 				<settings.templateLayout>
 	                <TCEforms>
 					<exclude>1</exclude>
