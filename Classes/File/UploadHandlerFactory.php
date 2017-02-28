@@ -1,11 +1,10 @@
 <?php
-namespace Undkonsorten\Addressmgmt\Domain\Model;
+namespace Undkonsorten\Addressmgmt\File;
 
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Felix Althaus <felix.althaus@undkonsorten.com>, undkonsorten
- *  Eike Starkmann <eike.starkmann@undkonsorten.com>, undkonsorten
+ *  (c) 2013 Eike Starkmann <starkmann@undkonsorten.com>, undkonsorten
  *  
  *  All rights reserved
  *
@@ -29,55 +28,25 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
 /**
  *
  *
- * @package addressmgmt
+ * @package speaker
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-interface AddressInterface {
+class UploadHandlerFactory {
 	
 	/**
-	 * Type field for person
-	 * 
-	 * @var \string
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
+	 * @inject
 	 */
-	const PERSON = 'Tx_Addressbook_Person';
-	
-	/**
-	 * Type field for organisation
-	 * 
-	 * @var \string
-	 */
-	const ORGANISATION = 'Tx_Addressbook_Organisation';
-	
-	/**
-	 * 
-	 * @var string
-	 */
-	const LOCATION = 'Tx_Addressbook_Location';
+	protected $objectManager;
 
-	/**
-	 * return full name
-	 * 
-	 * @return \string
-	 */
-	public function getFullName();
+	public function buildUploadHandler($object, $property) {
+		$uploadHandler = $this->objectManager->get('Undkonsorten\Addressmgmt\File\UploadHandler');
+		$uploadHandler->setObject($object);
+		$uploadHandler->setProperty($property);
+		$uploadHandler->buildDataMap();
+		return $uploadHandler;
+	}
 	
-	/**
-	 * return name
-	 * 
-	 * @return \string
-	 */
-	public function getName();
-	
-	/**
-	 * sets name
-	 * 
-	 * @param \string
-	 * @return void
-	 */
-	public function setName($name);
-	
-	static function getTypeConstants();
-
 }
 ?>

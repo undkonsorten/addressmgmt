@@ -35,7 +35,7 @@
 									</numIndex>
 									<numIndex index="4">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.dash</numIndex>
-										<numIndex index="1">Address->dash;Image->new;Image->edit;Image->create;Image->delete;Address->publish</numIndex>
+										<numIndex index="1">Address->dash;File->edit;File->update;File->new;File->create;File->delete;Address->edit;Address->update;Address->new;Address->create;Address->handInForReview;Address->delete;Address->remove;SocialIdentifier->create;SocialIdentifier->delete;SocialIdentifier->update;SocialIdentifier->edit;</numIndex>
 									</numIndex>
 								</items>
 								<default>Address->list;Address->show</default>

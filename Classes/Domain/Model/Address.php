@@ -196,6 +196,13 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
 	 */
 	protected $images = NULL;
+	
+	/**
+	 * Downloads
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload
+	 */
+	protected $imageUpload;
 
 	/**
 	 * latitude
@@ -862,6 +869,11 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     public function getGeojsonObject()
     {
 		return json_decode($this->getGeojson());
+	}
+	
+	static function getTypeConstants() {
+	    $oClass = new \ReflectionClass(__CLASS__);
+	    return $oClass->getConstants();
 	}
 }
 ?>

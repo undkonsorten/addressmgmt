@@ -39,6 +39,14 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * @var \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
 	 */
 	protected $typoScriptFrontendController;
+	
+	/**
+	 * fronted user repository
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository
+	 * @inject
+	 */
+	protected $frontendUserRepository;
 
 	/**
 	 * configuration manager
@@ -221,5 +229,24 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	        $this->settings = $originalSettings;
 	    }
 	}
+	
+	/**
+	 * Return logged in frontend user, if any, NULL otherwise
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
+	 */
+	protected function getLoggedInFrontendUser() {
+	    $frontendUser = NULL;
+	    $user = $GLOBALS['TSFE']->fe_user->user;
+	    if(isset($user['uid'])) {
+	        $frontendUser = $this->frontendUserRepository->findByUid($user['uid']);
+	    }
+	    if(is_null($frontendUser)) {
+	        $this->redirectToUri($this->buildPageLink($this->settings['pidLogin'], TRUE));
+	    }
+	    return $frontendUser;
+	}
+	
+	
 
 }

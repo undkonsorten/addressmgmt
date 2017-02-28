@@ -1,0 +1,64 @@
+{namespace a=Undkonsorten\Addressbook\ViewHelpers}
+{namespace b=Undkonsorten\Speaker\ViewHelpers}
+<f:layout name="WholePage" />
+
+This Template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="breadcrumb">
+	<f:cObject typoscriptObjectPath="u10n.menus.breadcrumb" />
+</f:section>
+
+<f:section name="main">
+
+	<h1><f:translate key="editFile-{property}">Edit File</f:translate></h1>
+	
+	<a:titleTag>{speaker.fullName}</a:titleTag>
+	<f:flashMessages />
+	
+	<f:form action="updateFile" arguments="{speaker:speaker,fileReference:fileReference, property:property}" name="fileMetaData" >
+		<fieldset>
+			
+			
+			<f:if condition="{property}=='image'">
+				<!-- /// IMAGE /// -->
+				<f:image width="200" src="{fileReference.uid}" treatIdAsReference="1" alt="{fileReference.originalresource.alternative}" title="{fileReference.originalresource.title}" />
+				<div>
+					<f:link.action action="deleteFile" arguments="{speaker:speaker,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
+					<f:link.action action="newFile" arguments="{speaker:speaker,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
+				</div>
+				<f:render partial="File/Upload/MetaDataImage" arguments="{fileMetaData:fileMetaData,prefix:'fileMetaData'}" />
+			</f:if>
+			
+			
+			<f:if condition="{property}=='download'">
+				<!-- /// DOWNLOAD /// -->
+				<f:render partial="File/Download" arguments="{file:fileReference}" />
+				<div>
+					<f:link.action action="deleteFile" arguments="{speaker:speaker,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
+					<f:link.action action="newFile" arguments="{speaker:speaker,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
+				</div>
+				<f:render partial="File/Upload/MetaDataDownload" arguments="{fileMetaData:fileMetaData,prefix:'fileMetaData'}" />
+			</f:if>
+
+			<div>
+				<f:form.submit value="{f:translate(key: 'save', default: 'Save')}" />
+				<f:link.action action="showProfile" controller="Speaker" arguments="{speaker:speaker}" class="button cancel grey"><f:translate key="cancel">Cancel</f:translate></f:link.action>
+			</div>
+		</fieldset>
+	</f:form>
+	
+</f:section>
+
+
+<f:section name="right">
+	<f:render partial="Speaker/LoginBox" arguments="{speaker:speaker}" />
+</f:section>

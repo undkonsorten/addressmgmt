@@ -1,0 +1,41 @@
+<div class="contact {additionalClass}">
+	<p>
+		{speaker.title} {speaker.firstName} {speaker.name}
+		<f:if condition="{speaker.organization}"><br />{speaker.organization}</f:if>
+	</p>
+	<p>
+		{speaker.street} {speaker.streetNumber}<br />
+		{speaker.zip} {speaker.city}
+	</p>
+	<p>
+		<f:if condition="{speaker.www}"><div><f:link.external uri="{speaker.www}" target="_blank" class="displayBlock"><f:translate key="website" />Website</f:link.external></div></f:if>
+		<f:if condition="{speaker.showEmail}">
+			<div><f:link.email email="{speaker.email}" class="mail displayBlock">{speaker.email}</f:link.email></div>
+		</f:if>
+	</p>
+	<p>
+		<f:if condition="{speaker.phone}"><div><span><f:translate key="phone" /></span>: {speaker.phone}</div></f:if>
+		<f:if condition="{speaker.mobile}"><span class="displayBlock"><span><f:translate key="mobile" /></span>: {speaker.mobile}</span></f:if>
+		<f:if condition="{speaker.fax}"><span class="displayBlock"><span><f:translate key="fax" /></span>: {speaker.fax}</span></f:if>
+	</p> 
+	<f:if condition="{speaker.socialIdentifiers}">
+		<p>
+			<f:for each="{speaker.socialIdentifiers}" as="socialIdentifier">
+				<f:if condition="{socialIdentifier.url}">
+					<f:then>
+						<div>
+							<f:if condition="{socialIdentifier.provider.identifierLabel}">
+								<f:then><span class="{socialIdentifier.provider} socialIdentifierIcon">{socialIdentifier.provider.identifierLabel}:</span></f:then>
+								<f:else><span class="{socialIdentifier.provider} socialIdentifierIcon">{socialIdentifier.provider}:</span></f:else>
+							</f:if>
+							<a href="{socialIdentifier.url}" class="noContentBefore" target="_blank">{socialIdentifier.identifier}</a>
+						</div>
+					</f:then>
+					<f:else>
+						<div>{socialIdentifier.identifier}</div>
+					</f:else>
+				</f:if>
+			</f:for>
+		</p>
+	</f:if>
+</div>

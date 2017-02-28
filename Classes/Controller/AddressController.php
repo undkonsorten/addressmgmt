@@ -3,6 +3,11 @@ namespace Undkonsorten\Addressmgmt\Controller;
 
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Undkonsorten\Addressmgmt\Domain\Model\AddressInterface;
+use TYPO3\CMS\Extbase\Reflection\ReflectionService;
+use Undkonsorten\Addressmgmt\Domain\Model\Address;
+use Undkonsorten\Addressmgmt\Domain\Model\Address\Location;
+use TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentTypeException;
 /***************************************************************
  *  Copyright notice
  *
@@ -69,6 +74,37 @@ class AddressController extends BaseController{
 	    $this->storagePidFallback();
 	}
 	
+	public function dashAction(){
+	    $address = $this->getLoggedInAddress();
+	    //@TODO Security
+	    if(is_null($address)){
+	        if($this->settings['createDefautAddressType'] == ''){
+	            $this->createAddressFromFeUser($this->settings['createDefautAddressType']);
+	        }else{
+	            $this->view->assign('feUser', $this->getLoggedInFrontendUser());
+	            $this->view->assign('types', Address::getTypeConstants());
+	        }
+	    }else{
+	        $this->view->assign('address', $this->getLoggedInAddress());
+	    }
+
+	}
+	
+	/**
+	 * 
+	 * @param string $type
+	 */
+	public function newAction($type){
+	    $address = $this->createAddressFromFeUser($type);
+	    $this->view->assign('address', $address);
+	    
+	}
+	
+	public function createAction(Address $address){
+	    DebuggerUtility::var_dump($address);
+	    
+	}
+	
 	/**
 	 * action list
 	 *
@@ -106,6 +142,42 @@ class AddressController extends BaseController{
 	 */
 	public function showAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address) {
 		$this->view->assign('address', $address);
+	}
+	
+	/**
+	 *
+	 * @throws \UnexpectedValueException
+	 */
+	protected function getLoggedInAddress(){
+	    $frontendUser = $this->getLoggedInFrontendUser();
+	    $address = $this->addressRepository->findOneByFeUser($frontendUser);
+	    return $address;
+	}
+	
+	/**
+	 * creates an new speaker
+	 * @param string
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Address
+	 */
+	protected function createAddressFromFeUser($type) {
+	    $frontendUser = $this->getLoggedInFrontendUser();
+	    
+	    if($type == AddressInterface::PERSON){
+	        $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Person');
+	        $address->setName($frontendUser->getLastName());
+	        $address->setFirstName($frontendUser->getFirstName());
+	        $address->setEmail($frontendUser->getEmail());
+	    }elseif($type == AddressInterface::ORGANISATION){
+	        $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation');
+	    }elseif($type == AddressInterface::LOCATION){
+	        $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Location');
+	    }else{
+	        throw new InvalidArgumentTypeException($type." is no correct address type", 1488302381);
+	    }
+	 
+	    $address->setFeUser($frontendUser);
+	    
+	    return $address;
 	}
 
 }

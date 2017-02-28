@@ -135,6 +135,10 @@
             <trans-unit id="addressmgmt.show-less">
                 <source>show less</source>
             </trans-unit>
+            
+            <trans-unit id="save">
+				<source>Save</source>
+			</trans-unit>
 			
 		</body>
 	</file>

@@ -1,7 +1,3 @@
-
-
-
-
 plugin.tx_addressmgmt {
 	view {
 		templateRootPaths {
@@ -27,23 +23,6 @@ plugin.tx_addressmgmt {
 	settings{
 		# Remove # (hash) from constant to enable marker clusters
 		{$plugin.tx_addressmgmt.settings.useMarkerClusters} useMarkerClusters = 1
-		
-<<<<<<< HEAD
-=======
-		filterConfiguration{ 
-			filter1{
-				rootCategory = 999
-				orderBy = title
-				sorting = DESC
-			}
-			filter2{
-				rootCategory = 3
-				orderBy = sorting
-				sorting = ASC
-			}
-		}
-		
->>>>>>> 6c2d0cf... ADD: recursive and remove default (rekusive/storage/etc)
 		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
 		mapConfiguration {
 			latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}
@@ -52,6 +31,7 @@ plugin.tx_addressmgmt {
 			#map padding in px-units
 			padding = {$plugin.tx_addressmgmt.settings.mapConfiguration.padding}
 		}
+		createDefautAddressType = {$plugin.tx_addressmgmt.settings.mapConfiguration.createDefautAddressType}
 		tileLayerConfiguration {
 			urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}
 			options {
