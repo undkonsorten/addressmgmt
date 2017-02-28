@@ -72,6 +72,11 @@ class AddressController extends BaseController{
 	public function initializeAction(){
 	    $this->overrideFlexformSettings();
 	    $this->storagePidFallback();
+	    if(isset($this->arguments['address'])){
+	       $propertyMappingConfiguration = $this->arguments['address']->getPropertyMappingConfiguration();
+	       $propertyMappingConfiguration->allowProperties('type');
+	       $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_OVERRIDE_TARGET_TYPE_ALLOWED, TRUE);
+	    }
 	}
 	
 	public function dashAction(){
