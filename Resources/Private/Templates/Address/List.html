@@ -18,7 +18,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:flashMessages />
   <f:if condition="{addresss}">
 		<f:then>
-		  
       <f:switch expression="{settings.templateLayout}">
         <f:case value="map">
           <f:render partial="Map/Show" arguments="{_all}"/>
