@@ -4,17 +4,17 @@
   <f:render partial="Filter/Form" arguments="{_all}" />
   <div class="map" id="map{contendUid}" data-map-clusters="{settings.useMarkerClusters}" data-map-info-layer="#map{contendUid}-info-layer" data-map-wrap="#map{contendUid}-wrap" data-is-map="true" data-poi-list="#map{contendUid}-items" data-map-configuration="{settings.mapConfiguration -> u:format.json() -> f:format.htmlspecialchars()}" data-map-tilelayer="{settings.tileLayerConfiguration -> u:format.json() -> f:format.htmlspecialchars()}"></div>
   <div class="map-info-layer" id="map{contendUid}-info-layer"></div>
-  <ul id="map{contendUid}-items" style="display:none">
-    <f:for each="{addresses}" as="address">
+  <ul id="map{contendUid}-items" class="map-list-items filter-list-items" style="display:none">
+    <f:for each="{addresss}" as="address">
       <f:if condition="{address.latitude}">
         <f:then>
-          <li class="list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}">
+          <li class="filter-list-item list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}" data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}">
             <f:render partial="List/MapItem" arguments="{address: address}" />
           </li>
         </f:then>
         <f:else>
           <f:if condition="{address.geoJson}">
-            <li class="list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'geoJson',geoJson:address.geoJsonObject}) -> f:format.htmlspecialchars()}">
+            <li class="filter-list-item list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'geoJson',geoJson:address.geoJsonObject}) -> f:format.htmlspecialchars()}" data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}">
               <f:render partial="List/MapItem" arguments="{address: address}" />
             </li>
           </f:if>

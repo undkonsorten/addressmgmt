@@ -40,9 +40,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="list">
   <div class="list address">
-    <ul id="map{contendUid}-list-items" class="list-items">
+    <ul id="map{contendUid}-list-items" class="map-list-items filter-list-items list-items">
       <f:for each="{addresses}" as="address">
-        <li class="list-item item#{address.uid}{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}">
+        <li class="list-item filter-list-item item#{address.uid}{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}" data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}">
           <f:render partial="List/Item" arguments="{address: address}"/>
         </li>
       </f:for>

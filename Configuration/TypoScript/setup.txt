@@ -83,3 +83,4 @@ page.includeJSFooter.tx_addressmgmt_tileConfigurationParser = EXT:addressmgmt/Re
 page.includeJSFooter.tx_addressmgmt_poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
 page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
 page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
+page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/map/filter.js
