@@ -27,12 +27,10 @@ plugin.tx_addressmgmt {
 	settings{
 		# Remove # (hash) from constant to enable marker clusters
 		{$plugin.tx_addressmgmt.settings.useMarkerClusters} useMarkerClusters = 1
-		
-<<<<<<< HEAD
-=======
+
 		filterConfiguration{ 
 			filter1{
-				rootCategory = 999
+				rootCategory = 1
 				orderBy = title
 				sorting = DESC
 			}
@@ -42,8 +40,6 @@ plugin.tx_addressmgmt {
 				sorting = ASC
 			}
 		}
-		
->>>>>>> 6c2d0cf... ADD: recursive and remove default (rekusive/storage/etc)
 		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
 		mapConfiguration {
 			latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}
@@ -86,3 +82,4 @@ page.includeJSFooter.tx_addressmgmt_tileConfigurationParser = EXT:addressmgmt/Re
 page.includeJSFooter.tx_addressmgmt_poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
 page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
 page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
+page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/map/filter.js

@@ -62,8 +62,7 @@
     });
     $(this).on('update-list.map', function(e) {
       pois.forEach(function(poi) {
-        if ($(poi.element).data('map-hidden') === true) {
-          console.log('im here');
+        if ($(poi.element).hasClass('hide')) {
           poiLayerGroup.removeLayer(poi);
         } else {
           poi.addTo(poiLayerGroup);

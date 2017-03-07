@@ -3,6 +3,7 @@ namespace Undkonsorten\Addressmgmt\Controller;
 
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 /***************************************************************
  *  Copyright notice
  *
@@ -60,6 +61,21 @@ class AddressController extends BaseController{
 	 * @inject
 	 */
 	protected $organisationRepository;
+	
+	/**
+	 * categoryRepository
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
+	 * @inject
+	 */
+	protected $categoryRepository;
+	
+	/**
+	 * 
+	 * @var \Undkonsorten\Addressmgmt\Service\CategoryService
+	 * @inject
+	 */
+	protected $categoryService;
 
 	/**
 	 * Constructor
@@ -92,6 +108,14 @@ class AddressController extends BaseController{
 		if(!$addresses){
 			$addresses = $this->addressRepository->findAll();
 			$this->debugQuery($this->addressRepository->findAll());
+		}
+		foreach($this->settings['filterConfiguration'] as $key => $filter){
+		    $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
+		    if($parent){
+    		    $sorting = array($filter['orderBy'] => $filter['sorting']);
+    		    $filterCategories = $this->categoryService->findAllDescendants($parent, $sorting);
+    		    $this->view->assign($key, $filterCategories);
+		    }
 		}
 		
 		$this->view->assign('addresss', $addresses);
