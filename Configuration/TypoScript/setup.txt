@@ -53,6 +53,7 @@ plugin.tx_addressmgmt {
 			options {
 				id = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.id}
 				accessToken = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.accessToken}
+				attribution = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.attribution}
 			}
 		}
 	}
