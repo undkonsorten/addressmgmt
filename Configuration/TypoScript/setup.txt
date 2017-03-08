@@ -29,16 +29,16 @@ plugin.tx_addressmgmt {
 		{$plugin.tx_addressmgmt.settings.useMarkerClusters} useMarkerClusters = 1
 
 		filterConfiguration{ 
-			filter1{
-				rootCategory = 1
-				orderBy = title
-				sorting = DESC
-			}
-			filter2{
-				rootCategory = 3
-				orderBy = sorting
-				sorting = ASC
-			}
+#			filter1{
+#				rootCategory = 1
+#				orderBy = title
+#				sorting = DESC
+#			}
+#			filter2{
+#				rootCategory = 3
+#				orderBy = sorting
+#				sorting = ASC
+#			}
 		}
 		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
 		mapConfiguration {
