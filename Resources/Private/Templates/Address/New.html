@@ -13,11 +13,27 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1><f:translate key="editAddresssProfileNew">Edit address</f:translate></h1>
+<h1><f:translate key="editAddresssProfileNew">Create new address</f:translate></h1>
 
 <f:render partial="FormErrors" arguments="{object:Address}"/>
 <f:form action="create" name="address" object="{address}" >
-	<f:render partial="Address/FormFields" arguments="{address:address}" />
+	<f:render section="{address.type}" arguments="{_all}"/>
 <f:form.submit value="{f:translate(key:'save')}" />
+
 </f:form>
+</f:section>
+
+<f:section name="Tx_Addressbook_Person">
+ <f:render partial="Fields/FirstName" arguments="{_all}" />
+ <f:render partial="Fields/LastName" arguments="{_all}" />
+ <f:form.hidden property="feUser" />
+ <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Person" />
+</f:section>
+
+<f:section name="Tx_Addressbook_Location">
+ <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Location" />
+</f:section>
+
+<f:section name="Tx_Addressbook_Organisation">
+ <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation" />
 </f:section>

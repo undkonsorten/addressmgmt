@@ -106,8 +106,8 @@ class AddressController extends BaseController{
 	}
 	
 	public function createAction(Address $address){
-	    DebuggerUtility::var_dump($address);
-	    
+	    $this->addressRepository->add($address);
+	    $this->redirect('dash');
 	}
 	
 	/**
@@ -166,16 +166,18 @@ class AddressController extends BaseController{
 	 */
 	protected function createAddressFromFeUser($type) {
 	    $frontendUser = $this->getLoggedInFrontendUser();
-	    
 	    if($type == AddressInterface::PERSON){
 	        $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Person');
 	        $address->setName($frontendUser->getLastName());
 	        $address->setFirstName($frontendUser->getFirstName());
 	        $address->setEmail($frontendUser->getEmail());
+	        $address->setType(AddressInterface::PERSON);
 	    }elseif($type == AddressInterface::ORGANISATION){
 	        $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation');
+	        $address->setType(AddressInterface::ORGANISATION);
 	    }elseif($type == AddressInterface::LOCATION){
 	        $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Location');
+	        $address->setType(AddressInterface::LOCATION);
 	    }else{
 	        throw new InvalidArgumentTypeException($type." is no correct address type", 1488302381);
 	    }
