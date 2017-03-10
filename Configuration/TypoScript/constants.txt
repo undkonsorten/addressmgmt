@@ -17,7 +17,7 @@ plugin.tx_addressmgmt {
 	
 	settings{
 		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=Pids: Page id for a-z list view
-        pidsA-z = 89
+        pidsA-z =
         # cat=plugin.tx_addressmgmt/map/0005; type=comment; label=MarkerClusters: Use marker clusters
 		useMarkerClusters = #
 		mapConfiguration {
