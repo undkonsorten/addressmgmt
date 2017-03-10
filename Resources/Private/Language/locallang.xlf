@@ -135,6 +135,15 @@
             <trans-unit id="addressmgmt.show-less">
                 <source>show less</source>
             </trans-unit>
+            <trans-unit id="addressmgmt.submitButton">
+                <source>Filter now</source>
+            </trans-unit>
+            <trans-unit id="addressmgmt.resetButton">
+                <source>Reset form</source>
+            </trans-unit>
+            <trans-unit id="addressmgmt.linktextA-z">
+                <source>List from A-Z</source>
+            </trans-unit>
 			
 		</body>
 	</file>
