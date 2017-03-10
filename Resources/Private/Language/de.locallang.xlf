@@ -124,6 +124,7 @@
 
 			<trans-unit id="list.emptyList">
 				<source>No result</source>
+				<target state="translated">Keine Ergebnisse</target>
 			</trans-unit>
 
 			<trans-unit id="addressmgmt.read-more-link">
@@ -149,6 +150,10 @@
             <trans-unit id="addressmgmt.linktextA-z">
                 <source>List from A-Z</source>
                 <target state="translated">Liste von A-Z</target>
+            </trans-unit>
+		    <trans-unit id="addressmgmt.updateMap">
+                <source>Map updated</source>
+                <target state="translated">Karte aktualisiert</target>
             </trans-unit>
         </body>
 	</file>

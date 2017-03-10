@@ -4,6 +4,8 @@ $(document).ready(function() {
   var $searchForm = $('.map-filter form'),
     $resultList = $('.filter-list-items'),
     $itemSelector = '.filter-list-item',
+    $noResultsSelector = '.no-results',
+    $statusSelector = '.update-map',
     $mapElement = $('[data-is-map=true]');
 
   function checkSearchForm(form) {
@@ -29,9 +31,9 @@ $(document).ready(function() {
       }
     });
     if ($resultList.find($itemSelector + '.visible').length == 0) {
-      $('.no-results').show();
+      $($noResultsSelector).show();
     } else {
-      $('.no-results').hide();
+      $($noResultsSelector).hide();
     }
   }
 
@@ -39,19 +41,24 @@ $(document).ready(function() {
     $searchForm.each(function () {
       form = $(this);
       form.on('submit', function (e) {
-        console.log(e.type);
         e.preventDefault();
         checkSearchForm($(this));
         if($mapElement.length) {
+          $($statusSelector).show();
+          setTimeout(function(){
+            $($statusSelector).hide();
+          }, 600);
           $mapElement[0].dispatchEvent(new Event('update-list'));
           $mapElement[0].dispatchEvent(new Event('fitbounds'));
         }
       });
       form.find('.reset').on('click', function (e) {
-        console.log(form);
         form[0].reset();
         form.submit();
       });
     });
+  }
+  if($($noResultsSelector).length && $mapElement.length) {
+    $($noResultsSelector).appendTo($mapElement);
   }
 });
