@@ -5,11 +5,11 @@
         <legend>Akteure filtern</legend>
         <f:render partial="Filter/Field" arguments="{_all}" />
         <div class="form-field-wrap">
-          <button type="submit" class="button" name="form-submit">Jetzt filtern</button>
+          <button type="submit" class="button" name="form-submit"><f:translate key="addressmgmt.submitButton" /></button>
+          <button type="reset" class="reset"><f:translate key="addressmgmt.resetButton" /></button>
         </div>
         <div class="form-field-wrap a2z-link-wrap">
-          <a href="#" class="a2z-link">Liste von A-Z</a>
-          <!-- <a href="#" class="a2z-link">Filter aufheben</a> -->
+          <f:link.page pageUid="{settings.pidsA-z}" class="a2z-link"><f:translate key="addressmgmt.linktextA-z" /></f:link.page>
         </div>
       </fieldset>
     </form>
