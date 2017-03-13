@@ -50,6 +50,14 @@ $(document).ready(function() {
           }, 600);
           $mapElement[0].dispatchEvent(new Event('update-list'));
           $mapElement[0].dispatchEvent(new Event('fitbounds'));
+          // animate scrolling on submit to target on form element
+          target = form[0].target;
+          if ($(target).length) {
+            $('html, body').animate({
+              scrollTop: $(target).offset().top
+            }, 500);
+            return false;
+          }
         }
       });
       form.find('.reset').on('click', function (e) {

@@ -1,6 +1,6 @@
 <f:if condition="{settings.showFilter}">
   <div class="map-filter">
-    <form class="form-stacked" action="#map42-wrap">
+    <form class="form-stacked" action="#map{contendUid}-wrap" target="#map{contendUid}">
       <fieldset>
         <legend>Akteure filtern</legend>
         <f:render partial="Filter/Field" arguments="{_all}" />
