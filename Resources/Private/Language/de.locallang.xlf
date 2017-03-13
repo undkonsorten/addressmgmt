@@ -155,6 +155,15 @@
                 <source>Map updated</source>
                 <target state="translated">Karte aktualisiert</target>
             </trans-unit>
+
+		    <trans-unit id="addressmgmt.label.contactdata">
+                <source>Contact</source>
+                <target state="translated">Kontakt</target>
+            </trans-unit>
+		    <trans-unit id="addressmgmt.label.counterpart">
+                <source>Counterpart</source>
+                <target state="translated">Ansprechpartner</target>
+            </trans-unit>
         </body>
 	</file>
 </xliff>
