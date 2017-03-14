@@ -12,13 +12,13 @@ Address Management
 
 :Extension name: Address Management
 :Extension key: addressmgmt
-:Version: 2.0
-:Description: manuals covering TYPO3 extension "Address Management"
+:Version: |release|
+:Description: The TYPO3 extension "Address Management" used to display persons, organisations or locations als lists or as a map
+:Keywords: address, persons, locations, map
 :Language: en
-:Author: `undkonsorten - TYPO3 Agentur Berlin <http://www.undkonsorten.com>`_: Eike Starkmann, Thomas Alboth, Felix Althaus)
-:Creation: 2013-09-17
-:Generation: 00:06
-:Licence: Open Content License available from `www.opencontent.org/opl.shtml <http://www.opencontent.org/opl.shtml>`_
+:Author: `undkonsorten - TYPO3 Agentur Berlin <http://www.undkonsorten.com>`_: Eike Starkmann, Thomas Alboth, Felix Althaus
+:Rendered: |today|
+:Licence: This documentation is published under the `Open Content License <http://www.opencontent.org/opl.shtml>`_
 
 The TYPO3-Extension Address Management (EXT: addressmgmt) was created to replace tt_address. It is used to display persons, organisations or locations als lists or as a map.
 
@@ -27,7 +27,7 @@ The TYPO3-Extension Address Management (EXT: addressmgmt) was created to replace
 .. toctree::
 	:maxdepth: 3
 	:glob:
-   
+
 	Introduction/Introduction
 	ForEditors/ForEditors
 	ForAdministrators/ForAdministrators
