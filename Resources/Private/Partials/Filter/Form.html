@@ -1,15 +1,12 @@
 <f:if condition="{settings.showFilter}">
   <div class="map-filter">
-    <form class="form-stacked" action="#map42-wrap">
+    <form class="form-stacked" action="#map{contendUid}-wrap" target="#map{contendUid}">
       <fieldset>
         <legend>Akteure filtern</legend>
         <f:render partial="Filter/Field" arguments="{_all}" />
         <div class="form-field-wrap">
-          <button type="submit" class="button" name="form-submit">Jetzt filtern</button>
-        </div>
-        <div class="form-field-wrap a2z-link-wrap">
-          <a href="#" class="a2z-link">Liste von A-Z</a>
-          <!-- <a href="#" class="a2z-link">Filter aufheben</a> -->
+          <button type="submit" class="button" name="form-submit"><f:translate key="addressmgmt.submitButton" /></button>
+          <button type="reset" class="reset"><f:translate key="addressmgmt.resetButton" /></button>
         </div>
       </fieldset>
     </form>

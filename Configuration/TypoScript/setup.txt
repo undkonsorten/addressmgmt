@@ -40,6 +40,7 @@ plugin.tx_addressmgmt {
 #				sorting = ASC
 #			}
 		}
+		pidsA-z = {$plugin.tx_addressmgmt.settings.pidsA-z}
 		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
 		mapConfiguration {
 			latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}

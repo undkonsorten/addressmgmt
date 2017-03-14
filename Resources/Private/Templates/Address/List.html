@@ -27,7 +27,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
           <f:render section="list" arguments="{addresses:addresss, contendUid:contendUid}"/>
         </f:case>
         <f:case default="true">
-          <f:render partial="Filter/Form" arguments="{_all}" />
+          <div class="filter-list-only"><f:render partial="Filter/Form" arguments="{_all}" /></div>
           <f:render section="list" arguments="{addresses:addresss, contendUid:contendUid}"/>
         </f:case>
       </f:switch>

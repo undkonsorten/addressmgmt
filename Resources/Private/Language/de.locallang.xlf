@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressmgmt">
+	<file datatype="plaintext" date="2013-09-17T00:06:57Z" original="messages" product-name="addressmgmt" source-language="en">
 		<header/>
 		<body>
 
@@ -132,11 +132,12 @@
 				<source>Sir</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.3">
-				<source></source>
+				<source/>
 			</trans-unit>
 
 			<trans-unit id="list.emptyList">
 				<source>No result</source>
+				<target state="translated">Keine Ergebnisse</target>
 			</trans-unit>
 
 			<trans-unit id="addressmgmt.read-more-link">
@@ -152,16 +153,32 @@
 				<target state="translated">weniger</target>
 			</trans-unit>
 
-			<trans-unit id="addressmgmt.label.counterpart">
+		    <trans-unit id="addressmgmt.submitButton">
+                <source>Filter now</source>
+                <target state="translated">Jetzt filtern</target>
+            </trans-unit>
+            <trans-unit id="addressmgmt.resetButton">
+                <source>Reset form</source>
+                <target state="translated">Zurücksetzen</target>
+            </trans-unit>
+            <trans-unit id="addressmgmt.linktextA-z">
+                <source>List from A-Z</source>
+                <target state="translated">Liste von A-Z</target>
+            </trans-unit>
+		    <trans-unit id="addressmgmt.updateMap">
+                <source>Map updated</source>
+                <target state="translated">Karte aktualisiert</target>
+            </trans-unit>
+
+		    <trans-unit id="addressmgmt.label.contactdata">
+                <source>Contact</source>
+                <target state="translated">Kontakt</target>
+            </trans-unit>
+		    <trans-unit id="addressmgmt.label.counterpart">
                 <source>Counterpart</source>
                 <target state="translated">Ansprechpartner</target>
             </trans-unit>
-            <trans-unit id="addressmgmt.label.contactdata">
-                <source>Contact data</source>
-                <target state="translated">Kontaktdaten</target>
-            </trans-unit>
+        </body>
 
-			
-		</body>
 	</file>
 </xliff>
