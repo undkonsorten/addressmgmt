@@ -3,58 +3,81 @@
       data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
+This Template is responsible for displaying a single view for a domain object
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
+Resources:
+Private:
+Templates:
+Show.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
+    <u:titleTag>{address.name}</u:titleTag>
+    <h1>Dashboard for Address</h1>
 
-<f:flashMessages />
-  <f:if condition="{addresss}">
-		<f:then>
-      <f:switch expression="{settings.templateLayout}">
-        <f:case value="map">
-          <f:render partial="Map/Show" arguments="{addresses:addresss, contendUid:contendUid}"/>
-        </f:case>
-        <f:case value="map-list">
-          <f:render partial="Map/Show" arguments="{addresses:addresss, contendUid:contendUid}"/>
-          <f:render section="list" arguments="{addresses:addresss, contendUid:contendUid}"/>
-        </f:case>
-        <f:case default="true">
-          <f:render section="list" arguments="{addresses:addresss, contendUid:contendUid}"/>
-        </f:case>
-      </f:switch>
-		</f:then>
-		<f:else>
-			<f:render section="noAddress" arguments="{feUser:feUser, types:types,  contendUid:contendUid}"/>
-		</f:else>
-	</f:if>
+    <f:flashMessages />
+    <div class="tx-addressmgmt" >
+        <f:render partial="Map/ShowSingle" arguments="{address:address, contendUid:contendUid}"/>
+        <h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate>{address.title} {address.firstName} {address.Name}</h3>
+        <f:for each="{address.category}" as="category">
+            {category.title}
+        </f:for>
+
+        {address.organization}
+
+        {address.department}
+
+        {address.street}
+
+        {address.streetNumber}
+
+        {address.addressSupplement}
+
+        {address.city}
+
+        {address.zip}
+
+        {address.country}
+
+        {address.state}
+
+        {address.closestCity}
+
+        <f:if condition="{address.feUser}">
+            <f:then>{address.feUser.username}</f:then>
+            <f:else>{address.email}</f:else>
+        </f:if>
+
+        {address.phone}
+
+        {address.mobile}
+
+        {address.fax}
+
+        {address.www}
+
+        {address.description}
+        <f:if condition="{address.image}">
+            <figure>
+                <f:image src="{address.image.originalResource.forLocalProcessing}" alt="nada" width="300" />
+            </figure>
+        </f:if>
+
+        {address.latitude}
+
+        {address.longitude}
+
+        <f:for each="{address.socialIdentifiers}" as="identifier">
+            <div>
+                <f:if condition="{identifier.provider.image}">
+                    <f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
+                </f:if>
+                <strong>{identifier.provider.name}:</strong>
+                {identifier.url}
+            </div>
+        </f:for>
+    </div>
 </f:section>
-
-<f:section name="list">
-  <div class="list address">
-    <ul id="map{contendUid}-list-items" class="list-items">
-      <f:for each="{addresses}" as="address">
-        <li class="list-item item#{address.uid}{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}">
-          <f:render partial="List/Item" arguments="{address: address}"/>
-        </li>
-      </f:for>
-    </ul>
-  </div>
-</f:section>
-
-<f:section name="noAddress">
-<f:for each="{types}" as="type" key="key">
-	<f:link.action class="button" action="new" arguments="{type:type}">Create new {type}</f:link.action>
-</f:for>
-
-</f:section>
-
-</html>
