@@ -55,6 +55,7 @@ class AddressController extends BaseController{
 	 */
 	protected $personRepository;
 
+
 	/**
 	 * organisationRepository
 	 *
@@ -140,6 +141,8 @@ class AddressController extends BaseController{
 			$addresses = $this->addressRepository->findAll();
 			$this->debugQuery($this->addressRepository->findAll());
 		}
+
+
 		
 		$this->view->assign('addresss', $addresses);
 		$this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
