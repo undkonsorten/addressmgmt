@@ -84,5 +84,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <f:link.action class="button" action="edit" arguments="{address:address}">Edit Profile</f:link.action>
 
+    <f:if condition="{address.image}">
+        <f:else>
+            <f:link.action class="button" action="new" controller="File" arguments="{address:address}">New Image</f:link.action>
+        </f:else>
+    </f:if>
+
+
 
 </f:section>
