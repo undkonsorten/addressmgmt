@@ -1,3 +1,5 @@
+.. include:: ../Includes.txt
+
 .. _ForEditors:
 
 =====================

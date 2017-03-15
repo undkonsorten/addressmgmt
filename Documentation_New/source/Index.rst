@@ -4,6 +4,8 @@
 	* tab indent with 4 characters for code snippet.
 	* optional: soft carriage return preferred.
 
+.. include:: Includes.txt
+
 .. _start:
 
 =====================

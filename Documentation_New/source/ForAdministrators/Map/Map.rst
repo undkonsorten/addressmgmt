@@ -1,14 +1,31 @@
+.. include:: ../../Includes.txt
+
 .. _Map:
 
 =========================
-Map with OpenStreetMap
+Map
 =========================
+
+Features
+========
+
+TYPO3 Addressmanagement can display addresses on a map. Therefor it provides fields for
+
+* *Latitute* and *Lontitude* for Pins/Markers and
+* *GeoJson* for Shapes/Polygones
+
+on the map.
+
+.. important::
+
+   In order to use the map you need an OpenStreetMap TileServer (see below).
+
+
+OpenStreetMap
+=============
 
 We decided to use for our map `OpenStreetMap <https://www.openstreetmap.org/>`_ . The map is created with  `Leaflet.js <http://leafletjs.com/>`_. As a tile server we are using `Mapbox <https://www.mapbox.com/>`_.
 
-.. note::
-
-  **Mapbox needed:** In oder to make the map work you will need to create an Mapbox Account
 
 Using Mapbox
 =========================

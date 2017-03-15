@@ -1,4 +1,7 @@
+.. include:: ../Includes.txt
+
 .. _introduction:
+
 
 =====================
 Introduction
@@ -9,8 +12,9 @@ What does it do?
 =================
 
 
-The TYPO3-Extension **Address Management (EXT: addressmgmt)** was created to **replace tt_address**.
-It is used to display persons, organisations or locations als lists or on a map.
+The TYPO3-Extension **Address Management (EXT: addressmgmt)** was created to *replace tt_address*.
+
+It is used to display persons, organisations or locations as lists or on a map. It provides also a connection to FE User in order to add/edit address records in the frontend.
 
 **Features of TYPO3 Address Management**
 
@@ -27,7 +31,7 @@ It is used to display persons, organisations or locations als lists or on a map.
 
 It's build with love and
 
-* is based on extbase & fluid
+* it's based on extbase & fluid
 * it's easy to use and understand
 * working with TYPO3 core elements (like *sys categories* and *fe users*)
 * it's tested and impoved on mulitple live websites

@@ -1,3 +1,5 @@
+.. include:: ../../../Includes.txt
+
 .. _Miscellaneous:
 
 =====================
@@ -35,4 +37,3 @@ It is recommended to provide the User with a URL pointing to a roadmap_. Forge g
 .. _stable versions: http://typo3.org/extensions/repository/
 .. _roadmap: http://forge.typo3.org/projects/typo3v4-official_extension_template/roadmap
 .. _repository log: http://git.typo3.org/TYPO3v4/Core.git?a=shortlog
-
