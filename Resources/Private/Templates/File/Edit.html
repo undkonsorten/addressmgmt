@@ -23,19 +23,19 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 	<h1><f:translate key="editFile-{property}">Edit File</f:translate></h1>
 	
-	<u:titleTag>{speaker.fullName}</u:titleTag>
+	<u:titleTag>{address.fullName}</u:titleTag>
 	<f:flashMessages />
 	
-	<f:form action="updateFile" arguments="{speaker:speaker,fileReference:fileReference, property:property}" name="fileMetaData" >
+	<f:form action="updateFile" arguments="{address:address,fileReference:fileReference, property:property}" name="fileMetaData" >
 		<fieldset>
 			
 			
-			<f:if condition="{property}=='image'">
+			<f:if condition="{property}=='images'">
 				<!-- /// IMAGE /// -->
 				<f:image width="200" src="{fileReference.uid}" treatIdAsReference="1" alt="{fileReference.originalresource.alternative}" title="{fileReference.originalresource.title}" />
 				<div>
-					<f:link.action action="deleteFile" arguments="{speaker:speaker,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
-					<f:link.action action="newFile" arguments="{speaker:speaker,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
+					<f:link.action action="delete" arguments="{address:address,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
+					<f:link.action action="new" arguments="{address:address,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
 				</div>
 				<f:render partial="File/Upload/MetaDataImage" arguments="{fileMetaData:fileMetaData,prefix:'fileMetaData'}" />
 			</f:if>
@@ -45,15 +45,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
 				<!-- /// DOWNLOAD /// -->
 				<f:render partial="File/Download" arguments="{file:fileReference}" />
 				<div>
-					<f:link.action action="deleteFile" arguments="{speaker:speaker,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
-					<f:link.action action="newFile" arguments="{speaker:speaker,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
+					<f:link.action action="delete" arguments="{address:address,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
+					<f:link.action action="new" arguments="{address:address,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
 				</div>
 				<f:render partial="File/Upload/MetaDataDownload" arguments="{fileMetaData:fileMetaData,prefix:'fileMetaData'}" />
 			</f:if>
 
 			<div>
 				<f:form.submit value="{f:translate(key: 'save', default: 'Save')}" />
-				<f:link.action action="showProfile" controller="Speaker" arguments="{speaker:speaker}" class="button cancel grey"><f:translate key="cancel">Cancel</f:translate></f:link.action>
+				<f:link.action action="dash" controller="Address" arguments="{address:address}" class="button cancel grey"><f:translate key="cancel">Cancel</f:translate></f:link.action>
 			</div>
 		</fieldset>
 	</f:form>
