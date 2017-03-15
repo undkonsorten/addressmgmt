@@ -1,0 +1,60 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+
+This Template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="breadcrumb">
+	<f:cObject typoscriptObjectPath="u10n.menus.breadcrumb" />
+</f:section>
+
+<f:section name="main">
+	
+	<h1><f:translate key="upload-{property}">Upload File</f:translate></h1>
+	
+	<u:titleTag>{address.fullName}</u:titleTag>
+	<f:form action="create" enctype="multipart/form-data">
+		<fieldset>
+			<f:form.hidden name="fileReference" value="{fileReference}"/>
+			<f:form.hidden name="address" value="{address}"/>
+			<f:form.hidden name="property" value="{property}"/>
+			<div>
+				<label for="download">
+					<f:translate key="tx_address_domain_model_address.{property}">File for Download</f:translate>
+					<f:render partial="FieldError" arguments="{object: Address, property: 'address.{propertyUpload}'}" />
+					<p class="helptext"><f:translate key="helpTextAllowedFiletypes">Allowed filetyles are: pdf, jpg, png, gif</f:translate></p>
+				</label>
+
+				<f:form.upload name="address[{propertyUpload}]" class="withBorder"/>
+
+			</div>
+			
+			<f:if condition="{property}=='images'">
+				<f:render partial="File/Upload/MetaDataImage" arguments="{fileMetaData:fileUpload.fileMetaData,prefix:'address[{propertyUpload}][fileMetaData]'}" />
+			</f:if>
+			<f:if condition="{property}=='download'">
+				<f:render partial="File/Upload/MetaDataDownload" arguments="{fileMetaData:fileUpload.fileMetaData,prefix:'address[{propertyUpload}][fileMetaData]'}" />
+			</f:if>
+	
+			<f:form.submit value="{f:translate(key: 'save', default: 'Save')}" />
+			<f:link.action action="dash" controller="Address" arguments="{address:address}" class="button cancel grey"><f:translate key="cancel">Cancel</f:translate></f:link.action>
+		</fieldset>
+	</f:form>
+
+</f:section>
+
+<f:section name="right">
+	<f:render partial="Address/LoginBox" arguments="{address:address}" />
+</f:section>

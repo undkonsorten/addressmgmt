@@ -1,5 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 /***************************************************************
  *  Copyright notice
@@ -25,6 +26,7 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 
 /**
  *
@@ -202,7 +204,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 *
 	 * @var \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload
 	 */
-	protected $imageUpload;
+	protected $imagesUpload;
 
 	/**
 	 * latitude
@@ -629,24 +631,31 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 		$this->description = $description;
 	}
 
-	/**
-	 * Returns the image
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $images
-	 */
-	public function getImages() {
-		return $this->images;
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $images
+     */
+    public function setImages(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $images)
+    {
+        $this->images = $images;
+    }
+
+    public function addImage(FileReference $image){
+    	$this->images->attach($image);
 	}
 
-	/**
-	 * Sets the image
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $images
-	 * @return void
-	 */
-	public function setImages($images) {
-		$this->image = $images;
-	}
+	public function removeImage(FileReference $image){
+    	$this->images->detach($image);
+}
+
+
 	
 	/**
 	 * Coordinates as array of floats
@@ -855,7 +864,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
  
 
 	
-/**
+	/**
 	 * @return \string
 	 */
     public function getGeojson()
@@ -875,5 +884,22 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	    $oClass = new \ReflectionClass(__CLASS__);
 	    return $oClass->getConstants();
 	}
+
+    /**
+     * @return File\FileUpload
+     */
+    public function getImagesUpload()
+    {
+        return $this->imagesUpload;
+    }
+
+    /**
+     * @param File\FileUpload $imagesUpload
+     */
+    public function setImagesUpload(File\FileUpload $imagesUpload)
+    {
+        $this->imagesUpload = $imagesUpload;
+    }
+
 }
 ?>

@@ -86,7 +86,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <f:if condition="{address.image}">
         <f:else>
-            <f:link.action class="button" action="new" controller="File" arguments="{address:address}">New Image</f:link.action>
+            <f:link.action class="button" action="new" controller="File" arguments="{address:address, property:'images'}">New Image</f:link.action>
         </f:else>
     </f:if>
 

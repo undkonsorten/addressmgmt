@@ -10,6 +10,7 @@ $extensionConfiguration = \Undkonsorten\Addressmgmt\Service\ExtensionConfigurati
 	'List',
 	array(
 		'Address' => 'list, show',
+        'File'  => '',
 		
 	),
 	// non-cacheable actions

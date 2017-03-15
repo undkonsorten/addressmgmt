@@ -15,6 +15,12 @@ plugin.tx_addressmgmt {
 	}
 	
 	settings{
+	    target{
+            # cat=plugin.tx_addressmgmt/settings; type=string; label=Target default:Format StoragePid:Folder
+            default = 1:default
+            # cat=plugin.tx_addressmgmt/settings; type=string; label=Target image:Format StoragePid:Folder
+            images = 1:image
+        }
 		# cat=plugin.tx_addressmgmt/map/0005; type=comment; label=MarkerClusters: Use marker clusters
 		useMarkerClusters = #
 		# cat=plugin.tx_addressmgmt/0006; type=string; label=Create default address type: Tx_Addressbook_Location|Tx_Addressbook_Organisation|Tx_Addressbook_Person

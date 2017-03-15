@@ -139,6 +139,10 @@
             <trans-unit id="save">
 				<source>Save</source>
 			</trans-unit>
+
+			<trans-unit id="flashMessage.createFile">
+				<source>File created</source>
+			</trans-unit>
 			
 		</body>
 	</file>

@@ -1,0 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+
+<f:if condition="{file.originalResource.title}">
+	<f:then>
+		<a href="{file.originalResource.publicUrl}" class="download">{file.originalResource.title}</a> <span class="filename">({file.originalResource.name})</span> &nbsp; &nbsp;
+	</f:then>
+	<f:else>
+		<a href="{file.originalResource.publicUrl}" class="download">{file.originalResource.name}</a> &nbsp; &nbsp;
+	</f:else>
+</f:if>

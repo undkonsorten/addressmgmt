@@ -340,8 +340,10 @@
             </trans-unit>
             <trans-unit id="tx_addressmgmt.templateLayout.map-list">
                 <source>Map and list</source>
-                <target state="translated">Karte und Liste</target>
             </trans-unit>
+
+
+
 			
 		</body>
 	</file>

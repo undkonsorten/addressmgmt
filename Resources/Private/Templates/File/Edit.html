@@ -1,6 +1,8 @@
-{namespace a=Undkonsorten\Addressbook\ViewHelpers}
-{namespace b=Undkonsorten\Speaker\ViewHelpers}
-<f:layout name="WholePage" />
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
 
 This Template is responsible for displaying a single view for a domain object
 
@@ -21,7 +23,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 	<h1><f:translate key="editFile-{property}">Edit File</f:translate></h1>
 	
-	<a:titleTag>{speaker.fullName}</a:titleTag>
+	<u:titleTag>{speaker.fullName}</u:titleTag>
 	<f:flashMessages />
 	
 	<f:form action="updateFile" arguments="{speaker:speaker,fileReference:fileReference, property:property}" name="fileMetaData" >
@@ -58,7 +60,3 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	
 </f:section>
 
-
-<f:section name="right">
-	<f:render partial="Speaker/LoginBox" arguments="{speaker:speaker}" />
-</f:section>
