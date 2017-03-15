@@ -176,8 +176,8 @@ class FileController extends BaseController {
 	 */
 	public function deleteAction(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference, \Undkonsorten\Addressmgmt\Domain\Model\Address $address){
 		$this->resourceFactory->deleteFileReference($fileReference, $address, 'download');
-		$this->flashMessageContainer->add(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('flashMessage.deleteFile', $this->extensionName, array(0=>$fileReference->getUid())));
-		$this->redirect('showProfile','Addressmgmt');
+		$this->addFlashMessage(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0=>$fileReference->getUid())));
+		$this->redirect('dash','Address');
 	}
 	
 	protected function getErrorFlashMessage(){

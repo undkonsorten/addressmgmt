@@ -81,14 +81,21 @@ Otherwise your changes will be overwritten the next time you save the extension 
         </f:for>
     </div>
 
+    <f:for each="{address.images}" as="image">
+        <div>
+            <f:image src="{image.originalResource.originalFile.uid}" alt="image.alternative" width="100" />
+            <f:link.action class="button" action="delete" controller="File" arguments="{fileReference:image, address:address}">Delete</f:link.action>
+            <f:link.action class="button" action="edit" controller="File" arguments="{address:address, property:'images'}">Edit</f:link.action>
+        </div>
 
-    <f:link.action class="button" action="edit" arguments="{address:address}">Edit Profile</f:link.action>
+    </f:for>
 
-    <f:if condition="{address.image}">
-        <f:else>
-            <f:link.action class="button" action="new" controller="File" arguments="{address:address, property:'images'}">New Image</f:link.action>
-        </f:else>
-    </f:if>
+    <div>
+        <f:link.action class="button" action="edit" arguments="{address:address}">Edit Profile</f:link.action>
+        <f:link.action class="button" action="new" controller="File" arguments="{address:address, property:'images'}">New Image</f:link.action>
+    </div>
+
+
 
 
 

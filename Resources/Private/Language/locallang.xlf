@@ -141,8 +141,13 @@
 			</trans-unit>
 
 			<trans-unit id="flashMessage.createFile">
-				<source>File created</source>
+				<source>The file "%s" was uploaded</source>
 			</trans-unit>
+
+			<trans-unit id="flashMessage.deleteFile">
+				<source>The file reference "%s" has been deleted</source>
+			</trans-unit>
+
 			
 		</body>
 	</file>
