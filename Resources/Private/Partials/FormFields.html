@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+
+<f:render section="{address.type}" arguments="{_all}"/>
+
+
+
+
+<f:section name="Tx_Addressbook_Person">
+    <f:render partial="Fields/FirstName" arguments="{_all}" />
+    <f:render partial="Fields/LastName" arguments="{_all}" />
+    <f:form.hidden property="feUser" />
+    <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Person" />
+</f:section>
+
+<f:section name="Tx_Addressbook_Location">
+    <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Location" />
+</f:section>
+
+<f:section name="Tx_Addressbook_Organisation">
+    <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation" />
+</f:section>

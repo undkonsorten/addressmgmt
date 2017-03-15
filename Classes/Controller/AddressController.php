@@ -101,11 +101,20 @@ class AddressController extends BaseController{
 	    $this->view->assign('address', $address);
 	    
 	}
+
+	public  function editAction(Address $address){
+	    $this->view->assign('address', $address);
+    }
 	
 	public function createAction(Address $address){
 	    $this->addressRepository->add($address);
 	    $this->redirect('dash');
 	}
+
+	public function updateAction(Address $address){
+	    $this->addressRepository->update($address);
+        $this->redirect('dash');
+    }
 	
 	/**
 	 * action list
