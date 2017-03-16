@@ -9,7 +9,7 @@ Map
 Features
 ========
 
-TYPO3 Addressmanagement can display addresses on a map. Therefor it provides fields for
+TYPO3 Addressmanagement can display addresses on a map. Therefore it provides fields for
 
 * *Latitute* and *Lontitude* for Pins/Markers and
 * *GeoJson* for Shapes/Polygones
@@ -18,7 +18,7 @@ on the map.
 
 .. important::
 
-   In order to use the map you need an OpenStreetMap TileServer (see below).
+   In order to use the map as described here you need an OpenStreetMap acccount. But it's also possbile to use other tile servers.
 
 
 OpenStreetMap
@@ -44,11 +44,11 @@ After creating and saving you style you can access the share options. here you f
 .. image:: Images/2017-03-14_mapbox-leflet-id-token.png
   :alt: Mapbox: Share Style for leaflet
 
-Here you need to copy the **Leaflet URL**:
+Here you need to copy the **Leaflet URL** wich looks like this:
 
 ``https://api.mapbox.com/styles/v1/undkonsorten/ciuchHn17O1kbdzmlrcwr5vr4/tiles/256/{z}/{x}/{y}?access_token=pk.eYJ1IjoidW5ka26uc29yeGVuIiwiYSI6ImkrPGtvbmV6YjAwN3hubmtxY3gyMmdrNDAifQ.nN0Gx4tJhd4Ta9mzxW6XDw``
 
-In this URL you can find your
+In this URL consists of your
 
 * Mapbox username: ``undkonsorten``
 * Style ID: ``ciuchHn17O1kbdzmlrcwr5vr4``
