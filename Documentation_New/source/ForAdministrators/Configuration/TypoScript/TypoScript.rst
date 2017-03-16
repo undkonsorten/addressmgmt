@@ -50,6 +50,8 @@ Marker Clusters
 
     :typoscript:`plugin.tx_addressmgmt.settings.useMarkerClusters =` 1
 
+----------
+
 
 .. _tsConstants_map_latitude:
 
@@ -69,6 +71,7 @@ Latitude
 
     :typoscript:`plugin.tx_addressmgmt.settings.mapConfiguration.latitude =` 14.000
 
+----------
 
 .. _tsConstants_map_longitude:
 
