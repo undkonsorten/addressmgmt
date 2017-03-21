@@ -1,8 +1,5 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
-
-
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 /***************************************************************
@@ -173,12 +170,13 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * StoragePid fallback: Plugin->TS->CurrentPid
 	 */
 	protected function storagePidFallback() {
-	    $configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+	    $pluginSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+	    $configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'addressmgmt', 'address_list');
 	
 	    //Check if storage PID is set in plugin
-	    if($configuration['settings']['storageFolder']){
-	        $pid['persistence']['storagePid'] = $configuration['settings']['storageFolder'];
-	        $this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+	    if($pluginSettings['persistence']['storagePid']){
+	        $pid['persistence']['storagePid'] = $pluginSettings['persistence']['storagePid'];
+	        $this->configurationManager->setConfiguration(array_merge($pluginSettings, $pid));
 	        	
 	        //Check if storage PID is set in TS
 	    }elseif($configuration['persistence']['storagePid']){
@@ -208,7 +206,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	public function overrideFlexformSettings() {
 	
 	    $originalSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
-	    $typoScriptSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'eventmgmt', 'event_list');
+	    $typoScriptSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'addressmgmt', 'address_list');
 	    if(isset($typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'])) {
 	        $overrideIfEmpty = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'], TRUE);
 	        foreach ($overrideIfEmpty as $settingToOverride) {

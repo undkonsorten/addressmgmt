@@ -1,7 +1,3 @@
-
-
-
-
 plugin.tx_addressmgmt {
 	view {
 		templateRootPaths {
@@ -17,18 +13,21 @@ plugin.tx_addressmgmt {
 			10 = {$plugin.tx_addressmgmt.view.layoutRootPath}
 		}
 	}
-	persistence {
-		storagePid = {$plugin.tx_addressmgmt.persistence.storagePid}
-	}
 	features {
 		# uncomment the following line to enable the new Property Mapper.
 		rewrittenPropertyMapper = 1
 	}
 	settings{
+	    storagePid = {$plugin.tx_addressmgmt.settings.storagePid}
+	    recursive = {$plugin.tx_addressmgmt.settings.recursive}
+	    target{
+            default = {$plugin.tx_addressmgmt.settings.target.default}
+            images = {$plugin.tx_addressmgmt.settings.target.images}
+        }
 		# Remove # (hash) from constant to enable marker clusters
 		{$plugin.tx_addressmgmt.settings.useMarkerClusters} useMarkerClusters = 1
-		
-		filterConfiguration{ 
+
+		filterConfiguration{
 			filter1{
 				rootCategory = 999
 				orderBy = title
@@ -40,7 +39,7 @@ plugin.tx_addressmgmt {
 				sorting = ASC
 			}
 		}
-		
+
 		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
 		mapConfiguration {
 			latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}
