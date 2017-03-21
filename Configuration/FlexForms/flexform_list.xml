@@ -185,7 +185,7 @@
 									<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1</numIndex>
 									<numIndex index="1">1</numIndex>
 								</numIndex>
-								<numIndex index="2">
+								<numIndex index="3">
 									<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2</numIndex>
 									<numIndex index="1">2</numIndex>
 								</numIndex>
