@@ -93,6 +93,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <div>
         <f:link.action class="button" action="edit" arguments="{address:address}">Edit Profile</f:link.action>
         <f:link.action class="button" action="new" controller="File" arguments="{address:address, property:'images'}">New Image</f:link.action>
+        <f:if condition="{address.publishState} == 0">
+            <f:link.action class="button" action="handInForReview" arguments="{address:address}">Pubish my data</f:link.action>
+        </f:if>
     </div>
 
 

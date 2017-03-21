@@ -76,6 +76,14 @@ class AddressController extends BaseController{
 	       $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_OVERRIDE_TARGET_TYPE_ALLOWED, TRUE);
 	    }
 	}
+
+	public function handInForReviewAction(Address $address){
+	    $address->setPublishState(Address::PUBLISH_WAITING);
+	    $this->addressRepository->update($address);
+	    //@TODO flash message
+        $this->redirect('dash');
+
+    }
 	
 	public function dashAction(){
 	    $address = $this->getLoggedInAddress();

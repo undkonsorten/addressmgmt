@@ -916,7 +916,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     /**
      * @param int $publishState
      */
-    public function setPublishState(int $publishState)
+    public function setPublishState($publishState)
     {
         $this->publishState = $publishState;
     }
