@@ -37,6 +37,10 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  */
 abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements AddressInterface {
 
+    /**
+     * @var integer
+     */
+	protected $publishState;
 	
 	/**
 	 * 
@@ -899,6 +903,22 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     public function setImagesUpload(File\FileUpload $imagesUpload)
     {
         $this->imagesUpload = $imagesUpload;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPublishState()
+    {
+        return $this->publishState;
+    }
+
+    /**
+     * @param int $publishState
+     */
+    public function setPublishState(int $publishState)
+    {
+        $this->publishState = $publishState;
     }
 
 }

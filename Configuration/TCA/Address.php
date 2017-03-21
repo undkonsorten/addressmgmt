@@ -6,7 +6,7 @@ $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['addressmg
 $TCA['tx_addressmgmt_domain_model_address'] = array(
 	'ctrl' => $TCA['tx_addressmgmt_domain_model_address']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, first_name, name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, images, latitude, longitude, geojson, fe_user, social_identifiers',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, first_name, name, gender, title, organization, department, street, street_number, address_supplement, city, zip, country, state, closest_city, email, phone, mobile, fax, www, description, images, latitude, longitude, geojson, fe_user, social_identifiers, publish_state',
 	),
 	'types' => array(
 	   '0' => array('showitem' => '
@@ -15,7 +15,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		),
 		'Tx_Addressbook_Person' => array('showitem' => '
 				type,--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.name;name, fe_user, organization;;department,
-				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, category, social_identifiers,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, category, social_identifiers, publish_state,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,images,description,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
@@ -26,7 +26,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		),
 		'Tx_Addressbook_Organisation' => array('showitem' => '
 				type, name;;department, fe_user, organization,
-				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, category, social_identifiers,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, category, social_identifiers, publish_state,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,images,description,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
@@ -37,7 +37,7 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 		),
 	    'Tx_Addressbook_Location' => array('showitem' => '
 				type, name;;department, fe_user, organization,
-				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, counterpart, category, social_identifiers,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.addressal_contact;addressal_contact, counterpart, category, social_identifiers, publish_state,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.description,images,description,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
@@ -448,6 +448,23 @@ $TCA['tx_addressmgmt_domain_model_address'] = array(
 				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
 			),
 		),
+        'publish_state' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state',
+            'config' => array(
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => array(
+                    array('', ''),
+                    array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0', \Undkonsorten\Addressmgmt\Domain\Model\Address::PUBLISH_CREATED),
+                    array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1', \Undkonsorten\Addressmgmt\Domain\Model\Address::PUBLISH_WAITING),
+                    array('LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2', \Undkonsorten\Addressmgmt\Domain\Model\Address::PUBLISH_PUBLISHED),
+                ),
+                'size' => 1,
+                'maxitems' => 1,
+                'eval' => ''
+            ),
+        ),
 	    'geojson' => array(
 	        'exclude' => 1,
 	        'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.geojson',
