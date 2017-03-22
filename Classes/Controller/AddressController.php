@@ -64,6 +64,12 @@ class AddressController extends BaseController{
 	 */
 	protected $organisationRepository;
 
+    /**
+     * @var \Undkonsorten\Addressmgmt\Service\Address
+     * @inject
+     */
+	protected $addressService;
+
 	/**
 	 * Constructor
 	 */
@@ -121,6 +127,7 @@ class AddressController extends BaseController{
 	}
 
 	public function updateAction(Address $address){
+	    $this->addressService->updateCoordinates($address,true);
 	    $this->addressRepository->update($address);
         $this->redirect('dash');
     }
