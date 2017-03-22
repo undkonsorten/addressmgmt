@@ -2,6 +2,7 @@
 namespace Undkonsorten\Addressmgmt\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use Undkonsorten\Addressmgmt\Domain\Model\AddressInterface;
 use Undkonsorten\Addressmgmt\Domain\Model\Address;
 use TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentTypeException;
@@ -162,6 +163,18 @@ class AddressController extends BaseController{
 		$this->view->assign('addresss', $addresses);
 		$this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
 	}
+
+    /**
+     * action show
+     *
+     * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
+     * @return void
+     */
+    public function confirmAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address) {
+        $this->addressService->updateCoordinates($address,true);
+        $this->view->assign('address', $address);
+        $this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
+    }
 
 	/**
 	 * action show

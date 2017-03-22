@@ -16,7 +16,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 <u:titleTag>{address.name}</u:titleTag>
-<h1>Single View for Address</h1>
+<h1>Confirm Address</h1>
 
 <f:flashMessages />
 <div class="tx-addressmgmt" >
@@ -80,4 +80,29 @@ Otherwise your changes will be overwritten the next time you save the extension 
 </div>
 </f:for>
 </div>
+	<f:form action="confirm" name="address" object="{address}" >
+	<f:render section="{address.type}" arguments="{_all}"/>
+	</f:form>
+	<f:link.action class="button" action="dash" >Cancel</f:link.action>
+</f:section>
+
+<f:section name="Tx_Addressbook_Person">
+		<f:form.hidden property="firstName" />
+		<f:form.hidden property="name"  />
+		<f:form.hidden property="street" />
+		<f:form.hidden property="streetNumber"  />
+		<f:form.hidden property="zip"  />
+		<f:form.hidden property="city"  />
+		<f:form.submit value="{f:translate(key:'confirm')}" />
+
+	<f:form.hidden property="feUser" />
+	<f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Person" />
+</f:section>
+
+<f:section name="Tx_Addressbook_Location">
+	<f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Location" />
+</f:section>
+
+<f:section name="Tx_Addressbook_Organisation">
+	<f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation" />
 </f:section>
