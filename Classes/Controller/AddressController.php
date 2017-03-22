@@ -62,6 +62,22 @@ class AddressController extends BaseController{
 	 */
 	protected $organisationRepository;
 
+
+    /**
+     * categoryRepository
+     *
+     * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
+     * @inject
+     */
+    protected $categoryRepository;
+
+    /**
+     *
+     * @var \Undkonsorten\Addressmgmt\Service\CategoryService
+     * @inject
+     */
+    protected $categoryService;
+
 	/**
 	 * Constructor
 	 */
@@ -100,14 +116,17 @@ class AddressController extends BaseController{
 			$addresses = $this->addressRepository->findAll();
 			$this->debugQuery($this->addressRepository->findAll());
 		}
-		foreach($this->settings['filterConfiguration'] as $key => $filter){
-		    $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
-		    if($parent){
-    		    $sorting = array($filter['orderBy'] => $filter['sorting']);
-    		    $filterCategories = $this->categoryService->findAllDescendants($parent, $sorting);
-    		    $this->view->assign($key, $filterCategories);
-		    }
-		}
+		if($this->settings['filterConfiguration']){
+            foreach($this->settings['filterConfiguration'] as $key => $filter) {
+                $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
+                if ($parent) {
+                    $sorting = array($filter['orderBy'] => $filter['sorting']);
+                    $filterCategories = $this->categoryService->findAllDescendants($parent, $sorting);
+                    $this->view->assign($key, $filterCategories);
+                }
+            }
+        }
+
 		
 		$this->view->assign('addresss', $addresses);
 		$this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
