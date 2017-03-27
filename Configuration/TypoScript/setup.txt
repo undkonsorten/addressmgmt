@@ -35,7 +35,7 @@ plugin.tx_addressmgmt {
 			#map padding in px-units
 			padding = {$plugin.tx_addressmgmt.settings.mapConfiguration.padding}
 		}
-		createDefautAddressType = {$plugin.tx_addressmgmt.settings.mapConfiguration.createDefautAddressType}
+		createDefautAddressType = {$plugin.tx_addressmgmt.settings.createDefautAddressType}
 		tileLayerConfiguration {
 			urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}
 			options {
