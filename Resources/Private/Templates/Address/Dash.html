@@ -89,7 +89,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
         </div>
 
     </f:for>
-
+  
+    <f:render section="noAddress" arguments="{feUser:feUser, types:types,  contendUid:contendUid}"/>
     <div>
         <f:link.action class="button" action="edit" arguments="{address:address}">Edit Profile</f:link.action>
         <f:link.action class="button" action="new" controller="File" arguments="{address:address, property:'images'}">New Image</f:link.action>
@@ -101,5 +102,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 
 
+
+</f:section>
+
+<f:section name="noAddress">
+  <f:for each="{types}" as="type" key="key">
+    <f:link.action class="button" action="new" arguments="{type:type}">Create new {type}</f:link.action>
+  </f:for>
 
 </f:section>

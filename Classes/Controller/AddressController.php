@@ -96,7 +96,7 @@ class AddressController extends BaseController{
 	    $address = $this->getLoggedInAddress();
 	    //@TODO Security
 	    if(is_null($address)){
-	        if($this->settings['createDefautAddressType'] == ''){
+	        if($this->settings['createDefautAddressType'] != ''){
 	            $this->createAddressFromFeUser($this->settings['createDefautAddressType']);
 	        }else{
 	            $this->view->assign('feUser', $this->getLoggedInFrontendUser());
