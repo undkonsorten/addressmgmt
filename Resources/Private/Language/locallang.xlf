@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressmgmt">
+	<file datatype="plaintext" date="2013-09-17T00:06:57Z" original="messages" product-name="addressmgmt" source-language="en">
 		<header/>
 		<body>
 
@@ -119,7 +119,7 @@
 				<source>Sir</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.3">
-				<source></source>
+				<source/>
 			</trans-unit>
 
 			<trans-unit id="list.emptyList">
@@ -149,6 +149,20 @@
 			</trans-unit>
 
 			
-		</body>
+
+        <trans-unit id="formfield.options.gender.0">
+                <source>Bitte wählen</source>
+            </trans-unit>
+        <trans-unit id="formfield.options.gender.1">
+                <source>Frau</source>
+            </trans-unit>
+        <trans-unit id="formfield.options.gender.2">
+                <source>Herr</source>
+            </trans-unit>
+        <trans-unit id="formfield.options.gender.3">
+                <source>Andere</source>
+            </trans-unit>
+
+        </body>
 	</file>
 </xliff>
