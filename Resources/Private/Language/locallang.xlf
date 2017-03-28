@@ -71,7 +71,7 @@
 				<source>description</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.directions">
-				<source>description</source>
+				<source>directions</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>image</source>
