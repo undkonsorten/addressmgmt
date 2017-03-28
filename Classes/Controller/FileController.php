@@ -129,7 +129,7 @@ class FileController extends BaseController {
 	public function updateAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address, \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData = NULL, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference = NULL){
 		$file = $fileReference->getOriginalResource()->getOriginalFile();
 		$this->resourceFactory->updateFileWithMetaData($file, $fileMetaData);
-		$this->redirect('showProfile','Addressmgmt');
+		$this->redirect('dash','Address');
 	}
 	
 	/**
