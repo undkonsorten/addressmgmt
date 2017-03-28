@@ -25,6 +25,8 @@ plugin.tx_addressmgmt {
 		useMarkerClusters = #
 		# cat=plugin.tx_addressmgmt/0006; type=string; label=Create default address type: Tx_Addressbook_Location|Tx_Addressbook_Organisation|Tx_Addressbook_Person
 		createDefaultAddressType =
+		# cat=plugin.tx_addressmgmt/0006; type=boolean; label=Store new address next to Feuser
+		storeNewAddressNextToFeuser = 0
 		mapConfiguration {
 			# cat=plugin.tx_addressmgmt/map/0010; type=string; label=Latitude: latitude of map center
 			latitude = 

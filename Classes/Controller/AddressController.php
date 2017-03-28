@@ -124,6 +124,12 @@ class AddressController extends BaseController{
 	
 	public function createAction(Address $address){
         $this->addressService->updateCoordinates($address,true);
+        if($this->settings['storeNewAddressNextToFeuser']){
+            $address->setPid($this->getLoggedInFrontendUser()->getPid());
+        }else{
+            $address->setPid($this->settings['storagePid']);
+        }
+
 	    $this->addressRepository->add($address);
 	    $this->redirect('dash');
 	}

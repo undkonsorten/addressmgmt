@@ -36,6 +36,7 @@ plugin.tx_addressmgmt {
 			padding = {$plugin.tx_addressmgmt.settings.mapConfiguration.padding}
 		}
 		createDefaultAddressType = {$plugin.tx_addressmgmt.settings.createDefaultAddressType}
+		storeNewAddressNextToFeuser = {$plugin.tx_addressmgmt.settings.storeNewAddressNextToFeuser}
 		tileLayerConfiguration {
 			urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}
 			options {
