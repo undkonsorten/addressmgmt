@@ -64,9 +64,12 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.fax">
 				<source>Fax</source>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.www">
-				<source>Www</source>
+			<trans-unit id="tx_addressmgmt_domain_model_address.www.text">
+				<source>Link text</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.www.link">
+            	<source>Link</source>
+            </trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.description">
 				<source>Description</source>
 			</trans-unit>
