@@ -87,6 +87,7 @@ class ExplodeForViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
         $this->registerArgument('key', 'string', 'The name of the variable to store the current array key', false);
         $this->registerArgument('reverse', 'bool', 'If enabled, the iterator will start with the last element and proceed reversely', false);
         $this->registerArgument('iteration', 'string', 'The name of the variable to store iteration information (index, cycle, isFirst, isLast, isEven, isOdd)', false);
+        $this->registerArgument('delimiter', 'string', 'Delimiter sign to explode the string on this character', false);
     }
 
 
@@ -104,8 +105,8 @@ class ExplodeForViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
             return '';
         }
         if (is_string($arguments['each'])) {
-            $arguments['each'] = ArrayUtility::trimExplode(',',$arguments['each'],true);
-            DebuggerUtility::var_dump($arguments, __METHOD__);
+            (empty($arguments['delimiter'])) ? $delimiter = ',' : $delimiter = $arguments['delimiter'];
+            $arguments['each'] = ArrayUtility::trimExplode($delimiter,$arguments['each'],true);
         }
         if (is_object($arguments['each']) && !$arguments['each'] instanceof \Traversable) {
             throw new \TYPO3\CMS\Fluid\Core\ViewHelper\Exception('ForViewHelper only supports arrays and objects implementing \Traversable interface', 1248728393);
