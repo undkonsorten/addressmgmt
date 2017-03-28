@@ -18,7 +18,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <h1><f:translate key="editAddresssProfileNew">Edit address address</f:translate></h1>
 
 <f:render partial="FormErrors" arguments="{object:Address}"/>
-<f:form action="confirm" name="address" object="{address}" >
+<f:form action="confirm" name="address" object="{address}" class="form-stacked">
     <f:render partial="FormFields" arguments="{_all}"/>
     <f:form.submit value="{f:translate(key:'save')}" />
 </f:form>
