@@ -1,6 +1,7 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***************************************************************
  *  Copyright notice
@@ -886,7 +887,10 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	
 	static function getTypeConstants() {
 	    $oClass = new \ReflectionClass(__CLASS__);
-	    return $oClass->getConstants();
+
+	    return array_filter($oClass->getConstants(),function($value){
+            return substr($value,0,3) == "Tx_";
+		});
 	}
 
     /**

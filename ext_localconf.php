@@ -16,7 +16,7 @@ $extensionConfiguration = \Undkonsorten\Addressmgmt\Service\ExtensionConfigurati
 	// non-cacheable actions
 	array(
 		'Address' => 'new, create, edit, update, delete',
-	    'Address' => 'dash, edit, create, new, update, handInForReview, confirm',
+	    'Address' => 'dash, edit, create, new, update, handInForReview',
 	    'File'	 => 'edit, update, new, create, delete',
 	    'SocialIdentifier' => 'create, delete, update, edit'
 		

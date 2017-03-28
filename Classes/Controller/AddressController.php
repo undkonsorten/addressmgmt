@@ -105,7 +105,6 @@ class AddressController extends BaseController{
 	    }else{
 	        $this->view->assign('address', $this->getLoggedInAddress());
 	    }
-
 	}
 	
 	/**
@@ -164,17 +163,6 @@ class AddressController extends BaseController{
 		$this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
 	}
 
-    /**
-     * action show
-     *
-     * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
-     * @return void
-     */
-    public function confirmAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address) {
-        $this->addressService->updateCoordinates($address,true);
-        $this->view->assign('address', $address);
-        $this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
-    }
 
 	/**
 	 * action show
