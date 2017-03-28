@@ -22,75 +22,107 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <div class="tx-addressmgmt" >
         <f:render partial="Map/ShowSingle" arguments="{address:address, contendUid:contendUid}"/>
         <h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate>{address.title} {address.firstName} {address.Name}</h3>
-        <f:for each="{address.category}" as="category">
-            {category.title}
-        </f:for>
-
-        {address.organization}
-
-        {address.department}
-
-        {address.street}
-
-        {address.streetNumber}
-
-        {address.addressSupplement}
-
-        {address.city}
-
-        {address.zip}
-
-        {address.country}
-
-        {address.state}
-
-        {address.closestCity}
-
-        <f:if condition="{address.feUser}">
-            <f:then>{address.feUser.username}</f:then>
-            <f:else>{address.email}</f:else>
-        </f:if>
-
-        {address.phone}
-
-        {address.mobile}
-
-        {address.fax}
-
-        {address.www}
-
-        {address.description}
-        <f:if condition="{address.image}">
-            <figure>
-                <f:image src="{address.image.originalResource.forLocalProcessing}" alt="nada" width="300" />
-            </figure>
-        </f:if>
-
-        {address.latitude}
-
-        {address.longitude}
-
-        <f:for each="{address.socialIdentifiers}" as="identifier">
-            <div>
-                <f:if condition="{identifier.provider.image}">
-                    <f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
-                </f:if>
-                <strong>{identifier.provider.name}:</strong>
-                {identifier.url}
-            </div>
-        </f:for>
-    </div>
-
-    <f:for each="{address.images}" as="image">
+  
+      <f:if condition="{address.feUser}">
+        <f:then><p>{address.feUser.username}</p></f:then>
+        <f:else><p>{address.email}</p></f:else>
+      </f:if>
+      <f:if condition="{address.image}">
+        <figure>
+          <f:image src="{address.image.originalResource.forLocalProcessing}" alt="nada" width="300" />
+        </figure>
+      </f:if>
+      <f:for each="{address.images}" as="image">
         <div>
-            <f:image src="{image.originalResource.originalFile.uid}" alt="image.alternative" width="100" />
-            <f:link.action class="button" action="delete" controller="File" arguments="{fileReference:image, address:address}">Delete</f:link.action>
-            <f:link.action class="button" action="edit" controller="File" arguments="{fileReference:image, address:address, property:'images'}">Edit</f:link.action>
+          <f:image src="{image.originalResource.originalFile.uid}" alt="image.alternative" width="100" />
+          <f:link.action class="button" action="delete" controller="File" arguments="{fileReference:image, address:address}">Delete</f:link.action>
+          <f:link.action class="button" action="edit" controller="File" arguments="{fileReference:image, address:address, property:'images'}">Edit</f:link.action>
         </div>
+      </f:for>
+      
+      <f:for each="{address.category}" as="category">
+          <p>{category.title}</p>
+      </f:for>
 
-    </f:for>
+      <p>
+        <f:if condition="{address.organization}">
+          <f:translate key="tx_addressmgmt_domain_model_address.organization" />: {address.organization}<br />
+        </f:if>
+        <f:if condition="{address.department}">
+          <f:translate key="tx_addressmgmt_domain_model_address.department" />: {address.department}<br />
+        </f:if>
+        <f:if condition="{address.street}">
+          <f:translate key="tx_addressmgmt_domain_model_address.street" />: {address.street}<br />
+        </f:if>
+        <f:if condition="{address.streetNumber}">
+          <f:translate key="tx_addressmgmt_domain_model_address.street_number" />: {address.streetNumber}<br />
+        </f:if>
+        <f:if condition="{address.organization}">
+          <f:translate key="tx_addressmgmt_domain_model_address.organization" />: {address.organization}<br />
+        </f:if>
+        <f:if condition="{address.addressSupplement}">
+          <f:translate key="tx_addressmgmt_domain_model_address.address_supplement" />: {address.addressSupplement}<br />
+        </f:if>
+        <f:if condition="{address.zip}">
+          <f:translate key="tx_addressmgmt_domain_model_address.zip" />: {address.zip}<br />
+        </f:if>
+        <f:if condition="{address.city}">
+          <f:translate key="tx_addressmgmt_domain_model_address.city" />: {address.city}<br />
+        </f:if>
+        <f:if condition="{address.closestCity}">
+          <f:translate key="tx_addressmgmt_domain_model_address.closest_city" />: {address.closestCity}<br />
+        </f:if>
+        <f:if condition="{address.state}">
+          <f:translate key="tx_addressmgmt_domain_model_address.state" />: {address.state}<br />
+        </f:if>
+        <f:if condition="{address.country}">
+          <f:translate key="tx_addressmgmt_domain_model_address.country" />: {address.country}<br />
+        </f:if>
+        <f:if condition="{address.phone}">
+          <f:translate key="tx_addressmgmt_domain_model_address.phone" />: {address.phone}<br />
+        </f:if>
+        <f:if condition="{address.mobile}">
+          <f:translate key="tx_addressmgmt_domain_model_address.mobile" />: {address.mobile}<br />
+        </f:if>
+        <f:if condition="{address.fax}">
+          <f:translate key="tx_addressmgmt_domain_model_address.fax" />: {address.fax}<br />
+        </f:if>
+        <f:if condition="{address.www}">
+          <f:translate key="tx_addressmgmt_domain_model_address.www" />: {address.www}<br />
+        </f:if>
+        <f:if condition="{address.country}">
+          <f:translate key="tx_addressmgmt_domain_model_address.country" />: {address.country}<br />
+        </f:if>
+      </p>
+      <p>
+        <f:if condition="{address.description}">
+          <f:translate key="tx_addressmgmt_domain_model_address.description" />:<br /> {address.description -> f:format.html(parseFunc:'lib.parseFunc_RTE'}
+        </f:if>
+      </p>
+      
+       <p>
+         <f:if condition="{address.latitude}">
+           <f:translate key="tx_addressmgmt_domain_model_address.latitude" />: {address.latitude}<br />
+         </f:if>
+         <f:if condition="{address.longitude}">
+           <f:translate key="tx_addressmgmt_domain_model_address.longitude" />: {address.longitude}<br />
+         </f:if>
+       </p>
 
-    <f:render section="noAddress" arguments="{feUser:feUser, types:types,  contendUid:contendUid}"/>
+      <f:for each="{address.socialIdentifiers}" as="identifier">
+          <div>
+              <f:if condition="{identifier.provider.image}">
+                  <f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
+              </f:if>
+              <strong>{identifier.provider.name}:</strong>
+              {identifier.url}
+          </div>
+      </f:for>
+      
+    </div>
+  
+    <f:render section="noAddress" arguments="{feUser:feUser, types:types, contendUid:contendUid}" />
+  
     <div>
         <f:link.action class="button" action="edit" arguments="{address:address}">Edit Profile</f:link.action>
         <f:link.action class="button" action="new" controller="File" arguments="{address:address, property:'images'}">New Image</f:link.action>
@@ -98,10 +130,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
             <f:link.action class="button" action="handInForReview" arguments="{address:address}">Pubish my data</f:link.action>
         </f:if>
     </div>
-
-
-
-
 
 </f:section>
 

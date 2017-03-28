@@ -49,6 +49,9 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.closest_city">
 				<source>closestCity</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.link">
+				<source>link</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.email">
 				<source>email</source>
 			</trans-unit>
@@ -67,6 +70,9 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.description">
 				<source>description</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.directions">
+				<source>description</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>image</source>
 			</trans-unit>
@@ -76,8 +82,14 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.longitude">
 				<source>longitude</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.geojson">
+				<source>geojson</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.fe_user">
 				<source>feUser</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.counterpart">
+				<source>counterpart</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.social_identifiers">
 				<source>socialIdentifiers</source>
