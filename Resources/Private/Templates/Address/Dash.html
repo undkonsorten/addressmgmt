@@ -94,11 +94,16 @@ Otherwise your changes will be overwritten the next time you save the extension 
           <f:translate key="tx_addressmgmt_domain_model_address.country" />: {address.country}<br />
         </f:if>
       </p>
-      <p>
-        <f:if condition="{address.description}">
+      <f:if condition="{address.description}">
+        <p>
           <f:translate key="tx_addressmgmt_domain_model_address.description" />:<br /> {address.description -> f:format.html()}
-        </f:if>
-      </p>
+        </p>
+      </f:if>
+      <f:if condition="{address.directions}">
+        <p>
+          <f:translate key="tx_addressmgmt_domain_model_address.directions" />:<br /> {address.directions -> f:format.html()}
+        </p>
+      </f:if>
       
        <p>
          <f:if condition="{address.latitude}">
