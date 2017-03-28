@@ -41,7 +41,28 @@
 </f:section>
 
 <f:section name="Tx_Addressbook_Location">
-  <u:string.explodeFor each="Title,Gender,FirstName,Name,Street,AddressSupplement,Zip,City" as="field">
+  
+  <f:render partial="Fields/Name" arguments="{_all}" />
+  <u:string.explodeFor each="Organization,Department,Counterpart" as="field">
+    <f:render partial="Fields/{field}" arguments="{_all}" />
+  </u:string.explodeFor>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Street,StreetNumber" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <f:render partial="Fields/AddressSupplement" arguments="{_all}" />
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Zip,City" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Latitude,Longitude" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <u:string.explodeFor each="Geojson,Link,Country,State,ClosestCity,Email,Phone,Mobile,Fax,Www,Description,Directions" as="field">
     <f:render partial="Fields/{field}" arguments="{_all}" />
   </u:string.explodeFor>
   
@@ -50,7 +71,27 @@
 </f:section>
 
 <f:section name="Tx_Addressbook_Organisation">
-  <u:string.explodeFor each="Title,Gender,FirstName,Name,Street,AddressSupplement,Zip,City" as="field">
+  <f:render partial="Fields/Name" arguments="{_all}" />
+  <u:string.explodeFor each="Organization,Department,Counterpart" as="field">
+    <f:render partial="Fields/{field}" arguments="{_all}" />
+  </u:string.explodeFor>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Street,StreetNumber" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <f:render partial="Fields/AddressSupplement" arguments="{_all}" />
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Zip,City" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Latitude,Longitude" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <u:string.explodeFor each="Geojson,Link,Country,State,ClosestCity,Email,Phone,Mobile,Fax,Www,Description,Directions" as="field">
     <f:render partial="Fields/{field}" arguments="{_all}" />
   </u:string.explodeFor>
   
