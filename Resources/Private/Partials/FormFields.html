@@ -9,17 +9,17 @@
 <f:section name="Tx_Addressbook_Person">
 
   <u:string.explodeFor each="Gender,Title" as="field">
-    <f:render section="renderFields" arguments="{_all}" />
+    <f:render partial="Fields/{field}" arguments="{_all}" />
   </u:string.explodeFor>
   
   <div class="form-group-wrap">
     <u:string.explodeFor each="FirstName,Name" as="field">
-      <f:render section="renderFields" arguments="{_all}" />
+      <f:render partial="Fields/{field}" arguments="{_all}" />
     </u:string.explodeFor>
   </div>
   <div class="form-group-wrap">
     <u:string.explodeFor each="Street,StreetNumber" as="field">
-      <f:render section="renderFields" arguments="{_all}" />
+      <f:render partial="Fields/{field}" arguments="{_all}" />
     </u:string.explodeFor>
   </div>
   
@@ -27,7 +27,7 @@
   
   <div class="form-group-wrap">
     <u:string.explodeFor each="Zip,City" as="field">
-      <f:render section="renderFields" arguments="{_all}" />
+      <f:render partial="Fields/{field}" arguments="{_all}" />
     </u:string.explodeFor>
   </div>
   
@@ -37,7 +37,7 @@
 
 <f:section name="Tx_Addressbook_Location">
   <u:string.explodeFor each="Title,Gender,FirstName,Name,Street,AddressSupplement,Zip,City" as="field">
-    <f:render section="renderFields" arguments="{_all}" />
+    <f:render partial="Fields/{field}" arguments="{_all}" />
   </u:string.explodeFor>
   
   <f:form.hidden property="feUser" />
@@ -46,16 +46,10 @@
 
 <f:section name="Tx_Addressbook_Organisation">
   <u:string.explodeFor each="Title,Gender,FirstName,Name,Street,AddressSupplement,Zip,City" as="field">
-    <f:render section="renderFields" arguments="{_all}" />
+    <f:render partial="Fields/{field}" arguments="{_all}" />
   </u:string.explodeFor>
   
   <f:form.hidden property="feUser" />
   <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation" />
 </f:section>
 
-
-<f:section name="renderFields">
-  <f:for each="{fields}" as="field">
-    <f:render partial="Fields/{field}" arguments="{_all}" />
-  </f:for>
-</f:section>
