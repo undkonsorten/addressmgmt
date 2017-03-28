@@ -95,9 +95,10 @@ class AddressController extends BaseController{
 	public function dashAction(){
 	    $address = $this->getLoggedInAddress();
 	    //@TODO Security
+
 	    if(is_null($address)){
-	        if($this->settings['createDefautAddressType'] != ''){
-	            $this->createAddressFromFeUser($this->settings['createDefautAddressType']);
+	        if($this->settings['createDefaultAddressType'] != ''){
+	            $this->createAddressFromFeUser($this->settings['createDefaultAddressType']);
 	        }else{
 	            $this->view->assign('feUser', $this->getLoggedInFrontendUser());
 	            $this->view->assign('types', Address::getTypeConstants());
@@ -122,6 +123,7 @@ class AddressController extends BaseController{
     }
 	
 	public function createAction(Address $address){
+        $this->addressService->updateCoordinates($address,true);
 	    $this->addressRepository->add($address);
 	    $this->redirect('dash');
 	}
