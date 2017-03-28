@@ -1,10 +1,10 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	  xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
-<div>
-	<label for="alt_text">
-		<f:translate key="altTextImage">Alternative</f:translate>
+<div class="form-field-wrap">
+	<label for="alt-text">
+		<f:translate key="upload.altTextImage">Alternative</f:translate>
 		<f:render partial="FieldError" arguments="{object: Address, property: 'address.imageUpload.fileMetaData.alternative'}" />
 	</label>
-	<f:form.textfield name="{prefix}[alternative]" value="{fileMetaData.alternative}" />
+	<f:form.textfield id="alt-text" name="{prefix}[alternative]" value="{fileMetaData.alternative}" />
 </div>

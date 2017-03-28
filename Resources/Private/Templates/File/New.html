@@ -19,23 +19,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 	
-	<h1><f:translate key="upload-{property}">Upload File</f:translate></h1>
-	
+	<h2><f:translate key="upload.upload-{property}">Upload File</f:translate></h2>
 	<u:titleTag>{address.fullName}</u:titleTag>
-	<f:form action="create" enctype="multipart/form-data">
+	<f:form action="create" enctype="multipart/form-data" class="form-stacked">
 		<fieldset>
 			<f:form.hidden name="fileReference" value="{fileReference}"/>
 			<f:form.hidden name="address" value="{address}"/>
 			<f:form.hidden name="property" value="{property}"/>
-			<div>
-				<label for="download">
-					<f:translate key="tx_address_domain_model_address.{property}">File for Download</f:translate>
-					<f:render partial="FieldError" arguments="{object: Address, property: 'address.{propertyUpload}'}" />
-					<p class="helptext"><f:translate key="helpTextAllowedFiletypes">Allowed filetyles are: pdf, jpg, png, gif</f:translate></p>
-				</label>
-
+			<div class="form-field-wrap">
+        <f:render partial="FieldError" arguments="{object: Address, property: 'address.{propertyUpload}'}" />
+        <p class="helptext"><f:translate key="upload.helpTextAllowedFiletypes">Allowed filetyles are: pdf, jpg, png, gif</f:translate></p>
 				<f:form.upload name="address[{propertyUpload}]" class="withBorder"/>
-
 			</div>
 			
 			<f:if condition="{property}=='images'">
@@ -44,9 +38,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<f:if condition="{property}=='download'">
 				<f:render partial="File/Upload/MetaDataDownload" arguments="{fileMetaData:fileUpload.fileMetaData,prefix:'address[{propertyUpload}][fileMetaData]'}" />
 			</f:if>
-	
-			<f:form.submit value="{f:translate(key: 'save', default: 'Save')}" />
-			<f:link.action action="dash" controller="Address" arguments="{address:address}" class="button cancel grey"><f:translate key="cancel">Cancel</f:translate></f:link.action>
+	<div class="form-field-wrap">
+    <f:form.submit value="{f:translate(key: 'form.save', default: 'Save')}" />
+    <f:link.action action="dash" controller="Address" arguments="{address:address}" class="button cancel grey"><f:translate key="form.cancel">Cancel</f:translate></f:link.action>
+  </div>
+			
 		</fieldset>
 	</f:form>
 

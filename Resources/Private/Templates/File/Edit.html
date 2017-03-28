@@ -26,7 +26,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<u:titleTag>{address.fullName}</u:titleTag>
 	<f:flashMessages />
 	
-	<f:form action="updateFile" arguments="{address:address,fileReference:fileReference, property:property}" name="fileMetaData" >
+	<f:form action="updateFile" class="form-stacked" arguments="{address:address,fileReference:fileReference, property:property}" name="fileMetaData" >
 		<fieldset>
 			
 			
@@ -44,14 +44,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<f:if condition="{property}=='download'">
 				<!-- /// DOWNLOAD /// -->
 				<f:render partial="File/Download" arguments="{file:fileReference}" />
-				<div>
+				<div class="form-field-wrap">
 					<f:link.action action="delete" arguments="{address:address,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
 					<f:link.action action="new" arguments="{address:address,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
 				</div>
 				<f:render partial="File/Upload/MetaDataDownload" arguments="{fileMetaData:fileMetaData,prefix:'fileMetaData'}" />
 			</f:if>
 
-			<div>
+			<div class="form-field-wrap">
 				<f:form.submit value="{f:translate(key: 'save', default: 'Save')}" />
 				<f:link.action action="dash" controller="Address" arguments="{address:address}" class="button cancel grey"><f:translate key="cancel">Cancel</f:translate></f:link.action>
 			</div>
