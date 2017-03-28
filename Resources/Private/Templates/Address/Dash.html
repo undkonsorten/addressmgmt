@@ -96,7 +96,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
       </p>
       <p>
         <f:if condition="{address.description}">
-          <f:translate key="tx_addressmgmt_domain_model_address.description" />:<br /> {address.description -> f:format.html(parseFunc:'lib.parseFunc_RTE'}
+          <f:translate key="tx_addressmgmt_domain_model_address.description" />:<br /> {address.description -> f:format.html()}
         </f:if>
       </p>
       
