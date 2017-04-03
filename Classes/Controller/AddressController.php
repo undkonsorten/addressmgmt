@@ -174,22 +174,19 @@ class AddressController extends BaseController
         if ($this->settings['orderBy'] && $this->settings['orderDirection']) {
             $orderings = array($this->settings['orderBy'] => $this->settings['orderDirection']);
         }
-        if ($this->settings['listType'] == 'all' && $this->settings['category']) {
-            $addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',',
-                $this->settings['category']), $orderings);
+        if ($this->settings['listType'] == 'all' && ($this->settings['category'] || $this->settings['publishState'])) {
+           $addresses = $this->addressRepository->findDemanded(
+                null,
+                GeneralUtility::intExplode(',', $this->settings['category'],true),
+                $this->settings['publishState'],
+                $orderings
+            );
         }
 
         if ($this->settings['listType'] == 'manual' && $this->settings['addresses']) {
-            $addresses = array();
-            foreach (GeneralUtility::intExplode(',', $this->settings['addresses']) as $uid) {
-                $addresses[] = $this->addressRepository->findByUid($uid);
-            }
+            $addresses = $this->addressRepository->findDemanded(GeneralUtility::intExplode(',',$this->settings['addresses']), null, null, $orderings);
         }
 
-        if (!$addresses) {
-            $addresses = $this->addressRepository->findAll();
-            $this->debugQuery($this->addressRepository->findAll());
-        }
         if ($this->settings['filterConfiguration']) {
             foreach ($this->settings['filterConfiguration'] as $key => $filter) {
                 $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
