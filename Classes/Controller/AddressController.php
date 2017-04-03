@@ -54,30 +54,6 @@ class AddressController extends BaseController
      */
     protected $addressRepository;
 
-    /**
-     * personRepository
-     *
-     * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\PersonRepository
-     * @inject
-     */
-    protected $personRepository;
-
-
-    /**
-     * organisationRepository
-     *
-     * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\OrganisationRepository
-     * @inject
-     */
-    protected $organisationRepository;
-	/**
-	 * organisationRepository
-	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\OrganisationRepository
-	 * @inject
-	 */
-	protected $organisationRepository;
-
 	/**
 	 * categoryRepository
 	 *
@@ -152,6 +128,17 @@ class AddressController extends BaseController
 
     public function editAction(Address $address)
     {
+        if($this->settings['categoryConfiguration']){
+             foreach($this->settings['categoryConfiguration'] as $key => $value){
+                $categories = $this->categoryService->findAllDescendants(
+                    $this->categoryRepository->findByUid($value['rootCategory']),
+                    [$value['orderBy'] => $value['sorting']]
+                );
+                $this->view->assign($key, $categories);
+            }
+
+        }
+
         $this->view->assign('address', $address);
     }
 
@@ -230,6 +217,46 @@ class AddressController extends BaseController
     {
         $this->view->assign('address', $address);
         $this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
+    }
+
+    /**
+     *
+     * @throws \UnexpectedValueException
+     */
+    protected function getLoggedInAddress()
+    {
+        $frontendUser = $this->getLoggedInFrontendUser();
+        $address = $this->addressRepository->findOneByFeUser($frontendUser);
+        return $address;
+    }
+
+    /**
+     * creates an new speaker
+     * @param string
+     * @return \Undkonsorten\Addressmgmt\Domain\Model\Address
+     */
+    protected function createAddressFromFeUser($type)
+    {
+        $frontendUser = $this->getLoggedInFrontendUser();
+        if ($type == AddressInterface::PERSON) {
+            $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Person');
+            $address->setName($frontendUser->getLastName());
+            $address->setFirstName($frontendUser->getFirstName());
+            $address->setEmail($frontendUser->getEmail());
+            $address->setType(AddressInterface::PERSON);
+        } elseif ($type == AddressInterface::ORGANISATION) {
+            $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation');
+            $address->setType(AddressInterface::ORGANISATION);
+        } elseif ($type == AddressInterface::LOCATION) {
+            $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Location');
+            $address->setType(AddressInterface::LOCATION);
+        } else {
+            throw new InvalidArgumentTypeException($type . " is no correct address type", 1488302381);
+        }
+
+        $address->setFeUser($frontendUser);
+
+        return $address;
     }
 
 }

@@ -21,6 +21,13 @@ plugin.tx_addressmgmt {
 		rewrittenPropertyMapper = 1
 	}
 	settings{
+        categoryConfiguration{
+			default{
+				rootCategory = 1
+				orderBy = title
+				sorting = ASC
+			}
+    	}
 	    target{
             default = {$plugin.tx_addressmgmt.settings.target.default}
             images = {$plugin.tx_addressmgmt.settings.target.images}
