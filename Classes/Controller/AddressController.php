@@ -82,33 +82,38 @@ class AddressController extends BaseController{
 	 *
 	 * @return void
 	 */
-	public function listAction() {
-		if($this->settings['orderBy'] && $this->settings['orderDirection']){
-			$orderings = array($this->settings['orderBy'] => $this->settings['orderDirection']);
-		}
-		if($this->settings['listType']=='all' && $this->settings['category']){
-			$addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',', $this->settings['category']),$orderings);
-		}
-		
-		if($this->settings['listType']=='manual' && $this->settings['addresses']){
-			$addresses = array();
-			foreach(GeneralUtility::intExplode(',', $this->settings['addresses']) as $uid){
-				$addresses[] = $this->addressRepository->findByUid($uid);
-			}
-		}
-		
-		if(!$addresses){
-			$addresses = $this->addressRepository->findAll();
-			$this->debugQuery($this->addressRepository->findAll());
-		}
-		foreach($this->settings['filterConfiguration'] as $key => $filter){
-		    $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
-		    if($parent){
-    		    $sorting = array($filter['orderBy'] => $filter['sorting']);
-    		    $filterCategories = $this->categoryService->findAllDescendants($parent, $sorting);
-    		    $this->view->assign($key, $filterCategories);
-		    }
-		}
+	public function listAction()
+    {
+        if ($this->settings['orderBy'] && $this->settings['orderDirection']) {
+            $orderings = array($this->settings['orderBy'] => $this->settings['orderDirection']);
+        }
+        if ($this->settings['listType'] == 'all' && $this->settings['category']) {
+            $addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',',
+                $this->settings['category']), $orderings);
+        }
+
+        if ($this->settings['listType'] == 'manual' && $this->settings['addresses']) {
+            $addresses = array();
+            foreach (GeneralUtility::intExplode(',', $this->settings['addresses']) as $uid) {
+                $addresses[] = $this->addressRepository->findByUid($uid);
+            }
+        }
+
+        if (!$addresses) {
+            $addresses = $this->addressRepository->findAll();
+            $this->debugQuery($this->addressRepository->findAll());
+        }
+        if ($this->settings['filterConfiguration']) {
+            foreach ($this->settings['filterConfiguration'] as $key => $filter) {
+                $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
+                if ($parent) {
+                    $sorting = array($filter['orderBy'] => $filter['sorting']);
+                    $filterCategories = $this->categoryService->findAllDescendants($parent, $sorting);
+                    $this->view->assign($key, $filterCategories);
+                }
+            }
+        }
+
 		
 		$this->view->assign('addresss', $addresses);
 		$this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
