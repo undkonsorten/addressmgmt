@@ -279,8 +279,8 @@
 			<trans-unit id="flexform.desc">
 				<source>Descending</source>
 			</trans-unit>
-			<trans-unit id="flexforms.templateLayout">
-				<source>Descending</source>
+			<trans-unit id="flexforms.showFilter">
+				<source>Show Filter</source>
 			</trans-unit>
 			<trans-unit id="flexforms.recursive">
 				<source>Recursive</source>

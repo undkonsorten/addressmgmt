@@ -1,9 +1,9 @@
 <?php
-
 namespace Undkonsorten\Addressmgmt\Controller;
 
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use Undkonsorten\Addressmgmt\Domain\Model\AddressInterface;
@@ -16,7 +16,7 @@ use Undkonsorten\Addressmgmt\Utility\TemplateLayout;
  *
  *  (c) 2013 Felix Althaus <felix.althaus@undkonsorten.com>, undkonsorten
  *  Eike Starkmann <eike.starkmann@undkonsorten.com>, undkonsorten
- *
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -70,6 +70,28 @@ class AddressController extends BaseController
      * @inject
      */
     protected $organisationRepository;
+	/**
+	 * organisationRepository
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\OrganisationRepository
+	 * @inject
+	 */
+	protected $organisationRepository;
+
+	/**
+	 * categoryRepository
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
+	 * @inject
+	 */
+	protected $categoryRepository;
+
+	/**
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Service\CategoryService
+	 * @inject
+	 */
+	protected $categoryService;
 
     /**
      * @var \Undkonsorten\Addressmgmt\Service\Address
@@ -166,7 +188,8 @@ class AddressController extends BaseController
             $orderings = array($this->settings['orderBy'] => $this->settings['orderDirection']);
         }
         if ($this->settings['listType'] == 'all' && $this->settings['category']) {
-            $addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',', $this->settings['category']), $orderings);
+            $addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',',
+                $this->settings['category']), $orderings);
         }
 
         if ($this->settings['listType'] == 'manual' && $this->settings['addresses']) {
@@ -179,6 +202,16 @@ class AddressController extends BaseController
         if (!$addresses) {
             $addresses = $this->addressRepository->findAll();
             $this->debugQuery($this->addressRepository->findAll());
+        }
+        if ($this->settings['filterConfiguration']) {
+            foreach ($this->settings['filterConfiguration'] as $key => $filter) {
+                $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
+                if ($parent) {
+                    $sorting = array($filter['orderBy'] => $filter['sorting']);
+                    $filterCategories = $this->categoryService->findAllDescendants($parent, $sorting);
+                    $this->view->assign($key, $filterCategories);
+                }
+            }
         }
 
 
@@ -199,46 +232,5 @@ class AddressController extends BaseController
         $this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
     }
 
-    /**
-     *
-     * @throws \UnexpectedValueException
-     */
-    protected function getLoggedInAddress()
-    {
-        $frontendUser = $this->getLoggedInFrontendUser();
-        $address = $this->addressRepository->findOneByFeUser($frontendUser);
-        return $address;
-    }
-
-    /**
-     * creates an new speaker
-     * @param string
-     * @return \Undkonsorten\Addressmgmt\Domain\Model\Address
-     */
-    protected function createAddressFromFeUser($type)
-    {
-        $frontendUser = $this->getLoggedInFrontendUser();
-        if ($type == AddressInterface::PERSON) {
-            $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Person');
-            $address->setName($frontendUser->getLastName());
-            $address->setFirstName($frontendUser->getFirstName());
-            $address->setEmail($frontendUser->getEmail());
-            $address->setType(AddressInterface::PERSON);
-        } elseif ($type == AddressInterface::ORGANISATION) {
-            $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation');
-            $address->setType(AddressInterface::ORGANISATION);
-        } elseif ($type == AddressInterface::LOCATION) {
-            $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Location');
-            $address->setType(AddressInterface::LOCATION);
-        } else {
-            throw new InvalidArgumentTypeException($type . " is no correct address type", 1488302381);
-        }
-
-        $address->setFeUser($frontendUser);
-
-        return $address;
-    }
-
 }
-
 ?>

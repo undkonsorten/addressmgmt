@@ -324,21 +324,20 @@
 				<source>Map and list</source>
 				<target state="translated">Karte und Liste</target>
 			</trans-unit>
+
 			<trans-unit id="flexforms.showFilter">
 				<source>Show Filter</source>
 				<target state="translated">Filter anzeigen</target>
 			</trans-unit>
-			
 			<trans-unit id="flexforms.recursive">
 				<source>Recursive</source>
 				<target state="translated">Rekursiv</target>
 			</trans-unit>
-			
 			<trans-unit id="flexforms.mapClustering">
 				<source>Map clustering</source>
 				<target state="translated">Marker gruppieren</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.switchableControllerActions.create">
 				<source>Create</source>
 				<target state="translated">Erstellen</target>
@@ -351,6 +350,7 @@
 				<source>Dashboard</source>
 				<target state="translated">Dashboard</target>
 			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

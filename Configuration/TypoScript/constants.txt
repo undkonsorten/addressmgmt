@@ -1,4 +1,5 @@
 # customsubcategory=map=Map
+# customsubcategory=pids=Page uid's
 # customsubcategory=tileServer=Tile server configuration
 plugin.tx_addressmgmt {
 	view {
@@ -10,11 +11,14 @@ plugin.tx_addressmgmt {
 		layoutRootPath = 
 	}
 	persistence {
-		# cat=plugin.tx_addressmgmt//a; type=string; label=Default storage PID
+		# cat=plugin.tx_addressmgmt/pids/0000; type=string; label=Default storage PID
 		storagePid = 
 	}
 	
 	settings{
+		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=Pids: Page id for a-z list view
+        pidsA-z =
+        # cat=plugin.tx_addressmgmt/map/0005; type=comment; label=MarkerClusters: Use marker clusters
 	    target{
             # cat=plugin.tx_addressmgmt/settings; type=string; label=Target default:Format StoragePid:Folder
             default = 1:default
@@ -47,9 +51,8 @@ plugin.tx_addressmgmt {
 				accessToken = 
 				# cat=plugin.tx_addressmgmt/tileServer/0090; type=string; label=Max zoom: Maximum zoom level for tile server
 				maxZoom =
-
-
-
+				# cat=plugin.tx_addressmgmt/tileServer/0100; type=string; label=Attribution: Map attribution for the tile server
+				attribution = Insert attribution here!
 			}
 		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<xliff version="1.0">
+<?xml version="1.0" encoding="utf-8"?><xliff version="1.0">
 	<file datatype="plaintext" date="2013-09-17T00:06:57Z" original="messages" product-name="addressmgmt" source-language="en">
 		<header/>
 		<body>
@@ -150,7 +149,7 @@
             <trans-unit id="addressmgmt.show-less">
                 <source>show less</source>
             </trans-unit>
-            
+
             <trans-unit id="form.save">
 				<source>Save</source>
 			</trans-unit>
@@ -221,6 +220,29 @@
 
 
 
+        </body>
+
+            <trans-unit id="addressmgmt.submitButton">
+                <source>Filter now</source>
+            </trans-unit>
+            <trans-unit id="addressmgmt.resetButton">
+                <source>Reset form</source>
+            </trans-unit>
+            <trans-unit id="addressmgmt.linktextA-z">
+                <source>List from A-Z</source>
+            </trans-unit>
+		    <trans-unit id="addressmgmt.updateMap">
+                <source>Map updated</source>
+            </trans-unit>
+
+		    <trans-unit id="addressmgmt.label.contactdata">
+                <source>Contact</source>
+                <target state="translated">Kontakt</target>
+            </trans-unit>
+		    <trans-unit id="addressmgmt.label.counterpart">
+                <source>Counterpart</source>
+                <target state="translated">Ansprechpartner</target>
+            </trans-unit>
         </body>
 	</file>
 </xliff>
