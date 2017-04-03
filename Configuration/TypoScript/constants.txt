@@ -40,9 +40,8 @@ plugin.tx_addressmgmt {
 				accessToken = 
 				# cat=plugin.tx_addressmgmt/tileServer/0090; type=string; label=Max zoom: Maximum zoom level for tile server
 				maxZoom =
-
-
-
+				# cat=plugin.tx_addressmgmt/tileServer/0100; type=string; label=Attribution: Map attribution for the tile server
+				attribution = Insert attribution here!
 			}
 		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty

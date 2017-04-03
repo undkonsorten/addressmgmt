@@ -134,6 +134,7 @@
             <trans-unit id="addressmgmt.show-less">
                 <source>show less</source>
             </trans-unit>
+
             <trans-unit id="addressmgmt.submitButton">
                 <source>Filter now</source>
             </trans-unit>
