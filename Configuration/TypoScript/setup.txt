@@ -30,7 +30,7 @@ plugin.tx_addressmgmt {
 		
 		filterConfiguration{ 
 			filter1{
-				rootCategory = 1 
+				rootCategory = 7
 				orderBy = title
 				sorting = DESC
 			}
