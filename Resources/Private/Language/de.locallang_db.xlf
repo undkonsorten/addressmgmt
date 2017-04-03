@@ -328,12 +328,12 @@
 				<source>Show Filter</source>
 				<target state="translated">Filter anzeigen</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexforms.recursive">
 				<source>Recursive</source>
 				<target state="translated">Rekursiv</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexforms.mapClustering">
 				<source>Map clustering</source>
 				<target state="translated">Marker gruppieren</target>
