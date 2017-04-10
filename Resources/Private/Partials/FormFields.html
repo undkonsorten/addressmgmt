@@ -36,6 +36,10 @@
     <f:render partial="Fields/{field}" arguments="{_all}" />
   </u:string.explodeFor>
   
+  <div class="form-group-wrap">
+    <f:render partial="Filter/Categories" arguments="{_all}" />
+  </div>
+  
   <f:form.hidden property="feUser" />
   <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Person" />
 </f:section>
@@ -66,6 +70,10 @@
     <f:render partial="Fields/{field}" arguments="{_all}" />
   </u:string.explodeFor>
   
+  <div class="form-group-wrap">
+    <f:render partial="Filter/Categories" arguments="{_all}" />
+  </div>
+  
   <f:form.hidden property="feUser" />
   <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Location" />
 </f:section>
@@ -94,6 +102,10 @@
   <u:string.explodeFor each="Geojson,Country,State,ClosestCity,Email,Phone,Mobile,Fax,Www,Description,Directions" as="field">
     <f:render partial="Fields/{field}" arguments="{_all}" />
   </u:string.explodeFor>
+  
+  <div class="form-group-wrap">
+    <f:render partial="Filter/Categories" arguments="{_all}" />
+  </div>
   
   <f:form.hidden property="feUser" />
   <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation" />

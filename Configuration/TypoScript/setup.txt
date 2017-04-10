@@ -22,11 +22,11 @@ plugin.tx_addressmgmt {
 	}
 	settings{
         categoryConfiguration{
-			default{
-				rootCategory = 1
-				orderBy = title
-				sorting = ASC
-			}
+			#default{
+			#	rootCategory = 1
+			#	orderBy = title
+			#	sorting = ASC
+			#}
     	}
 	    target{
             default = {$plugin.tx_addressmgmt.settings.target.default}
