@@ -122,6 +122,16 @@ class AddressController extends BaseController
     public function newAction($type)
     {
         $address = $this->createAddressFromFeUser($type);
+        if($this->settings['categoryConfiguration']){
+            foreach($this->settings['categoryConfiguration'] as $key => $value){
+                $categories = $this->categoryService->findAllDescendants(
+                    $this->categoryRepository->findByUid($value['rootCategory']),
+                    [$value['orderBy'] => $value['sorting']]
+                );
+                $this->view->assign($key, $categories);
+            }
+
+        }
         $this->view->assign('address', $address);
 
     }
