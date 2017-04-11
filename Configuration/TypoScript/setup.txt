@@ -21,7 +21,7 @@ plugin.tx_addressmgmt {
 		rewrittenPropertyMapper = 1
 	}
 	settings{
-        categoryConfiguration{
+        editableCategoryConfiguration{
 			#default{
 			#	rootCategory = 1
 			#	orderBy = title
