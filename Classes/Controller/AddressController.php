@@ -146,7 +146,6 @@ class AddressController extends BaseController
                 );
                 $this->view->assign($key, $categories);
             }
-
         }
 
         $this->view->assign('address', $address);
