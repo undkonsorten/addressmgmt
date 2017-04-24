@@ -1,6 +1,9 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Repository;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 /***************************************************************
@@ -35,38 +38,50 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
-	
-	protected $defaultOrderings = array(
-			'name' => QueryInterface::ORDER_DESCENDING,
-	);
-	
+class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+{
+
+    protected $defaultOrderings = array(
+        'name' => QueryInterface::ORDER_DESCENDING,
+    );
 
 
-	/**
-	 * Find addresses by categories
-	 * @param array $categories
-	 * @param array $orderings
-	 */
-	public function findByCategories($categories, $orderings=NULL){
-		$query = $this->createQuery();
-		$constraints = array();
-		if(count($categories)>1){
-			foreach ($categories as $category){
-				$constraints[] = $query->contains('category', $category);
-			}
-			$query->matching(
-					$query->logicalAnd($constraints)
-			);
-		}else{
-			$query->matching(
-					$query->contains('category', $categories)
-			);
-		}
-		if($orderings){
-			$query->setOrderings($orderings);
-		}
-		return $query->execute();
-	}
+    /**
+     * Find addresses by categories
+     * @param array $categories
+     * @param array $orderings
+     */
+    public function findByCategories($categories, $orderings = null)
+    {
+        $query = $this->createQuery();
+        $constraints = array();
+        if (count($categories) > 1) {
+            foreach ($categories as $category) {
+                $constraints[] = $query->contains('category', $category);
+            }
+            $query->matching(
+                $query->logicalAnd($constraints)
+            );
+        } else {
+            $query->matching(
+                $query->contains('category', $categories)
+            );
+        }
+        if ($orderings) {
+            $query->setOrderings($orderings);
+        }
+        return $query->execute();
+    }
+
+    /**
+     * @param array $pids
+     */
+    public function setStoragePids(array $pids)
+    {
+        if(!isset($this->defaultQuerySettings)){
+            $this->defaultQuerySettings = GeneralUtility::makeInstance(ObjectManager::class)->get(QuerySettingsInterface::class);
+        }
+        $this->defaultQuerySettings->setStoragePageIds($pids);
+    }
 }
 ?>
