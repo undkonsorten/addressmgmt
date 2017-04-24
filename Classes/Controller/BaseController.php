@@ -253,6 +253,22 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	protected function localize($key, array $arguments = []){
 	    return LocalizationUtility::translate($key,$this->request->getControllerExtensionKey(),$arguments);
     }
+
+    /**
+     * builds a link to plain page with given uid
+     *
+     * @param integer $pageUid uid of the page to link to
+     * @param bool $addReturnUrl add return_url parameter to link
+     * @return string the uri to link to
+     */
+    protected function buildPageLink($pageUid, $addReturnUrl = FALSE) {
+        $this->uriBuilder->reset();
+        $this->uriBuilder->setTargetPageUid(intval($pageUid));
+        if($addReturnUrl) {
+            $this->uriBuilder->setArguments(array('return_url' => $this->uriBuilder->getRequest()->getRequestUri()));
+        }
+        return $this->uriBuilder->build();
+    }
 	
 	
 
