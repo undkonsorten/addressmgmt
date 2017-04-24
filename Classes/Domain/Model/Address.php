@@ -1,5 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
+use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -815,11 +816,19 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	
 	/**
 	 * 
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $category
 	 * 
 	 */
-	public function setCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
+	public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category) {
 		$this->category = $category;
+	}
+
+	public function addCategory(Category $category){
+		$this->addCategory($category);
+	}
+
+	public function removeCategory(Category $category){
+		$this->removeCategory($category);
 	}
 	
 	/**
