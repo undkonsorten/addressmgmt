@@ -25,6 +25,18 @@
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.addressDetail</numIndex>
 										<numIndex index="1">Address->show</numIndex>
 									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.create</numIndex>
+										<numIndex index="1">Address->new;Address->create;Address->dash</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.edit</numIndex>
+										<numIndex index="1">Address->edit;Address->update;Address->dash</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.dash</numIndex>
+										<numIndex index="1">Address->dash;File->edit;File->update;File->new;File->create;File->delete;Address->edit;Address->update;Address->new;Address->create;Address->handInForReview;Address->delete;Address->remove;SocialIdentifier->create;SocialIdentifier->delete;SocialIdentifier->update;SocialIdentifier->edit;</numIndex>
+									</numIndex>
 								</items>
 								<default>Address->list;Address->show</default>
 							</config>
@@ -176,6 +188,41 @@
 						</config>
 					</TCEforms>
 				</settings.recursive>
+                <settings.publishState>
+                    <TCEforms>
+                        <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state</label>
+                        <displayCond>
+                            <AND>
+                                <numIndex>FIELD:settings.listType:=:all</numIndex>
+                                <AND>
+                                    <numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
+                                </AND>
+                            </AND>
+                        </displayCond>
+                        <config>
+                            <type>select</type>
+                            <items>
+                                <numIndex index="0">
+                                    <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.none</numIndex>
+                                    <numIndex index="1"></numIndex>
+                                </numIndex>
+                                <numIndex index="1">
+                                    <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0</numIndex>
+                                    <numIndex index="1">0</numIndex>
+                                </numIndex>
+                                <numIndex index="2">
+                                    <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1</numIndex>
+                                    <numIndex index="1">1</numIndex>
+                                </numIndex>
+                                <numIndex index="3">
+                                    <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2</numIndex>
+                                    <numIndex index="1">2</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
+                    </TCEforms>
+
+                </settings.publishState>
 				<settings.orderBy>
 						<TCEforms>
 							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>

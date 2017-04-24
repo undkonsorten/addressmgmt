@@ -18,6 +18,17 @@ plugin.tx_addressmgmt {
 		rewrittenPropertyMapper = 1
 	}
 	settings{
+        editableCategoryConfiguration{
+			#default{
+			#	rootCategory = 1
+			#	orderBy = title
+			#	sorting = ASC
+			#}
+    	}
+	    target{
+            default = {$plugin.tx_addressmgmt.settings.target.default}
+            images = {$plugin.tx_addressmgmt.settings.target.images}
+        }
 	    storagePid = {$plugin.tx_addressmgmt.settings.storagePid}
 	    recursive = {$plugin.tx_addressmgmt.settings.recursive}
 	    target{
@@ -48,6 +59,8 @@ plugin.tx_addressmgmt {
 			#map padding in px-units
 			padding = {$plugin.tx_addressmgmt.settings.mapConfiguration.padding}
 		}
+		createDefaultAddressType = {$plugin.tx_addressmgmt.settings.createDefaultAddressType}
+		storeNewAddressNextToFeuser = {$plugin.tx_addressmgmt.settings.storeNewAddressNextToFeuser}
 		tileLayerConfiguration {
 			urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}
 			options {

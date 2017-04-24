@@ -1,4 +1,6 @@
-{namespace a=Undkonsorten\Addressmgmt\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+      data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
 This Template is responsible for displaying a single view for a domain object
@@ -13,14 +15,13 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<a:titleTag>{address.name}</a:titleTag>
+<u:titleTag>{address.name}</u:titleTag>
 <h1>Single View for Address</h1>
 
 <f:flashMessages />
 <div class="tx-addressmgmt" >
-
-<h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3>
-
+	<f:render partial="Map/ShowSingle" arguments="{address:address, contendUid:contendUid}"/>
+<h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate>{address.title} {address.firstName} {address.Name}</h3>
 <f:for each="{address.category}" as="category">
 	{category.title}
 </f:for>
@@ -74,8 +75,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<f:if condition="{identifier.provider.image}">
 		<f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
 	</f:if>
-	<strong>{identifier.provider.name}:</strong> 
+	<strong>{identifier.provider.name}:</strong>
 	{identifier.url}
 </div>
 </f:for>
+</div>
 </f:section>

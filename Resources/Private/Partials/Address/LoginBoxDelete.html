@@ -1,0 +1,11 @@
+<div class="speakerLoginBox">
+	<div class="box">
+		<h3><f:translate key="loginStatus">Login status</f:translate></h3>
+			<p><f:translate key="loggedInAs">You are logged in as</f:translate></p>
+			<p><strong>{speaker.feUser.username}</strong></p>
+			<f:link.page class="button logout" pageUid="{settings.pidLogin}" additionalParams="{logintype:'logout'}"><f:translate key="logout">Logout</f:translate></f:link.page>
+			<p>
+					<f:link.page pageUid="{settings.pidEditLoginData}"><f:translate key="changeLoginData">Edit login data</f:translate></f:link.page>
+			</p>			
+	</div>
+</div>

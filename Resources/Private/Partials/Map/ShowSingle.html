@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<div class="map-wrap" id="map{contendUid}-wrap">
+  <div class="map" id="map{contendUid}" data-map-clusters="{settings.useMarkerClusters}" data-map-info-layer="#map{contendUid}-info-layer" data-map-wrap="#map{contendUid}-wrap" data-is-map="true" data-poi-list="#map{contendUid}-items"
+  data-map-configuration="{settings.mapConfiguration -> u:format.json() -> f:format.htmlspecialchars()}"
+  data-map-tilelayer="{settings.tileLayerConfiguration -> u:format.json() -> f:format.htmlspecialchars()}">
+  </div>
+  <div class="map-info-layer" id="map{contendUid}-info-layer"></div>
+  <ul id="map{contendUid}-items" style="display:none">
+      <f:if condition="{address.latitude}">
+        <f:then>
+          <li class="list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}">
+            <f:render partial="List/MapItem" arguments="{address: address}"/>
+          </li>
+        </f:then>
+        <f:else>
+          <f:if condition="{address.geoJson}">
+            <li class="list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'geoJson',geoJson:address.geoJsonObject}) -> f:format.htmlspecialchars()}">
+              <f:render partial="List/MapItem" arguments="{address: address}"/>
+            </li>
+          </f:if>
+        </f:else>
+      </f:if>
+  </ul>
+</div>

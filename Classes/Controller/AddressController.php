@@ -1,7 +1,16 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
 
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use Undkonsorten\Addressmgmt\Domain\Model\AddressInterface;
+use Undkonsorten\Addressmgmt\Domain\Model\Address;
+use TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentTypeException;
+use Undkonsorten\Addressmgmt\Utility\TemplateLayout;
+
 use Undkonsorten\Addressmgmt\Utility\Page;
 
 /***************************************************************
@@ -36,31 +45,37 @@ use Undkonsorten\Addressmgmt\Utility\Page;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class AddressController extends BaseController{
+class AddressController extends BaseController
+{
+
+    /**
+     * addressRepository
+     *
+     * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
+     * @inject
+     */
+    protected $addressRepository;
 
 	/**
-	 * addressRepository
+	 * categoryRepository
 	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
 	 * @inject
 	 */
-	protected $addressRepository;
+	protected $categoryRepository;
 
 	/**
-	 * personRepository
 	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\PersonRepository
+	 * @var \Undkonsorten\Addressmgmt\Service\CategoryService
 	 * @inject
 	 */
-	protected $personRepository;
+	protected $categoryService;
 
-	/**
-	 * organisationRepository
-	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\OrganisationRepository
-	 * @inject
-	 */
-	protected $organisationRepository;
+    /**
+     * @var \Undkonsorten\Addressmgmt\Service\Address
+     * @inject
+     */
+    protected $addressService;
 
 	/**
 	 * Constructor
@@ -75,33 +90,96 @@ class AddressController extends BaseController{
         $this->settings['storagePid'] = Page::extendPidListByChildren($this->settings['storagePid'], $this->settings['recursive']);
 	    $this->addressRepository->setStoragePids(explode(',',$this->settings['storagePid']));
 	}
-	
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction()
+
+    public function handInForReviewAction(Address $address)
+    {
+        $address->setPublishState(Address::PUBLISH_WAITING);
+        $this->addressRepository->update($address);
+        $this->addFlashMessage($this->localize('flashMessage.handInForReview'),AbstractMessage::OK);
+        $this->redirect('dash');
+
+    }
+
+    public function dashAction()
+    {
+        $address = $this->getLoggedInAddress();
+        //@TODO Security
+
+        if (is_null($address)) {
+            if ($this->settings['createDefaultAddressType'] != '') {
+                $this->createAddressFromFeUser($this->settings['createDefaultAddressType']);
+            } else {
+                $this->view->assign('feUser', $this->getLoggedInFrontendUser());
+                $this->view->assign('types', Address::getTypeConstants());
+            }
+        } else {
+            $this->view->assign('address', $this->getLoggedInAddress());
+        }
+    }
+
+    /**
+     *
+     * @param string $type
+     */
+    public function newAction($type)
+    {
+        $address = $this->createAddressFromFeUser($type);
+        $this->assignEditableCategories();
+        $this->view->assign('address', $address);
+
+    }
+
+    public function editAction(Address $address)
+    {
+        $this->assignEditableCategories();
+        $this->view->assign('address', $address);
+    }
+
+    public function createAction(Address $address)
+    {
+        $this->addressService->updateCoordinates($address, true);
+        if ($this->settings['storeNewAddressNextToFeuser']) {
+            $address->setPid($this->getLoggedInFrontendUser()->getPid());
+        } else {
+            $address->setPid($this->settings['storagePid']);
+        }
+
+        $this->addressRepository->add($address);
+        $this->addFlashMessage($this->localize('flashMessage.created'),AbstractMessage::OK);
+        $this->redirect('dash');
+    }
+
+    public function updateAction(Address $address)
+    {
+        $this->addressService->updateCoordinates($address, true);
+        $this->addressRepository->update($address);
+        $this->addFlashMessage($this->localize('flashMessage.updated'),AbstractMessage::OK);
+        $this->redirect('dash');
+    }
+
+    /**
+     * action list
+     *
+     * @return void
+     */
+    public function listAction()
     {
         if ($this->settings['orderBy'] && $this->settings['orderDirection']) {
             $orderings = array($this->settings['orderBy'] => $this->settings['orderDirection']);
         }
-        if ($this->settings['listType'] == 'all' && $this->settings['category']) {
-            $addresses = $this->addressRepository->findByCategories(GeneralUtility::intExplode(',',
-                $this->settings['category']), $orderings);
+        if ($this->settings['listType'] == 'all' && ($this->settings['category'] || $this->settings['publishState'])) {
+           $addresses = $this->addressRepository->findDemanded(
+                null,
+                GeneralUtility::intExplode(',', $this->settings['category'],true),
+                $this->settings['publishState'],
+                $orderings
+            );
         }
 
         if ($this->settings['listType'] == 'manual' && $this->settings['addresses']) {
-            $addresses = array();
-            foreach (GeneralUtility::intExplode(',', $this->settings['addresses']) as $uid) {
-                $addresses[] = $this->addressRepository->findByUid($uid);
-            }
+            $addresses = $this->addressRepository->findDemanded(GeneralUtility::intExplode(',',$this->settings['addresses']), null, null, $orderings);
         }
 
-        if (!$addresses) {
-            $addresses = $this->addressRepository->findAll();
-            $this->debugQuery($this->addressRepository->findAll());
-        }
         if ($this->settings['filterConfiguration']) {
             foreach ($this->settings['filterConfiguration'] as $key => $filter) {
                 $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
@@ -113,20 +191,81 @@ class AddressController extends BaseController{
             }
         }
 
-		
-		$this->view->assign('addresss', $addresses);
-		$this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
-	}
 
-	/**
-	 * action show
-	 *
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
-	 * @return void
-	 */
-	public function showAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address) {
-		$this->view->assign('address', $address);
-	}
+        $this->view->assign('addresss', $addresses);
+        $this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
+    }
+
+
+    /**
+     * action show
+     *
+     * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
+     * @return void
+     */
+    public function showAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address)
+    {
+        $this->view->assign('address', $address);
+        $this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
+    }
+
+    /**
+     *
+     * @throws \UnexpectedValueException
+     */
+    protected function getLoggedInAddress()
+    {
+        $frontendUser = $this->getLoggedInFrontendUser();
+        $address = $this->addressRepository->findOneByFeUser($frontendUser);
+        return $address;
+    }
+
+    /**
+     * creates an new speaker
+     * @param string
+     * @return \Undkonsorten\Addressmgmt\Domain\Model\Address
+     */
+    protected function createAddressFromFeUser($type)
+    {
+        $frontendUser = $this->getLoggedInFrontendUser();
+        if ($type == AddressInterface::PERSON) {
+            $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Person');
+            $address->setName($frontendUser->getLastName());
+            $address->setFirstName($frontendUser->getFirstName());
+            $address->setEmail($frontendUser->getEmail());
+            $address->setType(AddressInterface::PERSON);
+        } elseif ($type == AddressInterface::ORGANISATION) {
+            $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation');
+            $address->setType(AddressInterface::ORGANISATION);
+        } elseif ($type == AddressInterface::LOCATION) {
+            $address = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\Address\Location');
+            $address->setType(AddressInterface::LOCATION);
+        } else {
+            throw new InvalidArgumentTypeException($type . " is no correct address type", 1488302381);
+        }
+
+        $address->setFeUser($frontendUser);
+
+        return $address;
+    }
+
+    protected function assignEditableCategories()
+    {
+        $editableCategories = [];
+        if ($this->settings['editableCategoryConfiguration']) {
+            foreach ($this->settings['editableCategoryConfiguration'] as $key => $value) {
+                $categories = $this->categoryService->findAllDescendants(
+                    $this->categoryRepository->findByUid($value['rootCategory']),
+                    [$value['orderBy'] => $value['sorting']]
+                );
+                $editableCategories[$key] = [
+                    'categories' => $categories,
+                    'configuration' => $value,
+                ];
+            }
+        }
+        $this->view->assign('editableCategories', $editableCategories);
+    }
 
 }
 ?>

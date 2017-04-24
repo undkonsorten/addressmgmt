@@ -2,6 +2,8 @@
 namespace Undkonsorten\Addressmgmt\Controller;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+
 /***************************************************************
  *
  *  Copyright notice
@@ -36,6 +38,14 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * @var \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
 	 */
 	protected $typoScriptFrontendController;
+	
+	/**
+	 * fronted user repository
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository
+	 * @inject
+	 */
+	protected $frontendUserRepository;
 
 	/**
 	 * configuration manager
@@ -219,5 +229,44 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	        $this->settings = $originalSettings;
 	    }
 	}
+	
+	/**
+	 * Return logged in frontend user, if any, NULL otherwise
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
+	 */
+	protected function getLoggedInFrontendUser() {
+	    $frontendUser = NULL;
+	    $user = $GLOBALS['TSFE']->fe_user->user;
+	    if(isset($user['uid'])) {
+	        $frontendUser = $this->frontendUserRepository->findByUid($user['uid']);
+	    }
+	    if(is_null($frontendUser)) {
+	        $this->redirectToUri($this->buildPageLink($this->settings['pidLogin'], TRUE));
+	    }
+	    return $frontendUser;
+	}
+
+	protected function localize($key, array $arguments = []){
+	    return LocalizationUtility::translate($key,$this->request->getControllerExtensionKey(),$arguments);
+    }
+
+    /**
+     * builds a link to plain page with given uid
+     *
+     * @param integer $pageUid uid of the page to link to
+     * @param bool $addReturnUrl add return_url parameter to link
+     * @return string the uri to link to
+     */
+    protected function buildPageLink($pageUid, $addReturnUrl = FALSE) {
+        $this->uriBuilder->reset();
+        $this->uriBuilder->setTargetPageUid(intval($pageUid));
+        if($addReturnUrl) {
+            $this->uriBuilder->setArguments(array('return_url' => $this->uriBuilder->getRequest()->getRequestUri()));
+        }
+        return $this->uriBuilder->build();
+    }
+	
+	
 
 }

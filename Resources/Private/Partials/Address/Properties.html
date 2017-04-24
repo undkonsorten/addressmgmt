@@ -1,0 +1,71 @@
+<article class="single show detail speaker" id="s{speaker.uid}">
+	<h1>{speaker.title} {speaker.firstName} {speaker.name}<f:if condition="{speaker.organization}"><span class="subtitle">{speaker.organization}</span></f:if></h1>
+	
+	<div class="description layer clearfix {f:if(condition:'{speaker.image}',else:' noImg')}">
+		<f:if condition="{speaker.image}">
+			<f:image maxWidth="{settings.show.imageWidth}" src="{speaker.image.uid}" treatIdAsReference="1" alt="{speaker.image.originalResource.alternative}" title="{speaker.image.originalResource.alternative}" />
+		</f:if>
+		<f:if condition="{speaker.description}">
+			<f:then>
+					<p><f:format.nl2br>{speaker.description}</f:format.nl2br></p>
+			</f:then>
+			<f:else>
+				<f:render partial="Speaker/Contact" arguments="{speaker:speaker,additionalClass:'layer withoutBorder'}" />
+			</f:else>
+		</f:if>
+	</div><!-- .description -->
+	
+	<f:if condition="{speaker.description}">
+		<f:render partial="Speaker/Contact" arguments="{speaker:speaker,additionalClass:'layer'}" />
+	</f:if>
+
+	<f:if condition="{speaker.showContactForm}">
+		<f:if condition="{speaker.email}">
+			<!-- Contact Form -->
+			<div id="speakerContactForm">
+				<h2>Anfrage an {f:if(condition:'{speaker.title}',then:'{speaker.title} ')}{speaker.firstName} {speaker.name} senden</h2>
+				<f:cObject typoscriptObjectPath="u10n.helpers.contactSpeaker" />
+			</div>
+		</f:if>
+	</f:if>
+
+	<f:if condition="{speaker.licenses}">
+		<div class="licenses layer">
+			<h3 class="label"><f:translate key="licenses" /></h3>
+			<p><f:format.nl2br>{speaker.licenses}</f:format.nl2br></p>
+		</div>
+	</f:if>
+	
+
+	<f:if condition="{speaker.publications}">
+		<div class="publications layer">
+			<h3 class="label"><f:translate key="publications" /></h3>
+			<p><f:format.nl2br>{speaker.publications}</f:format.nl2br></p>
+		</div>
+	</f:if>
+	<f:if condition="{speaker.language}">
+		<div class="languages layer">
+			<h3 class="label"><f:translate key="languages" /></h3>
+			<p>{speaker.language}</p>
+		</div>
+	</f:if>
+	<f:if condition="{speaker.topic}">
+		<div class="topics layer">
+			<h3 class="label"><f:translate key="topics" /></h3>
+			<p>
+				<f:for each="{speaker.topic}" as="topic" iteration="topicIteration">
+					{topic.title}<f:if condition="{topicIteration.isLast}"><f:else>, </f:else></f:if>
+				</f:for>
+			</p>
+		</div>
+	</f:if>
+	<!--f:debug>{speaker.downlaod}</f:debug-->
+	<f:if condition="{speaker.download}">
+		<div class="layer">
+			<h3 class="label"><f:translate key="downloads">Downloads/Files</f:translate></h3>
+			<f:for each="{speaker.download}" as="download">
+				<div><f:render partial="File/Download" arguments="{file:download}" /></div>
+			</f:for>
+		</div>
+	</f:if>	
+</article>
