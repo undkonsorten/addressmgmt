@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+
+<f:groupedFor each="{editableCategories.filter1.categories}" as="categories" groupBy="parent" groupKey="parent">
+  <div class="form-field-wrap edit-cat-{parent.uid} form-checkbox">
+    <fieldset>
+      <legend>{parent.title}</legend>
+    </fieldset>
+    <f:for each="{categories}" as="category">
+      <label for="checkbox-{parent.uid}-{category.uid}">
+        <f:form.checkbox id="checkbox-{parent.uid}-{category.uid}" property="category" value="{category.uid}" multiple="1"/>
+        {category.title}</label>
+    </f:for>
+  </div>
+</f:groupedFor>
+
+<f:groupedFor each="{editableCategories.filter2.categories}" as="categories" groupBy="parent" groupKey="parent">
+  <div class="form-field-wrap edit-cat-{parent.uid} form-checkbox">
+    <fieldset>
+      <legend>{parent.title}</legend>
+    </fieldset>
+    <f:for each="{categories}" as="category">
+      <label for="checkbox-{parent.uid}-{category.uid}">
+        <input id="checkbox-{parent.uid}-{category.uid}" name="tx_addressmgmt_list[address][category][]" value="{category.uid}" type="checkbox" />
+        {category.title}</label>
+    </f:for>
+  </div>
+</f:groupedFor>
+

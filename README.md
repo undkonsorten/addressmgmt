@@ -49,3 +49,7 @@ plugin.tx_addressmgmt {
 		maxZoom = {$plugin.tx_addressmgmt.settings.maxZoom}
 	}
 }
+
+h1. To Do
+
+Add to Documentaion how to switch FE Edit Types

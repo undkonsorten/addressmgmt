@@ -125,18 +125,6 @@
 				<source>image</source>
 			</trans-unit>
 
-			<trans-unit id="tx_addressmgmt_domain_model_address.1">
-				<source>Miss</source>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.2">
-				<source>Sir</source>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.3">
-				<source/>
-			</trans-unit>
-                <source>Address records</source>
-                <target state="translated">Adressdaten</target>
-            </trans-unit>
             <trans-unit id="tx_addressmgmt_domain_model_address.first_name">
                 <source>firstName</source>
                 <target state="translated">Vorname</target>
@@ -337,7 +325,6 @@
                 <source>Counterpart</source>
                 <target state="translated">Ansprechpartner</target>
             </trans-unit>
-        </body>
 
             <trans-unit id="addressmgmt.read-more-link">
                 <source>read more</source>

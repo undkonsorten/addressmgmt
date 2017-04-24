@@ -122,23 +122,14 @@ class AddressController extends BaseController
     public function newAction($type)
     {
         $address = $this->createAddressFromFeUser($type);
+        $this->assignEditableCategories();
         $this->view->assign('address', $address);
 
     }
 
     public function editAction(Address $address)
     {
-        if($this->settings['categoryConfiguration']){
-             foreach($this->settings['categoryConfiguration'] as $key => $value){
-                $categories = $this->categoryService->findAllDescendants(
-                    $this->categoryRepository->findByUid($value['rootCategory']),
-                    [$value['orderBy'] => $value['sorting']]
-                );
-                $this->view->assign($key, $categories);
-            }
-
-        }
-
+        $this->assignEditableCategories();
         $this->view->assign('address', $address);
     }
 
@@ -254,6 +245,24 @@ class AddressController extends BaseController
         $address->setFeUser($frontendUser);
 
         return $address;
+    }
+
+    protected function assignEditableCategories()
+    {
+        $editableCategories = [];
+        if ($this->settings['editableCategoryConfiguration']) {
+            foreach ($this->settings['editableCategoryConfiguration'] as $key => $value) {
+                $categories = $this->categoryService->findAllDescendants(
+                    $this->categoryRepository->findByUid($value['rootCategory']),
+                    [$value['orderBy'] => $value['sorting']]
+                );
+                $editableCategories[$key] = [
+                    'categories' => $categories,
+                    'configuration' => $value,
+                ];
+            }
+        }
+        $this->view->assign('editableCategories', $editableCategories);
     }
 
 }
