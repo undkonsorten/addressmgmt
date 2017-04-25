@@ -19,7 +19,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <h1>Dashboard for Address</h1>
 
     <f:flashMessages />
-    <div class="tx-addressmgmt" >
+    <div class="tx-addressmgmt a{address.uid}" >
         <f:render partial="Map/ShowSingle" arguments="{address:address, contendUid:contendUid}"/>
         <h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3>
   
