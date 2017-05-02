@@ -23,7 +23,39 @@
     </fieldset>
     <f:for each="{categories}" as="category">
       <label for="checkbox-{parent.uid}-{category.uid}">
-        <input id="checkbox-{parent.uid}-{category.uid}" name="tx_addressmgmt_list[address][category][]" value="{category.uid}" type="checkbox" />
+        <f:form.checkbox id="checkbox-{parent.uid}-{category.uid}" property="category" value="{category.uid}" />
+        {category.title}</label>
+    </f:for>
+  </div>
+</f:groupedFor>
+<f:groupedFor each="{editableCategories.filter3.categories}" as="categories" groupBy="parent" groupKey="parent">
+
+  <div class="form-field-wrap edit-cat-{parent.uid} form-checkbox">
+      <label for="select-{parent.uid}-{category.uid}">{parent.title}</label>
+      <select id="select-{parent.uid}-{category.uid}" name="tx_addressmgmt_list[address][category][]">
+        <option value="0">{f:if(condition:parent.description,then:parent.description,else:parent.title)}</option>
+        <f:for each="{categories}" as="category">
+          <f:if condition="{u:objectExists(haystack: '{address.category}',property: 'uid',value: '{category.uid}')}">
+            <f:then>
+              <option selected value="{category.uid}">{category.title}</option>
+            </f:then>
+            <f:else>
+              <option value="{category.uid}">{category.title}</option>
+            </f:else>
+          </f:if>
+
+        </f:for>
+      </select>
+  </div>
+</f:groupedFor>
+<f:groupedFor each="{editableCategories.filter4.categories}" as="categories" groupBy="parent" groupKey="parent">
+  <div class="form-field-wrap edit-cat-{parent.uid} form-checkbox">
+    <fieldset>
+      <legend>{parent.title}</legend>
+    </fieldset>
+    <f:for each="{categories}" as="category">
+      <label for="checkbox-{parent.uid}-{category.uid}">
+        <f:form.checkbox id="checkbox-{parent.uid}-{category.uid}" property="category" value="{category.uid}" multiple="1"/>
         {category.title}</label>
     </f:for>
   </div>
