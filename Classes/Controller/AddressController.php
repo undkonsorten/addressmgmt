@@ -80,7 +80,18 @@ class AddressController extends BaseController
 	/**
 	 * Constructor
 	 */
-	public function initializeAction(){
+	public function initializeAction()
+    {
+        $arguments = $this->request->getArguments();
+        if (isset($arguments['address']['category'])) {
+            foreach ($arguments['address']['category'] as $key => $value) {
+                if ($value == 0) {
+                    unset($arguments['address']['category'][$key]);
+                }
+            }
+            $this->request->setArguments($arguments);
+        }
+
 	    $this->overrideFlexformSettings();
 	    if(isset($this->arguments['address'])){
 	       $propertyMappingConfiguration = $this->arguments['address']->getPropertyMappingConfiguration();
@@ -103,7 +114,7 @@ class AddressController extends BaseController
     public function dashAction()
     {
         $address = $this->getLoggedInAddress();
-        //@TODO Security
+
 
         if (is_null($address)) {
             if ($this->settings['createDefaultAddressType'] != '') {
