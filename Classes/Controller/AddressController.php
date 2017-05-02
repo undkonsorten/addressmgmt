@@ -121,7 +121,7 @@ class AddressController extends BaseController
     public function dashAction()
     {
         $address = $this->getLoggedInAddress();
-
+        DebuggerUtility::var_dump($address);
 
         if (is_null($address)) {
             if ($this->settings['createDefaultAddressType'] != '') {
@@ -263,6 +263,11 @@ class AddressController extends BaseController
             $address->setType(AddressInterface::LOCATION);
         } else {
             throw new InvalidArgumentTypeException($type . " is no correct address type", 1488302381);
+        }
+        if ($this->settings['storeNewAddressNextToFeuser']) {
+            $address->setPid($this->getLoggedInFrontendUser()->getPid());
+        } else {
+            $address->setPid($this->settings['storagePid']);
         }
 
         $address->setFeUser($frontendUser);
