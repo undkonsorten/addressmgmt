@@ -13,8 +13,19 @@ Templates:
 Show.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
+<f:if condition="{address}">
+    <f:then>
+        <f:render section="address" arguments="{_all}" />
+    </f:then>
+    <f:else>
+        <f:render section="noAddress" arguments="{feUser:feUser, types:types, contendUid:contendUid}" />
+    </f:else>
+
+</f:if>
+</f:section>
+
+<f:section name="address">
     <u:titleTag>{address.name}</u:titleTag>
     <h1>Dashboard for Address</h1>
 
@@ -122,7 +133,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
       
     </div>
   
-    <f:render section="noAddress" arguments="{feUser:feUser, types:types, contendUid:contendUid}" />
+
   
     <div>
         <f:link.action class="button" action="edit" arguments="{address:address}"><f:translate key="form.editProfile" /></f:link.action>

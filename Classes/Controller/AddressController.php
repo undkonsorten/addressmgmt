@@ -75,19 +75,30 @@ class AddressController extends BaseController
      */
     protected $addressService;
 
-    /**
-     * Constructor
-     */
-    public function initializeAction()
+	/**
+	 * Constructor
+	 */
+	public function initializeAction()
     {
-        $this->overrideFlexformSettings();
-        $this->storagePidFallback();
-        if (isset($this->arguments['address'])) {
-            $propertyMappingConfiguration = $this->arguments['address']->getPropertyMappingConfiguration();
-            $propertyMappingConfiguration->allowProperties('type');
-            $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_OVERRIDE_TARGET_TYPE_ALLOWED, TRUE);
+        $arguments = $this->request->getArguments();
+        if (isset($arguments['address']['category'])) {
+            foreach ($arguments['address']['category'] as $key => $value) {
+                if ($value == 0) {
+                    unset($arguments['address']['category'][$key]);
+                }
+            }
+            $this->request->setArguments($arguments);
         }
-    }
+
+	    $this->overrideFlexformSettings();
+	    if(isset($this->arguments['address'])){
+	       $propertyMappingConfiguration = $this->arguments['address']->getPropertyMappingConfiguration();
+	       $propertyMappingConfiguration->allowProperties('type');
+	       $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_OVERRIDE_TARGET_TYPE_ALLOWED, TRUE);
+	    }
+        $this->settings['storagePid'] = Page::extendPidListByChildren($this->settings['storagePid'], $this->settings['recursive']);
+	    $this->addressRepository->setStoragePids(explode(',',$this->settings['storagePid']));
+	}
 
     public function handInForReviewAction(Address $address)
     {
@@ -101,7 +112,7 @@ class AddressController extends BaseController
     public function dashAction()
     {
         $address = $this->getLoggedInAddress();
-        //@TODO Security
+
 
         if (is_null($address)) {
             if ($this->settings['createDefaultAddressType'] != '') {
