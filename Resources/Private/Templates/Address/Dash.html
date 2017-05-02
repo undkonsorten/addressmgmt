@@ -14,15 +14,16 @@ Show.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 <f:section name="main">
-<f:if condition="{address}">
-    <f:then>
-        <f:render section="address" arguments="{_all}" />
-    </f:then>
-    <f:else>
-        <f:render section="noAddress" arguments="{feUser:feUser, types:types, contendUid:contendUid}" />
-    </f:else>
 
-</f:if>
+    <f:if condition="{address}">
+        <f:then>
+            <f:render section="address" arguments="{_all}" />
+        </f:then>
+        <f:else>
+            <f:render section="noAddress" arguments="{feUser:feUser, types:types, contendUid:contendUid}" />
+        </f:else>
+    </f:if>
+
 </f:section>
 
 <f:section name="address">
