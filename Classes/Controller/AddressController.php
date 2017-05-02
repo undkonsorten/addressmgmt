@@ -4,6 +4,7 @@ namespace Undkonsorten\Addressmgmt\Controller;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
+
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use Undkonsorten\Addressmgmt\Domain\Model\AddressInterface;
@@ -77,6 +78,12 @@ class AddressController extends BaseController
      */
     protected $addressService;
 
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
+     * @inject
+     */
+    protected $persistenceManager;
+
 	/**
 	 * Constructor
 	 */
@@ -118,7 +125,10 @@ class AddressController extends BaseController
 
         if (is_null($address)) {
             if ($this->settings['createDefaultAddressType'] != '') {
-                $this->createAddressFromFeUser($this->settings['createDefaultAddressType']);
+                $address = $this->createAddressFromFeUser($this->settings['createDefaultAddressType']);
+                $this->addressRepository->add($address);
+                $this->persistenceManager->persistAll();
+                $this->view->assign('address', $address);
             } else {
                 $this->view->assign('feUser', $this->getLoggedInFrontendUser());
                 $this->view->assign('types', Address::getTypeConstants());
