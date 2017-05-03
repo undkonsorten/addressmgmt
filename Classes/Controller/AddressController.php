@@ -121,7 +121,6 @@ class AddressController extends BaseController
     public function dashAction()
     {
         $address = $this->getLoggedInAddress();
-        DebuggerUtility::var_dump($address);
 
         if (is_null($address)) {
             if ($this->settings['createDefaultAddressType'] != '') {
