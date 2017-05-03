@@ -415,6 +415,10 @@
                <source>allowed filetyles are: pdf, jpg, png, gif</source>
                 <target state="translated">Erlaubte Dateitypen: pdf, jpg, png, gif</target>
             </trans-unit>
+            <trans-unit id="edit.category.choose">
+                <source>Please choose</source>
+                <target>Bitte auswählen</target>
+            </trans-unit>
 
 		</body>
 	</file>

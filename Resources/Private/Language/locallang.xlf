@@ -240,6 +240,9 @@
                 <source>Counterpart</source>
                 <target state="translated">Ansprechpartner</target>
             </trans-unit>
+			<trans-unit id="edit.category.choose">
+				<source>Please choose</source>
+			</trans-unit>
         </body>
 	</file>
 </xliff>
