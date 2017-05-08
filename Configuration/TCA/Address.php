@@ -433,7 +433,7 @@ $GLOBALS['TCA']['tx_addressmgmt_domain_model_address'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-				'image',
+				'images',
 				array(
 					'maxitems' => 999,
 					'appearance' => array(

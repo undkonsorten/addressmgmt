@@ -207,7 +207,7 @@ class ResourceFactory implements SingletonInterface {
 	 * @param \string $property
 	 * @param \boolean $deleteFileIfPossible
 	 */
-	public function deleteFileReference(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference, $object, $property, $deleteFileIfPossible = FALSE) {
+	public function deleteFileReference(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference) {
 		$this->fileReferenceRepository->delete($fileReference);
 	}
 	

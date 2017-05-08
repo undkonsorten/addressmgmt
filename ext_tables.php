@@ -85,7 +85,7 @@ $TCA['tx_addressmgmt_domain_model_socialprovider'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,url_scheme,www,image,',
+		'searchFields' => 'name,url_scheme,www,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/SocialProvider.php',
 	    'iconfile' =>'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_addressmgmt_domain_model_socialprovider.png'
 	),

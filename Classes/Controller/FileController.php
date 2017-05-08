@@ -158,13 +158,10 @@ class FileController extends BaseController {
 		$fileUpload = ObjectAccess::getProperty($address, $propertyUpload);
 		
 		if(!is_null($fileReference)){
-			
 			$fileReference = $this->resourceFactory->replaceFileReferenceByUploadedFile($fileUpload, $target, $fileReference, $address, $property);
 		} else {
 			$fileReference = $this->resourceFactory->uploadAndReferenceFile($fileUpload, $target, $address, $property);
 		}
-		$address->addImage($fileReference);
-		$this->addressRepository->update($address);
 
 		$this->addFlashMessage(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0=>htmlspecialchars($fileUpload->getName()))));
 		$this->redirect('dash','Address');
@@ -174,8 +171,8 @@ class FileController extends BaseController {
 	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
 	 */
-	public function deleteAction(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference, \Undkonsorten\Addressmgmt\Domain\Model\Address $address){
-		$this->resourceFactory->deleteFileReference($fileReference, $address, 'download');
+	public function deleteAction(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference){
+		$this->resourceFactory->deleteFileReference($fileReference);
 		$this->addFlashMessage(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0=>$fileReference->getUid())));
 		$this->redirect('dash','Address');
 	}
