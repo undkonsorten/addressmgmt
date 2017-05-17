@@ -191,13 +191,19 @@ class AddressController extends BaseController
         if ($this->settings['orderBy'] && $this->settings['orderDirection']) {
             $orderings = array($this->settings['orderBy'] => $this->settings['orderDirection']);
         }
-        if ($this->settings['listType'] == 'all' && ($this->settings['category'] || $this->settings['publishState'])) {
-           $addresses = $this->addressRepository->findDemanded(
+        if ($this->settings['listType'] == 'all') {
+			
+			if($this->settings['category'] != '' || $this->settings['publishState']){
+				$addresses = $this->addressRepository->findDemanded(
                 null,
                 GeneralUtility::intExplode(',', $this->settings['category'],true),
                 $this->settings['publishState'],
                 $orderings
             );
+			}else{
+				$addresses = $this->addressRepository->findAll();
+			}
+           
         }
 
         if ($this->settings['listType'] == 'manual' && $this->settings['addresses']) {
