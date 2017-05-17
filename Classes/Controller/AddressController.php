@@ -106,6 +106,10 @@ class AddressController extends BaseController
 	       $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_OVERRIDE_TARGET_TYPE_ALLOWED, TRUE);
 	    }
         $this->settings['storagePid'] = Page::extendPidListByChildren($this->settings['storagePid'], $this->settings['recursive']);
+	    if($this->settings['storeNewAddressNextToFeuser']){
+            $frontendUser = $this->getLoggedInFrontendUser();
+            $this->settings['storagePid'] .= ',' . $frontendUser->getPid();
+        }
 	    $this->addressRepository->setStoragePids(explode(',',$this->settings['storagePid']));
 	}
 
