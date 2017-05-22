@@ -88,6 +88,7 @@ class SelectViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFie
         $this->registerArgument('prependOptionLabel', 'string', 'If specified, will provide an option at first position with the specified label.');
         $this->registerArgument('prependOptionValue', 'string', 'If specified, will provide an option at first position with the specified value.');
         $this->registerArgument('multiple', 'boolean', 'If set multiple options may be selected.', false, false);
+        $this->registerArgument('required', 'boolean', 'If set no empty value is allowed.', false, false);
     }
 
     /**
@@ -103,6 +104,9 @@ class SelectViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFie
 
         if ($this->arguments['multiple']) {
             $this->tag->addAttribute('multiple', 'multiple');
+        }
+        if ($this->arguments['required']) {
+            $this->tag->addAttribute('required', 'required');
         }
         $this->tag->addAttribute('name', $name);
         $options = $this->getOptions();
