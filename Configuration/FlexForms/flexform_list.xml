@@ -184,12 +184,10 @@
                     <TCEforms>
                         <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state</label>
                         <displayCond>
-                            <AND>
-                                <numIndex>FIELD:settings.listType:=:all</numIndex>
-                                <AND>
-                                    <numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
-                                </AND>
-                            </AND>
+                            <and>
+                                <value1>FIELD:settings.listType:=:all</value1>
+								<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
+                            </and>
                         </displayCond>
                         <config>
                             <type>select</type>
