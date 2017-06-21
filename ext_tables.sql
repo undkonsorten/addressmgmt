@@ -78,8 +78,6 @@ CREATE TABLE tx_addressmgmt_domain_model_socialidentifier (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	address int(11) unsigned DEFAULT '0' NOT NULL,
-
 	identifier varchar(100) DEFAULT '' NOT NULL,
 	url_override varchar(255) DEFAULT '' NOT NULL,
 	provider int(11) unsigned DEFAULT '0' NOT NULL,
