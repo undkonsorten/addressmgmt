@@ -35,12 +35,10 @@
 							<onChange>reload</onChange>
 							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.listType</label>
 							<displayCond>
-								<OR>
-									<numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
-									<OR>
-									<numIndex>FIELD:switchableControllerActions:=:</numIndex>
-									</OR>
-								</OR>
+								<or>
+									<value1>FIELD:switchableControllerActions:=:Address->list;Address->show</value1>
+									<value2>FIELD:switchableControllerActions:=:</value2>
+								</or>
 							</displayCond>
 							<config>
 								<type>select</type>
@@ -63,12 +61,10 @@
 						<exclude>1</exclude>
 						<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.category</label>
 						<displayCond>
-							<AND>
-								<numIndex>FIELD:settings.listType:=:all</numIndex>
-								<AND>
-									<numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
-								</AND>
-							</AND>
+							<and>
+								<value1>FIELD:settings.listType:=:all</value1>
+								<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
+							</and>
 						</displayCond>
 						<config>
 							<type>select</type>
@@ -93,12 +89,10 @@
 						<exclude>1</exclude>
 						<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.addresses</label>
 						<displayCond>
-							<AND>
-								<numIndex>FIELD:settings.listType:=:manual</numIndex>
-								<AND>
-									<numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
-								</AND>
-							</AND>
+							<and>
+								<value1>FIELD:settings.listType:=:manual</value1>
+								<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
+							</and>
 						</displayCond>
 						<config>
 							<type>select</type>
@@ -115,12 +109,10 @@
 							<exclude>1</exclude>
 							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.storageFolder</label>
 							<displayCond>
-								<AND>
-									<numIndex>FIELD:settings.listType:=:all</numIndex>
-									<AND>
-										<numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
-									</AND>
-								</AND>
+								<and>
+									<value1>FIELD:settings.listType:=:all</value1>
+									<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
+								</and>
 							</displayCond>
 							<config>
 								<type>group</type>
@@ -142,12 +134,10 @@
 						<TCEforms>
 							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>
 							<displayCond>
-								<AND>
-									<numIndex>FIELD:settings.listType:=:all</numIndex>
-									<AND>
-										<numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
-									</AND>
-								</AND>
+								<and>
+									<value1>FIELD:settings.listType:=:all</value1>
+									<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
+								</and>
 							</displayCond>
 							<config>
 								<type>select</type>
@@ -168,12 +158,10 @@
 						<TCEforms>
 							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
 							<displayCond>
-								<AND>
-									<numIndex>FIELD:settings.listType:=:all</numIndex>
-									<AND>
-										<numIndex>FIELD:switchableControllerActions:=:Address->list;Address->show</numIndex>
-									</AND>
-								</AND>
+								<and>
+									<value1>FIELD:settings.listType:=:all</value1>
+									<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
+								</and>
 							</displayCond>
 							<config>
 								<type>select</type>
