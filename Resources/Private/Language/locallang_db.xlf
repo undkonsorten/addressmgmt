@@ -294,6 +294,15 @@
 			<trans-unit id="flexform.switchableControllerActions">
 				<source>What to display</source>
 			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.create">
+				<source>Create</source>
+			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.edit">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.dash">
+				<source>Dashboard</source>
+			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.category">
 				<source>Category</source>
 			</trans-unit>
@@ -320,6 +329,9 @@
 			<trans-unit id="flexforms.mapId">
 				<source>Map id (mapbox)</source>
 			</trans-unit>
+				<trans-unit id="flexforms.mapClustering">
+				<source>Map clustering</source>
+			</trans-unit>
 			
 			<trans-unit id="tx_addressmgmt.templateLayout.map">
                 <source>Only map</source>
@@ -331,9 +343,30 @@
             </trans-unit>
             <trans-unit id="tx_addressmgmt.templateLayout.map-list">
                 <source>Map and list</source>
-                <target state="translated">Karte und Liste</target>
             </trans-unit>
-			
+
+
+
+
+
+			<trans-unit id="tx_addressmgmt_domain_model_address.publish_state">
+				<source>Publish State</source>
+			</trans-unit>
+
+			<trans-unit id="tx_addressmgmt_domain_model_address.publish_state.0">
+				<source>Created</source>
+			</trans-unit>
+
+			<trans-unit id="tx_addressmgmt_domain_model_address.publish_state.1">
+				<source>Waiting for approval</source>
+			</trans-unit>
+
+			<trans-unit id="tx_addressmgmt_domain_model_address.publish_state.2">
+				<source>Published</source>
+			</trans-unit>
+
+
+
 		</body>
 	</file>
 </xliff>

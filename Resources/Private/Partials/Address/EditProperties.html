@@ -1,0 +1,82 @@
+<article class="single show detail speaker" id="s{speaker.uid}">
+
+	
+	<h1>{speaker.title} {speaker.firstName} {speaker.name}<f:if condition="{speaker.organization}"><span class="subtitle">{speaker.organization}</span></f:if></h1>
+		<div class="contact">
+			<!-- h3 class="label"><f:translate key="contact" /></h3 -->
+			<p>
+				{speaker.title} {speaker.firstName} {speaker.name}
+				<f:if condition="{speaker.organization}"><br />{speaker.organization}</f:if>
+			</p>
+			<p>
+				{speaker.street} {speaker.streetNumber}<br />
+				{speaker.zip} {speaker.city} {speaker.addressSupplement}</br>
+				{speaker.region.title}
+			</p>
+			
+			<p>
+				{speaker.department}
+				{speaker.organization}
+			</p>
+			<p>
+				<f:if condition="{speaker.www}"><span class="displayBlock"><f:link.external uri="{speaker.www}" target="_blank" class="displayBlock"><f:translate key="website" />Website</f:link.external></span></f:if>
+				<f:if condition="{speaker.showEmail}">
+					<span class="displayBlock"><f:link.email email="{speaker.email}" class="mail displayBlock">{speaker.email}</f:link.email></span>
+				</f:if>
+			</p>
+			<p>
+				<f:if condition="{speaker.phone}"><span class="displayBlock"><span><f:translate key="phone" /></span>: {speaker.phone}</span></f:if>
+				<f:if condition="{speaker.mobile}"><span class="displayBlock"><span><f:translate key="mobile" /></span>: {speaker.mobile}</span></f:if>
+				<f:if condition="{speaker.fax}"><span class="displayBlock"><span><f:translate key="fax" /></span>: {speaker.fax}</span></f:if>
+			</p>
+		</div>
+	
+	<f:if condition="{speaker.description}">
+		<div class="description layer">
+			<h3 class="label"><f:translate key="description" /></h3>xx
+			<p><f:format.nl2br>{speaker.description}</f:format.nl2br></p>
+		</div>
+	</f:if>
+
+
+	<f:if condition="{speaker.showContactForm}">
+		<f:if condition="{speaker.email}">
+			<!-- Contact Form -->
+			<div id="speakerContactForm">
+				<f:cObject typoscriptObjectPath="u10n.helpers.contactSpeaker" />
+			</div>
+		</f:if>
+	</f:if>
+
+	<f:if condition="{speaker.licenses}">
+		<div class="licenses layer">
+			<h3 class="label"><f:translate key="licenses" /></h3>
+			<p><f:format.nl2br>{speaker.licenses}</f:format.nl2br></p>
+		</div>
+	</f:if>
+	
+
+	<f:if condition="{speaker.publications}">
+		<div class="publications layer">
+			<h3 class="label"><f:translate key="publications" /></h3>
+			<p><f:format.nl2br>{speaker.publications}</f:format.nl2br></p>
+		</div>
+	</f:if>
+	<f:if condition="{speaker.language}">
+		<div class="languages layer">
+			<h3 class="label"><f:translate key="languages" /></h3>
+			<p>{speaker.language}</p>
+		</div>
+	</f:if>
+	
+	<f:if condition="{speaker.topic}">
+		<div class="topics layer">
+			<h3 class="label"><f:translate key="topics" /></h3>
+			<p>
+				<f:for each="{speaker.topic}" as="topic" iteration="topicIteration">
+					{topic.title}<f:if condition="{topicIteration.isLast}"><f:else>, </f:else></f:if>
+				</f:for>
+			</p>
+		</div>
+	</f:if>
+</article>

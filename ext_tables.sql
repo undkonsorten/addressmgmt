@@ -39,6 +39,7 @@ CREATE TABLE tx_addressmgmt_domain_model_address (
 	map_zoom int(11) unsigned DEFAULT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
 	relation int(11) unsigned DEFAULT '0',
+	publish_state int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

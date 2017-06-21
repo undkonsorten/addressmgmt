@@ -48,6 +48,31 @@ interface AddressInterface {
 	 * @var \string
 	 */
 	const ORGANISATION = 'Tx_Addressbook_Organisation';
+	
+	/**
+	 * 
+	 * @var string
+	 */
+	const LOCATION = 'Tx_Addressbook_Location';
+
+    /**
+     * Created
+     * @var integer
+     */
+	const PUBLISH_CREATED = 0;
+
+    /**
+     * Waiting
+     * @var integer
+     */
+    const PUBLISH_WAITING = 1;
+
+    /**
+     * Published
+     * @var integer
+     */
+    const PUBLISH_PUBLISHED = 2;
+
 
 	/**
 	 * return full name
@@ -70,6 +95,8 @@ interface AddressInterface {
 	 * @return void
 	 */
 	public function setName($name);
+	
+	static function getTypeConstants();
 
 }
 ?>

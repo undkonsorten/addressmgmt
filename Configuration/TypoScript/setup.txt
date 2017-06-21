@@ -18,6 +18,17 @@ plugin.tx_addressmgmt {
 		rewrittenPropertyMapper = 1
 	}
 	settings{
+        editableCategoryConfiguration{
+			#default{
+			#	rootCategory = 1
+			#	orderBy = title
+			#	sorting = ASC
+			#}
+    	}
+	    target{
+            default = {$plugin.tx_addressmgmt.settings.target.default}
+            images = {$plugin.tx_addressmgmt.settings.target.images}
+        }
 	    storagePid = {$plugin.tx_addressmgmt.settings.storagePid}
 	    recursive = {$plugin.tx_addressmgmt.settings.recursive}
 	    target{
@@ -28,18 +39,18 @@ plugin.tx_addressmgmt {
 		{$plugin.tx_addressmgmt.settings.useMarkerClusters} useMarkerClusters = 1
 
 		filterConfiguration{
-			filter1{
-				rootCategory = 999
-				orderBy = title
-				sorting = DESC
-			}
-			filter2{
-				rootCategory = 3
-				orderBy = sorting
-				sorting = ASC
-			}
+#			filter1{
+#				rootCategory = 1
+#				orderBy = title
+#				sorting = DESC
+#			}
+#			filter2{
+#				rootCategory = 3
+#				orderBy = sorting
+#				sorting = ASC
+#			}
 		}
-
+		pidsA-z = {$plugin.tx_addressmgmt.settings.pidsA-z}
 		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
 		mapConfiguration {
 			latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}
@@ -48,11 +59,14 @@ plugin.tx_addressmgmt {
 			#map padding in px-units
 			padding = {$plugin.tx_addressmgmt.settings.mapConfiguration.padding}
 		}
+		createDefaultAddressType = {$plugin.tx_addressmgmt.settings.createDefaultAddressType}
+		storeNewAddressNextToFeuser = {$plugin.tx_addressmgmt.settings.storeNewAddressNextToFeuser}
 		tileLayerConfiguration {
 			urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}
 			options {
 				id = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.id}
 				accessToken = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.accessToken}
+				attribution = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.attribution}
 			}
 		}
 	}
@@ -82,3 +96,4 @@ page.includeJSFooter.tx_addressmgmt_tileConfigurationParser = EXT:addressmgmt/Re
 page.includeJSFooter.tx_addressmgmt_poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
 page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
 page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
+page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/map/filter.js
