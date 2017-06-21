@@ -1,0 +1,113 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+
+<f:render section="{address.type}" arguments="{_all}"/>
+
+
+<f:section name="Tx_Addressbook_Person">
+
+  <u:string.explodeFor each="Gender,Title" as="field">
+    <f:render partial="Fields/{field}" arguments="{_all}" />
+  </u:string.explodeFor>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="FirstName,Name" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Street,StreetNumber" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <f:render partial="Fields/AddressSupplement" arguments="{_all}" />
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Zip,City" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Latitude,Longitude" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <u:string.explodeFor each="Geojson,Organization,Department,Country,State,ClosestCity,Email,Phone,Mobile,Fax,Www,Description,Directions,Counterpart" as="field">
+    <f:render partial="Fields/{field}" arguments="{_all}" />
+  </u:string.explodeFor>
+  
+  <div class="form-group-wrap">
+    <f:render partial="Fields/Categories" arguments="{_all}" />
+  </div>
+  
+  <f:form.hidden property="feUser" />
+  <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Person" />
+</f:section>
+
+<f:section name="Tx_Addressbook_Location">
+  
+  <f:render partial="Fields/Name" arguments="{_all}" />
+  <u:string.explodeFor each="Organization,Department,Counterpart" as="field">
+    <f:render partial="Fields/{field}" arguments="{_all}" />
+  </u:string.explodeFor>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Street,StreetNumber" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <f:render partial="Fields/AddressSupplement" arguments="{_all}" />
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Zip,City" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Latitude,Longitude" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <u:string.explodeFor each="Geojson,Country,State,ClosestCity,Email,Phone,Mobile,Fax,Www,Description,Directions" as="field">
+    <f:render partial="Fields/{field}" arguments="{_all}" />
+  </u:string.explodeFor>
+  
+  <div class="form-group-wrap">
+    <f:render partial="Fields/Categories" arguments="{_all}" />
+  </div>
+  
+  <f:form.hidden property="feUser" />
+  <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Location" />
+</f:section>
+
+<f:section name="Tx_Addressbook_Organisation">
+  <f:render partial="Fields/Name" arguments="{_all}" />
+  <u:string.explodeFor each="Organization,Department,Counterpart" as="field">
+    <f:render partial="Fields/{field}" arguments="{_all}" />
+  </u:string.explodeFor>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Street,StreetNumber" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <f:render partial="Fields/AddressSupplement" arguments="{_all}" />
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Zip,City" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <div class="form-group-wrap">
+    <u:string.explodeFor each="Latitude,Longitude" as="field">
+      <f:render partial="Fields/{field}" arguments="{_all}" />
+    </u:string.explodeFor>
+  </div>
+  <u:string.explodeFor each="Geojson,Country,State,ClosestCity,Email,Phone,Mobile,Fax,Www,Description,Directions" as="field">
+    <f:render partial="Fields/{field}" arguments="{_all}" />
+  </u:string.explodeFor>
+  
+  <div class="form-group-wrap">
+    <f:render partial="Fields/Categories" arguments="{_all}" />
+  </div>
+  
+  <f:form.hidden property="feUser" />
+  <f:form.hidden name="address[__type]" value="Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation" />
+</f:section>
+

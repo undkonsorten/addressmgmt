@@ -1,0 +1,18 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<div>
+	<label for="image-title">
+		<f:translate key="download.title">Title</f:translate>
+		<f:render partial="FieldError" arguments="{object: Address property: 'address.downloadUpload.fileMetaData.title'}" />
+	</label>
+	<f:form.textfield id="image-title" name="{prefix}[title]" value="{fileMetaData.title}"/>
+	
+</div>
+<div>
+	<label for="file-description">
+		<f:translate key="download.fileDescription">Description</f:translate>
+	</label>
+	<f:form.textfield id="file-description" name="{prefix}[description]" value="{fileMetaData.description}"/>
+	
+</div>

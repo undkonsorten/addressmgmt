@@ -1,0 +1,62 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+This Template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="breadcrumb">
+	<f:cObject typoscriptObjectPath="u10n.menus.breadcrumb" />
+</f:section>
+
+<f:section name="main">
+
+	<h1><f:translate key="editFile-{property}">Edit File</f:translate></h1>
+	
+	<u:titleTag>{address.fullName}</u:titleTag>
+	<f:flashMessages />
+	
+	<f:form action="update" class="form-stacked" arguments="{address:address,fileReference:fileReference, property:property}" name="fileMetaData" >
+		<fieldset>
+			
+			
+			<f:if condition="{property}=='images'">
+				<!-- /// IMAGE /// -->
+				<f:image width="200" src="{fileReference.uid}" treatIdAsReference="1" alt="{fileReference.originalresource.alternative}" title="{fileReference.originalresource.title}" />
+				<div>
+					<f:link.action action="delete" arguments="{address:address,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
+					<f:link.action action="new" arguments="{address:address,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
+				</div>
+				<f:render partial="File/Upload/MetaDataImage" arguments="{fileMetaData:fileMetaData,prefix:'fileMetaData'}" />
+			</f:if>
+			
+			
+			<f:if condition="{property}=='download'">
+				<!-- /// DOWNLOAD /// -->
+				<f:render partial="File/Download" arguments="{file:fileReference}" />
+				<div class="form-field-wrap">
+					<f:link.action action="delete" arguments="{address:address,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
+					<f:link.action action="new" arguments="{address:address,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
+				</div>
+				<f:render partial="File/Upload/MetaDataDownload" arguments="{fileMetaData:fileMetaData,prefix:'fileMetaData'}" />
+			</f:if>
+
+			<div class="form-field-wrap">
+				<f:form.submit value="{f:translate(key: 'save', default: 'Save')}" />
+				<f:link.action action="dash" controller="Address" arguments="{address:address}" class="button cancel grey"><f:translate key="cancel">Cancel</f:translate></f:link.action>
+			</div>
+		</fieldset>
+	</f:form>
+	
+</f:section>
+

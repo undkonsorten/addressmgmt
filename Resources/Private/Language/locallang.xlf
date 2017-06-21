@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressmgmt">
+	<file datatype="plaintext" date="2013-09-17T00:06:57Z" original="messages" product-name="addressmgmt" source-language="en">
 		<header/>
 		<body>
 
@@ -8,108 +8,123 @@
 				<source>Address records</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.first_name">
-				<source>firstName</source>
+				<source>First name</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.name">
-				<source>name</source>
+				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.gender">
-				<source>gender</source>
+				<source>Gender</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.title">
-				<source>title</source>
+				<source>Title</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.organization">
-				<source>organization</source>
+				<source>Organization</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.department">
-				<source>department</source>
+				<source>Department</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.street">
-				<source>street</source>
+				<source>Street</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.street_number">
-				<source>streetNumber</source>
+				<source>Street number</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.address_supplement">
-				<source>addressSupplement</source>
+				<source>Address supplement</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.city">
-				<source>city</source>
+				<source>City</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.zip">
-				<source>zip</source>
+				<source>Zip</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.country">
-				<source>country</source>
+				<source>Country</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.state">
-				<source>state</source>
+				<source>State</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.closest_city">
-				<source>closestCity</source>
+				<source>ClosestCity</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.link">
+				<source>Link</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.email">
-				<source>email</source>
+				<source>Email</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.phone">
-				<source>phone</source>
+				<source>Phone</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.mobile">
-				<source>mobile</source>
+				<source>Mobile</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.fax">
-				<source>fax</source>
+				<source>Fax</source>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.www">
-				<source>www</source>
+			<trans-unit id="tx_addressmgmt_domain_model_address.www.text">
+				<source>Link text</source>
 			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.www.link">
+            	<source>Link</source>
+            </trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.description">
-				<source>description</source>
+				<source>Description</source>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.image">
-				<source>image</source>
+			<trans-unit id="tx_addressmgmt_domain_model_address.directions">
+				<source>Directions</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.images">
+				<source>Images</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.latitude">
-				<source>latitude</source>
+				<source>Latitude</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.longitude">
-				<source>longitude</source>
+				<source>Longitude</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.geojson">
+				<source>Geo JSON</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.fe_user">
-				<source>feUser</source>
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.counterpart">
+				<source>Counterpart</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.social_identifiers">
-				<source>socialIdentifiers</source>
+				<source>SocialIdentifiers</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">
 				<source>SocialIdentifier</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.identifier">
-				<source>identifier</source>
+				<source>Identifier</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.url_override">
-				<source>urlOverride</source>
+				<source>Url override</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.provider">
-				<source>provider</source>
+				<source>Provider</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_addressmgmt_domain_model_socialprovider">
 				<source>SocialProvider</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.name">
-				<source>name</source>
+				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.url_scheme">
-				<source>urlScheme</source>
+				<source>Url scheme</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.www">
-				<source>www</source>
+				<source>Www</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.image">
-				<source>image</source>
+				<source>Image</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_addressmgmt_domain_model_address.1">
@@ -119,7 +134,7 @@
 				<source>Sir</source>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.3">
-				<source></source>
+				<source>Other</source>
 			</trans-unit>
 
 			<trans-unit id="list.emptyList">
@@ -135,7 +150,99 @@
             <trans-unit id="addressmgmt.show-less">
                 <source>show less</source>
             </trans-unit>
-			
-		</body>
+
+            <trans-unit id="form.save">
+				<source>Save</source>
+			</trans-unit>
+            <trans-unit id="form.create">
+				<source>Create</source>
+			</trans-unit>
+            <trans-unit id="form.cancel">
+				<source>Cancel</source>
+			</trans-unit>
+			<trans-unit id="form.newImage">
+                <source>New Image</source>
+            </trans-unit>
+            <trans-unit id="form.publishMyData">
+                <source>Publish my data</source>
+            </trans-unit>
+            <trans-unit id="form.editProfile">
+                <source>Edit Profile</source>
+            </trans-unit>
+            <trans-unit id="form.newType">
+                <source>Create new %s</source>
+            </trans-unit>
+
+			<trans-unit id="flashMessage.createFile">
+				<source>The file "%s" was uploaded</source>
+			</trans-unit>
+
+			<trans-unit id="flashMessage.deleteFile">
+				<source>The file reference "%s" has been deleted</source>
+			</trans-unit>
+
+            <trans-unit id="formfield.options.gender.0">
+                    <source>Please choose</source>
+                </trans-unit>
+            <trans-unit id="formfield.options.gender.1">
+                    <source>Miss</source>
+                </trans-unit>
+            <trans-unit id="formfield.options.gender.2">
+                    <source>Sir</source>
+                </trans-unit>
+            <trans-unit id="formfield.options.gender.3">
+                    <source>Other</source>
+            </trans-unit>
+            <trans-unit id="flashMessage.handInForReview">
+                <source>Data are transmitted for review</source>
+            </trans-unit>
+            <trans-unit id="flashMessage.created">
+               <source>Created</source>
+            </trans-unit>
+             <trans-unit id="flashMessage.updated">
+               <source>Updated</source>
+            </trans-unit>
+
+             <trans-unit id="upload.upload-images">
+               <source>Upload image</source>
+            </trans-unit>
+             <trans-unit id="upload.helpTextAllowedFiletypes">
+               <source>Allowed filetyles are: pdf, jpg, png, gif</source>
+            </trans-unit>
+             <trans-unit id="upload.altTextImage">
+               <source>Alternative text for the image</source>
+            </trans-unit>
+             <trans-unit id="download.title">
+               <source>Title</source>
+            </trans-unit>
+             <trans-unit id="download.fileDescription">
+               <source>File description</source>
+            </trans-unit>
+
+            <trans-unit id="addressmgmt.submitButton">
+                <source>Filter now</source>
+            </trans-unit>
+            <trans-unit id="addressmgmt.resetButton">
+                <source>Reset form</source>
+            </trans-unit>
+            <trans-unit id="addressmgmt.linktextA-z">
+                <source>List from A-Z</source>
+            </trans-unit>
+		    <trans-unit id="addressmgmt.updateMap">
+                <source>Map updated</source>
+            </trans-unit>
+
+		    <trans-unit id="addressmgmt.label.contactdata">
+                <source>Contact</source>
+                <target state="translated">Kontakt</target>
+            </trans-unit>
+		    <trans-unit id="addressmgmt.label.counterpart">
+                <source>Counterpart</source>
+                <target state="translated">Ansprechpartner</target>
+            </trans-unit>
+			<trans-unit id="edit.category.choose">
+				<source>Please choose</source>
+			</trans-unit>
+        </body>
 	</file>
 </xliff>

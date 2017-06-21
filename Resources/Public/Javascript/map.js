@@ -58,12 +58,13 @@
     });
     // Call fitbounds event on map element when adding or removing marker to adopt zoom
     $(this).on('fitbounds.map', function(e, additionalConfiguration) {
-      map.fitBounds(poiLayerGroup.getBounds(), $.extend({}, fitBoundConfiguration, additionalConfiguration || {}));
+      if (poiLayerGroup.getLayers().length) {
+        map.fitBounds(poiLayerGroup.getBounds(), $.extend({}, fitBoundConfiguration, additionalConfiguration || {}));
+      }
     });
     $(this).on('update-list.map', function(e) {
       pois.forEach(function(poi) {
-        if ($(poi.element).data('map-hidden') === true) {
-          console.log('im here');
+        if ($(poi.element).hasClass('hide')) {
           poiLayerGroup.removeLayer(poi);
         } else {
           poi.addTo(poiLayerGroup);

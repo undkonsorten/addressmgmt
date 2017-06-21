@@ -1,0 +1,14 @@
+<f:form.validationResults for="{object}">
+	<f:if condition="{validationResults.flattenedErrors}">
+		<ul>
+		<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+			<li>
+			{propertyPath}: <ul>
+				<f:for each="{errors}" as="error">
+					<li class="ec{error.code} formErrors"><f:translate key="error.{error.code}">{error.message}</f:translate></li>
+				</f:for>
+				</ul>
+			</li>
+		</f:for></ul>
+</f:if>
+</f:form.validationResults>

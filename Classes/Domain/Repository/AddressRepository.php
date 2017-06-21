@@ -46,32 +46,37 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     );
 
 
-    /**
-     * Find addresses by categories
-     * @param array $categories
-     * @param array $orderings
-     */
-    public function findByCategories($categories, $orderings = null)
-    {
-        $query = $this->createQuery();
-        $constraints = array();
-        if (count($categories) > 1) {
-            foreach ($categories as $category) {
-                $constraints[] = $query->contains('category', $category);
-            }
-            $query->matching(
-                $query->logicalAnd($constraints)
-            );
-        } else {
-            $query->matching(
-                $query->contains('category', $categories)
-            );
-        }
-        if ($orderings) {
-            $query->setOrderings($orderings);
-        }
-        return $query->execute();
-    }
+	/**
+	 * Find addresses by categories
+	 * @param array $categories
+	 * @param array $orderings
+	 */
+	public function findDemanded($addresses = NULL,$categories= NULL, $publishState = NULL, $orderings=null){
+		$query = $this->createQuery();
+		$constraints = array();
+		if($orderings){
+			 $query->setOrderings($orderings);
+			}
+			if(!is_null($addresses) && $addresses != ''){$query->matching(
+					$query->in('uid', $addresses)
+			);
+		return $query->execute();
+			}
+
+        if(!is_null($publishState) && $publishState != '') {
+            $constraints[] =$query->equals('publishState', $publishState);
+					}
+
+        if(is_array($categories)) {
+            if (count($categories) > 0) {
+                $constraints[] =$query->in('category.uid', $categories);
+			}
+		}
+			$query->matching(
+            $query->logicalAnd($constraints));
+
+		return $query->execute();
+	}
 
     /**
      * @param array $pids
