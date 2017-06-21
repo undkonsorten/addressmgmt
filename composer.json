@@ -28,7 +28,7 @@
     "support": {
         "issues": "https://support.undkonsorten.com/projects/events"
     },
-    "version": "3.0.0",
+    "version": "3.1.0",
     "require": {
         "typo3/cms": ">=8.7"
     },
