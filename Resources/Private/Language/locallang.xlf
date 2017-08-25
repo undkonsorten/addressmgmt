@@ -243,6 +243,13 @@
 			<trans-unit id="edit.category.choose">
 				<source>Please choose</source>
 			</trans-unit>
+
+            <trans-unit id="image.delete">
+                <source>Delete</source>
+            </trans-unit>
+            <trans-unit id="image.edit">
+                <source>Edit</source>
+            </trans-unit>
         </body>
 	</file>
 </xliff>
