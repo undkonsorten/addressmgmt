@@ -44,9 +44,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
         <f:then>
           <div class="letter-list" data-label-all="{f:translate(key:'a-zlist.showAll')}"></div>
           <am:sortedGroupedFor each="{addresss}" as="addresssByFirstLetter" groupBy="firstLetterOfName" groupKey="letter" sortBy="firstLetterOfName">
-            <ul id="group-{letter}" data-group-letter="{letter}" class="list-items group">
+            <ul id="group-{letter}" class="list-items group">
               <f:for each="{addresssByFirstLetter}" as="address">
-                <li class="list-item a-{address.uid}">
+                <li class="list-item a-{address.uid}" data-group-letter="{letter}">
                   <f:render partial="List/Item" arguments="{address: address}"/>
                 </li>
               </f:for>
