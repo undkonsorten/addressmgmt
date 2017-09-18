@@ -1,8 +1,7 @@
 jQuery(function($) {
 
   // build menu with letters to filter groups
-  var groupSelector = '.list-items.group',
-    groupChildren = '.list-item',
+  var groupChildren = '.list-item',
     letterMenuSelector = '.letter-list',
     letterData = 'group-letter',
     $usedGroups = new Array(),
@@ -10,7 +9,7 @@ jQuery(function($) {
     numberSign = '#',
     $letters = new Array(numberSign,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
   function getAllUsedGroups () {
-    $(groupSelector).find(groupChildren).each(function(){
+    $(groupChildren).each(function(){
       $Letter = $(this).data(letterData);
       if ($Letter == numberSign) {
         itemToArray = replaceNumber;
@@ -47,13 +46,13 @@ jQuery(function($) {
     $showAll = '<a href="" class="show-all">' + $(letterMenuSelector).data('label-all') + '</a>';
     $(letterMenuSelector).prepend($taglist  + $showAll);
   }
-  if($(groupSelector).length > 0) {
+  if($(groupChildren).length > 0) {
     buildJumpMenu();
   }
   $(letterMenuSelector + ' .show-group').on('click',function(e) {
      e.preventDefault();
     $letter = $(this).data(letterData);
-     $(groupSelector).find(groupChildren).each(function() {
+     $(groupChildren).each(function() {
        if($(this).data(letterData) != $letter ) {
          $(this).hide();
        } else {
@@ -63,7 +62,7 @@ jQuery(function($) {
   });
   $('.letter-list .show-all').on('click', function (e) {
     e.preventDefault();
-    $(groupSelector).find(groupChildren).show();
+    $(groupChildren).show();
   });
 
   // show list-item on loading the page with # in th url
