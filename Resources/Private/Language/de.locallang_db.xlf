@@ -329,6 +329,10 @@
 				<source>Show Filter</source>
 				<target state="translated">Filter anzeigen</target>
 			</trans-unit>
+			<trans-unit id="flexforms.showA-zFilter">
+				<source>Show A-Z filter</source>
+				<target state="translated">A-Z Filter anzeigen</target>
+			</trans-unit>
 			<trans-unit id="flexforms.recursive">
 				<source>Recursive</source>
 				<target state="translated">Rekursiv</target>

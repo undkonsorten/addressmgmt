@@ -18,7 +18,7 @@ plugin.tx_addressmgmt {
 		rewrittenPropertyMapper = 1
 	}
 	settings{
-        useA-ZFilter = {$plugin.tx_addressmgmt.settings.showA-ZList}
+        showA-zFilter = {$plugin.tx_addressmgmt.settings.showA-zFilter}
         editableCategoryConfiguration{
 			#default{
 			#	rootCategory = 1

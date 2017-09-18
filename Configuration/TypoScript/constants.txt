@@ -17,7 +17,7 @@ plugin.tx_addressmgmt {
 	    # cat=plugin.tx_addressmgmt/settings; type=integer; label=Target default:Recursive
 	    recursive =
         # cat=plugin.tx_addressmgmt/settings; type=boolean; label=Show A-Z Filter with grouped items by name. Show/Hide items in list by first letter.
-        showA-ZList = 0
+        showA-zFilter = 0
 		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=Pids: Page id for a-z list view
         pidsA-z =
         # cat=plugin.tx_addressmgmt/map/0005; type=comment; label=MarkerClusters: Use marker clusters
@@ -58,6 +58,6 @@ plugin.tx_addressmgmt {
 			}
 		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
-		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom, storagePid,recursive
+		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom, storagePid,recursive, showA-zFilter
 	}
 }

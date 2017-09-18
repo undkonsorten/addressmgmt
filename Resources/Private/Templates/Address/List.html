@@ -1,4 +1,6 @@
-{namespace am=Undkonsorten\Addressmgmt\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:am="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+      data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -31,14 +33,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</f:if>
 		</f:then>
 		<f:else>
-			<div class="no-news-found"><f:translate key="list_nonewsfound" /></div>
+			<div class="no-addresses-found"><f:translate key="list.emptyList" /></div>
 		</f:else>
 	</f:if>
 </f:section>
 
 <f:section name="list">
   <section class="module-list.addressmgmt">
-      <f:if condition="{settings.useA-ZFilter}">
+      <f:if condition="{settings.showA-zFilter}">
         <f:then>
           <div class="letter-list" data-label-all="{f:translate(key:'a-zlist.showAll')}"></div>
           <am:sortedGroupedFor each="{addresss}" as="addresssByFirstLetter" groupBy="firstLetterOfName" groupKey="letter" sortBy="firstLetterOfName">
@@ -63,3 +65,5 @@ Otherwise your changes will be overwritten the next time you save the extension 
       </f:if>
   </section>
 </f:section>
+
+</html>
