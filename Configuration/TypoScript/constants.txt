@@ -20,6 +20,8 @@ plugin.tx_addressmgmt {
         showA-zFilter = 0
 		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=Pids: Page id for a-z list view
         pidsA-z =
+		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=PidsLogin: Login Page-Id for for redirect if FE User is not logged in
+        pidsLogin =
         # cat=plugin.tx_addressmgmt/map/0005; type=comment; label=MarkerClusters: Use marker clusters
 	    target{
             # cat=plugin.tx_addressmgmt/settings; type=string; label=Target default:Format StoragePid:Folder
@@ -27,7 +29,7 @@ plugin.tx_addressmgmt {
             # cat=plugin.tx_addressmgmt/settings; type=string; label=Target image:Format StoragePid:Folder
             images = 1:image
         }
-		# cat=plugin.tx_addressmgmt/map/0005; type=comment; label=MarkerClusters: Use marker clusters
+		# cat=plugin.tx_addressmgmt/map/0005; type=comment; label=MarkerClusters: Use marker clusters. Beware of the checkbox view, is buggy. Check in template whether comment is set or not.
 		useMarkerClusters = #
 		# cat=plugin.tx_addressmgmt/0006; type=string; label=Create default address type: Tx_Addressbook_Location|Tx_Addressbook_Organisation|Tx_Addressbook_Person
 		createDefaultAddressType =

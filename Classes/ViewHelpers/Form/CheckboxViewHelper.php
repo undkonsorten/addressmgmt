@@ -66,6 +66,7 @@ class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormF
             'errorClass', 'string', 'CSS class to set if there are errors for this view helper', false, 'f3-form-error'
         );
         $this->overrideArgument('value', 'string', 'Value of input tag. Required for checkboxes', true);
+        $this->registerArgument('required', 'boolean', 'If set no empty value is allowed.', false, false);
         $this->registerUniversalTagAttributes();
     }
 
@@ -83,8 +84,10 @@ class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormF
         $this->tag->addAttribute('type', 'checkbox');
 
         $nameAttribute = $this->getName();
-        $nameAttribute .= '[]';
         $valueAttribute = $this->getValueAttribute();
+        if ($this->arguments['required']) {
+            $this->tag->addAttribute('required', 'required');
+        }
         $propertyValue = null;
         if ($this->hasMappingErrorOccurred()) {
             $propertyValue = $this->getLastSubmittedFormData();
@@ -101,8 +104,10 @@ class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormF
             if ($checked === null) {
                 $checked = in_array($valueAttribute, $propertyValue);
             }
-
-        }elseif ($propertyValue !== null) {
+            $nameAttribute .= '[]';
+        } elseif ($multiple === true) {
+            $nameAttribute .= '[]';
+        } elseif ($propertyValue !== null) {
             $checked = (boolean) $propertyValue === (boolean) $valueAttribute;
         }
 

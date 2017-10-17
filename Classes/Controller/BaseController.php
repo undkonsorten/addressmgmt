@@ -1,5 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
+use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -242,7 +243,11 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	        $frontendUser = $this->frontendUserRepository->findByUid($user['uid']);
 	    }
 	    if(is_null($frontendUser)) {
-	        $this->redirectToUri($this->buildPageLink($this->settings['pidLogin'], TRUE));
+	        if($this->settings['pidsLogin']) {
+                $this->redirectToUri($this->buildPageLink($this->settings['pidsLogin'], TRUE));
+            } else {
+                throw new Exception('PidLogin not set. Cannot redirect.', '1508229013');
+            }
 	    }
 	    return $frontendUser;
 	}
