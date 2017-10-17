@@ -100,4 +100,4 @@ page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resourc
 page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
 page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/map/filter.js
 # a-z filter by jquery
-page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/az-filter.js
+page.includeJSFooter.tx_addressmgmt_mapAzFilter = EXT:addressmgmt/Resources/Public/Javascript/az-filter.js
