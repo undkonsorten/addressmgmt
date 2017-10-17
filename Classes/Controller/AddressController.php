@@ -211,18 +211,20 @@ class AddressController extends BaseController
         }
 
         if ($this->settings['filterConfiguration']) {
+            $filters = [];
             foreach ($this->settings['filterConfiguration'] as $key => $filter) {
                 $parent = $this->categoryRepository->findByUid($filter['rootCategory']);
                 if ($parent) {
                     $sorting = array($filter['orderBy'] => $filter['sorting']);
                     $filterCategories = $this->categoryService->findAllDescendants($parent, $sorting);
-                    $this->view->assign($key, $filterCategories);
+                    $filters[$key] = $filterCategories;
                 }
             }
+            $this->view->assign('filters', $filters);
         }
 
 
-        $this->view->assign('addresss', $addresses);
+        $this->view->assign('addresses', $addresses);
         $this->view->assign('contendUid', $this->configurationManager->getContentObject()->data['uid']);
     }
 
