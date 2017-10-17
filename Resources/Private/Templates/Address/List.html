@@ -20,15 +20,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<f:then>
       <f:switch expression="{settings.templateLayout}">
         <f:case value="map">
-          <f:render partial="Map/Show" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
+          <f:render partial="Map/Show" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
         </f:case>
         <f:case value="map-list">
-          <f:render partial="Map/Show" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
-          <f:render section="list" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
+          <f:render partial="Map/Show" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
+          <f:render section="list" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
         </f:case>
         <f:case default="true">
           <div class="filter-list-only"><f:render partial="Filter/Form" arguments="{_all}" /></div>
-          <f:render section="list" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
+          <f:render section="list" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
         </f:case>
       </f:switch>
 		</f:then>
@@ -43,7 +43,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
       <f:if condition="{settings.showA-zFilter}">
         <f:then>
           <div class="letter-list" data-label-all="{f:translate(key:'a-zlist.showAll')}"></div>
-          <am:sortedGroupedFor each="{addresss}" as="addresssByFirstLetter" groupBy="firstLetterOfName" groupKey="letter" sortBy="firstLetterOfName">
+          <am:sortedGroupedFor each="{addresses}" as="addresssByFirstLetter" groupBy="firstLetterOfName" groupKey="letter" sortBy="firstLetterOfName">
             <ul id="group-{letter}" class="list-items group">
               <f:for each="{addresssByFirstLetter}" as="address">
                 <li class="list-item a-{address.uid}" data-group-letter="{letter}">
@@ -55,7 +55,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
         </f:then>
         <f:else>
           <ul class="list-items">
-            <f:for each="{addresss}" as="address">
+            <f:for each="{addresses}" as="address">
               <li class="list-item a-{address.uid}">
                 <f:render partial="List/Item" arguments="{address: address}"/>
               </li>

@@ -20,7 +20,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
             <f:render section="address" arguments="{_all}" />
         </f:then>
         <f:else>
-            <f:render section="noAddress" arguments="{feUser:feUser, types:types, contendUid:contendUid}" />
+            <f:render section="noAddress" arguments="{feUser:feUser, types:types, contentUid:contentUid}" />
         </f:else>
     </f:if>
 
@@ -32,7 +32,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <f:flashMessages />
     <div class="tx-addressmgmt a{address.uid}" >
-        <f:render partial="Map/ShowSingle" arguments="{address:address, contendUid:contendUid}"/>
+        <f:render partial="Map/ShowSingle" arguments="{address:address, contentUid:contentUid}"/>
         <h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3>
   
       <f:if condition="{address.feUser}">
