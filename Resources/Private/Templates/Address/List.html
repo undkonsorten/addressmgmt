@@ -16,19 +16,19 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 <f:flashMessages />
-  <f:if condition="{addresss}">
+  <f:if condition="{addresses}">
 		<f:then>
       <f:switch expression="{settings.templateLayout}">
         <f:case value="map">
-          <f:render partial="Map/Show" arguments="{_all}"/>
+          <f:render partial="Map/Show" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
         </f:case>
         <f:case value="map-list">
-          <f:render partial="Map/Show" arguments="{_all}"/>
-          <f:render section="list" arguments="{addresses:addresss, contendUid:contendUid}"/>
+          <f:render partial="Map/Show" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
+          <f:render section="list" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
         </f:case>
         <f:case default="true">
           <div class="filter-list-only"><f:render partial="Filter/Form" arguments="{_all}" /></div>
-          <f:render section="list" arguments="{addresses:addresss, contendUid:contendUid}"/>
+          <f:render section="list" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
         </f:case>
       </f:switch>
 		</f:then>
