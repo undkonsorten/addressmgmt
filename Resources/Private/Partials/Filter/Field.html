@@ -4,7 +4,7 @@
 
 <f:for each="{settings.filterConfiguration}" key="filterName" as="filter">
   
-  <f:groupedFor each="{u:property(object: '{_all}', property: filterName)}" as="objects" groupBy="parent" groupKey="parent">
+  <f:groupedFor each="{u:property(object:filters, property: filterName)}" as="objects" groupBy="parent" groupKey="parent">
     <div class="form-field-wrap filter-{parent.uid}">
       <label for="filter-{parent.uid}">{parent.title}</label>
       <select id="filter-{parent.uid}" name="filter-{parent.title}" class="js-controlled">
@@ -17,3 +17,5 @@
   </f:groupedFor>
   
 </f:for>
+
+</html>

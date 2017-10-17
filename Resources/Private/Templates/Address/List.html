@@ -15,22 +15,22 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-
 <f:flashMessages />
-
-<f:if condition="{addresss}">
+  <f:if condition="{addresses}">
 		<f:then>
-			
-			<f:if condition="{settings.templateLayout} == 'map'">
-        <f:render partial="Map/Show" arguments="{addresses:addresss, contendUid:contendUid}"/>
-      </f:if>
-      <f:if condition="{settings.templateLayout} == 'map-list'">
-        <f:render partial="Map/Show" arguments="{addresses:addresss, contendUid:contendUid}"/>
-        <f:render section="list" arguments="{_all}" />
-      </f:if>
-      <f:if condition="{settings.templateLayout} == 'list'">
-        <f:render section="list" arguments="{_all}" />
-			</f:if>
+      <f:switch expression="{settings.templateLayout}">
+        <f:case value="map">
+          <f:render partial="Map/Show" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
+        </f:case>
+        <f:case value="map-list">
+          <f:render partial="Map/Show" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
+          <f:render section="list" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
+        </f:case>
+        <f:case default="true">
+          <div class="filter-list-only"><f:render partial="Filter/Form" arguments="{_all}" /></div>
+          <f:render section="list" arguments="{addresses:addresses, contendUid:contendUid, filters:filters}"/>
+        </f:case>
+      </f:switch>
 		</f:then>
 		<f:else>
 			<div class="no-addresses-found"><f:translate key="list.emptyList" /></div>
