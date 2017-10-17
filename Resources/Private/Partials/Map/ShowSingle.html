@@ -1,13 +1,13 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
       data-namespace-typo3-fluid="true">
-<div class="map-wrap" id="map{contendUid}-wrap">
-  <div class="map" id="map{contendUid}" data-map-clusters="{settings.useMarkerClusters}" data-map-info-layer="#map{contendUid}-info-layer" data-map-wrap="#map{contendUid}-wrap" data-is-map="true" data-poi-list="#map{contendUid}-items"
+<div class="map-wrap" id="map{contentUid}-wrap">
+  <div class="map" id="map{contentUid}" data-map-clusters="{settings.useMarkerClusters}" data-map-info-layer="#map{contentUid}-info-layer" data-map-wrap="#map{contentUid}-wrap" data-is-map="true" data-poi-list="#map{contentUid}-items"
   data-map-configuration="{settings.mapConfiguration -> u:format.json() -> f:format.htmlspecialchars()}"
   data-map-tilelayer="{settings.tileLayerConfiguration -> u:format.json() -> f:format.htmlspecialchars()}">
   </div>
-  <div class="map-info-layer" id="map{contendUid}-info-layer"></div>
-  <ul id="map{contendUid}-items" style="display:none">
+  <div class="map-info-layer" id="map{contentUid}-info-layer"></div>
+  <ul id="map{contentUid}-items" style="display:none">
       <f:if condition="{address.latitude}">
         <f:then>
           <li class="list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}">

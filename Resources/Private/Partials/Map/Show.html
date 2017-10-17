@@ -1,14 +1,14 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<div class="map-wrap{f:if(condition:settings.showFilter,then:' map-with-filter')}" id="map{contendUid}-wrap">
+<div class="map-wrap{f:if(condition:settings.showFilter,then:' map-with-filter')}" id="map{contentUid}-wrap">
   <div class="filter-wrap">
     <f:render partial="Filter/Form" arguments="{contentUid:contentUid, filters:filters}" />
   </div>
-  <div class="map" id="map{contendUid}" data-map-clusters="{settings.useMarkerClusters}" data-map-info-layer="#map{contendUid}-info-layer" data-map-wrap="#map{contendUid}-wrap" data-is-map="true" data-poi-list="#map{contendUid}-items" data-map-configuration="{settings.mapConfiguration -> u:format.json() -> f:format.htmlspecialchars()}" data-map-tilelayer="{settings.tileLayerConfiguration -> u:format.json() -> f:format.htmlspecialchars()}">
+  <div class="map" id="map{contentUid}" data-map-clusters="{settings.useMarkerClusters}" data-map-info-layer="#map{contentUid}-info-layer" data-map-wrap="#map{contentUid}-wrap" data-is-map="true" data-poi-list="#map{contentUid}-items" data-map-configuration="{settings.mapConfiguration -> u:format.json() -> f:format.htmlspecialchars()}" data-map-tilelayer="{settings.tileLayerConfiguration -> u:format.json() -> f:format.htmlspecialchars()}">
     <div class="update-map"><p><f:translate key="addressmgmt.updateMap" /></p></div>
   </div>
-  <div class="map-info-layer" id="map{contendUid}-info-layer"></div>
-  <ul id="map{contendUid}-items" class="map-list-items filter-list-items" style="display:none">
+  <div class="map-info-layer" id="map{contentUid}-info-layer"></div>
+  <ul id="map{contentUid}-items" class="map-list-items filter-list-items" style="display:none">
     <f:for each="{addresses}" as="address">
       <f:if condition="{address.latitude}">
         <f:then>
