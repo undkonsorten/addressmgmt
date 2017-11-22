@@ -3,202 +3,228 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_addressmgmt_domain_model_socialprovider'] = array(
-	'ctrl' => $TCA['tx_addressmgmt_domain_model_socialprovider']['ctrl'],
-	'interface' => array(
+$tca = [
+    'ctrl' => [
+        'title'	=> 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider',
+        'label' => 'name',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'dividers2tabs' => TRUE,
+        'sortby' => 'sorting',
+        'versioningWS' => 2,
+        'versioning_followPages' => TRUE,
+        'origUid' => 't3_origuid',
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'delete' => 'deleted',
+        'enablecolumns' => [
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
+        ],
+        'searchFields' => 'name,url_scheme,www,',
+        'iconfile' =>'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_socialprovider.png'
+    ],
+	'interface' => [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, url_scheme, www, image',
-	),
-	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, url_scheme, www, image, 
+    ],
+	'types' => [
+		'1' => [
+            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, url_scheme, www, image, 
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:div.naming,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.identifier;identifier, 
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.url_override;url_override, 
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
-	),
-	'palettes' => array(
-		'identifier' => array('showitem' => 'identifier_label,--linebreak--,identifier_description', 'canNotCollapse' => TRUE),
-		'url_override' => array('showitem' => 'show_url_override,--linebreak--,url_override_label,--linebreak--,url_override_description', 'canNotCollapse' => TRUE),
-	),
-	'columns' => array(
-		'sys_language_uid' => array(
+			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'
+        ],
+    ],
+	'palettes' => [
+		'identifier' => ['showitem' => 'identifier_label,--linebreak--,identifier_description', 'canNotCollapse' => TRUE],
+		'url_override' => ['showitem' => 'show_url_override,--linebreak--,url_override_label,--linebreak--,url_override_description', 'canNotCollapse' => TRUE],
+    ],
+	'columns' => [
+		'sys_language_uid' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-			'config' => array(
+			'config' => [
 				'type' => 'select',
 			    'renderType' => 'selectSingle',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
-				'items' => array(
-					array('LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1),
-					array('LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0)
-				),
-			),
-		),
-		'l10n_parent' => array(
+				'items' => [
+					['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
+					['LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0]
+                ],
+            ],
+        ],
+		'l10n_parent' => [
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
-			'config' => array(
+			'config' => [
 				'type' => 'select',
-				'items' => array(
-					array('', 0),
-				),
+				'items' => [
+					['', 0],
+                ],
 				'foreign_table' => 'tx_addressmgmt_domain_model_socialprovider',
 				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_socialprovider.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_socialprovider.sys_language_uid IN (-1,0)',
-			),
-		),
-		'l10n_diffsource' => array(
-			'config' => array(
+            ],
+        ],
+		'l10n_diffsource' => [
+			'config' => [
 				'type' => 'passthrough',
-			),
-		),
-		't3ver_label' => array(
+            ],
+        ],
+		't3ver_label' => [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'max' => 255,
-			)
-		),
-		'hidden' => array(
+            ]
+        ],
+		'hidden' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
-			'config' => array(
+			'config' => [
 				'type' => 'check',
-			),
-		),
-		'starttime' => array(
+            ],
+        ],
+		'starttime' => [
 			'exclude' => 1,
 			'l10n_mode' => 'mergeIfNotBlank',
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 13,
 				'max' => 20,
 				'eval' => 'datetime',
 				'checkbox' => 0,
 				'default' => 0,
-				'range' => array(
+				'range' => [
 					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
-			),
-		),
-		'endtime' => array(
+                ],
+            ],
+        ],
+		'endtime' => [
 			'exclude' => 1,
 			'l10n_mode' => 'mergeIfNotBlank',
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 13,
 				'max' => 20,
 				'eval' => 'datetime',
 				'checkbox' => 0,
 				'default' => 0,
-				'range' => array(
+				'range' => [
 					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
-			),
-		),
-		'name' => array(
+                ],
+            ],
+        ],
+		'name' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.name',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim,required'
-			),
-		),
-		'identifier_label' => array(
+            ],
+        ],
+		'identifier_label' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.identifier_label',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'identifier_description' => array(
+            ],
+        ],
+		'identifier_description' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.identifier_description',
-			'config' => array(
+			'config' => [
 				'type' => 'text',
 				'cols' => 30,
 				'rows' => 4,
 				'eval' => 'trim'
-			),
-		),
-		'url_scheme' => array(
+            ],
+        ],
+		'url_scheme' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_scheme',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'url_override_label' => array(
+            ],
+        ],
+		'url_override_label' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_override_label',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'url_override_description' => array(
+            ],
+        ],
+		'url_override_description' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_override_description',
-			'config' => array(
+			'config' => [
 				'type' => 'text',
 				'cols' => 30,
 				'rows' => 4,
 				'eval' => 'trim'
-			),
-		),
-		'show_url_override' => array(
+            ],
+        ],
+		'show_url_override' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.show_url_override',
-			'config' => array(
+			'config' => [
 				'type' => 'check',
-			),
-		),
-		'www' => array(
+            ],
+        ],
+		'www' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.www',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'image' => array(
+            ],
+        ],
+		'image' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'image', 
-				array(
+				[
 					'maxitems' => 1,
-					'appearance' => array(
+					'appearance' => [
 							'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
-					),
-					'foreign_types' => array(
-						'0' => array(
+                    ],
+					'foreign_types' => [
+						'0' => [
 							'showitem' => '
 								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 								--palette--;;filePalette'
-						),
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+                        ],
+						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
 								'showitem' => '
 							--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 							--palette--;;filePalette'
-						),
-					),
-									
-				), 
+                        ],
+                    ],
+
+                ],
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
-		),
-	),
-);
+        ],
+    ],
+];
+
+return $tca;
 
 ?>
