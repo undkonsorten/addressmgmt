@@ -3,7 +3,7 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['addressmgmt']);
-$GLOBALS['TCA']['tx_addressmgmt_domain_model_address'] = array(
+$tca = array(
     'ctrl' => array(
         'type' => 'type',
         'title'	=> 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address',
@@ -646,11 +646,13 @@ if(!$settings['feUserRelation']) {
 	);
 }
 if( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version()) < 7000000){
-    $TCA['tx_addressmgmt_domain_model_address']['columns']['description']['config']['wizards']['RTE']['icon'] = 'wizard_rte2.gif';
-    $TCA['tx_addressmgmt_domain_model_address']['columns']['directions']['config']['wizards']['RTE']['icon'] = 'wizard_rte2.gif';
-    $TCA['tx_addressmgmt_domain_model_address']['columns']['category']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
-    $TCA['tx_addressmgmt_domain_model_address']['columns']['fe_user']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
-    $TCA['tx_addressmgmt_domain_model_address']['columns']['fe_user']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+    $tca['columns']['description']['config']['wizards']['RTE']['icon'] = 'wizard_rte2.gif';
+    $tca['columns']['directions']['config']['wizards']['RTE']['icon'] = 'wizard_rte2.gif';
+    $tca['columns']['category']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $tca['columns']['fe_user']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $tca['columns']['fe_user']['config']['wizards']['edit']['icon'] = 'edit2.gif';
 
 }
+
+return $tca;
 ?>
