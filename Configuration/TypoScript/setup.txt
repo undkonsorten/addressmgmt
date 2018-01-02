@@ -18,6 +18,8 @@ plugin.tx_addressmgmt {
 		rewrittenPropertyMapper = 1
 	}
 	settings{
+	    orderDirection = {$plugin.tx_addressmgmt.settings.orderDirection}
+	    orderBy = {$plugin.tx_addressmgmt.settings.orderBy}
         editableCategoryConfiguration{
 			#default{
 			#	rootCategory = 1

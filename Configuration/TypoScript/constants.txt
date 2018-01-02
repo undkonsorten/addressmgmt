@@ -12,6 +12,11 @@ plugin.tx_addressmgmt {
 	}
 	
 	settings{
+	  # cat=plugin.tx_addressmgmt/settings; type=string; label= Order by
+            orderBy =
+	    # cat=plugin.tx_addressmgmt/settings; type=options[ASC,DESC]; label=Order direction[ascending, descending]
+	    orderDirection =
+
 	    # cat=plugin.tx_addressmgmt/settings; type=string; label=Target default:StoragePid:Folder
 	    storagePid =
 	    # cat=plugin.tx_addressmgmt/settings; type=integer; label=Target default:Recursive
@@ -57,6 +62,6 @@ plugin.tx_addressmgmt {
 			}
 		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
-		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom, storagePid,recursive
+		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom, storagePid,recursive, orderBy, orderDirection
 	}
 }
