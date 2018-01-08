@@ -85,22 +85,6 @@ class AddressController extends BaseController
      */
     protected $persistenceManager;
 
-
-    /**
-     * categoryRepository
-     *
-     * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-     * @inject
-     */
-    protected $categoryRepository;
-
-    /**
-     *
-     * @var \Undkonsorten\Addressmgmt\Service\CategoryService
-     * @inject
-     */
-    protected $categoryService;
-
 	/**
 	 * Constructor
 	 */
