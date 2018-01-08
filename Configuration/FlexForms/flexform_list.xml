@@ -317,6 +317,13 @@
 					</config>
                </settings.showFilter>
 
+               <settings.showA-zFilter>
+	               	<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.showA-zFilter</label>
+					<config>
+					  <type>check</type>
+					</config>
+               </settings.showA-zFilter>
+
          <settings.maxZoom>
 		    <TCEforms>
 		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.maxZoom</label>

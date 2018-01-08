@@ -173,6 +173,10 @@
                 <source>Create new %s</source>
             </trans-unit>
 
+            <trans-unit id="a-zlist.showAll">
+                <source>show all</source>
+            </trans-unit>
+
 			<trans-unit id="flashMessage.createFile">
 				<source>The file "%s" was uploaded</source>
 			</trans-unit>

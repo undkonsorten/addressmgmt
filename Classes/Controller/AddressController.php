@@ -85,6 +85,22 @@ class AddressController extends BaseController
      */
     protected $persistenceManager;
 
+
+    /**
+     * categoryRepository
+     *
+     * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
+     * @inject
+     */
+    protected $categoryRepository;
+
+    /**
+     *
+     * @var \Undkonsorten\Addressmgmt\Service\CategoryService
+     * @inject
+     */
+    protected $categoryService;
+
 	/**
 	 * Constructor
 	 */
@@ -204,7 +220,7 @@ class AddressController extends BaseController
 			}else{
 				$addresses = $this->addressRepository->findDemanded(null,null,null, $orderings);
 			}
-           
+
         }
 
         if ($this->settings['listType'] == 'manual' && $this->settings['addresses']) {
