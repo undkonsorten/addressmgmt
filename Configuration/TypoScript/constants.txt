@@ -61,5 +61,10 @@ plugin.tx_addressmgmt {
 		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
 		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom, storagePid,recursive, showA-zFilter
+
+        list {
+            # cat=plugin.tx_addressmgmt/settings; type=integer; label=Max characters for text in list view
+            cropMaxCharacters = 200
+        }
 	}
 }

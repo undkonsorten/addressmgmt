@@ -2,6 +2,6 @@
   <h3 class="title headline">{address.name}</h3>
   <f:render partial="Media/Media" arguments="{media:address.images}" />
   <div class="teaser">
-    <f:format.crop maxCharacters="100">{f:format.stripTags(value:address.description)}</f:format.crop>
+    <f:format.crop maxCharacters="{settings.list.cropMaxCharacters}">{f:format.stripTags(value:address.description)}</f:format.crop>
   </div>
 </div>
