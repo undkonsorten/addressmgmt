@@ -1,5 +1,7 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
+use TYPO3\CMS\Extbase\Domain\Model\Category;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 /***************************************************************
  *  Copyright notice
@@ -26,6 +28,7 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+
 /**
  *
  *
@@ -35,6 +38,18 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
  */
 abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements AddressInterface {
 
+    const FIRST_LETTER_MISC = '#';
+    /**
+     *
+     * @var \Undkonsorten\Addressmgmt\Utility\StringUtility
+     * @inject
+     */
+    protected $stringUtility;
+
+    /**
+     * @var integer
+     */
+	protected $publishState;
 	
 	/**
 	 * 
@@ -196,6 +211,13 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
 	 */
 	protected $images = NULL;
+	
+	/**
+	 * Downloads
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload
+	 */
+	protected $imagesUpload;
 
 	/**
 	 * latitude
@@ -622,24 +644,31 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 		$this->description = $description;
 	}
 
-	/**
-	 * Returns the image
-	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $images
-	 */
-	public function getImages() {
-		return $this->images;
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $images
+     */
+    public function setImages(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $images)
+    {
+        $this->images = $images;
+    }
+
+    public function addImage(FileReference $image){
+    	$this->images->attach($image);
 	}
 
-	/**
-	 * Sets the image
-	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $images
-	 * @return void
-	 */
-	public function setImages($images) {
-		$this->image = $images;
-	}
+	public function removeImage(FileReference $image){
+    	$this->images->detach($image);
+}
+
+
 	
 	/**
 	 * Coordinates as array of floats
@@ -794,11 +823,19 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	
 	/**
 	 * 
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $category
 	 * 
 	 */
-	public function setCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
+	public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category) {
 		$this->category = $category;
+	}
+	
+	public function addCategory(Category $category){
+		$this->category->attach($category);
+	}
+
+	public function removeCategory(Category $category){
+		$this->category->detach($category);
 	}
 	
 	/**
@@ -826,6 +863,17 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     {
         return $this->counterpart;
     }
+
+    
+    /**
+     * 
+     * @param \string $geojson
+     */
+    public function setGeojson($geojson)
+    {
+        $this->geojson = $geojson;
+    }
+ 
 	
     /**
      * @param string $counterpart
@@ -837,23 +885,86 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
  
 
 	
-/**
+	/**
 	 * @return \string
 	 */
     public function getGeojson()
     {
         return $this->geojson;
     }
+    
+    /**
+     * @return array
+     */
+    public function getGeojsonObject()
+    {
+		return json_decode($this->getGeojson());
+	}
+	
+	static function getTypeConstants() {
+	    $oClass = new \ReflectionClass(__CLASS__);
+
+	    return array_filter($oClass->getConstants(),function($value){
+            return substr($value,0,3) == "Tx_";
+		});
+	}
 
     /**
-     * 
-     * @param \string $geojson
+     * @return File\FileUpload
      */
-    public function setGeojson($geojson)
+    public function getImagesUpload()
     {
-        $this->geojson = $geojson;
+        return $this->imagesUpload;
     }
- 
-	
+
+    /**
+     * @param File\FileUpload $imagesUpload
+     */
+    public function setImagesUpload(File\FileUpload $imagesUpload)
+    {
+        $this->imagesUpload = $imagesUpload;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPublishState()
+    {
+        return $this->publishState;
+    }
+
+    /**
+     * @param int $publishState
+     */
+    public function setPublishState($publishState)
+    {
+        $this->publishState = $publishState;
+    }
+
+
+    /**
+     * Returns the firstLetterOfName
+     *
+     * @TODO: make used property selectable
+     * @return string $firstLetter
+     */
+    public function getFirstLetterOfName() {
+        $firstLetter = $this->normalizeFirstLetter($this->getName());
+        return $firstLetter;
+    }
+
+    protected function normalizeFirstLetter($string) {
+        // @TODO find better solution
+        $string = $this->stringUtility->slugify($string);
+        $string = strtolower(preg_replace('/^[^\w]+/', '', $string));
+        $string = preg_replace('/^[\d]+/', self::FIRST_LETTER_MISC, $string);
+        $firstLetter = $string[0];
+        if (!strlen($firstLetter)) {
+            $firstLetter = self::FIRST_LETTER_MISC;
+        }
+        return $firstLetter;
+    }
+
+
 }
 ?>
