@@ -32,4 +32,7 @@ config.tx_extbase {
 			}
     	}
     }
+	objects {
+		Undkonsorten\Addressmgmt\Service\GeoLocationServiceInterface.className = Undkonsorten\Addressmgmt\Service\NominatimGeolocationService
+	}
 }
