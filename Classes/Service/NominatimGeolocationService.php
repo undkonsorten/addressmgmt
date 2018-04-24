@@ -22,6 +22,8 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * @package Undkonsorten\Addressmgmt\Service
  * @author Eike Starkmann <eike.starkmann@posteo.de>
  * @author Felix Althaus <felix.althaus@undkonsorten.com>
+ * @author Paul Beck https://github.com/Schweriner
+ *
  */
 class NominatimGeolocationService implements GeoLocationServiceInterface
 {
