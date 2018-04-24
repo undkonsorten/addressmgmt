@@ -1,7 +1,14 @@
 <?php namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
-use TYPO3\CMS\Fluid\ViewHelpers\GroupedForViewHelper;
+
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
+use TYPO3Fluid\Fluid\ViewHelpers\GroupedForViewHelper;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\Variables\VariableExtractor;
+use TYPO3Fluid\Fluid\Core\ViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -47,18 +54,50 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper {
         $this->registerArgument('order', 'string', 'Sorting order, asc or desc', FALSE, self::ORDER_ASCENDING);
         parent::initializeArguments();
     }
+    /**
+     * @param array $arguments
+     * @param \Closure $renderChildrenClosure
+     * @param RenderingContextInterface $renderingContext
+     * @return mixed
+     */
+    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
+    {
+        $each = $arguments['each'];
+        $as = $arguments['as'];
+        $groupBy = $arguments['groupBy'];
+        $groupKey = $arguments['groupKey'];
+        $output = '';
+        if ($each === null) {
+            return '';
+        }
+        if (is_object($each)) {
+            if (!$each instanceof \Traversable) {
+                throw new ViewHelper\Exception('GroupedForViewHelper only supports arrays and objects implementing \Traversable interface', 1253108907);
+            }
+            $each = iterator_to_array($each);
+        }
 
+        $groups = static::groupElements($each, $groupBy);
+        $groups = static::sortElements($groups, $arguments['sortBy'],$arguments['order']);
+
+        $templateVariableContainer = $renderingContext->getVariableProvider();
+        foreach ($groups['values'] as $currentGroupIndex => $group) {
+            $templateVariableContainer->add($groupKey, $groups['keys'][$currentGroupIndex]);
+            $templateVariableContainer->add($as, $group);
+            $output .= $renderChildrenClosure();
+            $templateVariableContainer->remove($groupKey);
+            $templateVariableContainer->remove($as);
+        }
+        return $output;
+    }
     /**
      * @param \array $elements
      * @param \string $groupBy
      * @return \array
      */
-    protected function groupElements(array $elements, $groupBy) {
-        $groups = parent::groupElements($elements, $groupBy);
-        $sortBy = $this->arguments['sortBy'];
-        $order = $this->arguments['order'];
+    static protected function sortElements(array $groups, $sortBy, $order) {
         if ($sortBy && count($groups['keys'])) {
-            $groups = $this->sortGroups($groups, $sortBy, $order);
+            $groups = static::sortGroups($groups);
         }
         return $groups;
     }
@@ -67,61 +106,15 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper {
      * @param \array $groups
      * @return \array
      */
-    protected function sortGroups($groups, $sortBy, $order) {
+    static protected function sortGroups($groups) {
         ksort($groups['values']);
         $keys = array_keys($groups['values']);
         $groups['keys'] = array_combine($keys, $keys);
         return $groups;
     }
 
-    /**
-     * @param \integer|\float $a
-     * @param \integer|\float $b
-     */
-    static protected function sortNumbers($a, $b) {
-        return self::signum($a-$b);
-    }
 
-    /**
-     * calculates signum of given number (-1|0|1)
-     *
-     * @param \number $number
-     * @return \integer
-     */
-    static protected function signum($number) {
-        return (int) ($number == 0 ? 0 : $number / abs($number));
-    }
 
-    /**
-     * @param \Countable $a
-     * @param \Countable $b
-     * @return \integer
-     */
-    static protected function sortCountableByLength(\Countable $a, \Countable $b) {
-        return self::sortNumbers(count($a), count($b));
-    }
-
-    /**
-     * @param \mixed $object
-     * @throws \Exception
-     * @return \string|\array Callback function
-     */
-    protected function resolveComparisonFunction($object, $propertyPath) {
-        if (!(ObjectAccess::isPropertyGettable($object, $propertyPath))) {
-            throw new \Exception(sprintf('Object of type %s does not support getting property "%s".', get_class($object), $propertyPath), 1424171751);
-        }
-        $property = ObjectAccess::getPropertyPath($object, $propertyPath);
-        if (is_int($property) || is_float($property)) {
-            $sortingFunction = [self::class, 'sortNumbers'];
-        } elseif (is_string($property)) {
-            $sortingFunction = 'strnatcmp';
-        } elseif ($property instanceof \Countable) {
-            $sortingFunction = [self::class, 'sortCountableByLength'];
-        } else {
-            throw new \Exception(sprintf('%s only support numbers, strings or \Countable for comparison, %s given.', self::class, gettype($property)), 1424161601);
-        }
-        return $sortingFunction;
-    }
 
 
 }
