@@ -18,6 +18,9 @@ plugin.tx_addressmgmt {
 		rewrittenPropertyMapper = 1
 	}
 	settings{
+        showA-zFilter = {$plugin.tx_addressmgmt.settings.showA-zFilter}
+	    orderDirection = {$plugin.tx_addressmgmt.settings.orderDirection}
+	    orderBy = {$plugin.tx_addressmgmt.settings.orderBy}
         editableCategoryConfiguration{
 			#default{
 			#	rootCategory = 1
@@ -98,3 +101,5 @@ page.includeJSFooter.tx_addressmgmt_poiConfigurationParser = EXT:addressmgmt/Res
 page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
 page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
 page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/map/filter.js
+# a-z filter by jquery
+page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/az-filter.js

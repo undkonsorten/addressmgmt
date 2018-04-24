@@ -202,9 +202,9 @@ class AddressController extends BaseController
                 $orderings
             );
 			}else{
-				$addresses = $this->addressRepository->findAll();
+				$addresses = $this->addressRepository->findDemanded(null,null,null, $orderings);
 			}
-           
+
         }
 
         if ($this->settings['listType'] == 'manual' && $this->settings['addresses']) {

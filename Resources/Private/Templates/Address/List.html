@@ -1,5 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+      xmlns:am="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
       data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
@@ -15,6 +15,7 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
+
 <f:flashMessages />
   <f:if condition="{addresses}">
 		<f:then>
@@ -39,15 +40,31 @@ Otherwise your changes will be overwritten the next time you save the extension 
 </f:section>
 
 <f:section name="list">
-  <div class="list address">
-    <ul id="map{contentUid}-list-items" class="map-list-items filter-list-items list-items">
-      <f:for each="{addresses}" as="address">
-        <li class="list-item filter-list-item item#{address.uid}{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}" data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}">
-          <f:render partial="List/Item" arguments="{address: address}"/>
-        </li>
-      </f:for>
-    </ul>
-  </div>
+  <section class="module-list addressmgmt">
+      <f:if condition="{settings.showA-zFilter}">
+        <f:then>
+          <div class="letter-list" data-label-all="{f:translate(key:'a-zlist.showAll')}"></div>
+          <am:sortedGroupedFor each="{addresses}" as="addressesByFirstLetter" groupBy="firstLetterOfName" groupKey="letter" sortBy="firstLetterOfName">
+            <ul id="group-{letter}" class="list-items group">
+              <f:for each="{addressesByFirstLetter}" as="address">
+                <li class="list-item a-{address.uid}" data-group-letter="{letter}">
+                  <f:render partial="List/Item" arguments="{address: address}"/>
+                </li>
+              </f:for>
+            </ul>
+          </am:sortedGroupedFor>
+        </f:then>
+        <f:else>
+          <ul class="list-items">
+            <f:for each="{addresses}" as="address">
+              <li class="list-item a-{address.uid}">
+                <f:render partial="List/Item" arguments="{address: address}"/>
+              </li>
+            </f:for>
+          </ul>
+        </f:else>
+      </f:if>
+  </section>
 </f:section>
 
 </html>

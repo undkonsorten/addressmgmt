@@ -368,6 +368,11 @@
                 <target state="translated">Neuen Typ %s erstellen</target>
             </trans-unit>
 
+            <trans-unit id="a-zlist.showAll">
+                <source>show all</source>
+                <target state="translated">Alle</target>
+            </trans-unit>
+
             <trans-unit id="flashMessage.createFile">
                 <source>The file "%s" was uploaded</source>
                 <target state="translated">Die Datei %s wurde hochgeladen</target>

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(function($) {
 
 // filter list
   var $searchForm = $('.map-filter form'),

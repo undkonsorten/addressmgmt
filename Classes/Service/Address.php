@@ -44,7 +44,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 	 		$base = "https://nominatim.openstreetmap.org/search/";
 	 		$format = "json";
 	 		$query = rawurlencode($address->getStreet()." ".$address->getStreetNumber()." ".$address->getZip()." ".$address->getCity());
-	 		$result = json_decode(GeneralUtility::getUrl($base.$query."?format=".$format));
+	 		$result = json_decode(GeneralUtility::getUrl($base.$query."?format=".$format,0,['User-Agent: TYPO3-Extension-Addressmgmt']));
 	 		$address->setLatitude($result{0}->lat);
 	 		$address->setLongitude($result{0}->lon);
  		}	

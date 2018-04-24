@@ -12,10 +12,17 @@ plugin.tx_addressmgmt {
 	}
 	
 	settings{
+	  # cat=plugin.tx_addressmgmt/settings; type=string; label= Order by
+            orderBy =
+	    # cat=plugin.tx_addressmgmt/settings; type=options[ASC,DESC]; label=Order direction[ascending, descending]
+	    orderDirection =
+
 	    # cat=plugin.tx_addressmgmt/settings; type=string; label=Target default:StoragePid:Folder
 	    storagePid =
 	    # cat=plugin.tx_addressmgmt/settings; type=integer; label=Target default:Recursive
 	    recursive =
+        # cat=plugin.tx_addressmgmt/settings; type=boolean; label=Show A-Z Filter with grouped items by name. Show/Hide items in list by first letter.
+        showA-zFilter = 0
 		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=Pids: Page id for a-z list view
         pidsA-z =
 		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=PidsLogin: Login Page-Id for for redirect if FE User is not logged in
@@ -58,6 +65,6 @@ plugin.tx_addressmgmt {
 			}
 		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
-		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom, storagePid,recursive
+		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom, storagePid,recursive, orderBy, orderDirection, showA-zFilter
 	}
 }

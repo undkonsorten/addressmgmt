@@ -2,7 +2,6 @@
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***************************************************************
  *  Copyright notice
@@ -38,6 +37,14 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  */
 abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements AddressInterface {
+
+    const FIRST_LETTER_MISC = '#';
+    /**
+     *
+     * @var \Undkonsorten\Addressmgmt\Utility\StringUtility
+     * @inject
+     */
+    protected $stringUtility;
 
     /**
      * @var integer
@@ -822,13 +829,13 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category) {
 		$this->category = $category;
 	}
-
+	
 	public function addCategory(Category $category){
-		$this->addCategory($category);
+		$this->category->attach($category);
 	}
 
 	public function removeCategory(Category $category){
-		$this->removeCategory($category);
+		$this->category->detach($category);
 	}
 	
 	/**
@@ -933,6 +940,31 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     {
         $this->publishState = $publishState;
     }
+
+
+    /**
+     * Returns the firstLetterOfName
+     *
+     * @TODO: make used property selectable
+     * @return string $firstLetter
+     */
+    public function getFirstLetterOfName() {
+        $firstLetter = $this->normalizeFirstLetter($this->getName());
+        return $firstLetter;
+    }
+
+    protected function normalizeFirstLetter($string) {
+        // @TODO find better solution
+        $string = $this->stringUtility->slugify($string);
+        $string = strtolower(preg_replace('/^[^\w]+/', '', $string));
+        $string = preg_replace('/^[\d]+/', self::FIRST_LETTER_MISC, $string);
+        $firstLetter = $string[0];
+        if (!strlen($firstLetter)) {
+            $firstLetter = self::FIRST_LETTER_MISC;
+        }
+        return $firstLetter;
+    }
+
 
 }
 ?>
