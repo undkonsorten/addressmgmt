@@ -33,7 +33,7 @@
     </fieldset>
     <f:for each="{categories}" as="category">
       <label for="checkbox-{parent.uid}-{category.uid}">
-        <u:form.checkbox id="checkbox-{parent.uid}-{category.uid}" property="category" value="{category.uid}" />
+        <u:form.checkbox id="checkbox-{parent.uid}-{category.uid}" property="category" value="{category.uid}" multiple="1"/>
         {category.title}</label>
     </f:for>
   </div>

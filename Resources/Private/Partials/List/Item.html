@@ -12,6 +12,6 @@
     </f:if>
   </h3>
   <div class="teaser">
-    <f:format.crop maxCharacters="100">{f:format.stripTags(value:address.description)}</f:format.crop>
+    <f:format.crop maxCharacters="{settings.list.cropMaxCharacters}">{f:format.stripTags(value:address.description)}</f:format.crop>
   </div>
 </div>

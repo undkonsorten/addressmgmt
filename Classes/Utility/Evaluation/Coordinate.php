@@ -35,18 +35,6 @@ namespace Undkonsorten\Addressmgmt\Utility\Evaluation;
 class Coordinate {
 
 	/**
-	 * returns function body for javascript validation
-	 * @TODO Add when possible, now breaks because of http://forge.typo3.org/issues/52904
-	 * 
-	 * @return string
-	 */
-	/*public function returnFieldJS() {
-		return '
-		return value;
-		';
-	}*/
-	
-	/**
 	 * evaluates the value in BE
 	 * @TODO better normalization/distinguish longitude/latitude
 	 * 
