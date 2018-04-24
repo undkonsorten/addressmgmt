@@ -74,7 +74,7 @@ class AddressController extends BaseController
 	protected $categoryService;
 
     /**
-     * @var \Undkonsorten\Addressmgmt\Service\Address
+     * @var \Undkonsorten\Addressmgmt\Service\AddressLocatorService
      * @inject
      */
     protected $addressService;
@@ -162,7 +162,7 @@ class AddressController extends BaseController
 
     public function createAction(Address $address)
     {
-        $this->addressService->updateCoordinates($address, true);
+        $this->addressService->updateCoordinates($address);
         if ($this->settings['storeNewAddressNextToFeuser']) {
             $address->setPid($this->getLoggedInFrontendUser()->getPid());
         } else {
@@ -176,7 +176,7 @@ class AddressController extends BaseController
 
     public function updateAction(Address $address)
     {
-        $this->addressService->updateCoordinates($address, true);
+        $this->addressService->updateCoordinates($address);
         $this->addressRepository->update($address);
         $this->addFlashMessage($this->localize('flashMessage.updated'),AbstractMessage::OK);
         $this->redirect('dash');
