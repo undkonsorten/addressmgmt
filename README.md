@@ -57,4 +57,7 @@ Add to Documentaion how to switch FE Edit Types
 
 ## Versions
 
-[2.0.0] TYPO3 7.6 Compatibility Version
+[2.1.0] TYPO3 7.6 Compatibility Version
+[2.1.1] Release with Git Tag
+
+[3.1.1] TYPO3 8.7 Compatibility Version
