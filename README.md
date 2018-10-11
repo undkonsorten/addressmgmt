@@ -1,8 +1,8 @@
-h1. Addressmanagement (addressmgmt)
+# Addressmanagement (addressmgmt)
 
 The Adressmanagement extension is solution for replacing the old tt_address. It is mulitlingual, comes along with list and single view and also includes a map (with MapBox).
 
-h2. Map
+## Map
 
 The map is connected with MapBox.com:http://mapbox.com. You will need to create an account.
 With each address item can have store the geoposition (Lat, Lang) or you can also add a GeoJson in a format like
@@ -13,9 +13,9 @@ With each address item can have store the geoposition (Lat, Lang) or you can als
 
 To see the map you need to insert the Plugin "Address Management", What to display: "List", Show Items by: "Select Manually".
 
-h3. TypoScript Settings / Constants for the Map:
+### TypoScript Settings / Constants for the Map:
 
-h4. Constants
+#### Constants
 
 plugin.tx_addressmgmt {	
 	settings{
@@ -36,7 +36,7 @@ plugin.tx_addressmgmt {
 	}
 }
 
-h4. Setup
+#### Setup
 
 plugin.tx_addressmgmt {
 	settings{
@@ -50,6 +50,11 @@ plugin.tx_addressmgmt {
 	}
 }
 
-h1. To Do
+# To Do
 
 Add to Documentaion how to switch FE Edit Types
+
+
+## Versions
+
+[2.0.0] TYPO3 7.6 Compatibility Version
