@@ -49,7 +49,6 @@
     <u:form.select id="select-{parent.uid}" property="category" required="1" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
   </div>
 </f:groupedFor>
-
 <f:groupedFor each="{editableCategories.filter4.categories}" as="categories" groupBy="parent" groupKey="parent">
   <div class="form-field-wrap edit-cat-{parent.uid} form-checkbox">
     <fieldset>
