@@ -1,6 +1,7 @@
 .buildpath
 .project
 .settings/
+build
 .idea
 .Build
 composer.lock
