@@ -31,6 +31,9 @@
     "require": {
         "typo3/cms": ">=8.7"
     },
+	"suggest": {
+		"in2code/femanager": "^4.2"
+	},
   "replace": {
     "addressmgmt": "self.version",
     "typo3-ter/addressmgmt": "self.version"

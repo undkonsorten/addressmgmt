@@ -35,6 +35,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'conflicts' => array(
 		),
 		'suggests' => array(
+            "femanager" => "4.2.0-4.9.99"
 		),
 	),
 );
