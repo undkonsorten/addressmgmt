@@ -62,6 +62,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  */
 class ExplodeForViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper implements \TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface
 {
+    protected $escapeOutput = false;
     /**
      * Iterates through elements of $each and renders child nodes
      *
