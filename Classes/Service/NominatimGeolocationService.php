@@ -61,6 +61,6 @@ class NominatimGeolocationService implements GeoLocationServiceInterface
         $url = sprintf($this->uriScheme, $query, $this->format);
         // @Todo replace with guzzle when dropping support for TYPO3 7.6 (classic install)
         $response = GeneralUtility::getUrl($url, 0, $this->headers);
-        return json_decode($response);
+        return json_decode($response, true);
     }
 }

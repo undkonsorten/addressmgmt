@@ -82,12 +82,32 @@ class AddressLocatorService
         Address $address,
         $propertiesToConsider = []
     ) {
-        $coordinatesDirty = $address->_isDirty('latitude') && $address->_isDirty('longitude');
+        $coordinatesDirty = $address->_isDirty('latitude') || $address->_isDirty('longitude');
         $isNew = $address->_isNew();
         $propertiesDirty = array_reduce($propertiesToConsider, function ($carry, $property) use ($address) {
             return $carry || $address->_isDirty($property);
         }, false);
-        return !$coordinatesDirty && ($isNew || $propertiesDirty);
+
+        // Is new and no coordinates given
+        if($isNew && $address->getLatitude() === '' && $address->getLongitude() === ''){
+            return true;
+        }
+        // Is new and coordinates are given coordinates given
+        if($isNew && $address->getLatitude() !== '' && $address->getLongitude() !== ''){
+            return false;
+        }
+
+        //Coordinates changed but not empty
+        if($coordinatesDirty && $address->getLatitude() !== '' && $address->getLongitude() !== ''){
+            return false;
+        }
+
+        //Coordinates changed but empty
+        if($coordinatesDirty && $address->getLatitude() === '' && $address->getLongitude() === ''){
+            return true;
+        }
+
+        return false;
     }
 
     /**
