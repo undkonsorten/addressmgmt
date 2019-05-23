@@ -107,6 +107,11 @@ class AddressLocatorService
             return true;
         }
 
+        //Object was edited but coordinates are not dirty, the address might have changed, so update
+        if(!$coordinatesDirty && !$isNew){
+            return true;
+        }
+
         return false;
     }
 
