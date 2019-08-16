@@ -57,7 +57,7 @@ class ExtensionConfigurationService {
 	 * @param \string $extensionKey
 	 */
 	public function load($extensionKey) {
-		$this->configuration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$extensionKey]);
+		$this->configuration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey];
 	}
 	
 	/**

@@ -2,7 +2,7 @@
 if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
-$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['addressmgmt']);
+$settings = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['addressmgmt'];
 $tca = array(
     'ctrl' => array(
         'type' => 'type',
@@ -635,7 +635,6 @@ $tca = array(
 	),
 );
 
-$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['addressmgmt']);
 if(!$settings['feUserRelation']) {
 	$TCA['tx_addressmgmt_domain_model_address']['columns']['fe_user'] = array(
 		'exclude' => 1,
