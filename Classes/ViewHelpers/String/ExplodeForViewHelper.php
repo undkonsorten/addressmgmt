@@ -103,7 +103,7 @@ class ExplodeForViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractVie
      */
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface $renderingContext)
     {
-        $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+        $templateVariableContainer = $renderingContext->getVariableProvider();
         if ($arguments['each'] === null) {
             return '';
         }
