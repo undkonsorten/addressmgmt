@@ -57,7 +57,7 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 	/**
 	 * Finds all descendants of an given category
 	 *
-	 * @param \Undkonsorten\NdeCompanies\Domain\Model\Category $parentCategory
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory
 	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $resultStorage
 	 */
@@ -89,7 +89,7 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 		return $resultStorage;
 	}
 	
-	public function buildCategoryTree(\Undkonsorten\NdeCompanies\Domain\Model\Category $parentCategory, $sorting = null){
+	public function buildCategoryTree(\TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory, $sorting = null){
 	    #$result[] = array('category' => $parentCategory,'children' => array());
 	    
 	    $children = $this->getChildren($parentCategory, $sorting);
@@ -101,7 +101,7 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 	    return $result;
 	}
 	
-	protected function getChildren(\Undkonsorten\NdeCompanies\Domain\Model\Category $parent, $sorting = null){
+	protected function getChildren(\TYPO3\CMS\Extbase\Domain\Model\Category $parent, $sorting = null){
 	    if(is_null($sorting)){
 	        $this->categoryRepository->setDefaultOrderings(array('title'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
 	    }else{
