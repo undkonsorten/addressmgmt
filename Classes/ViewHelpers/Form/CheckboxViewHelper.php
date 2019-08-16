@@ -43,7 +43,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  * @api
  */
-class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper
+class CheckboxViewHelper extends \TYPO3Fluid\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper
 {
     /**
      * @var string
@@ -75,7 +75,7 @@ class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormF
      *
      * @param bool $checked Specifies that the input element should be preselected
      * @param bool $multiple Specifies whether this checkbox belongs to a multivalue (is part of a checkbox group)
-     * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception
+     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
      * @return string
      * @api
      */

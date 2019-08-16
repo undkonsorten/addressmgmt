@@ -1,7 +1,7 @@
 <?php
 namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
-class GoogleMapViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper {
+class GoogleMapViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper {
 	
 	protected $tagName = 'div';
 	

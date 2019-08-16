@@ -3,7 +3,7 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-class MarkerViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class MarkerViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
   
     /**
      * 

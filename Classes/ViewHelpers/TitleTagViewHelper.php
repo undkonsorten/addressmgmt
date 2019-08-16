@@ -38,7 +38,7 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers;
  * </output>
  *
  */
-class TitleTagViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class TitleTagViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	/**
 	 * Override the title tag

@@ -40,7 +40,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  * </output>
  *
  */
-class PropertyViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class PropertyViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	/**
 	 * 
