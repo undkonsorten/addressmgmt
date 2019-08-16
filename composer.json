@@ -29,10 +29,10 @@
         "issues": "https://support.undkonsorten.com/projects/events"
     },
     "require": {
-        "typo3/cms": ">=8.7"
+        "typo3/cms-core": "^9.5"
     },
 	"suggest": {
-		"in2code/femanager": "^4.2"
+		"in2code/femanager": "^5.1.1"
 	},
   "replace": {
     "addressmgmt": "self.version",
