@@ -10,7 +10,9 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers\String;
      *                                                                        *
      * The TYPO3 project - inspiring people to share!                         *
      *                                                                        */
-use TYPO3\CMS\Extbase\Utility\ArrayUtility;
+
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Extbase\Utility\ArrayUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
@@ -107,7 +109,7 @@ class ExplodeForViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractVie
         }
         if (is_string($arguments['each'])) {
             (empty($arguments['delimiter'])) ? $delimiter = ',' : $delimiter = $arguments['delimiter'];
-            $arguments['each'] = ArrayUtility::trimExplode($delimiter,$arguments['each'],true);
+            $arguments['each'] = GeneralUtility::trimExplode($delimiter,$arguments['each'],true);
         }
         if (is_object($arguments['each']) && !$arguments['each'] instanceof \Traversable) {
             throw new \TYPO3Fluid\Fluid\Core\ViewHelper\Exception('ForViewHelper only supports arrays and objects implementing \Traversable interface', 1248728393);
