@@ -71,28 +71,28 @@ class UploadHandler {
 	/**
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $dataMapper;
 	
 	/**
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $dataMapFactory;
 	
 	/**
 	 *
 	 * @var \TYPO3\CMS\Core\Utility\File\BasicFileUtility
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $basicFileFunctions;
 	
 	/**
 	 * fileRepository
 	 * @var \TYPO3\CMS\Core\Resource\ResourceFactory
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $resourceFactory;
 	

@@ -43,20 +43,20 @@ class FileController extends BaseController {
 	 * storageRepository
 	 *
 	 * @var \TYPO3\CMS\Core\Resource\StorageRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $storageRepository;
 
 	/**
 	 * fileRepository
 	 * @var TYPO3\CMS\Core\Resource\FileRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $fileRepository;
 	
 	/**
 	 * @var \Undkonsorten\Addressmgmt\File\ResourceFactory
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $resourceFactory;
 
@@ -64,7 +64,7 @@ class FileController extends BaseController {
      * addressRepository
      *
      * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $addressRepository;
 	
@@ -75,7 +75,7 @@ class FileController extends BaseController {
 	 * @param \string $property
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
 	 * @dontvalidate $address
-	 * @ignorevalidation $address
+	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $address
 	 * 
 	 */
 	public function newAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address, $property, \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload $fileUpload = NULL, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference = NULL){
@@ -103,7 +103,7 @@ class FileController extends BaseController {
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
 	 * @param \string $property
 	 * @dontvalidate $address
-	 * @ignorevalidation $address
+	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $address
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData
 	 * 
 	 */
@@ -179,7 +179,7 @@ class FileController extends BaseController {
 	
 	protected function getErrorFlashMessage(){
 		$message = array();
-		foreach ($this->arguments->getValidationResults()->getFlattenedErrors() as $propertyPath => $errors) {
+		foreach ($this->arguments->validate()->getFlattenedErrors() as $propertyPath => $errors) {
 				foreach ($errors as $error) {
 					$message .= 'Error for ' . $propertyPath . ':  ' . $error->render() . PHP_EOL;
 				}

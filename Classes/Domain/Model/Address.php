@@ -42,7 +42,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     /**
      *
      * @var \Undkonsorten\Addressmgmt\Utility\StringUtility
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $stringUtility;
 
@@ -68,7 +68,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * name
 	 *
 	 * @var \string
-	 * @validate NotEmpty
+	 * @TYPO3\CMS\Extbase\Annotation\Validate NotEmpty
 	 */
 	protected $name;
 	
@@ -250,7 +250,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * socialIdentifiers
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier>
-	 * @lazy
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $socialIdentifiers;
 	

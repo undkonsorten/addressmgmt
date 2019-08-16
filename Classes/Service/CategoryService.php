@@ -44,7 +44,7 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 	 * categoryRepository
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $categoryRepository;
 	

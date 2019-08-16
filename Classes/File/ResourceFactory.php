@@ -46,28 +46,28 @@ class ResourceFactory implements SingletonInterface {
 	
 	/**
 	 * @var \TYPO3\CMS\Extbase\Object\ObjectManager
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $objectManager;
 	
 	/**
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $dataMapFactory;
 	
 	/**
 	 * 
 	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\FileReferenceRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $fileReferenceRepository;
 	
 	/**
 	 * 
 	 * @var \TYPO3\CMS\Core\Resource\FileRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $fileRepository;
 	
@@ -75,7 +75,7 @@ class ResourceFactory implements SingletonInterface {
 	 * data mapper
 	 * 
 	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $dataMapper;
 	
@@ -83,7 +83,7 @@ class ResourceFactory implements SingletonInterface {
 	 * storageRepository
 	 *
 	 * @var \TYPO3\CMS\Core\Resource\StorageRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $storageRepository;
 		

@@ -45,25 +45,25 @@ class FileReferenceRepository {
 	
 	/**
 	 * @var \TYPO3\CMS\Core\Resource\FileRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $fileRepository;
 	
 	/**
 	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbBackend
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $typo3DbBackend;
 	
 	/**
 	 * @var \TYPO3\CMS\Core\Database\ReferenceIndex
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $referenceIndex;
 	
 	/**
 	 * @var \TYPO3\CMS\Extbase\Property\PropertyMapper
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $propertyMapper; 
 	

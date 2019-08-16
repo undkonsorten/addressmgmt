@@ -53,7 +53,7 @@ class AddressController extends BaseController
      * addressRepository
      *
      * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $addressRepository;
 
@@ -61,7 +61,7 @@ class AddressController extends BaseController
 	 * categoryRepository
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $categoryRepository;
 
@@ -69,19 +69,19 @@ class AddressController extends BaseController
 	 * Category service
 	 *
 	 * @var \Undkonsorten\Addressmgmt\Service\CategoryService
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $categoryService;
 
     /**
      * @var \Undkonsorten\Addressmgmt\Service\AddressLocatorService
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $addressService;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $persistenceManager;
 
@@ -226,7 +226,7 @@ class AddressController extends BaseController
 
 
         $this->view->assign('addresses', $addresses);
-        $this->view->assign('contentUid', $this->configurationManager->getContentObject()->data['uid']);
+        $this->view->assign('contentUid', $this->configurationManager->getContentObjectRenderer()->data['uid']);
     }
 
 
@@ -239,7 +239,7 @@ class AddressController extends BaseController
     public function showAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address)
     {
         $this->view->assign('address', $address);
-        $this->view->assign('contentUid', $this->configurationManager->getContentObject()->data['uid']);
+        $this->view->assign('contentUid', $this->configurationManager->getContentObjectRenderer()->data['uid']);
     }
 
     /**

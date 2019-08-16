@@ -39,7 +39,7 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * identifier
 	 *
 	 * @var \string
-	 * @validate NotEmpty
+	 * @TYPO3\CMS\Extbase\Annotation\Validate NotEmpty
 	 */
 	protected $identifier;
 
@@ -54,7 +54,7 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * provider
 	 *
 	 * @var \Undkonsorten\Addressmgmt\Domain\Model\SocialProvider
-	 * @lazy
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $provider;
 	
