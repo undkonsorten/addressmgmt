@@ -35,26 +35,18 @@ use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
  *
  */
 class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
-	
-	
-	
-	
-	
-	/**
-	 * categoryRepository
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $categoryRepository;
-	
-	
-	
-	
-	
-	
-	
-	/**
+
+    /**
+     * @var CategoryRepository
+     */
+    protected $categoryRepository;
+
+    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
+    {
+        $this->categoryRepository = $categoryRepository;
+    }
+
+    /**
 	 * Finds all descendants of an given category
 	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory

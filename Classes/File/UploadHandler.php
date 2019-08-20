@@ -1,6 +1,11 @@
 <?php
 namespace Undkonsorten\Addressmgmt\File;
 
+use TYPO3\CMS\Core\Resource\ResourceFactory as ResourceFactoryAlias;
+use TYPO3\CMS\Core\Utility\File\BasicFileUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory;
+use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -67,36 +72,48 @@ class UploadHandler {
 	 * @var \TYPO3\CMS\Core\Resource\Folder
 	 */
 	protected $folder;
-	
-	/**
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $dataMapper;
-	
-	/**
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $dataMapFactory;
-	
-	/**
-	 *
-	 * @var \TYPO3\CMS\Core\Utility\File\BasicFileUtility
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $basicFileFunctions;
-	
-	/**
-	 * fileRepository
-	 * @var \TYPO3\CMS\Core\Resource\ResourceFactory
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $resourceFactory;
-	
-	/**
+
+    /**
+     * @var DataMapper
+     */
+    protected $dataMapper;
+
+    public function injectDataMapper(DataMapper $dataMapper): void
+    {
+        $this->dataMapper = $dataMapper;
+    }
+
+    /**
+     * @var DataMapFactory
+     */
+    protected $dataMapFactory;
+
+    public function injectDataMapFactory(DataMapFactory $dataMapFactory): void
+    {
+        $this->dataMapFactory = $dataMapFactory;
+    }
+
+    /**
+     * @var BasicFileUtility
+     */
+    protected $basicFileUtility;
+
+    public function injectBasicFileUtility(BasicFileUtility $basicFileUtility): void
+    {
+        $this->basicFileUtility = $basicFileUtility;
+    }
+
+    /**
+     * @var ResourceFactoryAlias
+     */
+    protected $resouFactory;
+
+    public function injectResourceFactory(ResourceFactoryAlias $resourceFactory): void
+    {
+        $this->resourceFactory = $resourceFactory;
+    }
+
+    /**
 	 * Builds datamap once object and property are given
 	 * 
 	 * @return void

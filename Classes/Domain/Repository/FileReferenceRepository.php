@@ -33,6 +33,10 @@ namespace Undkonsorten\Addressmgmt\Domain\Repository;
  *
  */
 
+use TYPO3\CMS\Core\Database\ReferenceIndex;
+use TYPO3\CMS\Core\Resource\FileRepository as FileRepositoryAlias;
+use TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbBackend;
+use TYPO3\CMS\Extbase\Property\PropertyMapper;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class FileReferenceRepository {
@@ -42,32 +46,48 @@ class FileReferenceRepository {
 	 * @var \string
 	 */
 	protected $type = 'TYPO3\CMS\Extbase\Domain\Model\FileReference';
-	
-	/**
-	 * @var \TYPO3\CMS\Core\Resource\FileRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $fileRepository;
-	
-	/**
-	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbBackend
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $typo3DbBackend;
-	
-	/**
-	 * @var \TYPO3\CMS\Core\Database\ReferenceIndex
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $referenceIndex;
-	
-	/**
-	 * @var \TYPO3\CMS\Extbase\Property\PropertyMapper
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $propertyMapper; 
-	
-	/**
+
+    /**
+     * @var FileRepositoryAlias
+     */
+    protected $fileRepository;
+
+    public function injectFileRepository(FileRepositoryAlias $fileRepository): void
+    {
+        $this->fileRepository = $fileRepository;
+    }
+
+    /**
+     * @var Typo3DbBackend
+     */
+    protected $typo3DbBackend;
+
+    public function injectTypo3DbBackend(Typo3DbBackend $typo3DbBackend): void
+    {
+        $this->typo3DbBackend = $typo3DbBackend;
+    }
+
+    /**
+     * @var ReferenceIndex
+     */
+    protected $referenceIndex;
+
+    public function injectReferenceIndex(ReferenceIndex $referenceIndex): void
+    {
+        $this->referenceIndex = $referenceIndex;
+    }
+
+    /**
+     * @var PropertyMapper
+     */
+    protected $propertyMapper;
+
+    public function injectPropertyMapper(PropertyMapper $propertyMapper): void
+    {
+        $this->propertyMapper = $propertyMapper;
+    }
+
+    /**
 	 * add method isn't implemented, use resourceFactory instead
 	 * 
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference

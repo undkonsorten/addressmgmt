@@ -2,6 +2,7 @@
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use Undkonsorten\Addressmgmt\Utility\StringUtility;
 
 /***************************************************************
  *  Copyright notice
@@ -39,12 +40,16 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements AddressInterface {
 
     const FIRST_LETTER_MISC = '#';
+
     /**
-     *
-     * @var \Undkonsorten\Addressmgmt\Utility\StringUtility
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @var StringUtility
      */
     protected $stringUtility;
+
+    public function injectStringUtility(StringUtility $stringUtility): void
+    {
+        $this->stringUtility = $stringUtility;
+    }
 
     /**
      * @var integer

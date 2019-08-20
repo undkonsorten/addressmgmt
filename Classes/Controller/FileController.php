@@ -1,11 +1,14 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
 
+use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-use Undkonsorten\Addressmgmt\Domain\Model\Addressmgmt;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository;
+use Undkonsorten\Addressmgmt\File\ResourceFactory;
 
 /***************************************************************
  *  Copyright notice
@@ -38,37 +41,49 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  */
 class FileController extends BaseController {
-	
-	/**
-	 * storageRepository
-	 *
-	 * @var \TYPO3\CMS\Core\Resource\StorageRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $storageRepository;
-
-	/**
-	 * fileRepository
-	 * @var TYPO3\CMS\Core\Resource\FileRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $fileRepository;
-	
-	/**
-	 * @var \Undkonsorten\Addressmgmt\File\ResourceFactory
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $resourceFactory;
 
     /**
-     * addressRepository
-     *
-     * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @var StorageRepository
+     */
+    protected $storageRepository;
+
+    public function injectStorageRepository(StorageRepository $storageRepository): void
+    {
+        $this->storageRepository = $storageRepository;
+    }
+
+    /**
+     * @var FileRepository
+     */
+    protected $fileRepository;
+
+    public function injectFileRepository(FileRepository $fileRepository): void
+    {
+        $this->fileRepository = $fileRepository;
+    }
+
+    /**
+     * @var ResourceFactory
+     */
+    protected $resourceFactory;
+
+    public function injectResourceFactory(ResourceFactory $resourceFactory): void
+    {
+        $this->resourceFactory = $resourceFactory;
+    }
+
+    /**
+     * @var AddressRepository
      */
     protected $addressRepository;
-	
-	/**
+
+    public function injectAddressRepository(AddressRepository $addressRepository): void
+    {
+        $this->addressRepository = $addressRepository;
+    }
+
+
+    /**
 	 * Add a new File
 	 *
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address

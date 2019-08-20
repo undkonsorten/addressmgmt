@@ -1,6 +1,7 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Utility;
 
+use TYPO3\CMS\Core\Charset\CharsetConverter;
 use TYPO3\Flow\Package\Exception\ProtectedPackageKeyException;
 use TYPO3\CMS\Core\SingletonInterface;
 /***************************************************************
@@ -31,10 +32,15 @@ use TYPO3\CMS\Core\SingletonInterface;
 class StringUtility implements SingletonInterface {
 
     /**
-     * @var \TYPO3\CMS\Core\Charset\CharsetConverter
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @var CharsetConverter
      */
     protected $charsetConverter;
+
+    public function injectCharsetConverter(CharsetConverter $charsetConverter): void
+    {
+        $this->charsetConverter = $charsetConverter;
+    }
+
 
     /**
      * @param \string $string

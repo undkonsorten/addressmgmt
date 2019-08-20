@@ -5,11 +5,15 @@ use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use Undkonsorten\Addressmgmt\Domain\Model\AddressInterface;
 use Undkonsorten\Addressmgmt\Domain\Model\Address;
 use TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentTypeException;
+use Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository;
+use Undkonsorten\Addressmgmt\Service\AddressLocatorService;
+use Undkonsorten\Addressmgmt\Service\CategoryService;
 use Undkonsorten\Addressmgmt\Utility\TemplateLayout;
 
 use Undkonsorten\Addressmgmt\Utility\Page;
@@ -50,42 +54,57 @@ class AddressController extends BaseController
 {
 
     /**
-     * addressRepository
-     *
-     * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @var AddressRepository
      */
     protected $addressRepository;
 
-	/**
-	 * categoryRepository
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $categoryRepository;
-
-	/**
-	 * Category service
-	 *
-	 * @var \Undkonsorten\Addressmgmt\Service\CategoryService
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $categoryService;
+    public function injectAddressRepository(AddressRepository $addressRepository): void
+    {
+        $this->addressRepository = $addressRepository;
+    }
 
     /**
-     * @var \Undkonsorten\Addressmgmt\Service\AddressLocatorService
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @var CategoryRepository
      */
-    protected $addressService;
+    protected $categoryRepository;
+
+    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
+    {
+        $this->categoryRepository = $categoryRepository;
+    }
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @var CategoryService
+     */
+    protected $categoryService;
+
+    public function injectCategoryService(CategoryService $categoryService): void
+    {
+        $this->categoryService = $categoryService;
+    }
+
+    /**
+     * @var AddressLocatorService
+     */
+    protected $addressLocatorService;
+
+    public function injectAddressLocatorService(AddressLocatorService $addressLocatorService): void
+    {
+        $this->addressLocatorService = $addressLocatorService;
+    }
+
+    /**
+     * @var PersistenceManager
      */
     protected $persistenceManager;
 
-	/**
+    public function injectPersistenceManager(PersistenceManager $persistenceManager): void
+    {
+        $this->persistenceManager = $persistenceManager;
+    }
+
+
+    /**
 	 * Constructor
 	 */
 	public function initializeAction()

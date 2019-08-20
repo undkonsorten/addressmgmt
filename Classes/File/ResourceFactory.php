@@ -1,6 +1,10 @@
 <?php
 namespace Undkonsorten\Addressmgmt\File;
 
+use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Resource\StorageRepository;
+use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory;
+use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
 use TYPO3\CMS\Extbase\Property\Exception\InvalidDataTypeException;
 
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
@@ -41,53 +45,71 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  */
 use TYPO3\CMS\Core\SingletonInterface;
+use Undkonsorten\Addressmgmt\Domain\Repository\FileReferenceRepository;
 
 class ResourceFactory implements SingletonInterface {
-	
-	/**
-	 * @var \TYPO3\CMS\Extbase\Object\ObjectManager
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $objectManager;
-	
-	/**
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $dataMapFactory;
-	
-	/**
-	 * 
-	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\FileReferenceRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $fileReferenceRepository;
-	
-	/**
-	 * 
-	 * @var \TYPO3\CMS\Core\Resource\FileRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $fileRepository;
-	
-	/**
-	 * data mapper
-	 * 
-	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $dataMapper;
-	
-	/**
-	 * storageRepository
-	 *
-	 * @var \TYPO3\CMS\Core\Resource\StorageRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $storageRepository;
-		
-	/**
+
+    /**
+     * @var ObjectManager
+     */
+    protected $objectManager;
+
+    public function injectObjectManager(ObjectManager $objectManager): void
+    {
+        $this->objectManager = $objectManager;
+    }
+
+    /**
+     * @var DataMapFactory
+     */
+    protected $dataMapFactory;
+
+    public function injectDataMapFactory(DataMapFactory $dataMapFactory): void
+    {
+        $this->dataMapFactory = $dataMapFactory;
+    }
+
+    /**
+     * @var FileReferenceRepository
+     */
+    protected $fileReferenceRepository;
+
+    public function injectFileReferenceRepository(FileReferenceRepository $fileReferenceRepository): void
+    {
+        $this->fileReferenceRepository = $fileReferenceRepository;
+    }
+
+    /**
+     * @var FileRepository
+     */
+    protected $fileRepository;
+
+    public function injectFileRepository(FileRepository $fileRepository): void
+    {
+        $this->fileRepository = $fileRepository;
+    }
+
+    /**
+     * @var DataMapper
+     */
+    protected $dataMapper;
+
+    public function injectDataMapper(DataMapper $dataMapper): void
+    {
+        $this->dataMapper = $dataMapper;
+    }
+
+    /**
+     * @var StorageRepository
+     */
+    protected $storageRepository;
+
+    public function injectStorageRepository(StorageRepository $storageRepository): void
+    {
+        $this->storageRepository = $storageRepository;
+    }
+
+    /**
 	 * Gets a singleton instance of this class.
 	 *
 	 * @return ResourceFactory
@@ -139,7 +161,6 @@ class ResourceFactory implements SingletonInterface {
 	 * 
 	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|\TYPO3\CMS\Core\Resource\Folder|\string $target
 	 * @throws \UnexpectedValueException
-	 * @throws \UnexpectedTypeException
 	 * @return \TYPO3\CMS\Core\Resource\Folder
 	 */
 	protected function getFolderFromTarget($target) {

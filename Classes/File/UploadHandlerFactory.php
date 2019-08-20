@@ -1,6 +1,8 @@
 <?php
 namespace Undkonsorten\Addressmgmt\File;
 
+use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -33,15 +35,20 @@ namespace Undkonsorten\Addressmgmt\File;
  *
  */
 class UploadHandlerFactory {
-	
-	/**
-	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $objectManager;
 
-	public function buildUploadHandler($object, $property) {
-		$uploadHandler = $this->objectManager->get('Undkonsorten\Addressmgmt\File\UploadHandler');
+    /**
+     * @var ObjectManagerInterface
+     */
+    protected $objectManagerInterface;
+
+    public function injectObjectManagerInterface(ObjectManagerInterface $objectManagerInterface): void
+    {
+        $this->objectManagerInterface = $objectManagerInterface;
+    }
+
+
+    public function buildUploadHandler($object, $property) {
+		$uploadHandler = $this->objectManagerInterface->get('Undkonsorten\Addressmgmt\File\UploadHandler');
 		$uploadHandler->setObject($object);
 		$uploadHandler->setProperty($property);
 		$uploadHandler->buildDataMap();

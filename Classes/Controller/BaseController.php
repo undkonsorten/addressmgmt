@@ -3,6 +3,7 @@ namespace Undkonsorten\Addressmgmt\Controller;
 use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /***************************************************************
@@ -39,24 +40,23 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * @var \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
 	 */
 	protected $typoScriptFrontendController;
-	
-	/**
-	 * fronted user repository
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $frontendUserRepository;
 
-	/**
-	 * configuration manager
-	 *
-	 * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $configurationManager;
+    /**
+     * @var FrontendUserRepository
+     */
+    protected $frontendUserRepository;
 
-	public function __construct(){
+    public function injectFrontendUserRepository(FrontendUserRepository $frontendUserRepository): void
+    {
+        $this->frontendUserRepository = $frontendUserRepository;
+    }
+
+    /**
+     * @var ConfigurationManagerInterface
+     */
+    protected $configurationManager;
+
+    public function __construct(){
 		$this->typoScriptFrontendController = $this->getTyposcriptFrontendController();
 	}
 
