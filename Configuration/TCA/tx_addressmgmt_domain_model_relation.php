@@ -13,8 +13,7 @@ $tca = [
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => TRUE,
-        'versioningWS' => 2,
-        'versioning_followPages' => TRUE,
+        'versioningWS' => TRUE,
 
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -91,34 +90,24 @@ $tca = [
         ],
 		'starttime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
 			'config' => [
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 		'endtime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
 			'config' => [
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 
@@ -145,40 +134,28 @@ $tca = [
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_relation.location',
 			'config' => [
 				'type' => 'select',
-        'renderType' => 'selectSingle',
+                'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_addressmgmt_domain_model_address',
 			    'foreign_table_where' => 'AND tx_addressmgmt_domain_model_address.type = \'Tx_Addressbook_Location\'',
 				'minitems' => 0,
 				'maxitems' => 1,
-			    'wizards' => [
-	                '_PADDING' => 1,
-	                'edit' => [
-	                    'type' => 'popup',
-	                    'title' => 'Edit',
-	                    'module' => [
-                        'name' => 'wizard_edit',
-                        ],
-	                    'icon' => 'actions-open',
-	                    'popup_onlyOpenIfSelected' => 1,
-	                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                    ],
-	                'add' => [
-	                    'type' => 'script',
-	                    'title' => 'Create new',
-	                    'icon' => 'actions-add',
-	                    'params' => [
-	                        'table' => 'tx_addressmgmt_domain_model_address',
-	                        'pid' => '###CURRENT_PID###',
-	                        'setValue' => 'prepend'
-                        ],
-	                    'module' => [
-                        'name' => 'wizard_add',
+                'fieldControl' => [
+                    'addRecord' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.createNew',
+                            'table' => 'tx_addressmgmt_domain_model_address',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
                         ],
                     ],
-	                'suggest' => [
-	                    'type' => 'suggest',
-                    ],
-                ],
+                    'editPopup' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.edit',
+                            'windowOpenParameters' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        ]
+                    ]
+                ]
             ],
         ],
 

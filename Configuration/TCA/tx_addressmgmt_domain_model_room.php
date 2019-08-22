@@ -10,8 +10,7 @@ $tca = [
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => TRUE,
-        'versioningWS' => 2,
-        'versioning_followPages' => TRUE,
+        'versioningWS' => TRUE,
         'hideTable' => TRUE,
 
         'languageField' => 'sys_language_uid',
@@ -57,6 +56,7 @@ $tca = [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'items' => [
 					['', 0],
                 ],
@@ -88,34 +88,24 @@ $tca = [
         ],
 		'starttime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
 			'config' => [
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 		'endtime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
 			'config' => [
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 
@@ -130,7 +120,7 @@ $tca = [
         ],
 	    'capacity' => [
 	        'exclude' => 1,
-	        'l10n_mode' => 'mergeIfNotBlank',
+	        'allowLanguageSynchronization' => true,
 	        'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.capacity',
 	        'config' => [
 	            'type' => 'input',

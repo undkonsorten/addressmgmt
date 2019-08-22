@@ -12,8 +12,7 @@ $tca = [
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => TRUE,
         'sortby' => 'sorting',
-        'versioningWS' => 2,
-        'versioning_followPages' => TRUE,
+        'versioningWS' => TRUE,
         'origUid' => 't3_origuid',
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -32,7 +31,7 @@ $tca = [
     ],
 	'types' => [
 		'1' => [
-            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, url_scheme, www, image, 
+            'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, name, url_scheme, www, image, 
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:div.naming,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.identifier;identifier, 
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.url_override;url_override, 
@@ -64,6 +63,7 @@ $tca = [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'items' => [
 					['', 0],
                 ],
@@ -93,34 +93,24 @@ $tca = [
         ],
 		'starttime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
 			'config' => [
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 		'endtime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
 			'config' => [
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 		'name' => [
@@ -205,19 +195,20 @@ $tca = [
 					'appearance' => [
 							'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
                     ],
-					'foreign_types' => [
-						'0' => [
-							'showitem' => '
-								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-								--palette--;;filePalette'
-                        ],
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-								'showitem' => '
-							--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-							--palette--;;filePalette'
+                    'overrideChildTca' => [
+                        'types' => [
+                            '0' => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;filePalette'
+                            ],
                         ],
                     ],
-
                 ],
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),

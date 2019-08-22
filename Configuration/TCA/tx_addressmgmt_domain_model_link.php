@@ -12,8 +12,7 @@ $tca = [
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => TRUE,
 
-        'versioningWS' => 2,
-        'versioning_followPages' => TRUE,
+        'versioningWS' => true,
         'origUid' => 't3_origuid',
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -31,7 +30,7 @@ $tca = [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, text, link',
     ],
 	'types' => [
-		'1' => ['showitem' => 'text, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'],
+		'1' => ['showitem' => 'text, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, starttime, endtime'],
     ],
 	'palettes' => [
 		'1' => ['showitem' => ''],
@@ -42,6 +41,7 @@ $tca = [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
 			'config' => [
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => [
@@ -56,6 +56,7 @@ $tca = [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'items' => [
 					['', 0],
                 ],
@@ -85,34 +86,24 @@ $tca = [
         ],
 		'starttime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
 			'config' => [
-				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 		'endtime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
 			'config' => [
-				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 		'text' => [
@@ -132,21 +123,7 @@ $tca = [
 	            'size' => '50',
 	            'max' => '256',
 	            'eval' => 'trim',
-	            'wizards' => [
-	                '_PADDING' => 2,
-	                'link' => [
-	                    'type' => 'popup',
-	                    'title' => 'LLL:EXT:cms/locallang_ttc.xml:header_link_formlabel',
-	                    'icon' => 'actions-document-new',
-						'module' => [
-							'name' => 'wizard_element_browser',
-							'urlParameters' => [
-								'mode' => 'wizard'
-                            ]
-                        ],
-	                    'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
-                    ],
-                ],
+                'renderType' => 'inputLink',
 	            'softref' => 'typolink',
             ],
         ],

@@ -15,8 +15,7 @@ $tca = [
         'label_alt' => 'provider',
         'label_alt_force' => TRUE,
         'sortby' => 'sorting',
-        'versioningWS' => 2,
-        'versioning_followPages' => TRUE,
+        'versioningWS' => TRUE,
         'origUid' => 't3_origuid',
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -34,7 +33,7 @@ $tca = [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, identifier, url_override, provider',
     ],
 	'types' => [
-		'1' => ['showitem' => 'hidden;;1, identifier;;url_override, provider'],
+		'1' => ['showitem' => 'hidden, --palette--;;1, identifier, --palette--;;url_override, provider'],
     ],
 	'palettes' => [
 		'url_override' => ['showitem' => 'url_override', 'canNotCollapse' => 1],
@@ -45,6 +44,7 @@ $tca = [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
 			'config' => [
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => [
@@ -59,6 +59,7 @@ $tca = [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'items' => [
 					['', 0],
                 ],
@@ -88,34 +89,24 @@ $tca = [
         ],
 		'starttime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
 			'config' => [
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 		'endtime' => [
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
 			'config' => [
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
 		'identifier' => [
@@ -162,4 +153,3 @@ $tca = [
 
 return $tca;
 
-?>
