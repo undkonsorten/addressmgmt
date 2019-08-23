@@ -16,7 +16,7 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers\Format;
 
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use \TYPO3Fluid\Fluid\Core\ViewHelper\ViewHelperInterface;
 
 /**
  * Wrapper for PHPs json_encode function.
@@ -24,7 +24,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Facets\CompilableInterface;
  * @see http://www.php.net/manual/en/function.json-encode.php
  * @internal
  */
-class JsonViewHelper extends AbstractViewHelper implements CompilableInterface
+class JsonViewHelper extends AbstractViewHelper implements ViewHelperInterface
 {
     /**
      * Constructor
