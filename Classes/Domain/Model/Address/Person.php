@@ -39,7 +39,7 @@ class Person extends \Undkonsorten\Addressmgmt\Domain\Model\Address {
 	 * firstName
 	 *
 	 * @var \string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate NotEmpty
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
 	 */
 	protected $firstName;
 
