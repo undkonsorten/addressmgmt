@@ -27,28 +27,28 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-/**
- * ViewHelper to render the page title
- *
- * # Example: Basic Example
- * # Description: Render the content of the VH as page title
- * <code>
- *	<n:titleTag>{newsItem.title}</n:titleTag>
- * </code>
- * <output>
- *	<title>TYPO3 is awesome</title>
- * </output>
- *
- */
 class PropertyViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
 
+    /**
+     * Arguments initialization
+     *
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument('object', 'object|array', 'Object data');
+        $this->registerArgument('property', 'string', 'Used property');
+    }
+
 	/**
-	 * 
-	 * @param object|array $object
-	 * @param string $property
+	 * render
+     *
 	 * @return mixed
 	 */
-	public function render($object,$property) {
+	public function render() {
+        [
+            'object' => $object,
+            'property' => $property,
+        ] = $this->arguments;
 	    if(is_object($object)) {
 	        return $object->$property;
 	    } elseif(is_array($object)) {
