@@ -243,9 +243,8 @@ class AddressController extends BaseController
             $this->view->assign('filters', $filters);
         }
 
-
         $this->view->assign('addresses', $addresses);
-        $this->view->assign('contentUid', $this->configurationManager->getContentObjectRenderer()->data['uid']);
+        $this->view->assign('contentUid', $this->configurationManager->getContentObject()->data['uid']);
     }
 
 
