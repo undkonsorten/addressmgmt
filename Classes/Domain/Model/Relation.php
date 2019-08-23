@@ -99,7 +99,7 @@ class Relation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location
 	 * @return void
 	 */
-	public function setLocation(\Undkonsorten\Addressmgmt\Domain\Model\Location $location) {
+	public function setLocation(\Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location) {
 		$this->location = $location;
 	}
 
