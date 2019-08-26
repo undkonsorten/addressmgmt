@@ -30,7 +30,7 @@ $tca = [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, text, link',
     ],
 	'types' => [
-		'1' => ['showitem' => 'text, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, starttime, endtime'],
+		'1' => ['showitem' => 'text, link,--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, starttime, endtime'],
     ],
 	'palettes' => [
 		'1' => ['showitem' => ''],

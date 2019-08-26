@@ -47,7 +47,7 @@ $tca = [
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.coordinates;coordinates,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
 				sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime,
 			'
         ],
@@ -59,7 +59,7 @@ $tca = [
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.address;address,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.coordinates;coordinates,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
 				sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime,
 			'
         ],
@@ -73,7 +73,7 @@ $tca = [
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.coordinates;coordinates,
 	        --div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.tce.rooms,
 				--palette--;;rooms,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
 				sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime,
 			'
         ],

@@ -35,7 +35,7 @@ $tca = [
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:div.naming,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.identifier;identifier, 
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.url_override;url_override, 
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,starttime, endtime'
         ],
     ],
 	'palettes' => [
