@@ -1,6 +1,9 @@
 <?php
 namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
+
 class GoogleMapViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper {
 	
 	protected $tagName = 'div';
@@ -15,8 +18,8 @@ class GoogleMapViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagB
 		parent::initializeArguments();
 		$this->registerUniversalTagAttributes();
 	}
-	
-	/**
+
+    /**
 	 * @param \float $latitude
 	 * @param \float $longitude 
 	 * @param \integer $mapZoom
@@ -72,7 +75,7 @@ class GoogleMapViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagB
 	 * @return \string
 	 */
 	protected function resolveResourcePath($path) {
-		return $this->getTemplateService()->getFileName($path);
+		return GeneralUtility::makeInstance(FilePathSanitizer::class)->sanitize((string)$path);
 	}
 	
 }
