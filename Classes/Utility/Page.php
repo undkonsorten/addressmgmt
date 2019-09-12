@@ -77,7 +77,8 @@ class Page {
 				try {
 					$register[$key] = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, $item);
 				} catch (Exception $e) {
-					\TYPO3\CMS\Core\Utility\GeneralUtility::devLog($e->getMessage(), 'news', \TYPO3\CMS\Core\Utility\GeneralUtility::SYSLOG_SEVERITY_WARNING);
+				    //@todo change to new logging API
+//					\TYPO3\CMS\Core\Utility\GeneralUtility::devLog($e->getMessage(), 'news', \TYPO3\CMS\Core\Utility\GeneralUtility::SYSLOG_SEVERITY_WARNING);
 				}
 			}
 			$cObj->LOAD_REGISTER($register, '');

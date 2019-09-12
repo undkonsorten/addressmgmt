@@ -58,6 +58,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 
     public function __construct(){
 		$this->typoScriptFrontendController = $this->getTyposcriptFrontendController();
+		parent::__construct();
 	}
 
 	/**
@@ -80,19 +81,20 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 		$this->typoScriptFrontendController->reqCHash();
 
 		//@TODO respect logging settings from extension here
-		if(!$this->typoScriptFrontendController->cHash) {
-			GeneralUtility::devLog(
-			"There was no cHash given to this action, 1410970141",
-			$this->extensionName,
-			GeneralUtility::SYSLOG_SEVERITY_NOTICE,
-			array(
-			'referrer' => GeneralUtility::getIndpEnv('HTTP_REFERER'),
-			'requestUri' => GeneralUtility::getIndpEnv('REQUEST_URI'),
-			'controller' => $this->controllerContext->getRequest()->getControllerName(),
-			'action' => $this->controllerContext->getRequest()->getControllerActionName(),
-			)
-			);
-		}
+        //@TODO refactor to new logging API
+//		if(!$this->typoScriptFrontendController->cHash) {
+//			GeneralUtility::devLog(
+//			"There was no cHash given to this action, 1410970141",
+//			$this->extensionName,
+//			GeneralUtility::SYSLOG_SEVERITY_NOTICE,
+//			array(
+//			'referrer' => GeneralUtility::getIndpEnv('HTTP_REFERER'),
+//			'requestUri' => GeneralUtility::getIndpEnv('REQUEST_URI'),
+//			'controller' => $this->controllerContext->getRequest()->getControllerName(),
+//			'action' => $this->controllerContext->getRequest()->getControllerActionName(),
+//			)
+//			);
+//		}
 	}
 
 	/**
@@ -123,26 +125,6 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 		}
 	}
 
-	/**
-	 * Debugs a SQL query from a QueryResult
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult
-	 * @param boolean $explainOutput
-	 * @return void
-	 */
-	protected function debugQuery(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult, $explainOutput = FALSE){
-		$GLOBALS['TYPO3_DB']->debugOuput = 2;
-		if($explainOutput){
-			$GLOBALS['TYPO3_DB']->explainOutput = true;
-		}
-		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = true;
-		$queryResult->toArray();
-		//DebuggerUtility::var_dump($GLOBALS['TYPO3_DB']->debug_lastBuiltQuery);
-
-		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = false;
-		$GLOBALS['TYPO3_DB']->explainOutput = false;
-		$GLOBALS['TYPO3_DB']->debugOuput = false;
-	}
 
 	/**
 	 * Adds cache tag to page cache entry

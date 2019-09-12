@@ -55,6 +55,10 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers\Form;
  *
  * @api
  */
+
+//@TODO remove select viewhelper make views normal select viewhelper with additional attributes
+// https://forge.typo3.org/issues/81656
+// https://review.typo3.org/c/Packages/TYPO3.CMS/+/59027/
 class SelectViewHelper extends \TYPO3Fluid\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper
 {
     /**

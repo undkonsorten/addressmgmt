@@ -257,7 +257,7 @@ class AddressController extends BaseController
     public function showAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address)
     {
         $this->view->assign('address', $address);
-        $this->view->assign('contentUid', $this->configurationManager->getContentObjectRenderer()->data['uid']);
+        $this->view->assign('contentUid', $this->configurationManager->getContentObject()->data['uid']);
     }
 
     /**
