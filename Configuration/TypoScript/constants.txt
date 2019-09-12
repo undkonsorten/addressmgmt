@@ -17,9 +17,9 @@ plugin.tx_addressmgmt {
 	    # cat=plugin.tx_addressmgmt/settings; type=options[ASC,DESC]; label=Order direction[ascending, descending]
 	    orderDirection =
 
-	    # cat=plugin.tx_addressmgmt/settings; type=string; label=Target default:StoragePid:Folder
+	    # cat=plugin.tx_addressmgmt/settings; type=string; label=Default StoragePid for address data
 	    storagePid =
-	    # cat=plugin.tx_addressmgmt/settings; type=integer; label=Target default:Recursive
+	    # cat=plugin.tx_addressmgmt/settings; type=integer; label=Recursive level for storage pid
 	    recursive =
         # cat=plugin.tx_addressmgmt/settings; type=boolean; label=Show A-Z Filter with grouped items by name. Show/Hide items in list by first letter.
         showA-zFilter = 0
