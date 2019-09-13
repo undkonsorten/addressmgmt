@@ -1,0 +1,2 @@
+# CSS optional addressmgmt default styles
+page.includeCSS.tx_addressmgmt_styles = EXT:addressmgmt/Resources/Public/Css/styles.css

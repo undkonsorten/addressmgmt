@@ -83,8 +83,6 @@ plugin.tx_addressmgmt {
 # leaflet 1.0.2 marker class: leaflet-marker-icon leaflet-zoom-animated leaflet-interactive
 # leaflet 0.7.7 marker class: leaflet-marker-icon leaflet-zoom-animated leaflet-clickable
 
-# CSS optional addressmgmt default styles (can be removed in your own project)
-page.includeCSS.tx_addressmgmt_styles = EXT:addressmgmt/Resources/Public/Css/styles.css
 
 # JQUERY is needed
 page.includeJSFooterlibs.tx_addressmgmt_jQuery = EXT:addressmgmt/Resources/Public/Javascript/jquery-3.1.0.js
