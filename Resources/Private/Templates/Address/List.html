@@ -39,6 +39,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</f:if>
 </f:section>
 
+
 <f:section name="list">
   <section class="module-list addressmgmt">
       <f:if condition="{settings.showA-zFilter}">
@@ -47,7 +48,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
           <am:sortedGroupedFor each="{addresses}" as="addressesByFirstLetter" groupBy="firstLetterOfName" groupKey="letter" sortBy="firstLetterOfName">
             <ul id="group-{letter}" class="list-items group">
               <f:for each="{addressesByFirstLetter}" as="address">
-                <li class="list-item a-{address.uid}" data-group-letter="{letter}">
+                <li class="list-item a-{address.uid} address {f:if(condition: address.images,then:'with-img')}" data-group-letter="{letter}">
                   <f:render partial="List/Item" arguments="{address: address}"/>
                 </li>
               </f:for>
@@ -55,9 +56,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
           </am:sortedGroupedFor>
         </f:then>
         <f:else>
-          <ul class="list-items">
+          <ul class="module-list-items">
             <f:for each="{addresses}" as="address">
-              <li class="list-item a-{address.uid}">
+              <li class="module-list-item a-{address.uid} address {f:if(condition: address.images,then:'with-img')}">
                 <f:render partial="List/Item" arguments="{address: address}"/>
               </li>
             </f:for>
@@ -66,5 +67,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
       </f:if>
   </section>
 </f:section>
+
 
 </html>

@@ -1,6 +1,7 @@
-<f:render partial="Media/Media" arguments="{media:address.images}" />
+<f:if condition="{address.images}">
+	<f:render partial="Media/Media" arguments="{media:address.images}" />
+</f:if>
 <div class="text-wrap">
-  <f:render partial="Meta" arguments="{address:address}" />
   <h3 class="title headline">
     <f:if condition="{settings.detailPid}">
       <f:then>
@@ -14,4 +15,5 @@
   <div class="teaser">
     <f:format.crop maxCharacters="{settings.list.cropMaxCharacters}">{f:format.stripTags(value:address.description)}</f:format.crop>
   </div>
+	<f:render partial="Meta" arguments="{address:address}" />
 </div>

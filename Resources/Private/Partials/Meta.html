@@ -1,9 +1,9 @@
 <div class="meta">
   <f:if condition="{address.city}">
-    <span class="city">{address.city}</span>
+    <div class="city">{address.city}</div>
   </f:if>
   <f:if condition="{address.category}">
-    <ul class="categories">
+    <ul class="module-list-items categories">
       <f:for each="{address.category}" as="category">
         <li class="category">{category.title}</li>
       </f:for>

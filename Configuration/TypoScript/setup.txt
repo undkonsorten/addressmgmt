@@ -75,6 +75,7 @@ plugin.tx_addressmgmt {
 		}
         list {
             cropMaxCharacters = {$plugin.tx_addressmgmt.settings.list.cropMaxCharacters}
+			media.width = 320
         }
 	}
 }
