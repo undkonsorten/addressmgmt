@@ -94,7 +94,6 @@ $tca = [
 			'config' => [
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'datetime',
             ],
         ],
@@ -105,7 +104,6 @@ $tca = [
 			'config' => [
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'datetime',
             ],
         ],
