@@ -60,8 +60,8 @@ plugin.tx_addressmgmt {
 				accessToken = 
 				# cat=plugin.tx_addressmgmt/tileServer/0090; type=string; label=Max zoom: Maximum zoom level for tile server
 				maxZoom =
-				# cat=plugin.tx_addressmgmt/tileServer/0100; type=string; label=Attribution: Map attribution for the tile server
-				attribution = Insert attribution here!
+
+				attribution = © <a href='https://www.mapbox.com/about/maps/' target='_blank'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>
 			}
 		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
