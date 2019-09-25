@@ -67,19 +67,19 @@ class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormF
         );
         $this->overrideArgument('value', 'string', 'Value of input tag. Required for checkboxes', true);
         $this->registerArgument('required', 'boolean', 'If set no empty value is allowed.', false, false);
+        $this->registerArgument('multiple', 'boolean', 'Specifies whether this checkbox belongs to a multivalue (is part of a checkbox group)', false, false);
+        $this->registerArgument('checked', 'boolean', 'Specifies that the input element should be preselected', false, null);
         $this->registerUniversalTagAttributes();
     }
 
     /**
      * Renders the checkbox.
      *
-     * @param bool $checked Specifies that the input element should be preselected
-     * @param bool $multiple Specifies whether this checkbox belongs to a multivalue (is part of a checkbox group)
      * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
      * @return string
      * @api
      */
-    public function render($checked = null, $multiple = false)
+    public function render()
     {
         $this->tag->addAttribute('type', 'checkbox');
 
