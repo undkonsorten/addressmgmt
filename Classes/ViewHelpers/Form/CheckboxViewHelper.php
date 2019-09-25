@@ -43,7 +43,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  * @api
  */
-class CheckboxViewHelper extends \TYPO3Fluid\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper
+class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper
 {
     /**
      * @var string
