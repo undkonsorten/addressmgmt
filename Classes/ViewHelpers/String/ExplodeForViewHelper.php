@@ -14,6 +14,7 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers\String;
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Extbase\Utility\ArrayUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+    use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 
 /**
  * Loop view helper which can be used to interate over array.
@@ -62,7 +63,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  * @api
  */
-class ExplodeForViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper implements \TYPO3Fluid\Fluid\Core\ViewHelper\Facets\CompilableInterface
+class ExplodeForViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper implements CompilableInterface
 {
     protected $escapeOutput = false;
     /**
