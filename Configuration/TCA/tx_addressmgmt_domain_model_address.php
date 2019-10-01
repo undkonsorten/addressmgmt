@@ -575,7 +575,7 @@ $tca = [
 ];
 
 if(!$settings['feUserRelation']) {
-	$TCA['tx_addressmgmt_domain_model_address']['columns']['fe_user'] = array(
+	$GLOBALS['TCA']['tx_addressmgmt_domain_model_address']['columns']['fe_user'] = array(
 		'exclude' => 1,
 		'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.fe_user',
 		'config' => array(
