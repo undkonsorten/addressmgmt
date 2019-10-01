@@ -81,6 +81,11 @@ class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormF
      */
     public function render()
     {
+        [
+            'multiple' => $multiple,
+            'checked' => $checked
+        ] = $this->arguments;
+
         $this->tag->addAttribute('type', 'checkbox');
 
         $nameAttribute = $this->getName();
