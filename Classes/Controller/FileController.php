@@ -89,7 +89,8 @@ class FileController extends BaseController {
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
 	 * @param \string $property
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
-	 *
+	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $address
+	 * 
 	 */
 	public function newAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address, $property, \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload $fileUpload = NULL, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference = NULL){
 		if(is_null($fileUpload)) {
@@ -115,6 +116,7 @@ class FileController extends BaseController {
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
 	 * @param \string $property
+	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $address
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData
 	 * 
 	 */
