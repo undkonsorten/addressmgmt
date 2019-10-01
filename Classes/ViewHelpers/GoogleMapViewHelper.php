@@ -17,16 +17,27 @@ class GoogleMapViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagB
 	public function initializeArguments() {
 		parent::initializeArguments();
 		$this->registerUniversalTagAttributes();
+        $this->registerArgument('latitude', 'float', 'Latitude data', false, null);
+        $this->registerArgument('longitude', 'float', 'Longitude data', false, null);
+        $this->registerArgument('mapZoom', 'integer', 'Map zoom', false, null);
+        $this->registerArgument('markerAtCenter', 'boolean', 'Marker At Center', false, null);
+        $this->registerArgument('markerTitle', 'string', 'Marker Title', false, null);
 	}
 
     /**
-	 * @param \float $latitude
-	 * @param \float $longitude 
-	 * @param \integer $mapZoom
-	 * @param \boolean $markerAtCenter
-	 * @param \string $markerTitle
+	 * @todo add description here
+	 *
+     * @return string
 	 */ 
 	public function render($latitude = NULL, $longitude = NULL, $mapZoom = NULL, $markerAtCenter = NULL, $markerTitle = NULL) {
+	    [
+	        'latitude' => $latitude,
+	        'longitude' => $longitude,
+	        'mapZoom' => $mapZoom,
+	        'markerAtCenter' => $markerAtCenter,
+	        'markerTitle' => $markerTitle,
+        ] = $this->arguments;
+
 		$settings = $this->templateVariableContainer->get('settings') ? : [];
 		$this->tag->addAttribute('class', 'map');
 		$dataAttributes = [
@@ -39,7 +50,6 @@ class GoogleMapViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagB
 		$dataAttributes = array_filter($dataAttributes, function($value) { return !is_null($value); });
 		$this->tag->addAttributes($dataAttributes);
 		$this->tag->forceClosingTag(TRUE);
-		//~ \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($settings);
 		foreach($settings['includeJSFooter'] ? : [] as $footerFile) {
 			$this->getPageRenderer()->addJsFooterFile($this->resolveResourcePath($footerFile));
 		}

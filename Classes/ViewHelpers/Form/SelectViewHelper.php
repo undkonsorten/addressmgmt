@@ -84,13 +84,13 @@ class SelectViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFie
         $this->registerTagAttribute('size', 'string', 'Size of input field');
         $this->registerTagAttribute('disabled', 'string', 'Specifies that the input element should be disabled when the page loads');
         $this->registerArgument('options', 'array', 'Associative array with internal IDs as key, and the values are displayed in the select box', true);
-        $this->registerArgument('optionValueField', 'string', 'If specified, will call the appropriate getter on each object to determine the value.');
-        $this->registerArgument('optionLabelField', 'string', 'If specified, will call the appropriate getter on each object to determine the label.');
+        $this->registerArgument('optionValueField', 'string', 'If specified, will call the appropriate getter on each object to determine the value.', false, null);
+        $this->registerArgument('optionLabelField', 'string', 'If specified, will call the appropriate getter on each object to determine the label.', false, null);
         $this->registerArgument('sortByOptionLabel', 'boolean', 'If true, List will be sorted by label.', false, false);
         $this->registerArgument('selectAllByDefault', 'boolean', 'If specified options are selected if none was set before.', false, false);
         $this->registerArgument('errorClass', 'string', 'CSS class to set if there are errors for this view helper', false, 'f3-form-error');
-        $this->registerArgument('prependOptionLabel', 'string', 'If specified, will provide an option at first position with the specified label.');
-        $this->registerArgument('prependOptionValue', 'string', 'If specified, will provide an option at first position with the specified value.');
+        $this->registerArgument('prependOptionLabel', 'string', 'If specified, will provide an option at first position with the specified label.', false, null);
+        $this->registerArgument('prependOptionValue', 'string', 'If specified, will provide an option at first position with the specified value.', false, null);
         $this->registerArgument('multiple', 'boolean', 'If set multiple options may be selected.', false, false);
         $this->registerArgument('required', 'boolean', 'If set no empty value is allowed.', false, false);
     }

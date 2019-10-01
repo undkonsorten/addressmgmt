@@ -53,5 +53,3 @@ class TitleTagViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewH
 		}
 	}
 }
-
-?>

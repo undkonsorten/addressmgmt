@@ -35,8 +35,8 @@ class PropertyViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewH
      */
     public function initializeArguments()
     {
-        $this->registerArgument('object', 'object|array', 'Object data');
-        $this->registerArgument('property', 'string', 'Used property');
+        $this->registerArgument('object', 'object|array', 'Object data', true);
+        $this->registerArgument('property', 'string', 'Used property', true);
     }
 
 	/**
@@ -59,5 +59,3 @@ class PropertyViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewH
 	    return NULL;
 	}
 }
-
-?>
