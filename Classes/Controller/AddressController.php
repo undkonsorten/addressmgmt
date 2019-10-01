@@ -86,11 +86,11 @@ class AddressController extends BaseController
     /**
      * @var AddressLocatorService
      */
-    protected $addressLocatorService;
+    protected $addressService;
 
-    public function injectAddressLocatorService(AddressLocatorService $addressLocatorService): void
+    public function injectAddressService(AddressLocatorService $addressService): void
     {
-        $this->addressLocatorService = $addressLocatorService;
+        $this->addressService = $addressService;
     }
 
     /**
