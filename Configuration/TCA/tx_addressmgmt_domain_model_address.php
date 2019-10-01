@@ -1,4 +1,9 @@
 <?php
+
+use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use Undkonsorten\Addressmgmt\Domain\Model\Address;
+
 if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
@@ -398,7 +403,7 @@ $tca = [
 		'images' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.image',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+			'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
 				'images',
 				[
 					'appearance' => [
@@ -411,7 +416,7 @@ $tca = [
                                     --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                     --palette--;;filePalette'
                             ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                            File::FILETYPE_IMAGE => [
                                     'showitem' => '
                                 --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
@@ -448,9 +453,9 @@ $tca = [
                 'renderType' => 'selectSingle',
                 'items' => [
                     ['', ''],
-                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0', \Undkonsorten\Addressmgmt\Domain\Model\Address::PUBLISH_CREATED],
-                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1', \Undkonsorten\Addressmgmt\Domain\Model\Address::PUBLISH_WAITING],
-                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2', \Undkonsorten\Addressmgmt\Domain\Model\Address::PUBLISH_PUBLISHED],
+                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0', Address::PUBLISH_CREATED],
+                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1', Address::PUBLISH_WAITING],
+                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2', Address::PUBLISH_PUBLISHED],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
