@@ -11,7 +11,8 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers\Form;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
+use TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper;
 
 /**
  * View Helper which creates a simple checkbox (<input type="checkbox">).
@@ -43,7 +44,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  * @api
  */
-class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper
+class CheckboxViewHelper extends AbstractFormFieldViewHelper
 {
     /**
      * @var string
@@ -81,11 +82,8 @@ class CheckboxViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormF
      */
     public function render()
     {
-        [
-            'multiple' => $multiple,
-            'checked' => $checked
-        ] = $this->arguments;
-
+        $checked = $this->arguments['checked'];
+        $multiple = $this->arguments['multiple'];
         $this->tag->addAttribute('type', 'checkbox');
 
         $nameAttribute = $this->getName();
