@@ -3,10 +3,11 @@ namespace Undkonsorten\Addressmgmt\Controller;
 
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\StorageRepository;
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
-
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use Undkonsorten\Addressmgmt\Domain\Model\Address;
+use Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData;
+use Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload;
 use Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository;
 use Undkonsorten\Addressmgmt\File\ResourceFactory;
 
@@ -86,13 +87,13 @@ class FileController extends BaseController {
     /**
 	 * Add a new File
 	 *
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
+	 * @param Address $address
 	 * @param \string $property
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
-	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $address
+	 * @param FileReference $fileReference
+	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("$address")
 	 * 
 	 */
-	public function newAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address, $property, \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload $fileUpload = NULL, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference = NULL){
+	public function newAction(Address $address, $property, FileUpload $fileUpload = NULL, FileReference $fileReference = NULL){
 		if(is_null($fileUpload)) {
 			$fileUpload = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload');
 			if ('image' == $property) {
@@ -113,14 +114,14 @@ class FileController extends BaseController {
 	/**
 	 * Update an existing File
 	 *
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
+	 * @param Address $address
+	 * @param FileReference $fileReference
 	 * @param \string $property
-	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $address
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData
+	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("$address")
+	 * @param FileMetaData $fileMetaData
 	 * 
 	 */
-	public function editAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference, $property, \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData = NULL){
+	public function editAction(Address $address, FileReference $fileReference, $property, FileMetaData $fileMetaData = NULL){
 		if(is_null($fileMetaData)) {
 			$fileMetaData = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData');
 			if(!is_null($fileReference)) {
@@ -135,24 +136,24 @@ class FileController extends BaseController {
 	
 	/**
 	 *
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
+	 * @param Address $address
+	 * @param FileMetaData $fileMetaData
+	 * @param FileReference $fileReference
 	 */
-	public function updateAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address, \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData = NULL, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference = NULL){
+	public function updateAction(Address $address, FileMetaData $fileMetaData = NULL, FileReference $fileReference = NULL){
 		$file = $fileReference->getOriginalResource()->getOriginalFile();
 		$this->resourceFactory->updateFileWithMetaData($file, $fileMetaData);
 		$this->redirect('dash','Address');
 	}
-	
+
 	/**
 	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
+	 * @param FileReference $fileReference
 	 * @param \string $property
 	 * @param  \sting $propertyUpload
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $address
+	 * @param Address $address
 	 */
-	public function createAction(\Undkonsorten\Addressmgmt\Domain\Model\Address $address, $property, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference = NULL){
+	public function createAction(Address $address, $property, FileReference $fileReference = NULL){
 
 		//@TODO get from TS settigns settings.target.$property '1:user_upload'
 		if(isset($this->settings['target'][$property])) {
@@ -182,9 +183,9 @@ class FileController extends BaseController {
 	}
 	/**
 	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
+	 * @param FileReference $fileReference
 	 */
-	public function deleteAction(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference){
+	public function deleteAction(FileReference $fileReference){
 		$this->resourceFactory->deleteFileReference($fileReference);
 		$this->addFlashMessage(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0=>$fileReference->getUid())));
 		$this->redirect('dash','Address');
@@ -202,4 +203,3 @@ class FileController extends BaseController {
 		
 
 }
-?>

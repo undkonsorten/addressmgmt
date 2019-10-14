@@ -1,17 +1,17 @@
 <?php
 namespace Undkonsorten\Addressmgmt\File;
 
+use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Resource\Folder;
 use TYPO3\CMS\Core\Resource\StorageRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
-use TYPO3\CMS\Extbase\Property\Exception\InvalidDataTypeException;
-
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
-
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***************************************************************
  *  Copyright notice
@@ -45,6 +45,8 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  */
 use TYPO3\CMS\Core\SingletonInterface;
+use Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData;
+use Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload;
 use Undkonsorten\Addressmgmt\Domain\Repository\FileReferenceRepository;
 
 class ResourceFactory implements SingletonInterface {
@@ -115,22 +117,22 @@ class ResourceFactory implements SingletonInterface {
 	 * @return ResourceFactory
 	 */
 	static public function getInstance() {
-		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
+		$objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
 		return $objectManager->get(__CLASS__);
 	}
 	
 	/**
 	 * Upload a file and create reference
 	 * 
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload $fileUpload
-	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|\TYPO3\CMS\Core\Resource\Folder|\string $target
+	 * @param FileUpload $fileUpload
+	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|Folder|\string $target
 	 * @param \mixed $object
 	 * @param \string $property
 	 * @param \integer $pid
-	 * @throws \Exception
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @return FileReference
+	 *@throws \Exception
 	 */
-	public function uploadAndReferenceFile(\Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload $fileUpload, $target, $object, $property, $pid = NULL) {
+	public function uploadAndReferenceFile(FileUpload $fileUpload, $target, $object, $property, $pid = NULL) {
 		$folder = $this->getFolderFromTarget($target);
 		$file = $this->createFileFromUpload($fileUpload, $folder);
 		if($file) {
@@ -144,12 +146,12 @@ class ResourceFactory implements SingletonInterface {
 	/**
 	 * Creates a file from upload data
 	 * 
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload $fileUpload
-	 * @param \TYPO3\CMS\Core\Resource\Folder $folder
-	 * @param \string $conflictMode defines handling for name conflicts (cancel,replace,changeName)
-	 * @return \TYPO3\CMS\Core\Resource\File
+	 * @param FileUpload $fileUpload
+	 * @param Folder $folder
+	 * @param \string $conflictMode defines handling for name conflicts (cancel,replace,rename)
+	 * @return File
 	 */
-	protected function createFileFromUpload(\Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload $fileUpload, \TYPO3\CMS\Core\Resource\Folder $folder, $conflictMode = 'changeName') {
+	protected function createFileFromUpload(FileUpload $fileUpload, Folder $folder, $conflictMode = 'rename') {
 		$file = $folder->getStorage()->addUploadedFile($fileUpload->getFileUploadArray(), $folder, NULL, $conflictMode);
 		$this->updateFileWithMetaData($file, $fileUpload->getFileMetaData());
 		return $file; 
@@ -159,9 +161,9 @@ class ResourceFactory implements SingletonInterface {
 	 * Gets a folder from Storage, Folder or combined identifier
 	 * like '1:my/path'
 	 * 
-	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|\TYPO3\CMS\Core\Resource\Folder|\string $target
-	 * @throws \UnexpectedValueException
-	 * @return \TYPO3\CMS\Core\Resource\Folder
+	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|Folder|\string $target
+	 * @return Folder
+	 *@throws \UnexpectedValueException
 	 */
 	protected function getFolderFromTarget($target) {
 		if(is_null($target)) {
@@ -199,13 +201,13 @@ class ResourceFactory implements SingletonInterface {
 	/**
 	 * creates a file reference
 	 * 
-	 * @param \TYPO3\CMS\Core\Resource\File $file
+	 * @param File $file
 	 * @param \mixed $object
 	 * @param \string $property
 	 * @param \integer $pid
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @return FileReference
 	 */
-	protected function createFileReference(\TYPO3\CMS\Core\Resource\File $file, $object, $property, $pid = NULL) {
+	protected function createFileReference(File $file, $object, $property, $pid = NULL) {
 		$dataMap = $this->dataMapFactory->buildDataMap(get_class($object));
 		$uidLocal = $file->getUid();
 		$foreignParameters = $this->getForeignParameters($object, $property);
@@ -223,23 +225,23 @@ class ResourceFactory implements SingletonInterface {
 	/**
 	 * 
 	 * @TODO implement deleteFileIfPossible
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
+	 * @param FileReference $fileReference
 	 * @param \mixed $object
 	 * @param \string $property
 	 * @param \boolean $deleteFileIfPossible
 	 */
-	public function deleteFileReference(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference) {
+	public function deleteFileReference(FileReference $fileReference) {
 		$this->fileReferenceRepository->delete($fileReference);
 	}
 	
 	/**
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload $fileUpload
-	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|\TYPO3\CMS\Core\Resource\Folder|\string $target
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
+	 * @param FileUpload $fileUpload
+	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|Folder|\string $target
+	 * @param FileReference $fileReference
 	 * @param \mixed $object
 	 * @param \string $property
 	 */
-	public function replaceFileReferenceByUploadedFile(\Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload $fileUpload, $target, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference, $object, $property) {
+	public function replaceFileReferenceByUploadedFile(FileUpload $fileUpload, $target, FileReference $fileReference, $object, $property) {
 		$folder = $this->getFolderFromTarget($target);
 		$file = $this->createFileFromUpload($fileUpload, $folder);
 		if($file) {
@@ -269,11 +271,11 @@ class ResourceFactory implements SingletonInterface {
 	/**
 	 * Updates a file object with given meta data
 	 * 
-	 * @param \TYPO3\CMS\Core\Resource\File $file
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData
+	 * @param File $file
+	 * @param FileMetaData $fileMetaData
 	 * @return void
 	 */
-	public function updateFileWithMetaData(\TYPO3\CMS\Core\Resource\File $file, \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData) {
+	public function updateFileWithMetaData(File $file, FileMetaData $fileMetaData) {
 		$propertiesToBeUpdated = array(
 			'title',
 			'alternative',
@@ -292,11 +294,11 @@ class ResourceFactory implements SingletonInterface {
 	/**
 	 * Updates fileMetaData with meta data from fileReference
 	 * 
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
+	 * @param FileMetaData $fileMetaData
+	 * @param FileReference $fileReference
 	 * @return void
 	 */
-	public function updateFileMetaDataFromFileReference(\Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference) {
+	public function updateFileMetaDataFromFileReference(FileMetaData $fileMetaData, FileReference $fileReference) {
 		$propertiesToBeUpdated = array(
 				'title',
 				'alternative',
@@ -309,4 +311,3 @@ class ResourceFactory implements SingletonInterface {
 		}
 	}
 }
-?>
