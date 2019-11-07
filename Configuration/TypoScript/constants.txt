@@ -47,8 +47,8 @@ plugin.tx_addressmgmt {
 			longitude =
 			# cat=plugin.tx_addressmgmt/map/0040; type=int; label=Zoom: initial zoom of map
 			zoom =
-			# cat=plugin.tx_addressmgmt/map/0050; type=int; label=Padding: marker padding/spacing in px
-			padding = 30
+			# cat=plugin.tx_addressmgmt/map/0050; type=boolean; label=Fit bounds
+			fitBounds =
 		}
 		tileLayerConfiguration {
 			# cat=plugin.tx_addressmgmt/tileServer/0060; type=string; label=URL Template: url template for tile server

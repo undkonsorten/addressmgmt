@@ -3,7 +3,7 @@
   <div class="filter-wrap">
     <f:render partial="Filter/Form" arguments="{contentUid:contentUid, filters:filters}" />
   </div>
-  <div class="semantic-map" id="map{contentUid}" data-semantic-map-enable-clustering="{f:if(condition: settings.useMarkerClusters, then: 'true', else: 'false')}" data-map-info-layer="#map{contentUid}-info-layer" data-map-wrap="#map{contentUid}-wrap" data-is-map="true" data-poi-list="#map{contentUid}-items" data-semantic-map-initial-center='[{settings.mapConfiguration.longitude}, {settings.mapConfiguration.latitude}]'  data-semantic-map-initial-zoom='{settings.mapConfiguration.zoom}' data-semantic-map-tile-url-template="{settings.tileLayerConfiguration -> u:tileLayerUrl()}">
+  <div class="semantic-map" id="map{contentUid}" data-semantic-map-fit-features="{f:if(condition: settings.mapConfiguration.fitBounds, then: 'true', else: 'false')}" data-semantic-map-enable-clustering="{f:if(condition: settings.useMarkerClusters, then: 'true', else: 'false')}" data-map-info-layer="#map{contentUid}-info-layer" data-map-wrap="#map{contentUid}-wrap" data-is-map="true" data-poi-list="#map{contentUid}-items" data-semantic-map-initial-center='[{settings.mapConfiguration.longitude}, {settings.mapConfiguration.latitude}]'  data-semantic-map-initial-zoom='{settings.mapConfiguration.zoom}' data-semantic-map-tile-url-template="{settings.tileLayerConfiguration -> u:tileLayerUrl()}">
 		<f:if condition="{settings.tileLayerConfiguration.options.attribution}">
 			<div class='semantic-map__attribution'>
 				<f:format.raw>{settings.tileLayerConfiguration.options.attribution}</f:format.raw>
