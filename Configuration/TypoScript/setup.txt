@@ -90,10 +90,15 @@ page.includeCSS.tx_addressmgmt_styles = EXT:addressmgmt/Resources/Public/Css/sty
 
 # LEAFLET
 page.includeCSS.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Css/leaflet.css
+page.includeCSS.tx_addressmgmt_marker_cluster = EXT:addressmgmt/Resources/Public/Css/MarkerCluster.css
+page.includeCSS.tx_addressmgmt_marker_cluster_default = EXT:addressmgmt/Resources/Public/Css/MarkerCluster.Default.css
 page.includeCSS.tx_addressmgmt_semantic_map = EXT:addressmgmt/Resources/Public/Css/semantic-map.css
-#page.includeJSFooterlibs.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Leaflet/leaflet.js
-page.includeJSFooterlibs.tx_addressmgmt_sematic_map_libary = EXT:addressmgmt/Resources/Public/Javascript/semantic-map.min.js
-page.includeJSFooterlibs.tx_addressmgmt_sematic_map = EXT:addressmgmt/Resources/Public/Javascript/semantic-map-main.js
+
+page.includeJSFooterlibs.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Javascript/leaflet/leaflet.js
+
+page.includeJSFooterlibs.tx_addressmgmt_leaflet_marker_cluster_libary = EXT:addressmgmt/Resources/Public/Javascript/leaflet.markercluster/leaflet.markercluster.js
+page.includeJSFooterlibs.tx_addressmgmt_sematic_map_min = EXT:addressmgmt/Resources/Public/Javascript/semantic-map.min.js
+page.includeJSFooterlibs.tx_addressmgmt_sematic_map_main = EXT:addressmgmt/Resources/Public/Javascript/semantic-map.main.js
 
 # LEAFLET Marker Cluster
 #{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeCSS.tx_addressmgmt_leaflet_markerCluster = EXT:addressmgmt/Resources/Public/MarkerCluster/MarkerCluster.css

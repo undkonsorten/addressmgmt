@@ -4,7 +4,10 @@
     <f:render partial="Filter/Form" arguments="{contentUid:contentUid, filters:filters}" />
   </div>
   <div class="semantic-map" id="map{contentUid}" data-map-clusters="{settings.useMarkerClusters}" data-map-info-layer="#map{contentUid}-info-layer" data-map-wrap="#map{contentUid}-wrap" data-is-map="true" data-poi-list="#map{contentUid}-items" data-semantic-map-initial-center='[{settings.mapConfiguration.longitude}, {settings.mapConfiguration.latitude}]'  data-semantic-map-initial-zoom='{settings.mapConfiguration.zoom}' data-semantic-map-tile-url-template="{settings.tileLayerConfiguration -> u:tileLayerUrl()}">
-  </div>
+		<div class='semantic-map__attribution'>
+			<f:format.raw>{settings.tileLayerConfiguration.options.attribution}</f:format.raw>
+		</div>
+	</div>
   <div class="map-info-layer" id="map{contentUid}-info-layer"></div>
   <ul id="map{contentUid}-items" class="map-list-items filter-list-items semantic-map-context" style="display:none">
     <f:for each="{addresses}" as="address">

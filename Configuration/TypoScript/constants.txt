@@ -4,13 +4,13 @@
 plugin.tx_addressmgmt {
 	view {
 		# cat=plugin.tx_addressmgmt/file; type=string; label=Path to template root (FE)
-		templateRootPath = 
+		templateRootPath =
 		# cat=plugin.tx_addressmgmt/file; type=string; label=Path to template partials (FE)
-		partialRootPath = 
+		partialRootPath =
 		# cat=plugin.tx_addressmgmt/file; type=string; label=Path to template layouts (FE)
-		layoutRootPath = 
+		layoutRootPath =
 	}
-	
+
 	settings{
 	  # cat=plugin.tx_addressmgmt/settings; type=string; label= Order by
             orderBy =
@@ -42,11 +42,11 @@ plugin.tx_addressmgmt {
 		storeNewAddressNextToFeuser = 0
 		mapConfiguration {
 			# cat=plugin.tx_addressmgmt/map/0010; type=string; label=Latitude: latitude of map center
-			latitude = 
+			latitude =
 			# cat=plugin.tx_addressmgmt/map/0020; type=string; label=Longitude: longitude of map center
-			longitude = 
+			longitude =
 			# cat=plugin.tx_addressmgmt/map/0040; type=int; label=Zoom: initial zoom of map
-			zoom = 
+			zoom =
 			# cat=plugin.tx_addressmgmt/map/0050; type=int; label=Padding: marker padding/spacing in px
 			padding = 30
 		}
@@ -55,9 +55,9 @@ plugin.tx_addressmgmt {
 			urlTemplate = https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}
 			options {
 				# cat=plugin.tx_addressmgmt/tileServer/0070; type=string; label=ID: identification for tile server
-				id = 
+				id = mapbox.streets
 				# cat=plugin.tx_addressmgmt/tileServer/0080; type=string; label=Access token
-				accessToken = 
+				accessToken =
 				# cat=plugin.tx_addressmgmt/tileServer/0090; type=string; label=Max zoom: Maximum zoom level for tile server
 				maxZoom =
 				# cat=plugin.tx_addressmgmt/tileServer/0100; type=string; label=Attribution: Map attribution for the tile server
