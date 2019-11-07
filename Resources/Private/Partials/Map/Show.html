@@ -26,8 +26,8 @@
         </f:then>
         <f:else>
           <f:if condition="{address.geoJson}">
-            <li class="filter-list-item list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'geoJson',geoJson:address.geoJsonObject}) -> f:format.htmlspecialchars()}" data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}">
-              <f:render partial="List/MapItem" arguments="{address: address}" />
+            <li class="semantic-map__features filter-list-item list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-semantic-map-features="{address.geojson}" data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}">
+							<f:render partial="List/MapItem" arguments="{address: address}" />
             </li>
           </f:if>
         </f:else>
