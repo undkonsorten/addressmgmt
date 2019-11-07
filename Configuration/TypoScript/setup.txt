@@ -105,12 +105,6 @@ page.includeJSFooterlibs.tx_addressmgmt_sematic_map_main = EXT:addressmgmt/Resou
 #{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeCSS.tx_addressmgmt_leaflet_markerCluster_Default = EXT:addressmgmt/Resources/Public/MarkerCluster/MarkerCluster.Default.css
 #{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeJSFooterlibs.tx_addressmgmt_leaflet_markerCluster = EXT:addressmgmt/Resources/Public/MarkerCluster/leaflet.markercluster.js
 
-# OWN MAP JavaScript
-#page.includeJSFooter.tx_addressmgmt_mapConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/mapConfigurationParser.js
-#page.includeJSFooter.tx_addressmgmt_tileConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/tileLayerParser.js
-#page.includeJSFooter.tx_addressmgmt_poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
-#page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
-#page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
-page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/map/filter.js
+page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/filter.js
 # a-z filter by jquery
 page.includeJSFooter.tx_addressmgmt_mapAzFilter = EXT:addressmgmt/Resources/Public/Javascript/az-filter.js
