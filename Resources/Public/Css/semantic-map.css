@@ -1,3 +1,6 @@
 .semantic-map{
 	height: 600px;
 }
+.semantic-map__attribution {
+	display: none;
+}
