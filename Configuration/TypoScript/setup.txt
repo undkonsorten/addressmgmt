@@ -86,7 +86,7 @@ plugin.tx_addressmgmt {
 page.includeCSS.tx_addressmgmt_styles = EXT:addressmgmt/Resources/Public/Css/styles.css
 
 # JQUERY is needed
-#page.includeJSFooterlibs.tx_addressmgmt_jQuery = EXT:addressmgmt/Resources/Public/Javascript/jquery-3.1.0.js
+page.includeJSFooterlibs.tx_addressmgmt_jQuery = EXT:addressmgmt/Resources/Public/Javascript/jquery-3.1.0.js
 
 # LEAFLET
 page.includeCSS.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Css/leaflet.css
@@ -111,6 +111,6 @@ page.includeJSFooterlibs.tx_addressmgmt_sematic_map_main = EXT:addressmgmt/Resou
 #page.includeJSFooter.tx_addressmgmt_poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
 #page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
 #page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
-#page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/map/filter.js
+page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/map/filter.js
 # a-z filter by jquery
-#page.includeJSFooter.tx_addressmgmt_mapAzFilter = EXT:addressmgmt/Resources/Public/Javascript/az-filter.js
+page.includeJSFooter.tx_addressmgmt_mapAzFilter = EXT:addressmgmt/Resources/Public/Javascript/az-filter.js
