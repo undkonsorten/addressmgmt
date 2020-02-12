@@ -3,6 +3,7 @@ jQuery(function($) {
   // fix error in IE 11: Object doesn't support this action
   // on line 92/93: $mapElement[0].dispatchEvent(new Event('update-list'))
   // https://stackoverflow.com/questions/26596123/internet-explorer-9-10-11-event-constructor-doesnt-work
+	// @TODO refactor t
   try {
     var ce = new window.CustomEvent('test');
     ce.preventDefault();

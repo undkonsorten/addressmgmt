@@ -61,7 +61,7 @@ plugin.tx_addressmgmt {
 			longitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.longitude}
 			zoom = {$plugin.tx_addressmgmt.settings.mapConfiguration.zoom}
 			#map padding in px-units
-			padding = {$plugin.tx_addressmgmt.settings.mapConfiguration.padding}
+			fitBounds = {$plugin.tx_addressmgmt.settings.mapConfiguration.fitBounds}
 		}
 		createDefaultAddressType = {$plugin.tx_addressmgmt.settings.createDefaultAddressType}
 		storeNewAddressNextToFeuser = {$plugin.tx_addressmgmt.settings.storeNewAddressNextToFeuser}
@@ -88,20 +88,22 @@ plugin.tx_addressmgmt {
 page.includeJSFooterlibs.tx_addressmgmt_jQuery = EXT:addressmgmt/Resources/Public/Javascript/jquery-3.1.0.js
 
 # LEAFLET
-page.includeCSS.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Leaflet/leaflet.css
-page.includeJSFooterlibs.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Leaflet/leaflet.js
+page.includeCSS.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Css/leaflet.css
+page.includeCSS.tx_addressmgmt_marker_cluster = EXT:addressmgmt/Resources/Public/Css/MarkerCluster.css
+page.includeCSS.tx_addressmgmt_marker_cluster_default = EXT:addressmgmt/Resources/Public/Css/MarkerCluster.Default.css
+page.includeCSS.tx_addressmgmt_semantic_map = EXT:addressmgmt/Resources/Public/Css/semantic-map.css
+
+page.includeJSFooterlibs.tx_addressmgmt_leaflet = EXT:addressmgmt/Resources/Public/Javascript/leaflet/leaflet.js
+
+page.includeJSFooterlibs.tx_addressmgmt_leaflet_marker_cluster_libary = EXT:addressmgmt/Resources/Public/Javascript/leaflet.markercluster/leaflet.markercluster.js
+page.includeJSFooterlibs.tx_addressmgmt_sematic_map_min = EXT:addressmgmt/Resources/Public/Javascript/semantic-map.min.js
+page.includeJSFooterlibs.tx_addressmgmt_sematic_map_main = EXT:addressmgmt/Resources/Public/Javascript/semantic-map.main.js
 
 # LEAFLET Marker Cluster
-{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeCSS.tx_addressmgmt_leaflet_markerCluster = EXT:addressmgmt/Resources/Public/MarkerCluster/MarkerCluster.css
-{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeCSS.tx_addressmgmt_leaflet_markerCluster_Default = EXT:addressmgmt/Resources/Public/MarkerCluster/MarkerCluster.Default.css
-{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeJSFooterlibs.tx_addressmgmt_leaflet_markerCluster = EXT:addressmgmt/Resources/Public/MarkerCluster/leaflet.markercluster.js
+#{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeCSS.tx_addressmgmt_leaflet_markerCluster = EXT:addressmgmt/Resources/Public/MarkerCluster/MarkerCluster.css
+#{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeCSS.tx_addressmgmt_leaflet_markerCluster_Default = EXT:addressmgmt/Resources/Public/MarkerCluster/MarkerCluster.Default.css
+#{$plugin.tx_addressmgmt.settings.useMarkerClusters} page.includeJSFooterlibs.tx_addressmgmt_leaflet_markerCluster = EXT:addressmgmt/Resources/Public/MarkerCluster/leaflet.markercluster.js
 
-# OWN MAP JavaScript
-page.includeJSFooter.tx_addressmgmt_mapConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/mapConfigurationParser.js
-page.includeJSFooter.tx_addressmgmt_tileConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/tileLayerParser.js
-page.includeJSFooter.tx_addressmgmt_poiConfigurationParser = EXT:addressmgmt/Resources/Public/Javascript/map/poiConfigurationParser.js
-page.includeJSFooter.tx_addressmgmt_popupMarkerCreator = EXT:addressmgmt/Resources/Public/Javascript/map/popupMarkupCreator.js
-page.includeJSFooter.tx_addressmgmt_map = EXT:addressmgmt/Resources/Public/Javascript/map.js
-page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/map/filter.js
+page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/filter.js
 # a-z filter by jquery
 page.includeJSFooter.tx_addressmgmt_mapAzFilter = EXT:addressmgmt/Resources/Public/Javascript/az-filter.js
