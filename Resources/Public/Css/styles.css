@@ -2684,4 +2684,8 @@ td, th {
 	color: #333
 }
 
+select::-ms-expand{
+	display: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
