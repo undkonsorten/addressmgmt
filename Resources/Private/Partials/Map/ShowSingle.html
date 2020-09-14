@@ -1,26 +1,31 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
-      data-namespace-typo3-fluid="true">
-<div class="map-wrap" id="map{contentUid}-wrap">
-  <div class="map" id="map{contentUid}" data-map-clusters="{settings.useMarkerClusters}" data-map-info-layer="#map{contentUid}-info-layer" data-map-wrap="#map{contentUid}-wrap" data-is-map="true" data-poi-list="#map{contentUid}-items"
-  data-map-configuration="{settings.mapConfiguration -> u:format.json() -> f:format.htmlspecialchars()}"
-  data-map-tilelayer="{settings.tileLayerConfiguration -> u:format.json() -> f:format.htmlspecialchars()}">
-  </div>
-  <div class="map-info-layer" id="map{contentUid}-info-layer"></div>
-  <ul id="map{contentUid}-items" style="display:none">
-      <f:if condition="{address.latitude}">
-        <f:then>
-          <li class="list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'marker',coordinates:{0:address.latitude,1:address.longitude}}) -> f:format.htmlspecialchars()}">
-            <f:render partial="List/MapItem" arguments="{address: address}"/>
-          </li>
-        </f:then>
-        <f:else>
-          <f:if condition="{address.geoJson}">
-            <li class="list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-poi="{u:format.json(additionalAttributes:{type:'geoJson',geoJson:address.geoJsonObject}) -> f:format.htmlspecialchars()}">
-              <f:render partial="List/MapItem" arguments="{address: address}"/>
-            </li>
-          </f:if>
-        </f:else>
-      </f:if>
-  </ul>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="map-wrap{f:if(condition:settings.showFilter,then:' map-with-filter')}" id="map{contentUid}-wrap">
+	<div class="semantic-map" id="map{contentUid}" data-semantic-map-fit-features="{f:if(condition: settings.mapConfiguration.fitBounds, then: 'true', else: 'false')}" data-semantic-map-enable-clustering="{f:if(condition: settings.useMarkerClusters, then: 'true', else: 'false')}" data-map-info-layer="#map{contentUid}-info-layer" data-map-wrap="#map{contentUid}-wrap" data-is-map="true" data-poi-list="#map{contentUid}-items" data-semantic-map-initial-center='[{settings.mapConfiguration.longitude}, {settings.mapConfiguration.latitude}]'  data-semantic-map-initial-zoom='{settings.mapConfiguration.zoom}' data-semantic-map-tile-url-template="{settings.tileLayerConfiguration -> u:tileLayerUrl()}">
+		<f:if condition="{settings.tileLayerConfiguration.options.attribution}">
+			<div class='semantic-map__attribution'>
+				<f:format.raw>{settings.tileLayerConfiguration.options.attribution}</f:format.raw>
+			</div>
+		</f:if>
+	</div>
+	<div class="map-info-layer" id="map{contentUid}-info-layer"></div>
+	<ul id="map{contentUid}-items" class="map-list-items filter-list-items semantic-map-context" style="display:none">
+		<f:if condition="{address.latitude}">
+			<f:then>
+				<li class="filter-list-item list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')} semantic-map__feature semantic-map__geometry semantic-map__property " data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}"
+						data-semantic-map-geometry-type='Point'
+						data-semantic-map-geometry-coordinates="[{address.longitude},{address.latitude}]"
+						data-semantic-map-property-key='popup'
+						data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}">
+					<f:render partial="List/MapItem" arguments="{address: address}" />
+				</li>
+			</f:then>
+			<f:else>
+				<f:if condition="{address.geoJson}">
+					<li class="semantic-map__features filter-list-item list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')}" data-semantic-map-features="{address.geojson}" data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}">
+						<f:render partial="List/MapItem" arguments="{address: address}" />
+					</li>
+				</f:if>
+			</f:else>
+		</f:if>
+	</ul>
 </div>
