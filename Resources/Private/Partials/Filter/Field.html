@@ -3,19 +3,19 @@
       data-namespace-typo3-fluid="true">
 
 <f:for each="{settings.filterConfiguration}" key="filterName" as="filter">
-  
+
   <f:groupedFor each="{u:property(object:filters, property: filterName)}" as="objects" groupBy="parent" groupKey="parent">
     <div class="form-field-wrap filter-{parent.uid}">
       <label for="filter-{parent.uid}">{parent.title}</label>
       <select id="filter-{parent.uid}" name="filter-{parent.title}" class="js-controlled">
-        <option value="0">{f:if(condition:parent.description,then:parent.description,else:parent.title)}</option>
+        <option value="0"><f:translate key="form.filter.category.choose">Please choose</f:translate></option>
         <f:for each="{objects}" as="category">
           <option value="{category.uid}">{category.title}</option>
         </f:for>
       </select>
     </div>
   </f:groupedFor>
-  
+
 </f:for>
 
 </html>

@@ -425,6 +425,10 @@
                 <source>Please choose</source>
                 <target>Bitte auswählen</target>
             </trans-unit>
+            <trans-unit id="form.filter.category.choose">
+                <source>Please choose…</source>
+                <target>Bitte wählen…</target>
+            </trans-unit>
 
             <trans-unit id="image.delete">
                 <source>Delete</source>

@@ -97,7 +97,7 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.social_identifiers">
 				<source>SocialIdentifiers</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">
 				<source>SocialIdentifier</source>
 			</trans-unit>
@@ -110,7 +110,7 @@
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.provider">
 				<source>Provider</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_socialprovider">
 				<source>SocialProvider</source>
 			</trans-unit>
@@ -126,7 +126,7 @@
 			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.image">
 				<source>Image</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_address.1">
 				<source>Miss</source>
 			</trans-unit>
@@ -246,6 +246,9 @@
             </trans-unit>
 			<trans-unit id="edit.category.choose">
 				<source>Please choose</source>
+			</trans-unit>
+			<trans-unit id="form.filter.category.choose">
+				<source>Please choose…</source>
 			</trans-unit>
 
             <trans-unit id="image.delete">
