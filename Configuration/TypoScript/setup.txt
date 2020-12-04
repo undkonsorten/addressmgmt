@@ -17,7 +17,8 @@ plugin.tx_addressmgmt {
 		# uncomment the following line to enable the new Property Mapper.
 		rewrittenPropertyMapper = 1
 	}
-	settings{
+	settings {
+		detailPid = {$plugin.tx_addressmgmt.settings.detailPid}
         showA-zFilter = {$plugin.tx_addressmgmt.settings.showA-zFilter}
 	    orderDirection = {$plugin.tx_addressmgmt.settings.orderDirection}
 	    orderBy = {$plugin.tx_addressmgmt.settings.orderBy}
@@ -28,10 +29,6 @@ plugin.tx_addressmgmt {
 			#	sorting = ASC
 			#}
     	}
-	    target{
-            default = {$plugin.tx_addressmgmt.settings.target.default}
-            images = {$plugin.tx_addressmgmt.settings.target.images}
-        }
 	    storagePid = {$plugin.tx_addressmgmt.settings.storagePid}
 	    recursive = {$plugin.tx_addressmgmt.settings.recursive}
 	    target{

@@ -13,18 +13,19 @@ plugin.tx_addressmgmt {
 
 	settings{
 	  # cat=plugin.tx_addressmgmt/settings; type=string; label= Order by
-            orderBy =
+		orderBy =
 	    # cat=plugin.tx_addressmgmt/settings; type=options[ASC,DESC]; label=Order direction[ascending, descending]
 	    orderDirection =
-
-	    # cat=plugin.tx_addressmgmt/settings; type=string; label=Default StoragePid for address data
+	    # cat=plugin.tx_addressmgmt/pids; type=integer; label=Default StoragePid for address data
 	    storagePid =
 	    # cat=plugin.tx_addressmgmt/settings; type=integer; label=Recursive level for storage pid
 	    recursive =
         # cat=plugin.tx_addressmgmt/settings; type=boolean; label=Show A-Z Filter with grouped items by name. Show/Hide items in list by first letter.
         showA-zFilter = 0
-		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=Pids: Page id for a-z list view
+		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=Pid A-Z: Page id for a-z list view
         pidsA-z =
+		# cat=plugin.tx_addressmgmt/pids/0008; type=integer; label=Detail Pid:Default page id for single view
+		detailPid =
 		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=PidsLogin: Login Page-Id for for redirect if FE User is not logged in
         pidsLogin =
         # cat=plugin.tx_addressmgmt/map/0005; type=comment; label=MarkerClusters: Use marker clusters
@@ -66,7 +67,7 @@ plugin.tx_addressmgmt {
 			}
 		}
 		# cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
-		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom, storagePid,recursive,orderBy, orderDirection, showA-zFilter
+		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom, storagePid,recursive,orderBy, orderDirection, showA-zFilter, detailPid
 
         list {
             # cat=plugin.tx_addressmgmt/settings; type=integer; label=Max characters for text in list view
