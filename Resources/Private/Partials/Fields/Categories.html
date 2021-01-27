@@ -46,7 +46,7 @@
         <f:else>{parent.title}</f:else>
       </f:if>
     </label>
-    <u:form.select id="select-{parent.uid}" property="category" required="1" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
+    <f:form.select id="select-{parent.uid}" property="category" required="1" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
   </div>
 </f:groupedFor>
 
@@ -76,6 +76,6 @@
         <f:else>{parent.title}</f:else>
       </f:if>
     </label>
-    <u:form.select id="select-{parent.uid}" property="category" required="1" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
+    <f:form.select id="select-{parent.uid}" property="category" required="1" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
   </div>
 </f:groupedFor>
