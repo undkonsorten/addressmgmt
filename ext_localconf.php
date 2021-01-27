@@ -3,15 +3,15 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$extensionConfiguration = \Undkonsorten\Addressmgmt\Service\ExtensionConfigurationService::getInstance($_EXTKEY);
+$extensionConfiguration = \Undkonsorten\Addressmgmt\Service\ExtensionConfigurationService::getInstance('addressmgmt');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Undkonsorten.' . $_EXTKEY,
+	'Undkonsorten.addressmgmt',
 	'List',
 	array(
 		'Address' => 'list, show',
         'File'  => '',
-		
+
 	),
 	// non-cacheable actions
 	array(
@@ -19,12 +19,12 @@ $extensionConfiguration = \Undkonsorten\Addressmgmt\Service\ExtensionConfigurati
 	    'Address' => 'dash, edit, create, new, update, handInForReview',
 	    'File'	 => 'edit, update, new, create, delete',
 	    'SocialIdentifier' => 'create, delete, update, edit'
-		
+
 	)
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-		'<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TsConfig/TemplateLayout.ts">'
+		'<INCLUDE_TYPOSCRIPT: source="FILE:EXT:addressmgmt/Configuration/TsConfig/TemplateLayout.ts">'
 );
 
 $rootCategory = $extensionConfiguration->getProperty('rootCategory');

@@ -58,7 +58,6 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 
     public function __construct(){
 		$this->typoScriptFrontendController = $this->getTyposcriptFrontendController();
-		parent::__construct();
 	}
 
 	/**
@@ -108,7 +107,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
         $this->configurationManager = $configurationManager;
 		$originalSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
 		$typoScriptSettings = $this->configurationManager->getConfiguration(
-		    \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 
+		    \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK,
 		    'addressmgmt',
 		    'addressmgmt_list'
 		    );
@@ -119,7 +118,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 				if ((!isset($originalSettings[$settingToOverride]) || empty($originalSettings[$settingToOverride]))
 						&& isset($typoScriptSettings['settings'][$settingToOverride])) {
 					$originalSettings[$settingToOverride] = $typoScriptSettings['settings'][$settingToOverride];
-				}				
+				}
 			}
 			$this->settings = $originalSettings;
 		}
@@ -158,37 +157,37 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 		//#DebuggerUtility::var_dump($this->controllerContext->getArguments()->validate()->getFlattenedErrors());
 		return FALSE;
 	}
-	
+
 	/**
 	 * StoragePid fallback: Plugin->TS->CurrentPid
 	 */
 	protected function storagePidFallback() {
 	    $pluginSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 	    $configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'addressmgmt', 'address_list');
-	
+
 	    //Check if storage PID is set in plugin
 	    if($pluginSettings['persistence']['storagePid']){
 	        $pid['persistence']['storagePid'] = $pluginSettings['persistence']['storagePid'];
 	        $this->configurationManager->setConfiguration(array_merge($pluginSettings, $pid));
-	        	
+
 	        //Check if storage PID is set in TS
 	    }elseif($configuration['persistence']['storagePid']){
 	        $pid['persistence']['storagePid'] = $configuration['persistence']['storagePid'];
 	        $this->configurationManager->setConfiguration(array_merge($configuration, $pid));
-	        	
+
 	    }else{
 	        // Use current PID as storage PID
 	        $pid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;
 	        $this->configurationManager->setConfiguration(array_merge($configuration, $pid));
 	    }
-	
+
 	    //Check if storage PID is set in plugin
 	    if($configuration['settings']['recursive']){
 	        $recursive['persistence']['recursive'] = $configuration['settings']['recursive'];
 	        $this->configurationManager->setConfiguration(array_merge($configuration, $recursive));
 	    }
 	}
-	
+
 	/**
 	 * overrides flexform settings with original typoscript values when
 	 * flexform value is empty and settings key is defined in
@@ -197,7 +196,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * @return void
 	 */
 	public function overrideFlexformSettings() {
-	
+
 	    $originalSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
 	    $typoScriptSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'addressmgmt', 'address_list');
 	    if(isset($typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'])) {
@@ -212,7 +211,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	        $this->settings = $originalSettings;
 	    }
 	}
-	
+
 	/**
 	 * Return logged in frontend user, if any, NULL otherwise
 	 *
@@ -253,7 +252,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
         }
         return $this->uriBuilder->build();
     }
-	
-	
+
+
 
 }
