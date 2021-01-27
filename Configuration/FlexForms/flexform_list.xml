@@ -303,12 +303,12 @@
 	                 </TCEforms>
                </settings.templateLayout>
 
-               <settings.mapClustering>
+               <settings.mapConfiguration.clusterMarker>
 	               	<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.mapClustering</label>
 					<config>
 					  <type>check</type>
 					</config>
-               </settings.mapClustering>
+               </settings.mapConfiguration.clusterMarker>
 
                <settings.showFilter>
 	               	<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.showFilter</label>

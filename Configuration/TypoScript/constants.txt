@@ -50,6 +50,8 @@ plugin.tx_addressmgmt {
 			zoom =
 			# cat=plugin.tx_addressmgmt/map/0050; type=boolean; label=Fit bounds
 			fitBounds =
+			# cat=plugin.tx_addressmgmt/map/0050; type=boolean; label=Cluster marker
+			clusterMarker =
 		}
 
 		tileLayerConfiguration {

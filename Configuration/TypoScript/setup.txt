@@ -59,6 +59,7 @@ plugin.tx_addressmgmt {
 			zoom = {$plugin.tx_addressmgmt.settings.mapConfiguration.zoom}
 			#map padding in px-units
 			fitBounds = {$plugin.tx_addressmgmt.settings.mapConfiguration.fitBounds}
+			clusterMarker = {$plugin.tx_addressmgmt.settings.mapConfiguration.clusterMarker}
 		}
 		createDefaultAddressType = {$plugin.tx_addressmgmt.settings.createDefaultAddressType}
 		storeNewAddressNextToFeuser = {$plugin.tx_addressmgmt.settings.storeNewAddressNextToFeuser}
