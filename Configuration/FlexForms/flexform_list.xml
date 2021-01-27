@@ -107,9 +107,9 @@
 							</and>
 						</displayCond>
 						<config>
-							<type>select</type>
-                            <foreign_table>tx_addressmgmt_domain_model_address</foreign_table>
-                            <foreign_table_where>AND tx_addressmgmt_domain_model_address.sys_language_uid IN (-1,0)</foreign_table_where> 
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>tx_addressmgmt_domain_model_address</allowed>
                              <size>15</size>
                              <maxitems>10</maxitems>
                              <minitems>1</minitems>
@@ -285,7 +285,7 @@
 							</config>
 						</TCEforms>
 				</settings.detailPid>
-			
+
 				<settings.templateLayout>
 	                <TCEforms>
 					<exclude>1</exclude>
@@ -331,8 +331,8 @@
 				<type>input</type>
 			      </config>
 			    </TCEforms>
-		  </settings.maxZoom>	
-		  
+		  </settings.maxZoom>
+
 		  <settings.mapZoom>
 		    <TCEforms>
 		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.zoom</label>
@@ -341,7 +341,7 @@
 		      </config>
 		    </TCEforms>
 		  </settings.mapZoom>
-		  
+
 		  <settings.latitude>
 		    <TCEforms>
 		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.latitude</label>
@@ -350,7 +350,7 @@
 		      </config>
 		    </TCEforms>
 		  </settings.latitude>
-		  
+
 		  <settings.longitude>
 		    <TCEforms>
 		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.longitude</label>
@@ -359,7 +359,7 @@
 		      </config>
 		    </TCEforms>
 		  </settings.longitude>
-		  
+
 		  <settings.accessToken>
 		    <TCEforms>
 		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.accessToken</label>
@@ -368,7 +368,7 @@
 		      </config>
 		    </TCEforms>
 		  </settings.accessToken>
-		  
+
 		  <settings.mapId>
 		    <TCEforms>
 		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.mapId</label>

@@ -11,7 +11,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  *  (c) 2013 Felix Althaus <felix.althaus@undkonsorten.com>, undkonsorten
  *  Eike Starkmann <eike.starkmann@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -58,6 +58,9 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			 $query->setOrderings($orderings);
         }
         if(!is_null($addresses) && $addresses != ''){
+            $querySettings = $query->getQuerySettings();
+            $querySettings->setRespectStoragePage(false);
+            $query->setQuerySettings($querySettings);
 		    $query->matching(
                 $query->in('uid', $addresses)
 			);
