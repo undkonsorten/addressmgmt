@@ -4,11 +4,12 @@
 namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
 
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 
-class TileLayerUrlViewHelper extends AbstractViewHelper implements CompilableInterface
+
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+
+class TileLayerUrlViewHelper extends AbstractViewHelper
 {
     /**
      * Constructor

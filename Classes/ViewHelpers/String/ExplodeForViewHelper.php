@@ -15,8 +15,9 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers\String;
     use TYPO3\CMS\Extbase\Utility\ArrayUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
     use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+    use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
-/**
+    /**
  * Loop view helper which can be used to interate over array.
  * Implements what a basic foreach()-PHP-method does.
  *
@@ -63,7 +64,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  * @api
  */
-class ExplodeForViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper implements CompilableInterface
+class ExplodeForViewHelper extends AbstractViewHelper
 {
     protected $escapeOutput = false;
     /**

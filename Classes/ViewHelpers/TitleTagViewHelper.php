@@ -1,6 +1,8 @@
 <?php
 namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /***************************************************************
 *  Copyright notice
 *
@@ -38,7 +40,7 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers;
  * </output>
  *
  */
-class TitleTagViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
+class TitleTagViewHelper extends AbstractViewHelper {
 
 	/**
 	 * Override the title tag
