@@ -1,0 +1,12 @@
+services:
+    _defaults:
+      autowire: true
+      autoconfigure: true
+      public: false
+
+    Undkonsorten\Addressmgmt\:
+      resource: '../Classes/*'
+
+    Undkonsorten\Addressmgmt\Service\NominatimGeolocationService: ~
+
+    Undkonsorten\Addressmgmt\Service\GeoLocationServiceInterface: '@Undkonsorten\Addressmgmt\Service\NominatimGeolocationService'

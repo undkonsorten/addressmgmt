@@ -34,7 +34,7 @@ use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
+class CategoryService {
 
     /**
      * @var CategoryRepository
@@ -53,7 +53,7 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $resultStorage
 	 */
-	
+
 	public function findAllDescendants (Category $parentCategory, $sorting = null){
 		if($parentCategory){
 		    if(is_null($sorting)){
@@ -62,9 +62,9 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 		        $this->categoryRepository->setDefaultOrderings($sorting);
 		    }
 			$allCategories = $this->categoryRepository->findAll();
-			
+
 			$storage = $this->buildStorageFormQuery($allCategories);
-	
+
 			$resultStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 			$stack = array();
 			array_push($stack, $parentCategory);
@@ -80,10 +80,10 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 		}
 		return $resultStorage;
 	}
-	
+
 	public function buildCategoryTree(\TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory, $sorting = null){
 	    #$result[] = array('category' => $parentCategory,'children' => array());
-	    
+
 	    $children = $this->getChildren($parentCategory, $sorting);
 	    if($children){
 	        foreach($children as $child){
@@ -92,7 +92,7 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 	    }
 	    return $result;
 	}
-	
+
 	protected function getChildren(\TYPO3\CMS\Extbase\Domain\Model\Category $parent, $sorting = null){
 	    if(is_null($sorting)){
 	        $this->categoryRepository->setDefaultOrderings(array('title'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
@@ -101,9 +101,9 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 	    }
 	    $this->categoryRepository->setDefaultOrderings(array('title'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
 	    return $this->categoryRepository->findByParent($parent);
-	    
+
 	}
-	
+
 	/**
 	 * Builds an object storage form query
 	 *
@@ -117,8 +117,6 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 		}
 		return $storage;
 	}
-	
+
 }
 
-
-?>
