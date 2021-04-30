@@ -227,16 +227,16 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	/**
 	 * latitude
 	 *
-	 * @var \string
+	 * @var string
 	 */
-	protected $latitude;
+	protected $latitude = '';
 
 	/**
 	 * longitude
 	 *
-	 * @var \string
+	 * @var string
 	 */
-	protected $longitude;
+	protected $longitude = '';
 	
 	/**
 	 * 
