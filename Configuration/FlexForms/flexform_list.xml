@@ -16,6 +16,7 @@
 							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions</label>
 							<config>
 								<type>select</type>
+								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.addressList</numIndex>
@@ -54,6 +55,7 @@
 							</displayCond>
 							<config>
 								<type>select</type>
+								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.listType.all</numIndex>
@@ -81,7 +83,7 @@
 						<config>
 							<type>select</type>
                                 <foreign_table>sys_category</foreign_table>
-                                <renderMode>tree</renderMode>
+                                <renderType>selectTree</renderType>
                                 <treeConfig>
                                     <parentField>parent</parentField>
                                     <rootUid>0</rootUid>
@@ -147,10 +149,11 @@
 						<label>LLL:EXT:lang/locallang_general.xml:LGL.recursive</label>
 						<config>
 							<type>select</type>
+							<renderType>selectSingle</renderType>
 							<items type="array">
 								<numIndex index="1" type="array">
 									<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_be.xml:flexforms_general.recursive.I.inherit</numIndex>
-									<numIndex index="1"></numIndex>
+									<numIndex index="1" />
 								</numIndex>
 								<numIndex index="2" type="array">
 									<numIndex index="0">0</numIndex>
@@ -191,10 +194,11 @@
                         </displayCond>
                         <config>
                             <type>select</type>
+							<renderType>selectSingle</renderType>
                             <items>
                                 <numIndex index="0">
                                     <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.none</numIndex>
-                                    <numIndex index="1"></numIndex>
+									<numIndex index="1" />
                                 </numIndex>
                                 <numIndex index="1">
                                     <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0</numIndex>
@@ -224,10 +228,11 @@
 							</displayCond>
 							<config>
 								<type>select</type>
+								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
-										<numIndex index="1"></numIndex>
+										<numIndex index="1" />
 									</numIndex>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.name</numIndex>
@@ -248,10 +253,11 @@
 							</displayCond>
 							<config>
 								<type>select</type>
+								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
-										<numIndex index="1"></numIndex>
+										<numIndex index="1" />
 									</numIndex>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.asc</numIndex>
@@ -292,11 +298,12 @@
 	                 <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.templateLayout</label>
 	                         <config>
 	                                 <type>select</type>
+									 <renderType>selectSingle</renderType>
 	                                 <itemsProcFunc>Undkonsorten\Addressmgmt\Hooks\ItemsProcFunc->user_templateLayout</itemsProcFunc>
 	                                 <items>
 	                                         <numIndex index="0" type="array">
-	                                                 <numIndex index="0"></numIndex>
-	                                                 <numIndex index="1"></numIndex>
+												 <numIndex index="0" />
+												 <numIndex index="1" />
 	                                         </numIndex>
 	                                 </items>
 	                         </config>
