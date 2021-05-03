@@ -9,7 +9,7 @@
 .. _start:
 
 =============================================================
-Extension Name
+Addressmgmt
 =============================================================
 
 :Version:
@@ -19,35 +19,25 @@ Extension Name
    en
 
 :Authors:
-   Your name
+   `undkonsorten - TYPO3 Agentur Berlin <http://www.undkonsorten.com>`_: Eike Starkmann, Thomas Alboth, Felix Althaus
 
 :Email:
-   you@domain.tld
+   eike.starkmann@undkonsorten.com
 
 :License:
    This extension documentation is published under the
    `CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>`__ (Creative Commons)
    license
 
-{extension.description}
-
 **TYPO3**
 
 The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `typo3.org <https://typo3.org/>`_ .
 
-**Community Documentation**
-
-This documentation is community documentation for the TYPO3 extension {extension.name}
-
-It is maintained as part of this third party extension.
-
-If you find an error or something is missing, please:
-`Report a Problem <https://github.com/TYPO3-Documentation/TYPO3CMS-Example-ExtensionManual/issues/new>`__
-
 **Extension Manual**
 
-This documentation is for the TYPO3 extension <extkey>.
+This documentation is for the TYPO3 extension addressmgmt.
+The TYPO3-Extension Address Management (EXT: addressmgmt) was created to replace tt_address. It is used to display persons, organisations or locations als lists or as a map.
 
 **For Contributors**
 
@@ -58,10 +48,10 @@ Just click on "Edit me on GitHub" on the top right to submit your change request
    :maxdepth: 3
 
    Introduction/Index
-   Editor/Index
+   ForEditors/Index
    Installation/Index
    Configuration/Index
-   Developer/Index
+   ForAdministrators/Index
    KnownProblems/Index
    Changelog/Index
    Sitemap

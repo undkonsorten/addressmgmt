@@ -2,54 +2,37 @@
 
 .. _introduction:
 
-============
+
+=====================
 Introduction
-============
+=====================
 
-.. tip::
-
-   New to reStructuredText and Sphinx?
-
-   Get an introduction:
-   https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/WritingReST/Index.html
-
-   Use this cheat sheet as reference:
-   https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/WritingReST/CheatSheet.html
-
-.. _what-it-does:
 
 What does it do?
-================
+=================
 
-The aim of this chapter is to provide a general overview of your extension.
 
-* What does it do?
-* What problems does it solve?
-* Who is the target audience?
+The TYPO3-Extension **Address Management (EXT: addressmgmt)** was created to *replace tt_address*.
 
-This chapter should provide information that will help inform 
-potential users and assist them in deciding if they should 
-install and use this extension.
+It is used to display persons, organisations or locations as lists or on a map. It provides also a connection to FE User in order to add/edit address records in the frontend.
 
-.. important::
+**Features of TYPO3 Address Management**
 
-   Don't forget to set extension's version number in :file:`Settings.cfg` file,
-   in the :code:`release` property.
-   It will be automatically picked up on the cover page by the :code:`|release|` substitution.
+* address database and backend masks for
+  * Persons (E.g.: *John Doe*)
+  * Organisations (E.g: *TYPO3 Association*)
+  * Locations (E.g.: *Deutscher Bundestag* or an are like a *National Park*)
 
-.. _screenshots:
+* list view (by SysFolder and/or SysSategories) and template switcher
+* map view (based on `Leaflet.js <http://leafletjs.com/>`_, `OpenStreetMap <https://www.openstreetmap.org/>`_ and `Mapbox <https://www.mapbox.com/>`_)
+* customizable filters based on SysCategories
+* frontend edit/create for FE users (with geoPosition connector)
+* detail view
 
-Screenshots
-===========
+It's build with love and
 
-This chapter should help people understand how the extension works.
-Remove it if it is not relevant.
-
-.. figure:: ../Images/IntroductionPackage.png
-   :class: with-shadow
-   :alt: Introduction Package
-   :width: 300px
-
-   Introduction Package after installation (caption of the image).
-
-How the Frontend of the Introduction Package looks like after installation (legend of the image).
+* it's based on extbase & fluid
+* it's easy to use and understand
+* working with TYPO3 core elements (like *sys categories* and *fe users*)
+* it's tested and impoved on mulitple live websites
+* has a documentation
