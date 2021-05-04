@@ -1,71 +1,79 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:am="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
       data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 This Template is responsible for creating a table of domain objects.
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
+Resources:
+Private:
+Templates:
+List.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
 
-<f:flashMessages />
-  <f:if condition="{addresses}">
-		<f:then>
-      <f:switch expression="{settings.templateLayout}">
-        <f:case value="map">
-          <f:render partial="Map/Show" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
-        </f:case>
-        <f:case value="map-list">
-          <f:render partial="Map/Show" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
-          <f:render section="list" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
-        </f:case>
-        <f:defaultCase>
-          <div class="filter-list-only"><f:render partial="Filter/Form" arguments="{_all}" /></div>
-          <f:render section="list" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
-        </f:defaultCase>
-      </f:switch>
-		</f:then>
-		<f:else>
-			<div class="no-addresses-found"><f:translate key="list.emptyList" /></div>
-		</f:else>
-	</f:if>
+    <f:flashMessages/>
+    <f:if condition="{addresses}">
+        <f:then>
+            <f:switch expression="{settings.templateLayout}">
+                <f:case value="map">
+                    <f:render partial="Map/Show"
+                              arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
+                </f:case>
+                <f:case value="map-list">
+                    <f:render partial="Map/Show"
+                              arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
+                    <f:render section="list" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
+                </f:case>
+                <f:defaultCase>
+                    <div class="filter-list-only">
+                        <f:render partial="Filter/Form" arguments="{_all}"/>
+                    </div>
+                    <f:render section="list" arguments="{addresses:addresses, contentUid:contentUid, filters:filters}"/>
+                </f:defaultCase>
+            </f:switch>
+        </f:then>
+        <f:else>
+            <div class="no-addresses-found">
+                <f:translate key="list.emptyList"/>
+            </div>
+        </f:else>
+    </f:if>
 </f:section>
 
 
 <f:section name="list">
-  <section class="module-list addressmgmt">
-      <f:if condition="{settings.showA-zFilter}">
-        <f:then>
-          <div class="letter-list" data-label-all="{f:translate(key:'a-zlist.showAll')}"></div>
-          <am:sortedGroupedFor each="{addresses}" as="addressesByFirstLetter" groupBy="firstLetterOfName" groupKey="letter" sortBy="firstLetterOfName">
-            <ul id="group-{letter}" class="list-items group">
-              <f:for each="{addressesByFirstLetter}" as="address">
-                <li class="list-item a-{address.uid} address {f:if(condition: address.images,then:'with-img')}" data-group-letter="{letter}">
-                  <f:render partial="List/Item" arguments="{address: address}"/>
-                </li>
-              </f:for>
-            </ul>
-          </am:sortedGroupedFor>
-        </f:then>
-        <f:else>
-          <ul class="module-list-items">
-            <f:for each="{addresses}" as="address">
-              <li class="module-list-item a-{address.uid} address {f:if(condition: address.images,then:'with-img')}">
-                <f:render partial="List/Item" arguments="{address: address}"/>
-              </li>
-            </f:for>
-          </ul>
-        </f:else>
-      </f:if>
-  </section>
+    <section class="module-list addressmgmt">
+        <f:if condition="{settings.showA-zFilter}">
+            <f:then>
+                <div class="letter-list" data-label-all="{f:translate(key:'a-zlist.showAll')}"></div>
+                <am:sortedGroupedFor each="{addresses}" as="addressesByFirstLetter" groupBy="firstLetterOfName"
+                                     groupKey="letter" sortBy="firstLetterOfName">
+                    <ul id="group-{letter}" class="list-items group">
+                        <f:for each="{addressesByFirstLetter}" as="address">
+                            <li class="list-item a-{address.uid} address {f:if(condition: address.images,then:'with-img')}"
+                                data-group-letter="{letter}">
+                                <f:render partial="List/Item" arguments="{address: address}"/>
+                            </li>
+                        </f:for>
+                    </ul>
+                </am:sortedGroupedFor>
+            </f:then>
+            <f:else>
+                <ul class="module-list-items">
+                    <f:for each="{addresses}" as="address">
+                        <li class="module-list-item a-{address.uid} address {f:if(condition: address.images,then:'with-img')}">
+                            <f:render partial="List/Item" arguments="{address: address}"/>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:else>
+        </f:if>
+    </section>
 </f:section>
 
 
