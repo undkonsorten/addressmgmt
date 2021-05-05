@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers" data-namespace-typo3-fluid="true" lang="en">
 <div class="map-wrap{f:if(condition:settings.showFilter,then:' map-with-filter')}" id="map{contentUid}-wrap">
   <div class="filter-wrap">
     <f:render partial="Filter/Form" arguments="{contentUid:contentUid, filters:filters}" />
@@ -16,7 +16,7 @@
     <f:for each="{addresses}" as="address">
       <f:if condition="{address.latitude}">
         <f:then>
-					<li class="filter-list-item list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')} semantic-map__feature semantic-map__geometry semantic-map__property " data-filter="{f:render(partial:'List/CategoryUids',arguments:'{address:address}')}"
+					<li class="filter-list-item list-item{f:if(condition:address.images,then:' with-img', else: ' no-img')} semantic-map__feature semantic-map__geometry semantic-map__property "
 							data-semantic-map-geometry-type='Point'
 							data-semantic-map-geometry-coordinates="[{address.longitude},{address.latitude}]"
 							data-semantic-map-property-key='popup'

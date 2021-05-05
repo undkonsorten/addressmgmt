@@ -313,22 +313,67 @@
                <settings.mapConfiguration.clusterMarker>
 	               	<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.mapClustering</label>
 					<config>
-					  <type>check</type>
+					  <type>select</type>
+					  <renderType>selectSingle</renderType>
+						<items>
+							<numIndex index="0">
+								<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.definedByTs</numIndex>
+								<numIndex index="1" />
+							</numIndex>
+							<numIndex index="1">
+								<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.no</numIndex>
+								<numIndex index="1">0</numIndex>
+							</numIndex>
+							<numIndex index="2">
+								<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.yes</numIndex>
+								<numIndex index="1">1</numIndex>
+							</numIndex>
+						</items>
 					</config>
                </settings.mapConfiguration.clusterMarker>
 
                <settings.showFilter>
 	               	<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.showFilter</label>
-					<config>
-					  <type>check</type>
-					</config>
+				   <config>
+					   <type>select</type>
+					   <renderType>selectSingle</renderType>
+					   <items>
+						   <numIndex index="0">
+							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.definedByTs</numIndex>
+							   <numIndex index="1" />
+						   </numIndex>
+						   <numIndex index="1">
+							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.no</numIndex>
+							   <numIndex index="1">0</numIndex>
+						   </numIndex>
+						   <numIndex index="2">
+							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.yes</numIndex>
+							   <numIndex index="1">1</numIndex>
+						   </numIndex>
+					   </items>
+				   </config>
                </settings.showFilter>
 
                <settings.showA-zFilter>
 	               	<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.showA-zFilter</label>
-					<config>
-					  <type>check</type>
-					</config>
+				   <config>
+					   <type>select</type>
+					   <renderType>selectSingle</renderType>
+					   <items>
+						   <numIndex index="0">
+							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.definedByTs</numIndex>
+							   <numIndex index="1" />
+						   </numIndex>
+						   <numIndex index="1">
+							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.no</numIndex>
+							   <numIndex index="1">0</numIndex>
+						   </numIndex>
+						   <numIndex index="2">
+							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.yes</numIndex>
+							   <numIndex index="1">1</numIndex>
+						   </numIndex>
+					   </items>
+				   </config>
                </settings.showA-zFilter>
 
          <settings.maxZoom>

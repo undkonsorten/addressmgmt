@@ -121,19 +121,19 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.social_identifiers">
 				<source>Social Identifiers</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressbook_domain_model_address.closest_city">
 				<source>Closest City</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_room">
 				<source>Room</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_relation">
 				<source>Relation</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_room.name">
 				<source>Name</source>
 			</trans-unit>
@@ -143,24 +143,24 @@
 			<trans-unit id="tx_addressmgmt_domain_model_room.description">
 				<source>Description</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_relation.room">
 				<source>Room</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_relation.location">
 				<source>Location</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_address.relation">
 				<source>Room-Location relation</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_address.tce.rooms">
 				<source>Room</source>
 			</trans-unit>
-			
-			
+
+
 
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">
 				<source>Social Identifier</source>
@@ -233,7 +233,7 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.map_zoom">
 				<source>Map zoom</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.switchableControllerActions.addressList">
 				<source>List</source>
 			</trans-unit>
@@ -309,11 +309,11 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.category">
 				<source>Category</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_address.geojson">
 				<source>GeoJson</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexforms.maxZoom">
 				<source>Max zoom</source>
 			</trans-unit>
@@ -335,7 +335,7 @@
 				<trans-unit id="flexforms.mapClustering">
 				<source>Map clustering</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt.templateLayout.map">
                 <source>Only map</source>
                 <target state="translated">Karte</target>
@@ -367,7 +367,15 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.publish_state.2">
 				<source>Published</source>
 			</trans-unit>
-
+			<trans-unit id="items.definedByTs">
+				<source>Defined by TS</source>
+			</trans-unit>
+			<trans-unit id="items.yes">
+				<source>Yes</source>
+			</trans-unit>
+			<trans-unit id="items.no">
+				<source>No</source>
+			</trans-unit>
 
 
 		</body>

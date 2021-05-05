@@ -28,7 +28,7 @@
 				<target state="translated">Typ</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.type_person">
-				<source>Person</source>	
+				<source>Person</source>
 				<target state="translated">Person</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.type_organisation">
@@ -41,7 +41,7 @@
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.name">
 				<source>Name</source>
-				<target state="translated"></target>
+				<target state="translated">Name</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.gender">
 				<source>Gender</source>
@@ -135,21 +135,21 @@
 				<source>Counterpart</source>
 				<target state="translated">Ansprechpartner</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_room">
 				<source>Raum</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_address.tce.rooms">
 				<source>Raum</source>
 				<target state="translated">Räume</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_address.relation">
 				<source>Room-Location relation</source>
 				<target state="translated">Räume in dieser Location</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_room.capacity">
 				<source>Capacity</source>
 				<target state="translated">Kapazität</target>
@@ -158,38 +158,35 @@
 				<source>Description</source>
 				<target state="translated">Beschreibung</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_relation">
 				<source>Relation</source>
 				<target state="translated">Relation</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_room.name">
 				<source>Name</source>
 				<target state="translated">Name</target>
 			</trans-unit>
-			
 			<trans-unit id="tx_addressmgmt_domain_model_relation.room">
 				<source>Room</source>
 				<target state="translated">Raum</target>
 			</trans-unit>
-			
 			<trans-unit id="tx_addressmgmt_domain_model_relation.location">
 				<source>Location</source>
 				<target state="translated">Location</target>
 			</trans-unit>
-			
 			<trans-unit id="tx_addressmgmt_domain_model_address.image">
 				<source>Image</source>
 				<target state="translated">Bild</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.latitude">
-				<source>Geographische Breite</source>
-				<target state="translated"></target>
+				<source>Latitude</source>
+				<target>Geographische Breite</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.longitude">
-				<source>Geographische Länge</source>
-				<target state="translated"></target>
+				<source>Longitude</source>
+				<target>Geographische Länge</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_address.fe_user">
 				<source>Fe User</source>
@@ -202,7 +199,7 @@
 
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">
 				<source>Social Identifier</source>
-				<target state="translated"></target>
+				<target state="translated">soziale Kennung</target>
 			</trans-unit>
 			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.identifier">
 				<source>Identifier</source>
@@ -297,7 +294,7 @@
 				<source>Closest City</source>
 				<target state="translated">Nächste größere Stadt</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_address.map_zoom">
 				<source>Map zoom</source>
 				<target state="translated">Karten-Zoom</target>
@@ -306,7 +303,7 @@
 				<source>Category</source>
 				<target state="translated">Kategorie</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_addressmgmt_domain_model_address.geojson">
 				<source>GeoJson</source>
 				<target state="translated">GeoJson</target>
@@ -353,6 +350,18 @@
 			<trans-unit id="flexform.switchableControllerActions.dash">
 				<source>Dashboard</source>
 				<target state="translated">Dashboard</target>
+			</trans-unit>
+			<trans-unit id="items.definedByTs">
+				<source>Defined by TS</source>
+				<target>Wie Vorgabe</target>
+			</trans-unit>
+			<trans-unit id="items.yes">
+				<source>Yes</source>
+				<target>Ja</target>
+			</trans-unit>
+			<trans-unit id="items.no">
+				<source>No</source>
+				<target>Nein</target>
 			</trans-unit>
 
 		</body>

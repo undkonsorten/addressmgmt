@@ -1,9 +1,12 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
 use TYPO3\CMS\Core\Exception;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Domain\Model\FrontendUser;
 use TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /***************************************************************
@@ -34,7 +37,7 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 /**
  * BaseController
  */
-class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class BaseController extends ActionController {
 
 	/**
 	 * @var \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
@@ -105,20 +108,34 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 */
 	public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager) {
         $this->configurationManager = $configurationManager;
-		$originalSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
+		$originalSettings = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
 		$typoScriptSettings = $this->configurationManager->getConfiguration(
-		    \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK,
-		    'addressmgmt',
-		    'addressmgmt_list'
+            ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK,
+            'addressmgmt',
+            'addressmgmt_list'
 		    );
 		if(isset($typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'])) {
-			$overrideIfEmpty = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'], TRUE);
+			$overrideIfEmpty = GeneralUtility::trimExplode(',', $typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'], TRUE);
 			foreach ($overrideIfEmpty as $settingToOverride) {
 				// if flexform setting is empty and value is available in TS
-				if ((!isset($originalSettings[$settingToOverride]) || empty($originalSettings[$settingToOverride]))
-						&& isset($typoScriptSettings['settings'][$settingToOverride])) {
-					$originalSettings[$settingToOverride] = $typoScriptSettings['settings'][$settingToOverride];
-				}
+                if (
+                    ArrayUtility::isValidPath($typoScriptSettings['settings'], $settingToOverride, '.')
+                    && (
+                        !ArrayUtility::isValidPath($originalSettings, $settingToOverride,'.')
+                        || (empty(ArrayUtility::getValueByPath($originalSettings,$settingToOverride,'.')) && ArrayUtility::getValueByPath($originalSettings,$settingToOverride,'.') !== '0')
+                    )
+                ) {
+                    $originalSettings = ArrayUtility::setValueByPath(
+                        $originalSettings,
+                        $settingToOverride,
+                        ArrayUtility::getValueByPath(
+                            $typoScriptSettings['settings'],
+                            $settingToOverride,
+                            '.'
+                        ),
+                        '.'
+                    );
+                }
 			}
 			$this->settings = $originalSettings;
 		}
@@ -162,8 +179,8 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * StoragePid fallback: Plugin->TS->CurrentPid
 	 */
 	protected function storagePidFallback() {
-	    $pluginSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
-	    $configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'addressmgmt', 'address_list');
+	    $pluginSettings = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+	    $configuration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'addressmgmt', 'address_list');
 
 	    //Check if storage PID is set in plugin
 	    if($pluginSettings['persistence']['storagePid']){
@@ -197,10 +214,10 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 */
 	public function overrideFlexformSettings() {
 
-	    $originalSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
-	    $typoScriptSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'addressmgmt', 'address_list');
+	    $originalSettings = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
+	    $typoScriptSettings = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'addressmgmt', 'address_list');
 	    if(isset($typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'])) {
-	        $overrideIfEmpty = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'], TRUE);
+	        $overrideIfEmpty = GeneralUtility::trimExplode(',', $typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'], TRUE);
 	        foreach ($overrideIfEmpty as $settingToOverride) {
 	            // if flexform setting is empty and value is available in TS
 	            if ((!isset($originalSettings[$settingToOverride]) || empty($originalSettings[$settingToOverride]))
@@ -218,6 +235,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 	 */
 	protected function getLoggedInFrontendUser() {
+	    /** @var FrontendUser $frontendUser */
 	    $frontendUser = NULL;
 	    $user = $GLOBALS['TSFE']->fe_user->user;
 	    if(isset($user['uid'])) {
@@ -248,6 +266,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
         $this->uriBuilder->reset();
         $this->uriBuilder->setTargetPageUid(intval($pageUid));
         if($addReturnUrl) {
+            /** @noinspection NullPointerExceptionInspection */
             $this->uriBuilder->setArguments(array('return_url' => $this->uriBuilder->getRequest()->getRequestUri()));
         }
         return $this->uriBuilder->build();
