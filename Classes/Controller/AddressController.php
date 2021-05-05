@@ -20,7 +20,6 @@ use Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository;
 use Undkonsorten\Addressmgmt\Service\AddressLocatorService;
 use Undkonsorten\Addressmgmt\Service\CategoryService;
 
-use Undkonsorten\Addressmgmt\Utility\Page;
 use Undkonsorten\Addressmgmt\Domain\Model\Address\Person;
 use Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation;
 use Undkonsorten\Addressmgmt\Domain\Model\Address\Location;
@@ -113,12 +112,11 @@ class AddressController extends BaseController
 
     /**
      * Constructor
-     * @throws Exception
      */
 	public function initializeAction(): void
     {
         $arguments = $this->request->getArguments();
-        if (isset($arguments['address']['category'])) {
+        if (isset($arguments['address']['category']) && is_array($arguments['address']['category'])) {
             foreach ($arguments['address']['category'] as $key => $value) {
                 /** @noinspection TypeUnsafeComparisonInspection */
                 if ($value == 0) {
@@ -133,13 +131,6 @@ class AddressController extends BaseController
 	       $propertyMappingConfiguration->allowProperties('type');
 	       $propertyMappingConfiguration->setTypeConverterOption(PersistentObjectConverter::class, PersistentObjectConverter::CONFIGURATION_OVERRIDE_TARGET_TYPE_ALLOWED, TRUE);
 	    }
-        $this->settings['storagePid'] = Page::extendPidListByChildren($this->settings['storagePid'], $this->settings['recursive']);
-        /** @noinspection NotOptimalIfConditionsInspection */
-        if($this->settings['storeNewAddressNextToFeuser'] && $this->request->getControllerActionName() !== 'list' && $this->request->getControllerActionName() !== 'show' ){
-            $frontendUser = $this->getLoggedInFrontendUser();
-            $this->settings['storagePid'] .= ',' . $frontendUser->getPid();
-        }
-	    $this->addressRepository->setStoragePids(explode(',',$this->settings['storagePid']));
 	}
 
     /**
@@ -209,12 +200,6 @@ class AddressController extends BaseController
     public function createAction(Address $address): void
     {
         $this->addressService->updateCoordinates($address);
-        if ($this->settings['storeNewAddressNextToFeuser']) {
-            $address->setPid($this->getLoggedInFrontendUser()->getPid());
-        } else {
-            $address->setPid($this->settings['storagePid']);
-        }
-
         $this->addressRepository->add($address);
         $this->addFlashMessage($this->localize('flashMessage.created'),AbstractMessage::OK);
         $this->redirect('dash');
@@ -339,12 +324,6 @@ class AddressController extends BaseController
         } else {
             throw new InvalidArgumentTypeException($type . " is no correct address type", 1488302381);
         }
-        if ($this->settings['storeNewAddressNextToFeuser']) {
-            $address->setPid($this->getLoggedInFrontendUser()->getPid());
-        } else {
-            $address->setPid($this->settings['storagePid']);
-        }
-
         $address->setFeUser($frontendUser);
 
         return $address;

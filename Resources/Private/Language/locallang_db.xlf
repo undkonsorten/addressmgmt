@@ -285,12 +285,6 @@
             <trans-unit id="flexforms.showA-zFilter">
                 <source>Show A-Z filter</source>
             </trans-unit>
-			<trans-unit id="flexforms.recursive">
-				<source>Recursive</source>
-			</trans-unit>
-			<trans-unit id="flexforms.recursive">
-				<source>Recursive</source>
-			</trans-unit>
 			<trans-unit id="flexforms.templateLayout">
 				<source>Template layout</source>
 			</trans-unit>

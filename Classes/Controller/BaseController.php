@@ -176,36 +176,6 @@ class BaseController extends ActionController {
 	}
 
 	/**
-	 * StoragePid fallback: Plugin->TS->CurrentPid
-	 */
-	protected function storagePidFallback() {
-	    $pluginSettings = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
-	    $configuration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'addressmgmt', 'address_list');
-
-	    //Check if storage PID is set in plugin
-	    if($pluginSettings['persistence']['storagePid']){
-	        $pid['persistence']['storagePid'] = $pluginSettings['persistence']['storagePid'];
-	        $this->configurationManager->setConfiguration(array_merge($pluginSettings, $pid));
-
-	        //Check if storage PID is set in TS
-	    }elseif($configuration['persistence']['storagePid']){
-	        $pid['persistence']['storagePid'] = $configuration['persistence']['storagePid'];
-	        $this->configurationManager->setConfiguration(array_merge($configuration, $pid));
-
-	    }else{
-	        // Use current PID as storage PID
-	        $pid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;
-	        $this->configurationManager->setConfiguration(array_merge($configuration, $pid));
-	    }
-
-	    //Check if storage PID is set in plugin
-	    if($configuration['settings']['recursive']){
-	        $recursive['persistence']['recursive'] = $configuration['settings']['recursive'];
-	        $this->configurationManager->setConfiguration(array_merge($configuration, $recursive));
-	    }
-	}
-
-	/**
 	 * overrides flexform settings with original typoscript values when
 	 * flexform value is empty and settings key is defined in
 	 * 'settings.overrideFlexformSettingsIfEmpty'
