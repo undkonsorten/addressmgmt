@@ -10,11 +10,11 @@
         <f:if condition="{settings.detailPid}">
             <f:then>
                 <f:link.action action="show" pageUid="{settings.detailPid}" arguments="{address:address}"
-                               class="{linkClass}">{address.title} {address.firstName} {address.Name}
+                               class="{linkClass}">{address.title} {address.firstName} {address.name}
                 </f:link.action>
             </f:then>
             <f:else>
-                <f:link.action action="show" arguments="{address:address}" class="{linkClass}">{address.name}
+                <f:link.action action="show" arguments="{address:address}" class="{linkClass}">{address.title} {address.firstName} {address.name}
                 </f:link.action>
             </f:else>
         </f:if>
