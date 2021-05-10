@@ -27,50 +27,66 @@ Otherwise your changes will be overwritten the next time you save the extension 
                 <f:render partial="Media/Media" arguments="{media:address.images}"/>
             </f:if>
         </f:if>
-        <h3>
+        <h2>
             <f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate>
             {address.title} {address.firstName} {address.Name}
-        </h3>
+        </h2>
 
-        <ul>
-            <li>
+        <f:if condition="{address.category}">
+            <p>
                 <f:for each="{address.category}" as="category">
                     <span class="category">
                         {category.title}
                     </span>
                 </f:for>
-            </li>
-            <f:if condition="{address.organization}"><li>{address.organization}</li></f:if>
-            <f:if condition="{address.department}"><li>{address.department}</li></f:if>
-            <f:if condition="{address.street}"><li>{address.street}</li></f:if>
-            <f:if condition="{address.streetNumber}"><li>{address.streetNumber}</li></f:if>
-            <f:if condition="{address.addressSupplement}"><li>{address.addressSupplement}</li></f:if>
-            <f:if condition="{address.city}"><li>{address.city}</li></f:if>
-            <f:if condition="{address.zip}"><li>{address.zip}</li></f:if>
-            <f:if condition="{address.country}"><li>{address.country}</li></f:if>
-            <f:if condition="{address.state}"><li>{address.state}</li></f:if>
-            <f:if condition="{address.closestCity}"><li>{address.closestCity}</li></f:if>
-            <f:if condition="{address.phone}"><li>{address.phone}</li></f:if>
-            <f:if condition="{address.mobile}"><li>{address.mobile}</li></f:if>
-            <f:if condition="{address.fax}"><li>{address.fax}</li></f:if>
-            <f:if condition="{address.www}"><li>{address.www}</li></f:if>
-            <f:if condition="{address.description}"><li>{address.description->f:format.html()}</li></f:if>
-            <f:if condition="{address.latitude}"><li>{address.latitude}</li></f:if>
-            <f:if condition="{address.longitude}"><li>{address.longitude}</li></f:if>
-            <f:if condition="{address.feUser.username}"><li>{address.feUser.username}</li></f:if>
-            <f:if condition="{address.email}"><li>{address.email}</li></f:if>
-        </ul>
+            </p>
+        </f:if>
 
+        <f:if condition="{address.description}"><p>{address.description->f:format.html()}</p></f:if>
 
-        <f:for each="{address.socialIdentifiers}" as="identifier">
-            <div>
-                <f:if condition="{identifier.provider.image}">
-                    <f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16"
-                             alt="{identifier.provider.name}"/>
-                </f:if>
-                <strong>{identifier.provider.name}:</strong>
-                {identifier.url}
-            </div>
-        </f:for>
+        <h3 class="h4">Adresse</h3>
+        <address>
+            <f:if condition="{address.organization}"><b>{address.organization}</b><br></f:if>
+            <f:if condition="{address.department}">{address.department}<br></f:if>
+            <f:if condition="{address.street} || {address.streetNumber}">{address.street} {address.streetNumber}<br>
+            </f:if>
+            <f:if condition="{address.addressSupplement}">{address.addressSupplement}<br></f:if>
+            <f:if condition="{address.zip} || {address.city}">{address.zip} {address.city}<br></f:if>
+            <f:if condition="{address.state}">{address.state}<br></f:if>
+            <f:if condition="{address.country}">{address.country}</f:if>
+        </address>
+
+        <f:if condition="{address.phone} || {address.mobile} || {address.fax} || {address.www} || {address.email}">
+            <h3 class="h4">Kontakt</h3>
+            <p>
+                <f:if condition="{address.phone}"><b>Tel</b> {address.phone}<br></f:if>
+                <f:if condition="{address.mobile}"><b>Mobile</b> {address.mobile}<br></f:if>
+                <f:if condition="{address.fax}"><b>Fax</b> {address.fax}<br></f:if>
+                <f:if condition="{address.www.link}"><b>Internet</b> {address.www.link}<br></f:if>
+                <f:if condition="{address.email}"><b>E-Mail</b> {address.email}<br></f:if>
+                <f:if condition="{address.feUser.username}"><b>Benutzername</b> {address.feUser.username}<br></f:if>
+                <f:if condition="{address.socialIdentifiers}">
+                <f:for each="{address.socialIdentifiers}" as="identifier">
+                    <f:if condition="{identifier.provider.image}">
+                        <f:image image="{identifier.provider.image}" width="16"
+                                 alt="{identifier.provider.name}"/>
+                    </f:if>
+                    <b>{identifier.provider.name}</b>
+                    {identifier.identifier}<br>
+                </f:for>
+        </f:if>
+        </p>
+        </f:if>
+
+        <f:if condition="{address.closestCity} || {address.latitude} || {address.longitude} || {address.directions}">
+            <h3 class="h4">Anfahrt</h3>
+            {address.directions->f:format.html()}
+            <p>
+                <f:if condition="{address.closestCity}"><b>Nächstgrößere Stadt</b> {address.closestCity}<br></f:if>
+                <f:if condition="{address.latitude} || {address.longitude}"><b>GPS Koordinaten</b>
+                    {address.latitude}{f:if(condition: '{address.latitude} && {address.longitude}', then: ', ')}
+                    {address.longitude}</f:if>
+            </p>
+        </f:if>
     </div>
 </f:section>
