@@ -44,7 +44,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
         <f:if condition="{address.description}"><p>{address.description->f:format.html()}</p></f:if>
 
-        <h3 class="h4">Adresse</h3>
+        <h3 class="h4"><f:translate key="tx_addressmgmt_domain_model_address.address" /></h3>
         <address>
             <f:if condition="{address.organization}"><b>{address.organization}</b><br></f:if>
             <f:if condition="{address.department}">{address.department}<br></f:if>
@@ -57,14 +57,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
         </address>
 
         <f:if condition="{address.phone} || {address.mobile} || {address.fax} || {address.www} || {address.email}">
-            <h3 class="h4">Kontakt</h3>
+            <h3 class="h4"><f:translate key="addressmgmt.label.contactdata" /></h3>
             <p>
-                <f:if condition="{address.phone}"><b>Tel</b> {address.phone}<br></f:if>
-                <f:if condition="{address.mobile}"><b>Mobile</b> {address.mobile}<br></f:if>
-                <f:if condition="{address.fax}"><b>Fax</b> {address.fax}<br></f:if>
-                <f:if condition="{address.www.link}"><b>Internet</b> {address.www.link}<br></f:if>
-                <f:if condition="{address.email}"><b>E-Mail</b> {address.email}<br></f:if>
-                <f:if condition="{address.feUser.username}"><b>Benutzername</b> {address.feUser.username}<br></f:if>
+                <f:if condition="{address.phone}"><b><f:translate key="tx_addressmgmt_domain_model_address.phone" /></b> {address.phone}<br></f:if>
+                <f:if condition="{address.mobile}"><b><f:translate key="tx_addressmgmt_domain_model_address.mobile" /></b> {address.mobile}<br></f:if>
+                <f:if condition="{address.fax}"><b><f:translate key="tx_addressmgmt_domain_model_address.fax" /></b> {address.fax}<br></f:if>
+                <f:if condition="{address.www.link}"><b><f:translate key="tx_addressmgmt_domain_model_address.www" /></b> {address.www.link}<br></f:if>
+                <f:if condition="{address.email}"><b><f:translate key="tx_addressmgmt_domain_model_address.email" /></b> {address.email}<br></f:if>
+                <f:if condition="{address.feUser.username}"><b><f:translate key="tx_addressmgmt_domain_model_address.username" /></b> {address.feUser.username}<br></f:if>
                 <f:if condition="{address.socialIdentifiers}">
                 <f:for each="{address.socialIdentifiers}" as="identifier">
                     <f:if condition="{identifier.provider.image}">
@@ -79,11 +79,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
         </f:if>
 
         <f:if condition="{address.closestCity} || {address.latitude} || {address.longitude} || {address.directions}">
-            <h3 class="h4">Anfahrt</h3>
+            <h3 class="h4"><f:translate key="tx_addressmgmt_domain_model_address.directions" /></h3>
             {address.directions->f:format.html()}
             <p>
-                <f:if condition="{address.closestCity}"><b>Nächstgrößere Stadt</b> {address.closestCity}<br></f:if>
-                <f:if condition="{address.latitude} || {address.longitude}"><b>GPS Koordinaten</b>
+                <f:if condition="{address.closestCity}"><b><f:translate key="tx_addressmgmt_domain_model_address.closest_city" /></b> {address.closestCity}<br></f:if>
+                <f:if condition="{address.latitude} || {address.longitude}"><b><f:translate key="tx_addressmgmt_domain_model_address.gps" /></b>
                     {address.latitude}{f:if(condition: '{address.latitude} && {address.longitude}', then: ', ')}
                     {address.longitude}</f:if>
             </p>
