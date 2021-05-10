@@ -54,7 +54,6 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * provider
 	 *
 	 * @var \Undkonsorten\Addressmgmt\Domain\Model\SocialProvider
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $provider;
 	
