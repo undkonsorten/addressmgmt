@@ -6,21 +6,17 @@
 For Editors
 =====================
 
-How to start
-=================
-
-
-* about folders
-
+Feel free to help us with more documentation here concerning the following topics:
 
 Records
 =================
 
-* neuer datensatz
-* category
-* address > types
+* New Record (Organization, Location, Persons)
+* SysCategories (Topics and Regions)
+* Rooms
+* Social Identifier & Links (e.g. Twitter, Insta etc.)
 
-Plugin
+Plugins
 =================
 
-* Views, Settings etc
+* Views and Settings available in the plugins

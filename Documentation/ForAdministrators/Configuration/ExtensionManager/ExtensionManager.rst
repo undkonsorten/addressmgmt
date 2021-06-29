@@ -6,22 +6,37 @@
 Extension Manager
 =====================
 
-Some general settings of TYPO3 Address Management can be only configured in the Extension Manager.
-
-If you need to configure those, switch to the module "Extension Manager", select the extension "**addressmgmt**" and press on the configure-cog-icon!
-
+Some general settings of TYPO3 Address Management can be only configured in the Extension Manager / Extension Configuration.
 
 Settings
 ========
 
-**Relation to fe_users**
-*basic.feUserRelation (boolean)*:
 
-You can active a relation between addresses (*tx_addressmgmt_domain_model_address*) and TYPO3 FE-Users.
+Root category for addresses
+"""""""""""""""""""""""""""
 
-Such a relation is for example needed when FE users should be able to create/edit/see their own addresses.
+.. container:: table-row
 
-**Root category for addresses**
-*basic.rootCategory*
+  Property
+    basic.feUserRelation
+  Data type
+    boolean
+  Default
+    (none)
+  Description
+    Enables the connection between addresses and Frontend Users. This is useful, if frontend users need to be able to edit their own profile in th frontend
 
-If you add the *uid* of a TYPO3 SysCategory here, this category will be shown as the *only available root category* for the Address records. This helps to limit the available options (aka. sysCategores) for the editors and might imporove the backend usability.
+
+Root category for addresses
+"""""""""""""""""""""""""""
+
+.. container:: table-row
+
+  Property
+    basic.rootCategory
+  Data type
+    int
+  Default
+    (none)
+  Description
+    If you add the *uid* of a TYPO3 SysCategory here, this category will be shown as the *only available root category* for the Address records. This helps to limit the available options (aka. sysCategores) for the editors and might imporove the backend usability

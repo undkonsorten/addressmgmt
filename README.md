@@ -1,61 +1,37 @@
-# Addressmanagement (addressmgmt)
-
-The Adressmanagement extension is solution for replacing the old tt_address. It is mulitlingual, comes along with list and single view and also includes a map (with MapBox).
-
-## Map
-
-The map is connected with MapBox.com:http://mapbox.com. You will need to create an account.
-With each address item can have store the geoposition (Lat, Lang) or you can also add a GeoJson in a format like
-
-    {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[13.47791940161274,51.45391309412658], ...[13.47791940161274,51.45391309412658]]]}}
+# TYPO3 Extension: Addressmanagement (addressmgmt)
 
 
-To see the map you need to insert the Plugin "Address Management", What to display: "List", Show Items by: "Select Manually".
+This [TYPO3](https://typo3.org) extension is used to display persons, organisations or locations as lists or on a map. It provides also a connection to FE User in order to add/edit address records in the frontend. You can visit the [demo website](https://addressmgmt-eventmgmt.dev.undkonsorten.com) here.
 
-### TypoScript Settings / Constants for the Map:
+**Features of TYPO3 Address Management**
 
-#### Constants
-    
-    plugin.tx_addressmgmt {	
-        settings{
-            # cat=plugin.tx_addressmgmt//b; type=string; label=Map Id (Mapbox.com)
-            mapId = 
-            # cat=plugin.tx_addressmgmt//c; type=string; label=Access Token (Mapbox.com)
-            accessToken = 
-            # cat=plugin.tx_addressmgmt//d; type=string; label=Longitude
-            longitude =
-            # cat=plugin.tx_addressmgmt//e; type=string; label=Latitude
-            latitude =
-            # cat=plugin.tx_addressmgmt//f; type=string; label=Map Zoom
-            mapZoom = 
-            # cat=plugin.tx_addressmgmt//g; type=string; label=Max Zoom
-            maxZoom = 
-            # cat=plugin.tx_addressmgmt//h; type=string; label=Override flexform fields if empty
-            overrideFlexformSettingsIfEmpty = mapId, accessToken, longitude, latitude, mapZoom, maxZoom
-        }
-    }
+- address database and backend masks for
+    - Persons (E.g.: *John Doe*)
+    - Organisations (E.g: *TYPO3 Association*)
+    - Locations (E.g.: *Deutscher Bundestag* or an are like a *National Park*)
 
-#### Setup
-    
-    plugin.tx_addressmgmt {
-        settings{
-            overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
-            mapId = {$plugin.tx_addressmgmt.settings.mapId}
-            accessToken = {$plugin.tx_addressmgmt.settings.accessToken}
-            longitude = {$plugin.tx_addressmgmt.settings.longitude}
-            latitude = {$plugin.tx_addressmgmt.settings.latitude}
-            mapZoom = {$plugin.tx_addressmgmt.settings.mapZoom}
-            maxZoom = {$plugin.tx_addressmgmt.settings.maxZoom}
-        }
-    }
+- list view (by SysFolder and/or SysSategories) and template switcher
+- a sementic map view (based on [Leaflet.js](http://leafletjs.com/), [OpenStreetMap](https://www.openstreetmap.org/), [Semantic Map](https://gitlab.com/binary-constructions/semantic-map) and [Mapbox](https://www.mapbox.com/)
+- TYPO3 FE users frontend edit/create Addresses  (with geoPosition connector)
+- customizable filters based on SysCategories
+- detail view
 
-## To Do
+It's build with love and
 
-Add to Documentaion how to switch FE Edit Types
+- it's based on extbase & fluid
+- it's easy to use and understand
+- working with TYPO3 core elements (like *sys categories* and *fe users*)
+- it's tested and improved on multiple live websites
+- has a documentation
 
-## Versions
+## Demo
 
-[2.1.0] TYPO3 7.6 Compatibility Version 
-[2.1.1] Release with Git Tag
+Visit our [demo website](https://addressmgmt-eventmgmt.dev.undkonsorten.com) with backend and frontend login.
 
-[3.1.1] TYPO3 8.7 Compatibility Version
+## Documantation
+
+The complete documentation can be found on the TYPO3 Documentation server.
+
+## Maintainer
+
+This TYPO3 extension is created and maintained by [undkonsorten - Die Berliner Internet-Agentur](https://www.undkonsorten.com).

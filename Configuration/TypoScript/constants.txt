@@ -2,11 +2,11 @@
 # customsubcategory=pids=Page uid's
 # customsubcategory=tileServer=Tile server configuration
 plugin.tx_addressmgmt {
-	# cat=plugin.tx_addressmgmt/pids/001; type=string; label=Storage Pid: This is the default storage pid for all records
+	# cat=plugin.tx_addressmgmt/pids/001; type=int; label=Storage Pid: This is the default storage pid for all records
 	persistence.storagePid =
-	# cat=plugin.tx_addressmgmt/pids/002; type=string; label=Recursive: Levels of child pages to fetch records from
+	# cat=plugin.tx_addressmgmt/pids/002; type=int; label=Recursive: Levels of child pages to fetch records from
 	persistence.recursive =
-	# cat=plugin.tx_addressmgmt/pids/003; type=string; label=New Record Storage Pid: Records created by frontend will go here
+	# cat=plugin.tx_addressmgmt/pids/003; type=int; label=New Record Storage Pid: Records created by frontend will go here
 	persistence.newRecordStoragePid =
 	view {
 		# cat=plugin.tx_addressmgmt/file; type=string; label=Path to template root (FE)
@@ -24,13 +24,12 @@ plugin.tx_addressmgmt {
 	    orderDirection =
         # cat=plugin.tx_addressmgmt/settings; type=boolean; label=Show A-Z Filter with grouped items by name. Show/Hide items in list by first letter.
         showA-zFilter = 0
-		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=Pid A-Z: Page id for a-z list view
+		# cat=plugin.tx_addressmgmt/pids/0010; type=int; label=Pid A-Z: Page id for a-z list view
         pidsA-z =
-		# cat=plugin.tx_addressmgmt/pids/0008; type=integer; label=Detail Pid:Default page id for single view
+		# cat=plugin.tx_addressmgmt/pids/0008; type=int; label=Detail Pid:Default page id for single view
 		detailPid =
-		# cat=plugin.tx_addressmgmt/pids/0010; type=integer; label=PidsLogin: Login Page-Id for for redirect if FE User is not logged in
+		# cat=plugin.tx_addressmgmt/pids/0010; type=int; label=PidsLogin: Login Page-Id for for redirect if FE User is not logged in
         pidsLogin =
-        # cat=plugin.tx_addressmgmt/map/0005; type=comment; label=MarkerClusters: Use marker clusters
 	    target{
             # cat=plugin.tx_addressmgmt/settings; type=string; label=Target default:Format StoragePid:Folder
             default = 1:default
@@ -72,7 +71,7 @@ plugin.tx_addressmgmt {
 		overrideFlexformSettingsIfEmpty = tileLayerConfiguration.options.id, tileLayerConfiguration.options.accessToken, mapConfiguration.longitude, mapConfiguration.latitude, mapConfiguration.zoom, tileLayerConfiguration.options.maxZoom,recursive,orderBy, orderDirection, showA-zFilter, detailPid, mapConfiguration.clusterMarker
 
         list {
-            # cat=plugin.tx_addressmgmt/settings; type=integer; label=Max characters for text in list view
+            # cat=plugin.tx_addressmgmt/settings; type=int; label=Max characters for text in list view
             cropMaxCharacters = 200
         }
 	}
