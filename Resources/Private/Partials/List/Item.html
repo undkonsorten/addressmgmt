@@ -1,19 +1,27 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:am="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
+      data-namespace-typo3-fluid="true" lang="en">
+
 <f:if condition="{address.images}">
-	<f:render partial="Media/Media" arguments="{media:address.images}" />
+    <f:render partial="Media/Media" arguments="{media:address.images}"/>
 </f:if>
 <div class="text-wrap">
-  <h3 class="title headline">
-    <f:if condition="{settings.detailPid}">
-      <f:then>
-        <f:link.action action="show" pageUid="{settings.detailPid}" arguments="{address:address}" class="{linkClass}">{address.name}</f:link.action>
-      </f:then>
-      <f:else>
-        <f:link.action action="show" arguments="{address:address}" class="{linkClass}">{address.name}</f:link.action>
-      </f:else>
-    </f:if>
-  </h3>
-  <div class="teaser">
-    <f:format.crop maxCharacters="{settings.list.cropMaxCharacters}">{f:format.stripTags(value:address.description)}</f:format.crop>
-  </div>
-	<f:render partial="Meta" arguments="{address:address}" />
+    <h3 class="title headline">
+        <f:if condition="{settings.detailPid}">
+            <f:then>
+                <f:link.action action="show" pageUid="{settings.detailPid}" arguments="{address:address}"
+                               class="{linkClass}">{address.title} {address.firstName} {address.name}
+                </f:link.action>
+            </f:then>
+            <f:else>
+                <f:link.action action="show" arguments="{address:address}" class="{linkClass}">{address.title} {address.firstName} {address.name}
+                </f:link.action>
+            </f:else>
+        </f:if>
+    </h3>
+    <div class="teaser">
+        <f:format.crop maxCharacters="{settings.list.cropMaxCharacters}">{f:format.stripTags(value:address.description)}</f:format.crop>
+    </div>
+    <f:render partial="Meta" arguments="{address:address}"/>
 </div>
+</html>

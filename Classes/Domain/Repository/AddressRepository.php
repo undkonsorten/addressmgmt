@@ -1,11 +1,9 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Repository;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface;
+use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 /***************************************************************
  *  Copyright notice
  *
@@ -38,7 +36,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class AddressRepository extends Repository
 {
 
     protected $defaultOrderings = array(
@@ -47,16 +45,19 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
 
     /**
-	 * Find addresses by categories
-	 * @param array $categories
-	 * @param array $orderings
-	 */
-	public function findDemanded($addresses = NULL,$categories= NULL, $publishState = NULL, $orderings=null){
+     * Find addresses by categories
+     * @param array $categories
+     * @param array $orderings
+     * @throws InvalidQueryException
+     */
+	public function findDemanded($addresses = null,$categories= null, $publishState = null, $orderings=null){
 		$query = $this->createQuery();
 		$constraints = array();
 		if($orderings){
 			 $query->setOrderings($orderings);
         }
+        /** @noinspection NotOptimalIfConditionsInspection */
+        /** @noinspection TypeUnsafeComparisonInspection */
         if(!is_null($addresses) && $addresses != ''){
             $querySettings = $query->getQuerySettings();
             $querySettings->setRespectStoragePage(false);
@@ -67,15 +68,15 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		    return $query->execute();
         }
 
+        /** @noinspection NotOptimalIfConditionsInspection */
+        /** @noinspection TypeUnsafeComparisonInspection */
         if(!is_null($publishState) && $publishState != '') {
             $constraints[] =$query->equals('publishState', $publishState);
 		}
 
-        if(is_array($categories)) {
-            if (count($categories) > 0) {
-                $constraints[] =$query->in('category.uid', $categories);
-			}
-		}
+        if(is_array($categories) && count($categories) > 0) {
+            $constraints[] =$query->in('category.uid', $categories);
+        }
 		if(count($constraints)>0){
             $query->matching(
                 $query->logicalAnd($constraints)
@@ -84,16 +85,5 @@ class AddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
 		return $query->execute();
 	}
-
-    /**
-     * @param array $pids
-     */
-    public function setStoragePids(array $pids)
-    {
-        if(!isset($this->defaultQuerySettings)){
-            $this->defaultQuerySettings = GeneralUtility::makeInstance(ObjectManager::class)->get(QuerySettingsInterface::class);
-        }
-        $this->defaultQuerySettings->setStoragePageIds($pids);
-    }
 }
-?>
+

@@ -1,360 +1,472 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressmgmt">
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf" date="2021-05-10T09:41:34Z" product-name="addressmgmt">
 		<header/>
 		<body>
-			<trans-unit id="div.naming">
+			<trans-unit id="div.naming" resname="div.naming">
 				<source>Naming</source>
-				<target state="translated">Benennung</target>
+				<target>Benennung</target>
 			</trans-unit>
-			<trans-unit id="palette.identifier">
+			<trans-unit id="palette.identifier" resname="palette.identifier">
 				<source>Identifier</source>
-				<target state="translated">Identifier</target>
+				<target>Identifier</target>
 			</trans-unit>
-			<trans-unit id="palette.url_override">
+			<trans-unit id="palette.url_override" resname="palette.url_override">
 				<source>Url override</source>
-				<target state="translated">Überschreiben der URL</target>
+				<target>Überschreiben der URL</target>
 			</trans-unit>
-
-			<trans-unit id="tx_addressmgmt_domain_model_address">
+			<trans-unit id="tx_addressmgmt_domain_model_address" resname="tx_addressmgmt_domain_model_address">
 				<source>Address</source>
-				<target state="translated">Anschrift</target>
+				<target>Anschrift</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.first_name">
+			<trans-unit id="tx_addressmgmt_domain_model_address.first_name" resname="tx_addressmgmt_domain_model_address.first_name">
 				<source>First Name</source>
-				<target state="translated">Vorname</target>
+				<target>Vorname</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.type">
-				<target state="translated">Typ</target>
+			<trans-unit id="tx_addressmgmt_domain_model_address.type" resname="tx_addressmgmt_domain_model_address.type">
+				<source>Type</source>
+				<target>Typ</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.type_person">
-				<source>Person</source>	
-				<target state="translated">Person</target>
+			<trans-unit id="tx_addressmgmt_domain_model_address.choose_type" resname="tx_addressmgmt_domain_model_address.choose_type">
+				<source>Please choose:</source>
+				<target>Bitte wählen:</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.type_organisation">
+			<trans-unit id="tx_addressmgmt_domain_model_address.type_person" resname="tx_addressmgmt_domain_model_address.type_person">
+				<source>Person</source>
+				<target>Person</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.type_organisation" resname="tx_addressmgmt_domain_model_address.type_organisation">
 				<source>Organisation</source>
-				<target state="translated">Organisation</target>
+				<target>Organisation</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.type_location">
+			<trans-unit id="tx_addressmgmt_domain_model_address.type_location" resname="tx_addressmgmt_domain_model_address.type_location">
 				<source>Location</source>
-				<target state="translated">Location</target>
+				<target>Location</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.name">
+			<trans-unit id="tx_addressmgmt_domain_model_address.name" resname="tx_addressmgmt_domain_model_address.name">
 				<source>Name</source>
-				<target state="translated"></target>
+				<target>Name</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.gender">
+			<trans-unit id="tx_addressmgmt_domain_model_address.gender" resname="tx_addressmgmt_domain_model_address.gender">
 				<source>Gender</source>
-				<target state="translated">Geschlecht</target>
+				<target>Geschlecht</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.gender_female">
+			<trans-unit id="tx_addressmgmt_domain_model_address.1" resname="tx_addressmgmt_domain_model_address.1">
 				<source>female</source>
-				<target state="translated">weiblich</target>
+				<target>weiblich</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.gender_male">
+			<trans-unit id="tx_addressmgmt_domain_model_address.2" resname="tx_addressmgmt_domain_model_address.2">
 				<source>male</source>
-				<target state="translated">männlich</target>
+				<target>männlich</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.gender_other">
+			<trans-unit id="tx_addressmgmt_domain_model_address.3" resname="tx_addressmgmt_domain_model_address.3">
 				<source>other</source>
-				<target state="translated">andere</target>
+				<target>andere</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.title">
+			<trans-unit id="tx_addressmgmt_domain_model_address.title" resname="tx_addressmgmt_domain_model_address.title">
 				<source>Title</source>
-				<target state="translated">Titel</target>
+				<target>Titel</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.organization">
+			<trans-unit id="tx_addressmgmt_domain_model_address.organization" resname="tx_addressmgmt_domain_model_address.organization">
 				<source>Organization</source>
-				<target state="translated">Organisation</target>
+				<target>Organisation</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.department">
+			<trans-unit id="tx_addressmgmt_domain_model_address.department" resname="tx_addressmgmt_domain_model_address.department">
 				<source>Department</source>
-				<target state="translated">Abteilung</target>
+				<target>Abteilung</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.street">
+			<trans-unit id="tx_addressmgmt_domain_model_address.street" resname="tx_addressmgmt_domain_model_address.street">
 				<source>Street</source>
-				<target state="translated">Straße</target>
+				<target>Straße</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.street_number">
+			<trans-unit id="tx_addressmgmt_domain_model_address.street_number" resname="tx_addressmgmt_domain_model_address.street_number">
 				<source>Street Number</source>
-				<target state="translated">Haus-Nr.</target>
+				<target>Haus-Nr.</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.address_supplement">
+			<trans-unit id="tx_addressmgmt_domain_model_address.address_supplement" resname="tx_addressmgmt_domain_model_address.address_supplement">
 				<source>Address Supplement</source>
-				<target state="translated">Adresszusatz</target>
+				<target>Adresszusatz</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.city">
+			<trans-unit id="tx_addressmgmt_domain_model_address.city" resname="tx_addressmgmt_domain_model_address.city">
 				<source>City</source>
-				<target state="translated">Stadt</target>
+				<target>Stadt</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.zip">
+			<trans-unit id="tx_addressmgmt_domain_model_address.zip" resname="tx_addressmgmt_domain_model_address.zip">
 				<source>Zip</source>
-				<target state="translated">PLZ</target>
+				<target>PLZ</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.country">
+			<trans-unit id="tx_addressmgmt_domain_model_address.country" resname="tx_addressmgmt_domain_model_address.country">
 				<source>Country</source>
-				<target state="translated">Land</target>
+				<target>Land</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.state">
+			<trans-unit id="tx_addressmgmt_domain_model_address.state" resname="tx_addressmgmt_domain_model_address.state">
 				<source>State</source>
-				<target state="translated">Bundesland</target>
+				<target>Bundesland</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.closest_city">
+			<trans-unit id="tx_addressmgmt_domain_model_address.closest_city" resname="tx_addressmgmt_domain_model_address.closest_city">
 				<source>Closest City</source>
-				<target state="translated">Nächstgrößere Stadt</target>
+				<target>Nächstgrößere Stadt</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.email">
+			<trans-unit id="tx_addressmgmt_domain_model_address.email" resname="tx_addressmgmt_domain_model_address.email">
 				<source>Email</source>
-				<target state="translated">E-Mail</target>
+				<target>E-Mail</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.phone">
+			<trans-unit id="tx_addressmgmt_domain_model_address.phone" resname="tx_addressmgmt_domain_model_address.phone">
 				<source>Phone</source>
-				<target state="translated">Telefon</target>
+				<target>Telefon</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.mobile">
+			<trans-unit id="tx_addressmgmt_domain_model_address.mobile" resname="tx_addressmgmt_domain_model_address.mobile">
 				<source>Mobile</source>
-				<target state="translated">Handy</target>
+				<target>Handy</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.fax">
+			<trans-unit id="tx_addressmgmt_domain_model_address.fax" resname="tx_addressmgmt_domain_model_address.fax">
 				<source>Fax</source>
-				<target state="translated">Fax</target>
+				<target>Fax</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.www">
+			<trans-unit id="tx_addressmgmt_domain_model_address.www" resname="tx_addressmgmt_domain_model_address.www">
 				<source>Www</source>
-				<target state="translated">Internetseite</target>
+				<target>Internetseite</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.description">
+			<trans-unit id="tx_addressmgmt_domain_model_address.description" resname="tx_addressmgmt_domain_model_address.description">
 				<source>Description</source>
-				<target state="translated">Beschreibung</target>
+				<target>Beschreibung</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.directions">
+			<trans-unit id="tx_addressmgmt_domain_model_address.directions" resname="tx_addressmgmt_domain_model_address.directions">
 				<source>Directions</source>
-				<target state="translated">Anfahrtsbeschreibung</target>
+				<target>Anfahrtsbeschreibung</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.counterpart">
+			<trans-unit id="tx_addressmgmt_domain_model_address.counterpart" resname="tx_addressmgmt_domain_model_address.counterpart">
 				<source>Counterpart</source>
-				<target state="translated">Ansprechpartner</target>
+				<target>Ansprechpartner</target>
 			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_room">
-				<source>Raum</source>
-			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_address.tce.rooms">
-				<source>Raum</source>
-				<target state="translated">Räume</target>
-			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_address.relation">
-				<source>Room-Location relation</source>
-				<target state="translated">Räume in dieser Location</target>
-			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_room.capacity">
-				<source>Capacity</source>
-				<target state="translated">Kapazität</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_room.description">
-				<source>Description</source>
-				<target state="translated">Beschreibung</target>
-			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_relation">
-				<source>Relation</source>
-				<target state="translated">Relation</target>
-			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_room.name">
-				<source>Name</source>
-				<target state="translated">Name</target>
-			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_relation.room">
-				<source>Room</source>
-				<target state="translated">Raum</target>
-			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_relation.location">
-				<source>Location</source>
-				<target state="translated">Location</target>
-			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_address.image">
+			<trans-unit id="tx_addressmgmt_domain_model_address.image" resname="tx_addressmgmt_domain_model_address.image">
 				<source>Image</source>
-				<target state="translated">Bild</target>
+				<target>Bild</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.latitude">
-				<source>Geographische Breite</source>
-				<target state="translated"></target>
+			<trans-unit id="tx_addressmgmt_domain_model_address.latitude" resname="tx_addressmgmt_domain_model_address.latitude">
+				<source>Latitude</source>
+				<target>Geographische Breite</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.longitude">
-				<source>Geographische Länge</source>
-				<target state="translated"></target>
+			<trans-unit id="tx_addressmgmt_domain_model_address.longitude" resname="tx_addressmgmt_domain_model_address.longitude">
+				<source>Longitude</source>
+				<target>Geographische Länge</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.fe_user">
+			<trans-unit id="tx_addressmgmt_domain_model_address.fe_user" resname="tx_addressmgmt_domain_model_address.fe_user">
 				<source>Fe User</source>
-				<target state="translated">Website Benutzer</target>
+				<target>Website Benutzer</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.social_identifiers">
+			<trans-unit id="tx_addressmgmt_domain_model_address.social_identifiers" resname="tx_addressmgmt_domain_model_address.social_identifiers">
 				<source>Social Identifiers</source>
-				<target state="translated">Soziale Netzwerke</target>
+				<target>Soziale Netzwerke</target>
 			</trans-unit>
-
-			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier">
-				<source>Social Identifier</source>
-				<target state="translated"></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.identifier">
-				<source>Identifier</source>
-				<target state="translated">Eindeutiger Url-Parameter (z.B.: Abc für facebook.com/Abc)</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.url_override">
-				<source>Url Override</source>
-				<target state="translated">Überschreiben der automatisch erzeugten Url mit:</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.provider">
-				<source>Provider</source>
-				<target state="translated">Soziales Netzwerk</target>
-			</trans-unit>
-
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider">
-				<source>Social Provider</source>
-				<target state="translated">Soziales Netzwerk</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.name">
-				<source>Name</source>
-				<target state="translated">Name</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.identifier_label">
-				<source>Label of identifier</source>
-				<target state="translated">Label des Identifiers</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.identifier_description">
-				<source>Description of identifier</source>
-				<target state="translated">Beschreibung des Identifiers</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.url_scheme">
-				<source>Url Scheme</source>
-				<target state="translated">Url Schema</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.url_override_label">
-				<source>Label of url override</source>
-				<target state="translated">Label für Url-Überschreiben</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.url_override_description">
-				<source>Description of url override</source>
-				<target state="translated">Beschreibung Url-Überschreiben</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.show_url_override">
-				<source>Show url override</source>
-				<target state="translated">Url-Überschreiben anzeigen</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.www">
-				<source>Www</source>
-				<target state="translated">Webseite</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.image">
-				<source>Image</source>
-				<target state="translated">Bild</target>
-			</trans-unit>
-
-			<trans-unit id="tx_addressmgmt_domain_model_address.tce.address">
-				<source>Address</source>
-				<target state="translated">Adresse</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.tce.description">
-				<source>Description</source>
-				<target state="translated">Beschreibung</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.tce.addressal_contact">
-				<source>Contact</source>
-				<target state="translated">Kontakt</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.tce.name">
-				<source>Name</source>
-				<target state="translated">Name</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.tce.coordinates">
-				<source>Coordinates</source>
-				<target state="translated">Koordinaten</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_link">
-				<source>Www</source>
-				<target state="translated">Internetseite</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_link.text">
-				<source>Link text</source>
-				<target state="translated">Linktext</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_link.link">
-				<source>Link target</source>
-				<target state="translated">Linkziel</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.map_zoom">
-				<source>Map zoom</source>
-			</trans-unit>
-			<trans-unit id="tx_addressbook_domain_model_address.closest_city">
+			<trans-unit id="tx_addressbook_domain_model_address.closest_city" resname="tx_addressbook_domain_model_address.closest_city">
 				<source>Closest City</source>
-				<target state="translated">Nächste größere Stadt</target>
+				<target>Nächste größere Stadt</target>
 			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_address.map_zoom">
+			<trans-unit id="tx_addressmgmt_domain_model_room" resname="tx_addressmgmt_domain_model_room">
+				<source>Room</source>
+				<target>Raum</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_relation" resname="tx_addressmgmt_domain_model_relation">
+				<source>Relation</source>
+				<target>Relation</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_room.name" resname="tx_addressmgmt_domain_model_room.name">
+				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_room.capacity" resname="tx_addressmgmt_domain_model_room.capacity">
+				<source>Capacity</source>
+				<target>Kapazität</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_room.description" resname="tx_addressmgmt_domain_model_room.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_relation.room" resname="tx_addressmgmt_domain_model_relation.room">
+				<source>Room</source>
+				<target>Raum</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_relation.location" resname="tx_addressmgmt_domain_model_relation.location">
+				<source>Location</source>
+				<target>Ort</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.relation" resname="tx_addressmgmt_domain_model_address.relation">
+				<source>Room-Location relation</source>
+				<target>Räume in dieser Location</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.tce.rooms" resname="tx_addressmgmt_domain_model_address.tce.rooms">
+				<source>Room</source>
+				<target>Räume</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier" resname="tx_addressmgmt_domain_model_socialidentifier">
+				<source>Social Identifier</source>
+				<target>soziale Kennung</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.identifier" resname="tx_addressmgmt_domain_model_socialidentifier.identifier">
+				<source>Identifier</source>
+				<target>Eindeutiger Url-Parameter (z.B.: Abc für facebook.com/Abc)</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.url_override" resname="tx_addressmgmt_domain_model_socialidentifier.url_override">
+				<source>Url Override</source>
+				<target>Überschreiben der automatisch erzeugten Url mit:</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.provider" resname="tx_addressmgmt_domain_model_socialidentifier.provider">
+				<source>Provider</source>
+				<target>Soziales Netzwerk</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider" resname="tx_addressmgmt_domain_model_socialprovider">
+				<source>Social Provider</source>
+				<target>Soziales Netzwerk</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.name" resname="tx_addressmgmt_domain_model_socialprovider.name">
+				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.identifier_label" resname="tx_addressmgmt_domain_model_socialprovider.identifier_label">
+				<source>Label of identifier</source>
+				<target>Label des Identifiers</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.identifier_description" resname="tx_addressmgmt_domain_model_socialprovider.identifier_description">
+				<source>Description of identifier</source>
+				<target>Beschreibung des Identifiers</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.url_scheme" resname="tx_addressmgmt_domain_model_socialprovider.url_scheme">
+				<source>Url Scheme</source>
+				<target>Url Schema</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.url_override_label" resname="tx_addressmgmt_domain_model_socialprovider.url_override_label">
+				<source>Label of url override</source>
+				<target>Label für Url-Überschreiben</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.url_override_description" resname="tx_addressmgmt_domain_model_socialprovider.url_override_description">
+				<source>Description of url override</source>
+				<target>Beschreibung Url-Überschreiben</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.show_url_override" resname="tx_addressmgmt_domain_model_socialprovider.show_url_override">
+				<source>Show url override</source>
+				<target>Url-Überschreiben anzeigen</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.www" resname="tx_addressmgmt_domain_model_socialprovider.www">
+				<source>Www</source>
+				<target>Webseite</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.image" resname="tx_addressmgmt_domain_model_socialprovider.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.tce.address" resname="tx_addressmgmt_domain_model_address.tce.address">
+				<source>Address</source>
+				<target>Adresse</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.tce.description" resname="tx_addressmgmt_domain_model_address.tce.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.tce.addressal_contact" resname="tx_addressmgmt_domain_model_address.tce.addressal_contact">
+				<source>Contact</source>
+				<target>Kontakt</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.tce.name" resname="tx_addressmgmt_domain_model_address.tce.name">
+				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.tce.coordinates" resname="tx_addressmgmt_domain_model_address.tce.coordinates">
+				<source>Coordinates</source>
+				<target>Koordinaten</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_link" resname="tx_addressmgmt_domain_model_link">
+				<source>Www</source>
+				<target>Internetseite</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_link.text" resname="tx_addressmgmt_domain_model_link.text">
+				<source>Link text</source>
+				<target>Linktext</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_link.link" resname="tx_addressmgmt_domain_model_link.link">
+				<source>Link target</source>
+				<target>Linkziel</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.map_zoom" resname="tx_addressmgmt_domain_model_address.map_zoom">
 				<source>Map zoom</source>
-				<target state="translated">Karten-Zoom</target>
+				<target>Karten-Zoom</target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.category">
+			<trans-unit id="flexform.switchableControllerActions.addressList" resname="flexform.switchableControllerActions.addressList">
+				<source>List</source>
+				<target>Liste</target>
+			</trans-unit>
+			<trans-unit id="flexform.switchableControllerActions.addressDetail" resname="flexform.switchableControllerActions.addressDetail">
+				<source>Detail</source>
+				<target>Detail</target>
+			</trans-unit>
+			<trans-unit id="flexform.listType" resname="flexform.listType">
+				<source>Show items by</source>
+				<target>Elemente anzeigen nach</target>
+			</trans-unit>
+			<trans-unit id="flexform.listType.all" resname="flexform.listType.all">
+				<source>Folder and category</source>
+				<target>Order und Kategorie</target>
+			</trans-unit>
+			<trans-unit id="flexform.listType.manual" resname="flexform.listType.manual">
+				<source>Select manually</source>
+				<target>Händisch ausgewählt</target>
+			</trans-unit>
+			<trans-unit id="flexform.category" resname="flexform.category">
 				<source>Category</source>
-				<target state="translated">Kategorie</target>
+				<target>Kategorie</target>
 			</trans-unit>
-			
-			<trans-unit id="tx_addressmgmt_domain_model_address.geojson">
-				<source>GeoJson</source>
-				<target state="translated">GeoJson</target>
+			<trans-unit id="flexform.addresses" resname="flexform.addresses">
+				<source>Addresses</source>
+				<target>Adressen</target>
 			</trans-unit>
-
-			<trans-unit id="tx_addressmgmt.templateLayout.map">
-				<source>Only map</source>
-				<target state="translated">Karte</target>
+			<trans-unit id="flexform.detailPid" resname="flexform.detailPid">
+				<source>Detail Pid</source>
+				<target></target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt.templateLayout.list">
-				<source>Only list</source>
-				<target state="translated">Liste</target>
+			<trans-unit id="flexform.storageFolder" resname="flexform.storageFolder">
+				<source>Storage Pid</source>
+				<target></target>
 			</trans-unit>
-			<trans-unit id="tx_addressmgmt.templateLayout.map-list">
-				<source>Map and list</source>
-				<target state="translated">Karte und Liste</target>
+			<trans-unit id="flexform.orderBy" resname="flexform.orderBy">
+				<source>Sort by</source>
+				<target>Sortieren nach</target>
 			</trans-unit>
-
-			<trans-unit id="flexforms.showFilter">
+			<trans-unit id="flexform.definedByTs" resname="flexform.definedByTs">
+				<source>Defined by TS</source>
+				<target>Definiert in TS</target>
+			</trans-unit>
+			<trans-unit id="flexform.name" resname="flexform.name">
+				<source>Name</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="flexform.sorting" resname="flexform.sorting">
+				<source>Sorting direction</source>
+				<target>Reihenfolge</target>
+			</trans-unit>
+			<trans-unit id="flexform.asc" resname="flexform.asc">
+				<source>Ascending</source>
+				<target>Aufsteigend</target>
+			</trans-unit>
+			<trans-unit id="flexform.desc" resname="flexform.desc">
+				<source>Descending</source>
+				<target>Absteigend</target>
+			</trans-unit>
+			<trans-unit id="flexforms.showFilter" resname="flexforms.showFilter">
 				<source>Show Filter</source>
-				<target state="translated">Filter anzeigen</target>
+				<target>Filter anzeigen</target>
 			</trans-unit>
-			<trans-unit id="flexforms.showA-zFilter">
+			<trans-unit id="flexforms.showA-zFilter" resname="flexforms.showA-zFilter">
 				<source>Show A-Z filter</source>
-				<target state="translated">A-Z Filter anzeigen</target>
+				<target>A-Z Filter anzeigen</target>
 			</trans-unit>
-			<trans-unit id="flexforms.recursive">
-				<source>Recursive</source>
-				<target state="translated">Rekursiv</target>
+			<trans-unit id="flexforms.templateLayout" resname="flexforms.templateLayout">
+				<source>Template layout</source>
+				<target>Template Layout</target>
 			</trans-unit>
-			<trans-unit id="flexforms.mapClustering">
-				<source>Map clustering</source>
-				<target state="translated">Marker gruppieren</target>
+			<trans-unit id="flexform.switchableControllerActions" resname="flexform.switchableControllerActions">
+				<source>What to display</source>
+				<target>Was anzeigen</target>
 			</trans-unit>
-
-			<trans-unit id="flexform.switchableControllerActions.create">
+			<trans-unit id="flexform.switchableControllerActions.create" resname="flexform.switchableControllerActions.create">
 				<source>Create</source>
-				<target state="translated">Erstellen</target>
+				<target>Erstellen</target>
 			</trans-unit>
-			<trans-unit id="flexform.switchableControllerActions.edit">
+			<trans-unit id="flexform.switchableControllerActions.edit" resname="flexform.switchableControllerActions.edit">
 				<source>Edit</source>
-				<target state="translated">Editieren</target>
+				<target>Editieren</target>
 			</trans-unit>
-			<trans-unit id="flexform.switchableControllerActions.dash">
+			<trans-unit id="flexform.switchableControllerActions.dash" resname="flexform.switchableControllerActions.dash">
 				<source>Dashboard</source>
-				<target state="translated">Dashboard</target>
+				<target>Dashboard</target>
 			</trans-unit>
-
+			<trans-unit id="tx_addressmgmt_domain_model_address.category" resname="tx_addressmgmt_domain_model_address.category">
+				<source>Category</source>
+				<target>Kategorie</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.geojson" resname="tx_addressmgmt_domain_model_address.geojson">
+				<source>GeoJson</source>
+				<target>GeoJson</target>
+			</trans-unit>
+			<trans-unit id="flexforms.maxZoom" resname="flexforms.maxZoom">
+				<source>Max zoom</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="flexforms.zoom" resname="flexforms.zoom">
+				<source>Zoom</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="flexforms.latitude" resname="flexforms.latitude">
+				<source>Latitude</source>
+				<target>Breitengrad</target>
+			</trans-unit>
+			<trans-unit id="flexforms.longitude" resname="flexforms.longitude">
+				<source>Longitude</source>
+				<target>Längengrad</target>
+			</trans-unit>
+			<trans-unit id="flexforms.accessToken" resname="flexforms.accessToken">
+				<source>Access token (mapbox)</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="flexforms.mapId" resname="flexforms.mapId">
+				<source>Map id (mapbox)</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="flexforms.mapClustering" resname="flexforms.mapClustering">
+				<source>Map clustering</source>
+				<target>Marker gruppieren</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt.templateLayout.map" resname="tx_addressmgmt.templateLayout.map">
+				<source>Only map</source>
+				<target>Karte</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt.templateLayout.list" resname="tx_addressmgmt.templateLayout.list">
+				<source>Only list</source>
+				<target>Liste</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt.templateLayout.map-list" resname="tx_addressmgmt.templateLayout.map-list">
+				<source>Map and list</source>
+				<target>Karte und Liste</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.publish_state" resname="tx_addressmgmt_domain_model_address.publish_state">
+				<source>Publish State</source>
+				<target>Veröffentlichungsstatus</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.publish_state.0" resname="tx_addressmgmt_domain_model_address.publish_state.0">
+				<source>Created</source>
+				<target>Erstellt</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.publish_state.1" resname="tx_addressmgmt_domain_model_address.publish_state.1">
+				<source>Waiting for approval</source>
+				<target>Warten auf Freigabe</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.publish_state.2" resname="tx_addressmgmt_domain_model_address.publish_state.2">
+				<source>Published</source>
+				<target>Veröffentlicht</target>
+			</trans-unit>
+			<trans-unit id="items.definedByTs" resname="items.definedByTs">
+				<source>Defined by TS</source>
+				<target>Wie Vorgabe</target>
+			</trans-unit>
+			<trans-unit id="items.yes" resname="items.yes">
+				<source>Yes</source>
+				<target>Ja</target>
+			</trans-unit>
+			<trans-unit id="items.no" resname="items.no">
+				<source>No</source>
+				<target>Nein</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.gender_female" resname="tx_addressmgmt_domain_model_address.gender_female">
+				<source></source>
+				<target>weiblich</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.gender_male" resname="tx_addressmgmt_domain_model_address.gender_male">
+				<source></source>
+				<target>männlich</target>
+			</trans-unit>
+			<trans-unit id="tx_addressmgmt_domain_model_address.gender_other" resname="tx_addressmgmt_domain_model_address.gender_other">
+				<source></source>
+				<target>andere</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

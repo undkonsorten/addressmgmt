@@ -36,8 +36,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
         <h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3>
   
       <f:if condition="{address.feUser}">
-        <f:then><p>{address.feUser.username}</p></f:then>
-        <f:else><p>{address.email}</p></f:else>
+        <f:then><p>fe_username: {address.feUser.username}</p></f:then>
+        <f:else><p>email: {address.email}</p></f:else>
       </f:if>
       <f:for each="{address.images}" as="image">
         <div>

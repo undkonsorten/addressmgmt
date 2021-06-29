@@ -1,78 +1,92 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
       data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 This Template is responsible for displaying a single view for a domain object
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Show.html: keep
+Resources:
+Private:
+Templates:
+Show.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<u:titleTag>{address.name}</u:titleTag>
-<h1>Single View for Address</h1>
+    <u:titleTag>{address.name}</u:titleTag>
+    <h1>Single View for Address</h1>
+    <f:flashMessages/>
+    <div class="tx-addressmgmt">
+        <f:if condition="{address.type} != 'Tx_Addressbook_Person'">
+            <f:render partial="Map/ShowSingle" arguments="{address:address, contentUid:contentUid}"/>
+        </f:if>
+        <f:if condition="{address.type} == 'Tx_Addressbook_Person'">
+            <f:if condition="{address.images}">
+                <f:render partial="Media/Media" arguments="{media:address.images}"/>
+            </f:if>
+        </f:if>
+        <h2>
+            <f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate>
+            {address.title} {address.firstName} {address.Name}
+        </h2>
 
-<f:flashMessages />
-<div class="tx-addressmgmt" >
-	<f:render partial="Map/ShowSingle" arguments="{address:address, contentUid:contentUid}"/>
-<h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate>{address.title} {address.firstName} {address.Name}</h3>
-<f:for each="{address.category}" as="category">
-	{category.title}
-</f:for>
+        <f:if condition="{address.category}">
+            <p>
+                <f:for each="{address.category}" as="category">
+                    <span class="category">
+                        {category.title}
+                    </span>
+                </f:for>
+            </p>
+        </f:if>
 
-{address.organization}
+        <f:if condition="{address.description}"><p>{address.description->f:format.html()}</p></f:if>
 
-{address.department}
+        <h3 class="h4"><f:translate key="tx_addressmgmt_domain_model_address.address" /></h3>
+        <address>
+            <f:if condition="{address.organization}"><b>{address.organization}</b><br></f:if>
+            <f:if condition="{address.department}">{address.department}<br></f:if>
+            <f:if condition="{address.street} || {address.streetNumber}">{address.street} {address.streetNumber}<br>
+            </f:if>
+            <f:if condition="{address.addressSupplement}">{address.addressSupplement}<br></f:if>
+            <f:if condition="{address.zip} || {address.city}">{address.zip} {address.city}<br></f:if>
+            <f:if condition="{address.state}">{address.state}<br></f:if>
+            <f:if condition="{address.country}">{address.country}</f:if>
+        </address>
 
-{address.street}
+        <f:if condition="{address.phone} || {address.mobile} || {address.fax} || {address.www} || {address.email}">
+            <h3 class="h4"><f:translate key="addressmgmt.label.contactdata" /></h3>
+            <p>
+                <f:if condition="{address.phone}"><b><f:translate key="tx_addressmgmt_domain_model_address.phone" /></b> {address.phone}<br></f:if>
+                <f:if condition="{address.mobile}"><b><f:translate key="tx_addressmgmt_domain_model_address.mobile" /></b> {address.mobile}<br></f:if>
+                <f:if condition="{address.fax}"><b><f:translate key="tx_addressmgmt_domain_model_address.fax" /></b> {address.fax}<br></f:if>
+                <f:if condition="{address.www.link}"><b><f:translate key="tx_addressmgmt_domain_model_address.www" /></b> {address.www.link}<br></f:if>
+                <f:if condition="{address.email}"><b><f:translate key="tx_addressmgmt_domain_model_address.email" /></b> {address.email}<br></f:if>
+                <f:if condition="{address.feUser.username}"><b><f:translate key="tx_addressmgmt_domain_model_address.username" /></b> {address.feUser.username}<br></f:if>
+                <f:if condition="{address.socialIdentifiers}">
+                <f:for each="{address.socialIdentifiers}" as="identifier">
+                    <f:if condition="{identifier.provider.image}">
+                        <f:image image="{identifier.provider.image}" width="16"
+                                 alt="{identifier.provider.name}"/>
+                    </f:if>
+                    <b>{identifier.provider.name}</b>
+                    {identifier.identifier}<br>
+                </f:for>
+        </f:if>
+        </p>
+        </f:if>
 
-{address.streetNumber}
-
-{address.addressSupplement}
-
-{address.city}
-
-{address.zip}
-
-{address.country}
-
-{address.state}
-
-{address.closestCity}
-
-<f:if condition="{address.feUser}">
-	<f:then>{address.feUser.username}</f:then>
-	<f:else>{address.email}</f:else>
-</f:if>
-
-{address.phone}
-
-{address.mobile}
-
-{address.fax}
-
-{address.www}
-
-{address.description}
-
-{address.latitude}
-
-{address.longitude}
-
-<f:for each="{address.socialIdentifiers}" as="identifier">
-<div>
-	<f:if condition="{identifier.provider.image}">
-		<f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
-	</f:if>
-	<strong>{identifier.provider.name}:</strong>
-	{identifier.url}
-</div>
-</f:for>
-</div>
+        <f:if condition="{address.closestCity} || {address.latitude} || {address.longitude} || {address.directions}">
+            <h3 class="h4"><f:translate key="tx_addressmgmt_domain_model_address.directions" /></h3>
+            {address.directions->f:format.html()}
+            <p>
+                <f:if condition="{address.closestCity}"><b><f:translate key="tx_addressmgmt_domain_model_address.closest_city" /></b> {address.closestCity}<br></f:if>
+                <f:if condition="{address.latitude} || {address.longitude}"><b><f:translate key="tx_addressmgmt_domain_model_address.gps" /></b>
+                    {address.latitude}{f:if(condition: '{address.latitude} && {address.longitude}', then: ', ')}
+                    {address.longitude}</f:if>
+            </p>
+        </f:if>
+    </div>
 </f:section>

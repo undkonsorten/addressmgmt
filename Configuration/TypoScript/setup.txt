@@ -1,4 +1,11 @@
 plugin.tx_addressmgmt {
+	persistence.classes {
+		Undkonsorten\Addressmgmt\Domain\Model\Address\Person.newRecordStoragePid = {$plugin.tx_addressmgmt.persistence.newRecordStoragePid}
+		Undkonsorten\Addressmgmt\Domain\Model\Address\Location.newRecordStoragePid = {$plugin.tx_addressmgmt.persistence.newRecordStoragePid}
+		Undkonsorten\Addressmgmt\Domain\Model\Address\Person.newRecordStoragePid = {$plugin.tx_addressmgmt.persistence.newRecordStoragePid}
+	}
+	persistence.storagePid = {$plugin.tx_addressmgmt.persistence.storagePid}
+	persistence.recursive = {$plugin.tx_addressmgmt.persistence.recursive}
 	view {
 		templateRootPaths {
 			0 = EXT:addressmgmt/Resources/Private/Templates/
@@ -29,7 +36,6 @@ plugin.tx_addressmgmt {
 			#	sorting = ASC
 			#}
     	}
-	    storagePid = {$plugin.tx_addressmgmt.settings.storagePid}
 	    recursive = {$plugin.tx_addressmgmt.settings.recursive}
 	    target{
             default = {$plugin.tx_addressmgmt.settings.target.default}
@@ -62,7 +68,6 @@ plugin.tx_addressmgmt {
 			clusterMarker = {$plugin.tx_addressmgmt.settings.mapConfiguration.clusterMarker}
 		}
 		createDefaultAddressType = {$plugin.tx_addressmgmt.settings.createDefaultAddressType}
-		storeNewAddressNextToFeuser = {$plugin.tx_addressmgmt.settings.storeNewAddressNextToFeuser}
 		tileLayerConfiguration {
 			urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}
 			options {
