@@ -34,5 +34,5 @@ It's build with love and
 * it's based on extbase & fluid
 * it's easy to use and understand
 * working with TYPO3 core elements (like *sys categories* and *fe users*)
-* it's tested and impoved on mulitple live websites
+* it's tested and improved on multiple live websites
 * has a documentation

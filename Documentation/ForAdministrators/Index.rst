@@ -11,7 +11,7 @@ For Administrators
 	:titlesonly:
 	:glob:
 
-	Installation/Installation
+
 	Configuration/Configuration
 	Templates/Templates
 	Map/Map
