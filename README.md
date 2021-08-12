@@ -30,7 +30,7 @@ Visit our [demo website](https://addressmgmt-eventmgmt.dev.undkonsorten.com) wit
 
 ## Documantation
 
-The complete documentation can be found on the TYPO3 Documentation server.
+The complete documentation can be found on the TYPO3 documentation server.
 
 ## Maintainer
 
