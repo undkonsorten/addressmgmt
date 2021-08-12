@@ -48,10 +48,10 @@ Just click on "Edit me on GitHub" on the top right to submit your change request
    :maxdepth: 3
 
    Introduction/Index
+   Screenshots/Index
    Installation/Index
-   ForEditors/Index
-   Configuration/Index
    ForAdministrators/Index
+   ForEditors/Index
    KnownProblems/Index
    Changelog/Index
    Sitemap
