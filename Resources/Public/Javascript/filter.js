@@ -79,35 +79,54 @@ jQuery(function($) {
     }
   }
 
-  if ($searchForm.length > 0) {
-    $searchForm.each(function () {
-      form = $(this);
-      form.on('submit', function (e) {
-        e.preventDefault();
-        checkSearchForm($(this));
-        if($mapElement.length) {
-          $($statusSelector).show();
-          setTimeout(function(){
-            $($statusSelector).hide();
-          }, 600);
-          $mapElement[0].dispatchEvent(new CustomEvent('update-list'));
-          $mapElement[0].dispatchEvent(new CustomEvent('fitbounds'));
-          // animate scrolling on submit to target on form element
-          target = form[0].target;
-          if ($(target).length) {
-            $('html, body').animate({
-              scrollTop: $(target).offset().top
-            }, 500);
-            return false;
-          }
-        }
-      });
-      form.find('.reset').on('click', function (e) {
-        form[0].reset();
-        form.submit();
-      });
+  function initNonMapList($form) {
+    // prepare list to have classes and data expected by filter
+    var $listItems = $('.module-list.addressmgmt > .module-list-items');
+    if ($listItems.hasClass('filter-list-items')) {
+      // map page: no need to add classes and data
+      return;
+    }
+    $listItems.addClass('filter-list-items');
+    $resultList = $('.filter-list-items'); // repeat search now that the class is updated
+    var $itemsCategories = $('.module-list-item.address .categories');
+    $itemsCategories.each(function() {
+      // add filter data to each list item based on their category
+      var optionText = $(this).text(),
+        $option = $form.find('select option:contains("' + optionText + '")'),
+        filterValue = [parseInt($option.val())],
+        $item = $(this).parents('.address');
+      $item.addClass('filter-list-item');
+      $item.data('filter', filterValue);
     });
   }
+
+  $searchForm.each(function () {
+    form = $(this);
+    initNonMapList(form);
+    form.on('submit', function (e) {
+      e.preventDefault();
+      checkSearchForm($(this));
+      if(!$mapElement.length) { return; }
+      $($statusSelector).show();
+      setTimeout(function(){
+        $($statusSelector).hide();
+      }, 600);
+      $mapElement[0].dispatchEvent(new CustomEvent('update-list'));
+      $mapElement[0].dispatchEvent(new CustomEvent('fitbounds'));
+      // animate scrolling on submit to target on form element
+      target = form[0].target;
+      if ($(target).length) {
+        $('html, body').animate({
+          scrollTop: $(target).offset().top
+        }, 500);
+        return false;
+      }
+    });
+    form.find('.reset').on('click', function (e) {
+      form[0].reset();
+      form.submit();
+    });
+  });
   if($($noResultsSelector).length && $mapElement.length) {
     $($noResultsSelector).appendTo($mapElement);
   }
