@@ -34,19 +34,19 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <div class="tx-addressmgmt a{address.uid}" >
         <f:render partial="Map/ShowSingle" arguments="{address:address, contentUid:contentUid}"/>
         <h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3>
-  
+
       <f:if condition="{address.feUser}">
         <f:then><p>fe_username: {address.feUser.username}</p></f:then>
         <f:else><p>email: {address.email}</p></f:else>
       </f:if>
       <f:for each="{address.images}" as="image">
         <div>
-          <f:image src="{image.originalResource.originalFile.uid}" alt="image.alternative" width="100" />
+          <f:image image="{image}" alt="image.alternative" width="100" />
           <f:link.action class="button" action="delete" controller="File" arguments="{fileReference:image, address:address}"><f:translate key="image.delete" /></f:link.action>
           <f:link.action class="button" action="edit" controller="File" arguments="{fileReference:image, address:address, property:'images'}"><f:translate key="image.edit" /></f:link.action>
         </div>
       </f:for>
-      
+
       <f:for each="{address.category}" as="category">
           <p>{category.title}</p>
       </f:for>
@@ -112,7 +112,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
           <f:translate key="tx_addressmgmt_domain_model_address.directions" />:<br /> {address.directions -> f:format.html()}
         </p>
       </f:if>
-      
+
        <p>
          <f:if condition="{address.latitude}">
            <f:translate key="tx_addressmgmt_domain_model_address.latitude" />: {address.latitude}<br />
@@ -125,17 +125,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
       <f:for each="{address.socialIdentifiers}" as="identifier">
           <div>
               <f:if condition="{identifier.provider.image}">
-                  <f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
+                  <f:image image="{identifier.provider.image}" width="16" alt="{identifier.provider.name}"/>
               </f:if>
               <strong>{identifier.provider.name}:</strong>
               {identifier.url}
           </div>
       </f:for>
-      
-    </div>
-  
 
-  
+    </div>
+
+
+
     <div>
         <f:link.action class="button" action="edit" arguments="{address:address}"><f:translate key="form.editProfile" /></f:link.action>
         <f:link.action class="button" action="new" controller="File" arguments="{address:address, property:'images'}"><f:translate key="form.newImage" /></f:link.action>
