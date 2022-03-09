@@ -6,4 +6,4 @@
 Known Problems
 ==============
 
-Use this section for informing about any type of of problem.
+For now no know problems.
