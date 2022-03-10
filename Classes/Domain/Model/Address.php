@@ -9,7 +9,7 @@ use Undkonsorten\Addressmgmt\Utility\StringUtility;
  *
  *  (c) 2013 Felix Althaus <felix.althaus@undkonsorten.com>, undkonsorten
  *  Eike Starkmann <eike.starkmann@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -55,13 +55,13 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
      * @var integer
      */
 	protected $publishState;
-	
+
 	/**
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
 	 */
 	protected $category;
-	
+
 	/**
 	 * type
 	 *
@@ -76,7 +76,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
 	 */
 	protected $name;
-	
+
 	/**
 	 * map zoom
 	 *
@@ -111,7 +111,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \string
 	 */
 	protected $streetNumber;
-	
+
 	/**
 	 * The link to the event page
 	 *
@@ -202,7 +202,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \string
 	 */
 	protected $description;
-	
+
 	/**
 	 * directions
 	 *
@@ -216,7 +216,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
 	 */
 	protected $images = NULL;
-	
+
 	/**
 	 * Downloads
 	 *
@@ -229,17 +229,17 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 *
 	 * @var \string
 	 */
-	protected $latitude;
+	protected $latitude = '';
 
 	/**
 	 * longitude
 	 *
 	 * @var \string
 	 */
-	protected $longitude;
-	
+	protected $longitude = '';
+
 	/**
-	 * 
+	 *
 	 * @var \string $geojson
 	 */
 	protected $geojson;
@@ -258,9 +258,9 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $socialIdentifiers;
-	
+
 	/**
-	 * 
+	 *
 	 * @var string $counterpart
 	 */
 	protected $counterpart;
@@ -288,35 +288,35 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 		 */
 		$this->socialIdentifiers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
-	
+
 	/**
 	 * String representation of address
-	 * 
+	 *
 	 * @return \string
 	 */
 	public function __toString() {
 		return $this->getFullName();
 	}
-	
+
 	/**
 	 * Returns the type
-	 * 
+	 *
 	 * @return \string
 	 */
 	public function getType() {
 		return $this->type;
 	}
-	
+
 	/**
 	 * Sets the type
-	 * 
+	 *
 	 * @param \string $type
 	 * @return void
 	 */
 	public function setType($type) {
 		$this->type = $type;
 	}
-	
+
 	/**
 	 * Returns the Name
 	 *
@@ -338,7 +338,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 
 	/**
 	 * return full name
-	 * 
+	 *
 	 * @return \string
 	 */
 	public function getFullName() {
@@ -674,10 +674,10 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 }
 
 
-	
+
 	/**
 	 * Coordinates as array of floats
-	 * 
+	 *
 	 * @return array<float>
 	 */
 	public function getCoordinates() {
@@ -782,7 +782,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setSocialIdentifiers(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $socialIdentifiers) {
 		$this->socialIdentifiers = $socialIdentifiers;
 	}
-	
+
 	/**
 	 * Returns the link
 	 *
@@ -791,7 +791,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function getLink() {
 		return $this->link;
 	}
-	
+
 	/**
 	 * Sets the link
 	 *
@@ -801,40 +801,40 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function setLink(\Undkonsorten\Addressmgmt\Domain\Model\Link $link) {
 		$this->link = $link;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @return integer
 	 */
 	public function getMapZoom() {
 		return $this->mapZoom;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param integer $mapZoom
 	 */
 	public function setMapZoom($mapZoom) {
 		$this->mapZoom = $mapZoom;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
 	 */
 	public function getCategory() {
 		return $this->category;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $category
-	 * 
+	 *
 	 */
 	public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category) {
 		$this->category = $category;
 	}
-	
+
 	public function addCategory(Category $category){
 		$this->category->attach($category);
 	}
@@ -842,9 +842,9 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
 	public function removeCategory(Category $category){
 		$this->category->detach($category);
 	}
-	
+
 	/**
-	 * 
+	 *
 	 */
     public function getDirections()
     {
@@ -852,7 +852,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     }
 
     /**
-     * 
+     *
      * @param string $directions
      */
     public function setDirections($directions)
@@ -861,7 +861,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     }
 
     /**
-     * 
+     *
      * @return string
      */
     public function getCounterpart()
@@ -869,17 +869,17 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
         return $this->counterpart;
     }
 
-    
+
     /**
-     * 
+     *
      * @param \string $geojson
      */
     public function setGeojson($geojson)
     {
         $this->geojson = $geojson;
     }
- 
-	
+
+
     /**
      * @param string $counterpart
      */
@@ -887,9 +887,9 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     {
         $this->counterpart = $counterpart;
     }
- 
 
-	
+
+
 	/**
 	 * @return \string
 	 */
@@ -897,7 +897,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     {
         return $this->geojson;
     }
-    
+
     /**
      * @return array
      */
@@ -905,7 +905,7 @@ abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
     {
 		return json_decode($this->getGeojson());
 	}
-	
+
 	static function getTypeConstants() {
 	    $oClass = new \ReflectionClass(__CLASS__);
 
