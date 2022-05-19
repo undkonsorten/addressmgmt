@@ -42,8 +42,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
       <f:for each="{address.images}" as="image">
         <div>
           <f:image class="dashboard__user--image" image="{image}" alt="image.alternative" width="100" />
-          <f:link.action class="button" action="delete" controller="File" arguments="{fileReference:image, address:address}"><f:translate key="image.delete" /></f:link.action>
-          <f:link.action class="button" action="edit" controller="File" arguments="{fileReference:image, address:address, property:'images'}"><f:translate key="image.edit" /></f:link.action>
+          <f:link.action class="button dashboard__user--image-delete" action="delete" controller="File" arguments="{fileReference:image, address:address}"><f:translate key="image.delete" /></f:link.action>
+          <f:link.action class="button dashboard__user--image-edit" action="edit" controller="File" arguments="{fileReference:image, address:address, property:'images'}"><f:translate key="image.edit" /></f:link.action>
         </div>
       </f:for>
 
@@ -148,10 +148,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 
     <div>
-        <f:link.action class="button" action="edit" arguments="{address:address}"><f:translate key="form.editProfile" /></f:link.action>
-        <f:link.action class="button" action="new" controller="File" arguments="{address:address, property:'images'}"><f:translate key="form.newImage" /></f:link.action>
+        <f:link.action class="button dashboard__user--button-edit" action="edit" arguments="{address:address}"><f:translate key="form.editProfile" /></f:link.action>
+        <f:link.action class="button dashboard__user--button-new-file" action="new" controller="File" arguments="{address:address, property:'images'}"><f:translate key="form.newImage" /></f:link.action>
         <f:if condition="{address.publishState} == 0">
-            <f:link.action class="button" action="handInForReview" arguments="{address:address}"><f:translate key="form.publishMyData" /></f:link.action>
+            <f:link.action class="button dashboard__user--button-handInForReview" action="handInForReview" arguments="{address:address}"><f:translate key="form.publishMyData" /></f:link.action>
         </f:if>
     </div>
 
@@ -159,7 +159,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="noAddress">
   <f:for each="{types}" as="type" key="key">
-    <f:link.action class="button" action="new" arguments="{type:type}"><f:translate key="form.newType" arguments="{0:type}" />{type}</f:link.action>
+    <f:link.action class="button dashboard__user--button-new-{type}" action="new" arguments="{type:type}"><f:translate key="form.newType" arguments="{0:type}" />{type}</f:link.action>
   </f:for>
-
 </f:section>
