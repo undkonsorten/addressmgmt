@@ -36,84 +36,95 @@ Otherwise your changes will be overwritten the next time you save the extension 
         <h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3>
 
       <f:if condition="{address.feUser}">
-        <f:then><p>fe_username: {address.feUser.username}</p></f:then>
-        <f:else><p>email: {address.email}</p></f:else>
+        <f:then><p class="dashboard__user--feusername">Frontend Username: {address.feUser.username}</p></f:then>
+        <f:else><p class="dashboard__user--email">E-Mail: {address.email}</p></f:else>
       </f:if>
       <f:for each="{address.images}" as="image">
         <div>
-          <f:image image="{image}" alt="image.alternative" width="100" />
+          <f:image class="dashboard__user--image" image="{image}" alt="image.alternative" width="100" />
           <f:link.action class="button" action="delete" controller="File" arguments="{fileReference:image, address:address}"><f:translate key="image.delete" /></f:link.action>
           <f:link.action class="button" action="edit" controller="File" arguments="{fileReference:image, address:address, property:'images'}"><f:translate key="image.edit" /></f:link.action>
         </div>
       </f:for>
 
       <f:for each="{address.category}" as="category">
-          <p>{category.title}</p>
+          <p class="dashboard__user--category">{category.title}</p>
       </f:for>
 
       <p>
         <f:if condition="{address.organization}">
-          <f:translate key="tx_addressmgmt_domain_model_address.organization" />: {address.organization}<br />
+          <span class="dashboard__user--organization">
+						<f:translate key="tx_addressmgmt_domain_model_address.organization" />: {address.organization}
+					</span><br />
         </f:if>
         <f:if condition="{address.department}">
-          <f:translate key="tx_addressmgmt_domain_model_address.department" />: {address.department}<br />
+					<span class="dashboard__user--department">
+						<f:translate key="tx_addressmgmt_domain_model_address.department"/>: {address.department}
+					</span><br />
         </f:if>
         <f:if condition="{address.street}">
-          <f:translate key="tx_addressmgmt_domain_model_address.street" />: {address.street}<br />
+					<span class="dashboard__user--street">
+						<f:translate key="tx_addressmgmt_domain_model_address.street"/>: {address.street}
+					</span><br />
         </f:if>
         <f:if condition="{address.streetNumber}">
-          <f:translate key="tx_addressmgmt_domain_model_address.street_number" />: {address.streetNumber}<br />
-        </f:if>
-        <f:if condition="{address.organization}">
-          <f:translate key="tx_addressmgmt_domain_model_address.organization" />: {address.organization}<br />
+					<span class="dashboard__user--streetNumber">
+						<f:translate key="tx_addressmgmt_domain_model_address.street_number"/>: {address.streetNumber}</span><br />
         </f:if>
         <f:if condition="{address.addressSupplement}">
-          <f:translate key="tx_addressmgmt_domain_model_address.address_supplement" />: {address.addressSupplement}<br />
+					<span class="dashboard__user--addressSupplement">
+						<f:translate key="tx_addressmgmt_domain_model_address.address_supplement"/>: {address.addressSupplement}</span><br />
         </f:if>
         <f:if condition="{address.zip}">
-          <f:translate key="tx_addressmgmt_domain_model_address.zip" />: {address.zip}<br />
+					<span class="dashboard__user--zip">
+						<f:translate key="tx_addressmgmt_domain_model_address.zip"/>: {address.zip}</span><br />
         </f:if>
         <f:if condition="{address.city}">
-          <f:translate key="tx_addressmgmt_domain_model_address.city" />: {address.city}<br />
+					<span class="dashboard__user--city">
+						<f:translate key="tx_addressmgmt_domain_model_address.city"/>: {address.city}</span><br />
         </f:if>
         <f:if condition="{address.closestCity}">
-          <f:translate key="tx_addressmgmt_domain_model_address.closest_city" />: {address.closestCity}<br />
+					<span class="dashboard__user--closestCity">
+						<f:translate key="tx_addressmgmt_domain_model_address.closest_city"/>: {address.closestCity}</span><br />
         </f:if>
         <f:if condition="{address.state}">
-          <f:translate key="tx_addressmgmt_domain_model_address.state" />: {address.state}<br />
+					<span class="dashboard__user--state">
+						<f:translate key="tx_addressmgmt_domain_model_address.state"/>: {address.state}</span><br />
         </f:if>
         <f:if condition="{address.country}">
-          <f:translate key="tx_addressmgmt_domain_model_address.country" />: {address.country}<br />
+					<span class="dashboard__user--country">
+						<f:translate key="tx_addressmgmt_domain_model_address.country"/>: {address.country}</span><br />
         </f:if>
         <f:if condition="{address.phone}">
-          <f:translate key="tx_addressmgmt_domain_model_address.phone" />: {address.phone}<br />
+					<span class="dashboard__user--phone">
+						<f:translate key="tx_addressmgmt_domain_model_address.phone"/>: {address.phone}</span><br />
         </f:if>
         <f:if condition="{address.mobile}">
-          <f:translate key="tx_addressmgmt_domain_model_address.mobile" />: {address.mobile}<br />
+					<span class="dashboard__user--mobile">
+						<f:translate key="tx_addressmgmt_domain_model_address.mobile"/>: {address.mobile}</span><br />
         </f:if>
         <f:if condition="{address.fax}">
-          <f:translate key="tx_addressmgmt_domain_model_address.fax" />: {address.fax}<br />
+					<span class="dashboard__user--fax">
+						<f:translate key="tx_addressmgmt_domain_model_address.fax"/>: {address.fax}</span><br />
         </f:if>
         <f:if condition="{address.www}">
-          <f:translate key="tx_addressmgmt_domain_model_address.www.text" />: {address.www.text}<br />
-          <f:translate key="tx_addressmgmt_domain_model_address.www.link" />: {address.www.link}<br />
-        </f:if>
-        <f:if condition="{address.country}">
-          <f:translate key="tx_addressmgmt_domain_model_address.country" />: {address.country}<br />
+					<span class="dashboard__user--www">
+						<f:translate key="tx_addressmgmt_domain_model_address.www.text"/>: {address.www.text}<br/>
+						<f:translate key="tx_addressmgmt_domain_model_address.www.link"/>: {address.www.link}</span><br />
         </f:if>
       </p>
       <f:if condition="{address.description}">
-        <p>
-          <f:translate key="tx_addressmgmt_domain_model_address.description" />:<br /> {address.description -> f:format.html()}
+        <p class="dashboard__user--description">
+          <f:translate key="tx_addressmgmt_domain_model_address.description" />: {address.description -> f:format.html()}
         </p>
       </f:if>
       <f:if condition="{address.directions}">
-        <p>
-          <f:translate key="tx_addressmgmt_domain_model_address.directions" />:<br /> {address.directions -> f:format.html()}
+        <p class="dashboard__user--directions">
+          <f:translate key="tx_addressmgmt_domain_model_address.directions" />: {address.directions -> f:format.html()}
         </p>
       </f:if>
 
-       <p>
+       <p class="dashboard__user--latlong">
          <f:if condition="{address.latitude}">
            <f:translate key="tx_addressmgmt_domain_model_address.latitude" />: {address.latitude}<br />
          </f:if>
@@ -123,9 +134,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
        </p>
 
       <f:for each="{address.socialIdentifiers}" as="identifier">
-          <div>
+          <div class="dashboard__user--social-identifier">
               <f:if condition="{identifier.provider.image}">
-                  <f:image image="{identifier.provider.image}" width="16" alt="{identifier.provider.name}"/>
+                  <f:image class="social-identifier__image {identifier.provider.name}" image="{identifier.provider.image}" width="16" alt="{identifier.provider.name}"/>
               </f:if>
               <strong>{identifier.provider.name}:</strong>
               {identifier.url}
