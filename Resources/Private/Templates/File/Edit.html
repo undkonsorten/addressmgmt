@@ -1,3 +1,4 @@
+<!--suppress HtmlRequiredLangAttribute, ConvertCommentToFluid -->
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	  xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
@@ -22,25 +23,25 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
 
 	<h1><f:translate key="editFile-{property}">Edit File</f:translate></h1>
-	
+
 	<u:titleTag>{address.fullName}</u:titleTag>
 	<f:flashMessages />
-	
+
 	<f:form action="update" class="form-stacked" arguments="{address:address,fileReference:fileReference, property:property}" name="fileMetaData" >
 		<fieldset>
-			
-			
+
+
 			<f:if condition="{property}=='images'">
 				<!-- /// IMAGE /// -->
-				<f:image width="200" src="{fileReference.uid}" treatIdAsReference="1" alt="{fileReference.originalresource.alternative}" title="{fileReference.originalresource.title}" />
+				<f:image class="address__image" width="200" src="{fileReference.uid}" treatIdAsReference="1" alt="{fileReference.originalresource.alternative}" title="{fileReference.originalresource.title}" />
 				<div>
 					<f:link.action action="delete" arguments="{address:address,fileReference:fileReference,property:property}" class="button delete"><f:translate key="delete">Delete</f:translate></f:link.action>
 					<f:link.action action="new" arguments="{address:address,fileReference:fileReference,property:property}" class="button edit"><f:translate key="change">Change</f:translate></f:link.action>
 				</div>
 				<f:render partial="File/Upload/MetaDataImage" arguments="{fileMetaData:fileMetaData,prefix:'fileMetaData'}" />
 			</f:if>
-			
-			
+
+
 			<f:if condition="{property}=='download'">
 				<!-- /// DOWNLOAD /// -->
 				<f:render partial="File/Download" arguments="{file:fileReference}" />
@@ -57,6 +58,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</div>
 		</fieldset>
 	</f:form>
-	
+
 </f:section>
 
