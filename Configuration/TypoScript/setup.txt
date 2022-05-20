@@ -34,6 +34,7 @@ plugin.tx_addressmgmt {
 			#	rootCategory = 1
 			#	orderBy = title
 			#	sorting = ASC
+			#	required = 1
 			#}
     	}
 	    recursive = {$plugin.tx_addressmgmt.settings.recursive}
