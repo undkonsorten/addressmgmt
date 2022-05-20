@@ -1,3 +1,4 @@
+<!--suppress HtmlRequiredLangAttribute -->
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
       data-namespace-typo3-fluid="true">
@@ -33,7 +34,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <f:flashMessages />
     <div class="tx-addressmgmt a{address.uid}" >
         <f:render partial="Map/ShowSingle" arguments="{address:address, contentUid:contentUid}"/>
-        <h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3>
+        <h3 class="dashboard__user--headline"><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}" />{address.title} {address.firstName} {address.Name}</h3>
 
       <f:if condition="{address.feUser}">
         <f:then><p class="dashboard__user--feusername">Frontend Username: {address.feUser.username}</p></f:then>
