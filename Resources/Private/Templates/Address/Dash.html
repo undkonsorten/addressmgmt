@@ -42,7 +42,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
       </f:if>
       <f:for each="{address.images}" as="image">
         <div>
-          <f:image class="dashboard__user--image" image="{image}" alt="image.alternative" width="100" />
+          <f:image class="dashboard__user--image" image="{image}" alt="{image.alternative}" width="100" />
           <f:link.action class="button dashboard__user--image-delete" action="delete" controller="File" arguments="{fileReference:image, address:address}"><f:translate key="image.delete" /></f:link.action>
           <f:link.action class="button dashboard__user--image-edit" action="edit" controller="File" arguments="{fileReference:image, address:address, property:'images'}"><f:translate key="image.edit" /></f:link.action>
         </div>
