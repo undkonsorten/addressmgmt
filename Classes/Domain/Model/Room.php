@@ -1,6 +1,7 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 /***************************************************************
  *
  *  Copyright notice
@@ -25,11 +26,10 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
 /**
  * Room
  */
-class Room extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class Room extends AbstractEntity {
 
 	/**
 	 * name

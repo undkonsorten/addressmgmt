@@ -2,6 +2,10 @@
 
 namespace Undkonsorten\Addressmgmt\File;
 
+use TYPO3\CMS\Core\Resource\InaccessibleFolder;
+use TYPO3\CMS\Core\Resource\Exception\InsufficientFolderAccessPermissionsException;
+use TYPO3\CMS\Core\Resource\FileInterface;
+use TYPO3\CMS\Extbase\Reflection\Exception\PropertyNotAccessibleException;
 use Exception;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileRepository;
@@ -146,8 +150,8 @@ class ResourceFactory implements SingletonInterface
 
     /**
      * @param $target
-     * @return Folder|\TYPO3\CMS\Core\Resource\InaccessibleFolder
-     * @throws \TYPO3\CMS\Core\Resource\Exception\InsufficientFolderAccessPermissionsException
+     * @return Folder|InaccessibleFolder
+     * @throws InsufficientFolderAccessPermissionsException
      */
     protected function getFolderFromTarget($target)
     {
@@ -187,8 +191,8 @@ class ResourceFactory implements SingletonInterface
      * @param FileUpload $fileUpload
      * @param Folder $folder
      * @param string $conflictMode
-     * @return File|\TYPO3\CMS\Core\Resource\FileInterface
-     * @throws \TYPO3\CMS\Extbase\Reflection\Exception\PropertyNotAccessibleException
+     * @return File|FileInterface
+     * @throws PropertyNotAccessibleException
      */
     protected function createFileFromUpload(FileUpload $fileUpload, Folder $folder, $conflictMode = 'rename')
     {
@@ -200,7 +204,7 @@ class ResourceFactory implements SingletonInterface
     /**
      * @param File $file
      * @param FileMetaData $fileMetaData
-     * @throws \TYPO3\CMS\Extbase\Reflection\Exception\PropertyNotAccessibleException
+     * @throws PropertyNotAccessibleException
      */
     public function updateFileWithMetaData(File $file, FileMetaData $fileMetaData)
     {
@@ -224,7 +228,7 @@ class ResourceFactory implements SingletonInterface
      * @param $property
      * @param null $pid
      * @return FileReference
-     * @throws \TYPO3\CMS\Extbase\Reflection\Exception\PropertyNotAccessibleException
+     * @throws PropertyNotAccessibleException
      */
     protected function createFileReference(File $file, $object, $property, $pid = NULL)
     {
@@ -246,7 +250,7 @@ class ResourceFactory implements SingletonInterface
      * @param $object
      * @param $property
      * @return array
-     * @throws \TYPO3\CMS\Extbase\Reflection\Exception\PropertyNotAccessibleException
+     * @throws PropertyNotAccessibleException
      */
     protected function getForeignParameters($object, $property)
     {
@@ -294,7 +298,7 @@ class ResourceFactory implements SingletonInterface
     /**
      * @param FileMetaData $fileMetaData
      * @param FileReference $fileReference
-     * @throws \TYPO3\CMS\Extbase\Reflection\Exception\PropertyNotAccessibleException
+     * @throws PropertyNotAccessibleException
      */
     public function updateFileMetaDataFromFileReference(FileMetaData $fileMetaData, FileReference $fileReference)
     {

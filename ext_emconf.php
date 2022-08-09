@@ -17,25 +17,16 @@ $EM_CONF[$_EXTKEY] = array(
 	'author' => 'Felix Althaus, Eike Starkmann',
 	'author_email' => 'felix.althaus@undkonsorten.com, eike.starkmann@undkonsorten.com',
 	'author_company' => 'undkonsorten, undkonsorten',
-	'shy' => '',
-	'priority' => '',
-	'module' => '',
 	'state' => 'beta',
-	'internal' => '',
-	'uploadfolder' => '0',
-	'createDirs' => '',
-	'modify_tables' => '',
-	'clearCacheOnLoad' => 0,
-	'lockType' => '',
 	'version' => '5.0.3',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '10.4.0-10.99.99',
+			'typo3' => '11.5.0-11.99.99',
 		),
 		'conflicts' => array(
 		),
 		'suggests' => array(
-            "femanager" => "6.1.1-6.99.99"
+            "femanager" => "7.0.0-7.99.99"
 		),
 	),
 );

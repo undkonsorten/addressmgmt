@@ -1,37 +1,41 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+use Undkonsorten\Addressmgmt\Service\ExtensionConfigurationService;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use Undkonsorten\Addressmgmt\Controller\AddressController;
+use Undkonsorten\Addressmgmt\Controller\FileController;
+use Undkonsorten\Addressmgmt\Controller\SocialIdentifierController;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+if (!defined('TYPO3')) {
 	die ('Access denied.');
 }
 
-$extensionConfiguration = \Undkonsorten\Addressmgmt\Service\ExtensionConfigurationService::getInstance('addressmgmt');
+$extensionConfiguration = ExtensionConfigurationService::getInstance('addressmgmt');
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Undkonsorten.addressmgmt',
+ExtensionUtility::configurePlugin(
+	'Addressmgmt',
 	'List',
 	array(
-		'Address' => 'list, show',
-        'File'  => '',
+		AddressController::class => 'list, show',
+        FileController::class  => '',
 
 	),
 	// non-cacheable actions
 	array(
-		'Address' => 'new, create, edit, update, delete',
-	    'Address' => 'dash, edit, create, new, update, handInForReview',
-	    'File'	 => 'edit, update, new, create, delete',
-	    'SocialIdentifier' => 'create, delete, update, edit'
+		AddressController::class => 'new, create, edit, update, delete, dash, handInForReview',
+	    FileController::class	 => 'edit, update, new, create, delete',
+	    SocialIdentifierController::class => 'create, delete, update, edit'
 
 	)
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+ExtensionManagementUtility::addPageTSConfig(
 		'<INCLUDE_TYPOSCRIPT: source="FILE:EXT:addressmgmt/Configuration/TsConfig/TemplateLayout.ts">'
 );
 
-$rootCategory = $extensionConfiguration->getProperty('rootCategory');
+$rootCategory = $extensionConfiguration['rootCategory'];
 $pageTsConfig = sprintf(
 		'TCEFORM.tt_content.pi_flexform.addressmgmt_list.sDEF.settings\.category.config.treeConfig.rootUid = %d' . PHP_EOL,
 		$rootCategory
 );
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig($pageTsConfig);
+ExtensionManagementUtility::addPageTSConfig($pageTsConfig);
 
-?>

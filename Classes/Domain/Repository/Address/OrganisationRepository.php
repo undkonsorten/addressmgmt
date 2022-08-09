@@ -1,6 +1,7 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Repository\Address;
 
+use Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository;
 /***************************************************************
  *  Copyright notice
  *
@@ -25,7 +26,6 @@ namespace Undkonsorten\Addressmgmt\Domain\Repository\Address;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
 /**
  *
  *
@@ -33,6 +33,6 @@ namespace Undkonsorten\Addressmgmt\Domain\Repository\Address;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class OrganisationRepository extends \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository {
+class OrganisationRepository extends AddressRepository {
 }
 ?>

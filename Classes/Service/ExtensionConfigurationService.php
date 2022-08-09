@@ -1,5 +1,6 @@
 <?php namespace Undkonsorten\Addressmgmt\Service;
 
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -29,37 +30,38 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 class ExtensionConfigurationService {
-	
+
 	/**
 	 * @var \array
 	 */
 	protected $configuration;
-	
+
 	/**
 	 * @param \string $extensionKey
 	 * @return \Undkonsorten\Publications\Service\ExtensionConfigurationService
 	 */
 	static public function getInstance($extensionKey) {
-		return GeneralUtility::makeInstance(self::class, $extensionKey);
+		return GeneralUtility::makeInstance(ExtensionConfiguration::class)
+            ->get($extensionKey);
 	}
-	
+
 	/**
 	 * @param \string $extensionKey
 	 */
 	public function __construct($extensionKey = NULL) {
 		if (!is_string($extensionKey)) {
 			$extensionKey = $this->getExtensionKeyFromNamespace();
-		} 
+		}
 		$this->load($extensionKey);
 	}
-	
+
 	/**
 	 * @param \string $extensionKey
 	 */
 	public function load($extensionKey) {
 		$this->configuration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey];
 	}
-	
+
 	/**
 	 * @param \string $propertyPath
 	 * @return \mixed
@@ -67,7 +69,7 @@ class ExtensionConfigurationService {
 	public function getProperty($propertyPath) {
 		return ObjectAccess::getPropertyPath($this->configuration, $propertyPath);
 	}
-	
+
 	protected function getExtensionKeyFromNamespace() {
 		$namespace = __NAMESPACE__;
 		$extensionName = explode('\\', $namespace)[1];

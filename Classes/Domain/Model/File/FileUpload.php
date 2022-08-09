@@ -2,6 +2,8 @@
 
 namespace Undkonsorten\Addressmgmt\Domain\Model\File;
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractValueObject;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Core\Resource\Exception\UploadException;
 
 /***************************************************************
@@ -35,7 +37,7 @@ use TYPO3\CMS\Core\Resource\Exception\UploadException;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class FileUpload extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
+class FileUpload extends AbstractValueObject
 {
 
     /**
@@ -45,7 +47,7 @@ class FileUpload extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
 
     /**
      * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+     * @Validate("NotEmpty")
      */
     protected $tmp_name;
 

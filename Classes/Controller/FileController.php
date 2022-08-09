@@ -1,6 +1,9 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
 
+use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
+use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
@@ -85,15 +88,14 @@ class FileController extends BaseController {
 
 
     /**
-	 * Add a new File
-	 *
-	 * @param Address $address
-	 * @param \string $property
-	 * @param FileReference $fileReference
-	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("$address")
-	 * 
-	 */
-	public function newAction(Address $address, $property, FileUpload $fileUpload = NULL, FileReference $fileReference = NULL){
+  * Add a new File
+  *
+  * @param Address $address
+  * @param \string $property
+  * @param FileReference $fileReference
+  * @IgnoreValidation("$address")
+  */
+ public function newAction(Address $address, $property, FileUpload $fileUpload = NULL, FileReference $fileReference = NULL): ResponseInterface{
 		if(is_null($fileUpload)) {
 			$fileUpload = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload');
 			if ('image' == $property) {
@@ -109,19 +111,19 @@ class FileController extends BaseController {
 		$this->view->assign('property', $property);
 		$this->view->assign('propertyUpload', $property."Upload");
 		$this->view->assign('fileReference', $fileReference);
+  return $this->htmlResponse();
 	}
 	
 	/**
-	 * Update an existing File
-	 *
-	 * @param Address $address
-	 * @param FileReference $fileReference
-	 * @param \string $property
-	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("$address")
-	 * @param FileMetaData $fileMetaData
-	 * 
-	 */
-	public function editAction(Address $address, FileReference $fileReference, $property, FileMetaData $fileMetaData = NULL){
+  * Update an existing File
+  *
+  * @param Address $address
+  * @param FileReference $fileReference
+  * @param \string $property
+  * @IgnoreValidation("$address")
+  * @param FileMetaData $fileMetaData
+  */
+ public function editAction(Address $address, FileReference $fileReference, $property, FileMetaData $fileMetaData = NULL): ResponseInterface{
 		if(is_null($fileMetaData)) {
 			$fileMetaData = $this->objectManager->get('Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData');
 			if(!is_null($fileReference)) {
@@ -132,6 +134,7 @@ class FileController extends BaseController {
 		$this->view->assign('address', $address);
 		$this->view->assign('property', $property);
 		$this->view->assign('fileReference', $fileReference);
+  return $this->htmlResponse();
 	}
 	
 	/**
@@ -177,7 +180,7 @@ class FileController extends BaseController {
 			$fileReference = $this->resourceFactory->uploadAndReferenceFile($fileUpload, $target, $address, $property);
 		}
 
-		$this->addFlashMessage(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0=>htmlspecialchars($fileUpload->getName()))));
+		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0=>htmlspecialchars($fileUpload->getName()))));
 		$this->redirect('dash','Address');
 	
 	}
@@ -187,7 +190,7 @@ class FileController extends BaseController {
 	 */
 	public function deleteAction(FileReference $fileReference){
 		$this->resourceFactory->deleteFileReference($fileReference);
-		$this->addFlashMessage(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0=>$fileReference->getUid())));
+		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0=>$fileReference->getUid())));
 		$this->redirect('dash','Address');
 	}
 	

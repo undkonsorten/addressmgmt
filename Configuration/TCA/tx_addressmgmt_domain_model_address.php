@@ -4,7 +4,7 @@ use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use Undkonsorten\Addressmgmt\Domain\Model\Address;
 
-if (!defined ('TYPO3_MODE')) {
+if (!defined ('TYPO3')) {
 	die ('Access denied.');
 }
 $settings = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['addressmgmt'];
@@ -18,7 +18,6 @@ $tca = [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'dividers2tabs' => TRUE,
         'default_sortby' => 'name',
 
         'versioningWS' => true,
@@ -100,23 +99,13 @@ $tca = [
         ],
 		'sys_language_uid' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
-			'config' => [
-				'type' => 'select',
-				'renderType' => 'selectSingle',
-				'foreign_table' => 'sys_language',
-				'foreign_table_where' => 'ORDER BY sys_language.title',
-				'items' => [
-					['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages', -1],
-					['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.default_value', 0]
-                ],
-                'default' => 0
-            ],
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+			'config' => ['type' => 'language'],
         ],
 		'l10n_parent' => [
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
 			    'renderType' => 'selectSingle',
@@ -133,7 +122,7 @@ $tca = [
             ],
         ],
 		't3ver_label' => [
-			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
@@ -142,7 +131,7 @@ $tca = [
         ],
 		'hidden' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
 			'config' => [
 				'type' => 'check',
             ],
@@ -150,7 +139,7 @@ $tca = [
 		'starttime' => [
 			'exclude' => 1,
 			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
 			'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -160,7 +149,7 @@ $tca = [
 		'endtime' => [
 			'exclude' => 1,
 			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
 			'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -407,18 +396,18 @@ $tca = [
 				'images',
 				[
 					'appearance' => [
-							'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+							'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
                     ],
                     'overrideChildTca' => [
                         'types' => [
                             '0' => [
                                 'showitem' => '
-                                    --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                     --palette--;;filePalette'
                             ],
                             File::FILETYPE_IMAGE => [
                                     'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
                             ],
                         ],
@@ -474,7 +463,6 @@ $tca = [
 			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.fe_user',
 			'config' => [
 				'type' => 'group',
-				'internal_type' => 'db',
 				'allowed' => 'fe_users',
 				'size' => 1,
 				'prepend_tname' => FALSE,
@@ -483,7 +471,7 @@ $tca = [
                 'fieldControl' => [
                     'addRecord' => [
                         'options' => [
-                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.createNew',
+                            'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.createNew',
                             'table' => 'fe_users',
                             'pid' => '###CURRENT_PID###',
                             'setValue' => 'prepend'
@@ -492,7 +480,7 @@ $tca = [
                     'editPopup' => [
                         'disabled' => false,
                         'options' => [
-                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.edit',
+                            'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.edit',
                             'windowOpenParameters' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
                         ]
                     ]
@@ -523,7 +511,7 @@ $tca = [
                 'fieldControl' => [
                     'addRecord' => [
                         'options' => [
-                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.createNew',
+                            'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.createNew',
                             'table' => 'fe_users',
                             'pid' => '###CURRENT_PID###',
                             'setValue' => 'prepend'

@@ -2,6 +2,7 @@
 
 namespace Undkonsorten\Addressmgmt\Service;
 
+use TYPO3\CMS\Extbase\Persistence\Generic\Exception\TooDirtyException;
 use Undkonsorten\Addressmgmt\Domain\Model\Address;
 
 /***************************************************************
@@ -60,7 +61,7 @@ class AddressLocatorService
      * Updates coordinates of a given address if necessary / indicated
      *
      * @param Address $address
-     * @throws \TYPO3\CMS\Extbase\Persistence\Generic\Exception\TooDirtyException
+     * @throws TooDirtyException
      */
     public function updateCoordinates(Address $address)
     {
@@ -76,7 +77,7 @@ class AddressLocatorService
      * @param Address $address
      * @param array $propertiesToConsider
      * @return bool
-     * @throws \TYPO3\CMS\Extbase\Persistence\Generic\Exception\TooDirtyException
+     * @throws TooDirtyException
      */
     protected function shouldUpdateCoordinates(
         Address $address,

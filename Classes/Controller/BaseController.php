@@ -1,5 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -40,9 +41,9 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 class BaseController extends ActionController {
 
 	/**
-	 * @var \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
-	 */
-	protected $typoScriptFrontendController;
+  * @var TypoScriptFrontendController
+  */
+ protected $typoScriptFrontendController;
 
     /**
      * @var FrontendUserRepository
@@ -64,9 +65,9 @@ class BaseController extends ActionController {
 	}
 
 	/**
-	* @return \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
-	*/
-	protected function getTyposcriptFrontendController() {
+  * @return TypoScriptFrontendController
+  */
+ protected function getTyposcriptFrontendController() {
 		if (is_null($this->typoScriptFrontendController)) {
 			$this->typoScriptFrontendController = $GLOBALS['TSFE'];
 		}
@@ -200,11 +201,11 @@ class BaseController extends ActionController {
 	}
 
 	/**
-	 * Return logged in frontend user, if any, NULL otherwise
-	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
-	 */
-	protected function getLoggedInFrontendUser() {
+  * Return logged in frontend user, if any, NULL otherwise
+  *
+  * @return FrontendUser
+  */
+ protected function getLoggedInFrontendUser() {
 	    /** @var FrontendUser $frontendUser */
 	    $frontendUser = NULL;
 	    $user = $GLOBALS['TSFE']->fe_user->user;
