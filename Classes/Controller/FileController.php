@@ -86,6 +86,12 @@ class FileController extends BaseController {
         $this->addressRepository = $addressRepository;
     }
 
+    public function initializeCreateAction()
+    {
+        if ($this->arguments->hasArgument('address')) {
+            $this->arguments->getArgument('address')->getPropertyMappingConfiguration()->forProperty('imagesUpload')->skipProperties('full_path');
+        }
+    }
 
     /**
   * Add a new File
@@ -102,10 +108,10 @@ class FileController extends BaseController {
 				$fileUpload->getFileMetaData()->setAlternative($address->getFullName());
 			}
 			if(!is_null($fileReference)) {
-				$this->resourceFactory->updateFileMetaDataFromFileReference($fileUpload->getFileMetaData(), $fileReference);	
+				$this->resourceFactory->updateFileMetaDataFromFileReference($fileUpload->getFileMetaData(), $fileReference);
 			}
 		}
-		
+
 		$this->view->assign('fileUpload', $fileUpload);
 		$this->view->assign('address', $address);
 		$this->view->assign('property', $property);
@@ -113,7 +119,7 @@ class FileController extends BaseController {
 		$this->view->assign('fileReference', $fileReference);
   return $this->htmlResponse();
 	}
-	
+
 	/**
   * Update an existing File
   *
@@ -136,7 +142,7 @@ class FileController extends BaseController {
 		$this->view->assign('fileReference', $fileReference);
   return $this->htmlResponse();
 	}
-	
+
 	/**
 	 *
 	 * @param Address $address
@@ -173,7 +179,7 @@ class FileController extends BaseController {
 			throw new \Exception('cant find upload property ' . $propertyUpload);
 		}
 		$fileUpload = ObjectAccess::getProperty($address, $propertyUpload);
-		
+
 		if(!is_null($fileReference)){
 			$fileReference = $this->resourceFactory->replaceFileReferenceByUploadedFile($fileUpload, $target, $fileReference, $address, $property);
 		} else {
@@ -182,7 +188,7 @@ class FileController extends BaseController {
 
 		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0=>htmlspecialchars($fileUpload->getName()))));
 		$this->redirect('dash','Address');
-	
+
 	}
 	/**
 	 *
@@ -193,7 +199,7 @@ class FileController extends BaseController {
 		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0=>$fileReference->getUid())));
 		$this->redirect('dash','Address');
 	}
-	
+
 	protected function getErrorFlashMessage(){
 		$message = array();
 		foreach ($this->arguments->validate()->getFlattenedErrors() as $propertyPath => $errors) {
@@ -203,6 +209,6 @@ class FileController extends BaseController {
 		}
 		return $message;
 	}
-		
+
 
 }
