@@ -22,9 +22,7 @@ ExtensionUtility::configurePlugin(
 	// non-cacheable actions
 	array(
 		AddressController::class => 'new, create, edit, update, delete, dash, handInForReview',
-	    FileController::class	 => 'edit, update, new, create, delete',
-	    SocialIdentifierController::class => 'create, delete, update, edit'
-
+	    FileController::class	 => 'edit, update, new, create, delete'
 	)
 );
 

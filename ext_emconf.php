@@ -12,13 +12,13 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Address Management',
-	'description' => 'Keep track of all types of addressal records',
+	'description' => 'Keep track of all types of addressable records',
 	'category' => 'plugin',
 	'author' => 'Felix Althaus, Eike Starkmann',
 	'author_email' => 'felix.althaus@undkonsorten.com, eike.starkmann@undkonsorten.com',
 	'author_company' => 'undkonsorten, undkonsorten',
-	'state' => 'beta',
-	'version' => '5.0.3',
+	'state' => 'stable',
+	'version' => '6.0.0',
 	'constraints' => array(
 		'depends' => array(
 			'typo3' => '11.5.0-11.99.99',
