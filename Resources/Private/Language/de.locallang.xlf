@@ -1,344 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:addressmgmt/Resources/Private/Language/locallang.xlf" date="2021-05-10T10:10:52Z" product-name="addressmgmt">
-		<header/>
-		<body>
-			<trans-unit id="tx_addressmgmt_domain_model_address" resname="tx_addressmgmt_domain_model_address">
-				<source>Address records</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.address" resname="tx_addressmgmt_domain_model_address.address">
-				<source>Address</source>
-				<target>Adresse</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.first_name" resname="tx_addressmgmt_domain_model_address.first_name">
-				<source>First name</source>
-				<target>Vorname</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.name" resname="tx_addressmgmt_domain_model_address.name">
-				<source>Name</source>
-				<target>Name</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.gender" resname="tx_addressmgmt_domain_model_address.gender">
-				<source>Gender</source>
-				<target>Anrede</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.title" resname="tx_addressmgmt_domain_model_address.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.organization" resname="tx_addressmgmt_domain_model_address.organization">
-				<source>Organization</source>
-				<target>Organisation</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.department" resname="tx_addressmgmt_domain_model_address.department">
-				<source>Department</source>
-				<target>Abteilung</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.street" resname="tx_addressmgmt_domain_model_address.street">
-				<source>Street</source>
-				<target>Straße</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.street_number" resname="tx_addressmgmt_domain_model_address.street_number">
-				<source>Street number</source>
-				<target>Hausnummer</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.address_supplement" resname="tx_addressmgmt_domain_model_address.address_supplement">
-				<source>Address supplement</source>
-				<target>Adresszusatz</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.city" resname="tx_addressmgmt_domain_model_address.city">
-				<source>City</source>
-				<target>Stadt</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.zip" resname="tx_addressmgmt_domain_model_address.zip">
-				<source>Zip</source>
-				<target>PLZ</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.country" resname="tx_addressmgmt_domain_model_address.country">
-				<source>Country</source>
-				<target>Land</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.state" resname="tx_addressmgmt_domain_model_address.state">
-				<source>State</source>
-				<target>Bundesland</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.closest_city" resname="tx_addressmgmt_domain_model_address.closest_city">
-				<source>Closest city</source>
-				<target>Nächstgrößere Stadt</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.link" resname="tx_addressmgmt_domain_model_address.link">
-				<source>Link</source>
-				<target>Link</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.email" resname="tx_addressmgmt_domain_model_address.email">
-				<source>Email</source>
-				<target>E-Mail</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.phone" resname="tx_addressmgmt_domain_model_address.phone">
-				<source>Phone</source>
-				<target>Telefon</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.mobile" resname="tx_addressmgmt_domain_model_address.mobile">
-				<source>Mobile</source>
-				<target>Mobil</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.fax" resname="tx_addressmgmt_domain_model_address.fax">
-				<source>Fax</source>
-				<target>Fax</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.www.text" resname="tx_addressmgmt_domain_model_address.www.text">
-				<source>Link text</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.www.link" resname="tx_addressmgmt_domain_model_address.www.link">
-				<source>Link</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.description" resname="tx_addressmgmt_domain_model_address.description">
-				<source>Description</source>
-				<target>Beschreibung</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.directions" resname="tx_addressmgmt_domain_model_address.directions">
-				<source>Directions</source>
-				<target>Anfahrt</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.images" resname="tx_addressmgmt_domain_model_address.images">
-				<source>Images</source>
-				<target>Bilder</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.latitude" resname="tx_addressmgmt_domain_model_address.latitude">
-				<source>Latitude</source>
-				<target>Breitengrad</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.longitude" resname="tx_addressmgmt_domain_model_address.longitude">
-				<source>Longitude</source>
-				<target>Längengrad</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.geojson" resname="tx_addressmgmt_domain_model_address.geojson">
-				<source>Geo JSON</source>
-				<target>Geo-JSON</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.fe_user" resname="tx_addressmgmt_domain_model_address.fe_user">
-				<source>Username</source>
-				<target>Login-Name</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.counterpart" resname="tx_addressmgmt_domain_model_address.counterpart">
-				<source>Counterpart</source>
-				<target>Ansprechpartner</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.social_identifiers" resname="tx_addressmgmt_domain_model_address.social_identifiers">
-				<source>SocialIdentifiers</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier" resname="tx_addressmgmt_domain_model_socialidentifier">
-				<source>SocialIdentifier</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.identifier" resname="tx_addressmgmt_domain_model_socialidentifier.identifier">
-				<source>Identifier</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.url_override" resname="tx_addressmgmt_domain_model_socialidentifier.url_override">
-				<source>Url override</source>
-				<target>Url überschreiben</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialidentifier.provider" resname="tx_addressmgmt_domain_model_socialidentifier.provider">
-				<source>Provider</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider" resname="tx_addressmgmt_domain_model_socialprovider">
-				<source>SocialProvider</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.name" resname="tx_addressmgmt_domain_model_socialprovider.name">
-				<source>Name</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.url_scheme" resname="tx_addressmgmt_domain_model_socialprovider.url_scheme">
-				<source>Url scheme</source>
-				<target>Url Schema</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.www" resname="tx_addressmgmt_domain_model_socialprovider.www">
-				<source>Www</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_socialprovider.image" resname="tx_addressmgmt_domain_model_socialprovider.image">
-				<source>Image</source>
-				<target>Bild</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.1" resname="tx_addressmgmt_domain_model_address.1">
-				<source>Mrs.</source>
-				<target>Frau</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.2" resname="tx_addressmgmt_domain_model_address.2">
-				<source>Mr.</source>
-				<target>Herr</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.3" resname="tx_addressmgmt_domain_model_address.3">
-				<source>Other</source>
-				<target>Andere</target>
-			</trans-unit>
-			<trans-unit id="list.emptyList" resname="list.emptyList">
-				<source>No result</source>
-				<target>Keine Ergebnisse</target>
-			</trans-unit>
-			<trans-unit id="addressmgmt.read-more-link" resname="addressmgmt.read-more-link">
-				<source>read more</source>
-				<target>mehr</target>
-			</trans-unit>
-			<trans-unit id="addressmgmt.show-more" resname="addressmgmt.show-more">
-				<source>show more</source>
-				<target>mehr zeigen</target>
-			</trans-unit>
-			<trans-unit id="addressmgmt.show-less" resname="addressmgmt.show-less">
-				<source>show less</source>
-				<target>weniger zeigen</target>
-			</trans-unit>
-			<trans-unit id="form.save" resname="form.save">
-				<source>Save</source>
-				<target>Speichern</target>
-			</trans-unit>
-			<trans-unit id="form.create" resname="form.create">
-				<source>Create</source>
-				<target>Erstellen</target>
-			</trans-unit>
-			<trans-unit id="form.cancel" resname="form.cancel">
-				<source>Cancel</source>
-				<target>Abbrechen</target>
-			</trans-unit>
-			<trans-unit id="form.newImage" resname="form.newImage">
-				<source>New Image</source>
-				<target>Neue Bilder</target>
-			</trans-unit>
-			<trans-unit id="form.publishMyData" resname="form.publishMyData">
-				<source>Publish my data</source>
-				<target>Daten veröffentlichen</target>
-			</trans-unit>
-			<trans-unit id="form.editProfile" resname="form.editProfile">
-				<source>Edit Profile</source>
-				<target>Profil bearbeiten</target>
-			</trans-unit>
-			<trans-unit id="form.newType" resname="form.newType">
-				<source>Create new %s</source>
-				<target>Neuen Typ %s erstellen</target>
-			</trans-unit>
-			<trans-unit id="a-zlist.showAll" resname="a-zlist.showAll">
-				<source>show all</source>
-				<target>Alle</target>
-			</trans-unit>
-			<trans-unit id="flashMessage.createFile" resname="flashMessage.createFile">
-				<source>The file &quot;%s&quot; was uploaded</source>
-				<target>Die Datei %s wurde hochgeladen</target>
-			</trans-unit>
-			<trans-unit id="flashMessage.deleteFile" resname="flashMessage.deleteFile">
-				<source>The file reference &quot;%s&quot; has been deleted</source>
-				<target>Die Datei %s wurde gelöscht</target>
-			</trans-unit>
-			<trans-unit id="formfield.options.gender.0" resname="formfield.options.gender.0">
-				<source>Please choose</source>
-				<target>Bitte wählen</target>
-			</trans-unit>
-			<trans-unit id="formfield.options.gender.1" resname="formfield.options.gender.1">
-				<source>Miss</source>
-				<target>Frau</target>
-			</trans-unit>
-			<trans-unit id="formfield.options.gender.2" resname="formfield.options.gender.2">
-				<source>Sir</source>
-				<target>Herr</target>
-			</trans-unit>
-			<trans-unit id="formfield.options.gender.3" resname="formfield.options.gender.3">
-				<source>Other</source>
-				<target>Andere</target>
-			</trans-unit>
-			<trans-unit id="flashMessage.handInForReview" resname="flashMessage.handInForReview">
-				<source>Data are transmitted for review</source>
-				<target>Daten wurden zur Prüfung übermittelt</target>
-			</trans-unit>
-			<trans-unit id="flashMessage.created" resname="flashMessage.created">
-				<source>Created</source>
-				<target>Erstellt</target>
-			</trans-unit>
-			<trans-unit id="flashMessage.updated" resname="flashMessage.updated">
-				<source>Updated</source>
-				<target>Aktualisiert</target>
-			</trans-unit>
-			<trans-unit id="upload.upload-images" resname="upload.upload-images">
-				<source>Upload image</source>
-				<target>Bild hochladen</target>
-			</trans-unit>
-			<trans-unit id="upload.helpTextAllowedFiletypes" resname="upload.helpTextAllowedFiletypes">
-				<source>Allowed filetyles are: pdf, jpg, png, gif</source>
-				<target>Erlaubte Dateitypen: pdf, jpg, png, gif</target>
-			</trans-unit>
-			<trans-unit id="upload.altTextImage" resname="upload.altTextImage">
-				<source>Alternative text for the image</source>
-				<target>Alternativer Bildtext</target>
-			</trans-unit>
-			<trans-unit id="download.title" resname="download.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-			<trans-unit id="download.fileDescription" resname="download.fileDescription">
-				<source>File description</source>
-				<target></target>
-			</trans-unit>
-			<trans-unit id="addressmgmt.submitButton" resname="addressmgmt.submitButton">
-				<source>Filter now</source>
-				<target>Jetzt filtern</target>
-			</trans-unit>
-			<trans-unit id="addressmgmt.resetButton" resname="addressmgmt.resetButton">
-				<source>Reset form</source>
-				<target>Zurücksetzen</target>
-			</trans-unit>
-			<trans-unit id="addressmgmt.linktextA-z" resname="addressmgmt.linktextA-z">
-				<source>List from A-Z</source>
-				<target>Liste von A-Z</target>
-			</trans-unit>
-			<trans-unit id="addressmgmt.updateMap" resname="addressmgmt.updateMap">
-				<source>Map updated</source>
-				<target>Karte aktualisiert</target>
-			</trans-unit>
-			<trans-unit id="addressmgmt.label.contactdata" resname="addressmgmt.label.contactdata">
-				<source>Contact</source>
-				<target>Kontakt</target>
-			</trans-unit>
-			<trans-unit id="addressmgmt.label.counterpart" resname="addressmgmt.label.counterpart">
-				<source>Counterpart</source>
-				<target>Ansprechpartner</target>
-			</trans-unit>
-			<trans-unit id="edit.category.choose" resname="edit.category.choose">
-				<source>Please choose</source>
-				<target>Bitte auswählen</target>
-			</trans-unit>
-			<trans-unit id="form.filter.category.choose" resname="form.filter.category.choose">
-				<source>Please choose…</source>
-				<target>Bitte wählen…</target>
-			</trans-unit>
-			<trans-unit id="image.delete" resname="image.delete">
-				<source>Delete</source>
-				<target>Löschen</target>
-			</trans-unit>
-			<trans-unit id="image.edit" resname="image.edit">
-				<source>Edit</source>
-				<target>Bearbeiten</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.www" resname="tx_addressmgmt_domain_model_address.www">
-				<source>Website</source>
-				<target>Internetseite</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.image" resname="tx_addressmgmt_domain_model_address.image">
-				<source>Image</source>
-				<target>Bild</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.gps" resname="tx_addressmgmt_domain_model_address.gps">
-				<source>GPS coordinates</source>
-				<target>GPS Koordinaten</target>
-			</trans-unit>
-			<trans-unit id="tx_addressmgmt_domain_model_address.username" resname="tx_addressmgmt_domain_model_address.username">
-				<source>Username</source>
-				<target>Benutzername</target>
-			</trans-unit>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:addressmgmt/Resources/Private/Language/locallang.xlf" date="2021-05-10T10:10:52Z" product-name="addressmgmt" target-language="de">
+    <header/>
+    <body>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		</body>
-	</file>
+  </file>
 </xliff>
