@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf" date="2021-05-10T09:41:33Z" product-name="addressmgmt" target-language="es-ES">
+    <header/>
+    <body>
+      <trans-unit id="tx_addressmgmt_domain_model_address.gender_female" resname="tx_addressmgmt_domain_model_address.gender_female">
+        <source/>
+      </trans-unit>
+      <trans-unit id="tx_addressmgmt_domain_model_address.gender_male" resname="tx_addressmgmt_domain_model_address.gender_male">
+        <source/>
+      </trans-unit>
+      <trans-unit id="tx_addressmgmt_domain_model_address.gender_other" resname="tx_addressmgmt_domain_model_address.gender_other">
+        <source/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
