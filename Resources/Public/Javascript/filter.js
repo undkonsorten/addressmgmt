@@ -1,5 +1,4 @@
 jQuery(function($) {
-
   // fix error in IE 11: Object doesn't support this action
   // on line 92/93: $mapElement[0].dispatchEvent(new Event('update-list'))
   // https://stackoverflow.com/questions/26596123/internet-explorer-9-10-11-event-constructor-doesnt-work
@@ -60,7 +59,7 @@ jQuery(function($) {
     });
     $resultList.find($itemSelector).each(function () {
       if(filterArray.length > 0) {
-        for(i=0; i<filterArray.length;i++) {
+        for(i=0; i<filterArray.length;i++) {      
           if (filterArray[i] != 0 && $.inArray(filterArray[i], $(this).data('filter')) < 0) {
             $(this).hide().addClass('hide').removeClass('visible');
             break;
@@ -88,15 +87,31 @@ jQuery(function($) {
     }
     $listItems.addClass('filter-list-items');
     $resultList = $('.filter-list-items'); // repeat search now that the class is updated
-    var $itemsCategories = $('.module-list-item.address .categories');
+    var $itemsCategories = $('.category');
+
     $itemsCategories.each(function() {
       // add filter data to each list item based on their category
       var optionText = $(this).text(),
         $option = $form.find('select option:contains("' + optionText + '")'),
         filterValue = [parseInt($option.val())],
         $item = $(this).parents('.address');
+
       $item.addClass('filter-list-item');
+
+      var CurrFilter = [];
+      
+      if ($item.data('filter') !== undefined) {
+        CurrFilter = $item.data('filter');
+      }
+      
+        if(CurrFilter.length > 0) {
+            for(i=0; i < CurrFilter.length; i++) {
+                filterValue.push(CurrFilter[i]);
+            }
+        }
+
       $item.data('filter', filterValue);
+      
     });
   }
 
