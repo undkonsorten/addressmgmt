@@ -141,6 +141,29 @@ jQuery(function($) {
       form[0].reset();
       form.submit();
     });
+
+    form.find('select').on('change', function (e) {
+      e.preventDefault();
+      checkSearchForm(form);
+      if (!$mapElement.length) {
+        return;
+      }
+      $($statusSelector).show();
+      setTimeout(function () {
+        $($statusSelector).hide();
+       }, 600);
+       $mapElement[0].dispatchEvent(new CustomEvent('update-list'));
+       $mapElement[0].dispatchEvent(new CustomEvent('fitbounds'));
+      // animate scrolling on submit to target on form element
+      target = form[0].target;
+      if ($(target).length) {
+        $('html, body').animate({
+         scrollTop: $(target).offset().top
+        }, 500);
+        return false;
+      }
+    });
+
   });
   if($($noResultsSelector).length && $mapElement.length) {
     $($noResultsSelector).appendTo($mapElement);
