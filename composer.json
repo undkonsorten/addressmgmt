@@ -28,7 +28,7 @@
     ],
     "keywords": ["address", "TYPO3", "contacts"],
     "require": {
-        "typo3/cms-core": "^11.5"
+        "typo3/cms-core": "^11.5 || ^12.4"
     },
     "suggest": {
         "in2code/femanager": "^7.0"
