@@ -7,14 +7,14 @@ use Undkonsorten\Addressmgmt\Domain\Model\Address;
 if (!defined ('TYPO3')) {
 	die ('Access denied.');
 }
-$settings = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['addressmgmt'];
+$settings = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['addressmgmt'] ?? [];
 $tca = [
     'ctrl' => [
         'type' => 'type',
         'title'	=> 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address',
         'label' => 'name',
         'label_alt' => 'first_name',
-        'label_alt_force' => TRUE,
+        'label_alt_force' => TRUE,#
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -510,7 +510,7 @@ $tca = [
                 'renderMode' => 'tree',
                 'treeConfig' => [
                         'parentField' => 'parent',
-                        'rootUid' => $settings['rootCategory'],
+                        'rootUid' => $settings['rootCategory'] ?? '',
                         'appearance' => [
                                 'expandAll' => TRUE,
                                 'showHeader' => TRUE,
@@ -579,7 +579,7 @@ $tca = [
     ],
 ];
 
-if(!$settings['feUserRelation']) {
+if(isset($settings['feUserRelation']) && !$settings['feUserRelation']) {
 	$GLOBALS['TCA']['tx_addressmgmt_domain_model_address']['columns']['fe_user'] = array(
 		'exclude' => 1,
 		'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.fe_user',

@@ -57,7 +57,7 @@ class ExtensionConfigurationService {
 	 * @param \string $extensionKey
 	 */
 	public function load($extensionKey) {
-		$this->configuration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey];
+		$this->configuration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey] ?? [];
 	}
 	
 	/**
