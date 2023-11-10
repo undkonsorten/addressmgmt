@@ -63,6 +63,9 @@
         "typo3/cms": {
             "extension-key": "addressmgmt",
             "web-dir": ".Build/Web"
+        },
+        "branch-alias":{
+            "dev-main": "6.0.x-dev"
         }
     },
     "require-dev": {
