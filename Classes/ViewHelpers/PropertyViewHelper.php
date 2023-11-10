@@ -1,7 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***************************************************************
@@ -28,7 +27,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-class PropertyViewHelper extends AbstractViewHelper {
+class PropertyViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
 
     /**
      * Arguments initialization

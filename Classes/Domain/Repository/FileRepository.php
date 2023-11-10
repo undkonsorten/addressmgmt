@@ -1,7 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Repository;
 
-use TYPO3\CMS\Core\Resource\File;
 /***************************************************************
  *  Copyright notice
  *
@@ -25,6 +24,7 @@ use TYPO3\CMS\Core\Resource\File;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  *
  *
@@ -32,44 +32,45 @@ use TYPO3\CMS\Core\Resource\File;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
+
 class FileRepository {
 	
 	/**
-  * add method isn't implemented, use resourceFactory instead
-  *
-  * @param File $file
-  * @throws \BadMethodCallException
-  */
- public function add(File $file) {
+	 * add method isn't implemented, use resourceFactory instead
+	 * 
+	 * @param \TYPO3\CMS\Core\Resource\File $file
+	 * @throws \BadMethodCallException
+	 */
+	public function add(\TYPO3\CMS\Core\Resource\File $file) {
 		throw new \BadMethodCallException('Use resourceFactory to add uploaded file', 1383232691);
 	}
 	
 	/**
-  * updates a file
-  *
-  * @param File $file
-  * @return void
-  */
- public function update(File $file) {
+	 * updates a file
+	 * 
+	 * @param \TYPO3\CMS\Core\Resource\File $file
+	 * @return void
+	 */
+	public function update(\TYPO3\CMS\Core\Resource\File $file) {
 		//@TODO implement, use FileRepository
 	}
 	
 	/**
-  * Deletes a file from persistence
-  *
-  * @param File $file
-  */
- public function delete(File $file) {
+	 * Deletes a file from persistence
+	 * 
+	 * @param \TYPO3\CMS\Core\Resource\File $file
+	 */
+	public function delete(\TYPO3\CMS\Core\Resource\File $file) {
 		//@TODO implement, check for existing references pointing to file first
 	}
 	
 	/**
-  * finds a file by uid 
-  *
-  * @param \integer $uid
-  * @return File
-  */
- public function findByUid($uid) {
+	 * finds a file by uid 
+	 * 
+	 * @param \integer $uid
+	 * @return \TYPO3\CMS\Core\Resource\File
+	 */
+	public function findByUid($uid) {
 		// @TODO implement
 	}
 	

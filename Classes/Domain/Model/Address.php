@@ -1,11 +1,5 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Extbase\Annotation\Validate;
-use Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload;
-use TYPO3\CMS\Extbase\Domain\Model\FrontendUser;
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use Undkonsorten\Addressmgmt\Utility\StringUtility;
@@ -15,7 +9,7 @@ use Undkonsorten\Addressmgmt\Utility\StringUtility;
  *
  *  (c) 2013 Felix Althaus <felix.althaus@undkonsorten.com>, undkonsorten
  *  Eike Starkmann <eike.starkmann@undkonsorten.com>, undkonsorten
- *
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -43,7 +37,7 @@ use Undkonsorten\Addressmgmt\Utility\StringUtility;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-abstract class Address extends AbstractEntity implements AddressInterface {
+abstract class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements AddressInterface {
 
     const FIRST_LETTER_MISC = '#';
 
@@ -61,13 +55,13 @@ abstract class Address extends AbstractEntity implements AddressInterface {
      * @var integer
      */
 	protected $publishState;
-
+	
 	/**
-  *
-  * @var ObjectStorage<Category>
-  */
- protected $category;
-
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 */
+	protected $category;
+	
 	/**
 	 * type
 	 *
@@ -76,13 +70,13 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	protected $type;
 
 	/**
-  * name
-  *
-  * @var \string
-  * @Validate("NotEmpty")
-  */
- protected $name;
-
+	 * name
+	 *
+	 * @var \string
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+	 */
+	protected $name;
+	
 	/**
 	 * map zoom
 	 *
@@ -117,13 +111,13 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	 * @var \string
 	 */
 	protected $streetNumber;
-
+	
 	/**
-  * The link to the event page
-  *
-  * @var Link
-  */
- protected $link;
+	 * The link to the event page
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Link
+	 */
+	protected $link;
 
 	/**
 	 * addressSupplement
@@ -196,11 +190,11 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	protected $fax;
 
 	/**
-  * www
-  *
-  * @var Link
-  */
- protected $www;
+	 * www
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Link
+	 */
+	protected $www;
 
 	/**
 	 * description
@@ -208,7 +202,7 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	 * @var \string
 	 */
 	protected $description;
-
+	
 	/**
 	 * directions
 	 *
@@ -217,56 +211,56 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	protected $directions;
 
 	/**
-  * image
-  *
-  * @var ObjectStorage<FileReference>
-  */
- protected $images = NULL;
-
+	 * image
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+	 */
+	protected $images = NULL;
+	
 	/**
-  * Downloads
-  *
-  * @var FileUpload
-  */
- protected $imagesUpload;
+	 * Downloads
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload
+	 */
+	protected $imagesUpload;
 
 	/**
 	 * latitude
 	 *
 	 * @var \string
 	 */
-	protected $latitude = '';
+	protected $latitude;
 
 	/**
 	 * longitude
 	 *
 	 * @var \string
 	 */
-	protected $longitude = '';
-
+	protected $longitude;
+	
 	/**
-	 *
+	 * 
 	 * @var \string $geojson
 	 */
 	protected $geojson;
 
 	/**
-  * feUser
-  *
-  * @var FrontendUser
-  */
- protected $feUser = NULL;
-
-	/**
-  * socialIdentifiers
-  *
-  * @var ObjectStorage<SocialIdentifier>
-  * @Lazy
-  */
- protected $socialIdentifiers;
-
-	/**
+	 * feUser
 	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
+	 */
+	protected $feUser = NULL;
+
+	/**
+	 * socialIdentifiers
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	 */
+	protected $socialIdentifiers;
+	
+	/**
+	 * 
 	 * @var string $counterpart
 	 */
 	protected $counterpart;
@@ -292,37 +286,37 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
-		$this->socialIdentifiers = new ObjectStorage();
+		$this->socialIdentifiers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
-
+	
 	/**
 	 * String representation of address
-	 *
+	 * 
 	 * @return \string
 	 */
 	public function __toString() {
 		return $this->getFullName();
 	}
-
+	
 	/**
 	 * Returns the type
-	 *
+	 * 
 	 * @return \string
 	 */
 	public function getType() {
 		return $this->type;
 	}
-
+	
 	/**
 	 * Sets the type
-	 *
+	 * 
 	 * @param \string $type
 	 * @return void
 	 */
 	public function setType($type) {
 		$this->type = $type;
 	}
-
+	
 	/**
 	 * Returns the Name
 	 *
@@ -344,7 +338,7 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 
 	/**
 	 * return full name
-	 *
+	 * 
 	 * @return \string
 	 */
 	public function getFullName() {
@@ -618,21 +612,21 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	}
 
 	/**
-  * Returns the www
-  *
-  * @return Link $www
-  */
- public function getWww() {
+	 * Returns the www
+	 *
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Link $www
+	 */
+	public function getWww() {
 		return $this->www;
 	}
 
 	/**
-  * Sets the www
-  *
-  * @param Link $www
-  * @return void
-  */
- public function setWww($www) {
+	 * Sets the www
+	 *
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Link $www
+	 * @return void
+	 */
+	public function setWww($www) {
 		$this->www = $www;
 	}
 
@@ -656,7 +650,7 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	}
 
     /**
-     * @return ObjectStorage
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
      */
     public function getImages()
     {
@@ -664,9 +658,9 @@ abstract class Address extends AbstractEntity implements AddressInterface {
     }
 
     /**
-     * @param ObjectStorage $images
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $images
      */
-    public function setImages(ObjectStorage $images)
+    public function setImages(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $images)
     {
         $this->images = $images;
     }
@@ -680,10 +674,10 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 }
 
 
-
+	
 	/**
 	 * Coordinates as array of floats
-	 *
+	 * 
 	 * @return array<float>
 	 */
 	public function getCoordinates() {
@@ -732,114 +726,115 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	}
 
 	/**
-  * Returns the feUser
-  *
-  * @return FrontendUser $feUser
-  */
- public function getFeUser() {
+	 * Returns the feUser
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser $feUser
+	 */
+	public function getFeUser() {
 		return $this->feUser;
 	}
 
 	/**
-  * Sets the feUser
-  *
-  * @param FrontendUser $feUser
-  * @return void
-  */
- public function setFeUser(FrontendUser $feUser) {
+	 * Sets the feUser
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FrontendUser $feUser
+	 * @return void
+	 */
+	public function setFeUser(\TYPO3\CMS\Extbase\Domain\Model\FrontendUser $feUser) {
 		$this->feUser = $feUser;
 	}
 
 	/**
-  * Adds a SocialIdentifier
-  *
-  * @param SocialIdentifier $socialIdentifier
-  * @return void
-  */
- public function addSocialIdentifier(SocialIdentifier $socialIdentifier) {
+	 * Adds a SocialIdentifier
+	 *
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier $socialIdentifier
+	 * @return void
+	 */
+	public function addSocialIdentifier(\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier $socialIdentifier) {
 		$this->socialIdentifiers->attach($socialIdentifier);
 	}
 
 	/**
-  * Removes a SocialIdentifier
-  *
-  * @param SocialIdentifier $socialIdentifierToRemove The SocialIdentifier to be removed
-  * @return void
-  */
- public function removeSocialIdentifier(SocialIdentifier $socialIdentifierToRemove) {
+	 * Removes a SocialIdentifier
+	 *
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier $socialIdentifierToRemove The SocialIdentifier to be removed
+	 * @return void
+	 */
+	public function removeSocialIdentifier(\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier $socialIdentifierToRemove) {
 		$this->socialIdentifiers->detach($socialIdentifierToRemove);
 	}
 
 	/**
-  * Returns the socialIdentifiers
-  *
-  * @return ObjectStorage<SocialIdentifier> $socialIdentifiers
-  */
- public function getSocialIdentifiers() {
+	 * Returns the socialIdentifiers
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier> $socialIdentifiers
+	 */
+	public function getSocialIdentifiers() {
 		return $this->socialIdentifiers;
 	}
 
 	/**
-  * Sets the socialIdentifiers
-  *
-  * @param ObjectStorage<SocialIdentifier> $socialIdentifiers
-  * @return void
-  */
- public function setSocialIdentifiers(ObjectStorage $socialIdentifiers) {
+	 * Sets the socialIdentifiers
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier> $socialIdentifiers
+	 * @return void
+	 */
+	public function setSocialIdentifiers(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $socialIdentifiers) {
 		$this->socialIdentifiers = $socialIdentifiers;
 	}
-
+	
 	/**
-  * Returns the link
-  *
-  * @return Link $link
-  */
- public function getLink() {
+	 * Returns the link
+	 *
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Link $link
+	 */
+	public function getLink() {
 		return $this->link;
 	}
-
+	
 	/**
-  * Sets the link
-  *
-  * @param Link $link
-  * @return void
-  */
- public function setLink(Link $link) {
+	 * Sets the link
+	 *
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Link $link
+	 * @return void
+	 */
+	public function setLink(\Undkonsorten\Addressmgmt\Domain\Model\Link $link) {
 		$this->link = $link;
 	}
-
+	
 	/**
-	 *
+	 * 
 	 * @return integer
 	 */
 	public function getMapZoom() {
 		return $this->mapZoom;
 	}
-
+	
 	/**
-	 *
+	 * 
 	 * @param integer $mapZoom
 	 */
 	public function setMapZoom($mapZoom) {
 		$this->mapZoom = $mapZoom;
 	}
-
+	
 	/**
-  *
-  * @return ObjectStorage<Category>
-  */
- public function getCategory() {
+	 * 
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 */
+	public function getCategory() {
 		return $this->category;
 	}
-
+	
 	/**
-  *
-  * @param ObjectStorage $category
-  */
- public function setCategory(ObjectStorage $category) {
+	 * 
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $category
+	 * 
+	 */
+	public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category) {
 		$this->category = $category;
 	}
-
+	
 	public function addCategory(Category $category){
 		$this->category->attach($category);
 	}
@@ -847,9 +842,9 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	public function removeCategory(Category $category){
 		$this->category->detach($category);
 	}
-
+	
 	/**
-	 *
+	 * 
 	 */
     public function getDirections()
     {
@@ -857,7 +852,7 @@ abstract class Address extends AbstractEntity implements AddressInterface {
     }
 
     /**
-     *
+     * 
      * @param string $directions
      */
     public function setDirections($directions)
@@ -866,7 +861,7 @@ abstract class Address extends AbstractEntity implements AddressInterface {
     }
 
     /**
-     *
+     * 
      * @return string
      */
     public function getCounterpart()
@@ -874,17 +869,17 @@ abstract class Address extends AbstractEntity implements AddressInterface {
         return $this->counterpart;
     }
 
-
+    
     /**
-     *
+     * 
      * @param \string $geojson
      */
     public function setGeojson($geojson)
     {
         $this->geojson = $geojson;
     }
-
-
+ 
+	
     /**
      * @param string $counterpart
      */
@@ -892,9 +887,9 @@ abstract class Address extends AbstractEntity implements AddressInterface {
     {
         $this->counterpart = $counterpart;
     }
+ 
 
-
-
+	
 	/**
 	 * @return \string
 	 */
@@ -902,7 +897,7 @@ abstract class Address extends AbstractEntity implements AddressInterface {
     {
         return $this->geojson;
     }
-
+    
     /**
      * @return array
      */
@@ -910,7 +905,7 @@ abstract class Address extends AbstractEntity implements AddressInterface {
     {
 		return json_decode($this->getGeojson());
 	}
-
+	
 	static function getTypeConstants() {
 	    $oClass = new \ReflectionClass(__CLASS__);
 
@@ -930,7 +925,7 @@ abstract class Address extends AbstractEntity implements AddressInterface {
     /**
      * @param File\FileUpload $imagesUpload
      */
-    public function setImagesUpload(FileUpload $imagesUpload)
+    public function setImagesUpload(File\FileUpload $imagesUpload)
     {
         $this->imagesUpload = $imagesUpload;
     }

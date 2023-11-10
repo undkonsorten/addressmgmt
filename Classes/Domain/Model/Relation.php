@@ -1,8 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use Undkonsorten\Addressmgmt\Domain\Model\Address\Location;
 /***************************************************************
  *
  *  Copyright notice
@@ -27,41 +25,42 @@ use Undkonsorten\Addressmgmt\Domain\Model\Address\Location;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  * Relation
  */
-class Relation extends AbstractEntity {
+class Relation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-  * room
-  *
-  * @var Room
-  */
- protected $room = NULL;
+	 * room
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Room
+	 */
+	protected $room = NULL;
 
 	/**
-  * location
-  *
-  * @var Location
-  */
- protected $location = NULL;
+	 * location
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Location
+	 */
+	protected $location = NULL;
 
 	/**
-  * Returns the room
-  *
-  * @return Room $room
-  */
- public function getRoom() {
+	 * Returns the room
+	 *
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Room $room
+	 */
+	public function getRoom() {
 		return $this->room;
 	}
 
 	/**
-  * Sets the room
-  *
-  * @param Room $room
-  * @return void
-  */
- public function setRoom(Room $room) {
+	 * Sets the room
+	 *
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Room $room
+	 * @return void
+	 */
+	public function setRoom(\Undkonsorten\Addressmgmt\Domain\Model\Room $room) {
 		$this->room = $room;
 	}
 
@@ -86,21 +85,21 @@ class Relation extends AbstractEntity {
 	}
 
 	/**
-  * Returns the location
-  *
-  * @return Location $location
-  */
- public function getLocation() {
+	 * Returns the location
+	 *
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location
+	 */
+	public function getLocation() {
 		return $this->location;
 	}
 
 	/**
-  * Sets the location
-  *
-  * @param Location $location
-  * @return void
-  */
- public function setLocation(Location $location) {
+	 * Sets the location
+	 *
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location
+	 * @return void
+	 */
+	public function setLocation(\Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location) {
 		$this->location = $location;
 	}
 

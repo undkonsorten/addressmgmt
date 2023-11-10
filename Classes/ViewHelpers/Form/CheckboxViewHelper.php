@@ -11,7 +11,7 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers\Form;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
-use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
+
 use TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper;
 
 /**
@@ -57,7 +57,7 @@ class CheckboxViewHelper extends AbstractFormFieldViewHelper
      * @return void
      * @api
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerTagAttribute(
@@ -76,7 +76,7 @@ class CheckboxViewHelper extends AbstractFormFieldViewHelper
     /**
      * Renders the checkbox.
      *
-     * @throws Exception
+     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
      * @return string
      * @api
      */

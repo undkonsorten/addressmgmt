@@ -18,7 +18,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 
 <f:section name="main">
-
+	
 	<h2><f:translate key="upload.upload-{property}">Upload File</f:translate></h2>
 	<u:titleTag>{address.fullName}</u:titleTag>
 	<f:form action="create" enctype="multipart/form-data" class="form-stacked">
@@ -29,8 +29,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<div class="form-field-wrap">
         <f:render partial="FieldError" arguments="{object: Address, property: 'address.{propertyUpload}'}" />
         <p class="helptext"><f:translate key="upload.helpTextAllowedFiletypes">Allowed filetyles are: pdf, jpg, png, gif</f:translate></p>
-				<f:form.upload name="address[{propertyUpload}]" additionalAttributes="{required:true}" />
+				<f:form.upload name="address[{propertyUpload}]" class="withBorder"/>
 			</div>
+			
 			<f:if condition="{property}=='images'">
 				<f:render partial="File/Upload/MetaDataImage" arguments="{fileMetaData:fileUpload.fileMetaData,prefix:'address[{propertyUpload}][fileMetaData]'}" />
 			</f:if>
@@ -38,10 +39,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 				<f:render partial="File/Upload/MetaDataDownload" arguments="{fileMetaData:fileUpload.fileMetaData,prefix:'address[{propertyUpload}][fileMetaData]'}" />
 			</f:if>
 	<div class="form-field-wrap">
-    <f:form.submit value="{f:translate(key: 'form.save', default: 'Save')}" class="button" />
-    <f:link.action action="dash" controller="Address" arguments="{address:address}" class="button"><f:translate key="form.cancel">Cancel</f:translate></f:link.action>
+    <f:form.submit value="{f:translate(key: 'form.save', default: 'Save')}" />
+    <f:link.action action="dash" controller="Address" arguments="{address:address}" class="button cancel grey"><f:translate key="form.cancel">Cancel</f:translate></f:link.action>
   </div>
-
+			
 		</fieldset>
 	</f:form>
 

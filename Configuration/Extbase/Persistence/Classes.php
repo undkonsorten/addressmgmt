@@ -1,29 +1,24 @@
 <?php
 declare(strict_types = 1);
 
-use Undkonsorten\Addressmgmt\Domain\Model\Address;
-use Undkonsorten\Addressmgmt\Domain\Model\Address\Person;
-use Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation;
-use Undkonsorten\Addressmgmt\Domain\Model\Address\Location;
-
 return [
-    Address::class => [
+    Undkonsorten\Addressmgmt\Domain\Model\Address::class => [
         'tableName' => 'tx_addressmgmt_domain_model_address',
         'subclasses' => [
-            'Undkonsorten\Addressmgmt\Domain\Model\Address\Person' => Person::class,
-            'Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation' => Organisation::class,
-            'Undkonsorten\Addressmgmt\Domain\Model\Address\Location' => Location::class
+            'Undkonsorten\Addressmgmt\Domain\Model\Address\Person' => \Undkonsorten\Addressmgmt\Domain\Model\Address\Person::class,
+            'Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation' => \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation::class,
+            'Undkonsorten\Addressmgmt\Domain\Model\Address\Location' => \Undkonsorten\Addressmgmt\Domain\Model\Address\Location::class
         ]
     ],
-    Organisation::class => [
+    \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation::class => [
         'tableName' => 'tx_addressmgmt_domain_model_address',
         'recordType' => 'Tx_Addressbook_Organisation'
     ],
-    Person::class => [
+    \Undkonsorten\Addressmgmt\Domain\Model\Address\Person::class => [
         'tableName' => 'tx_addressmgmt_domain_model_address',
         'recordType' => 'Tx_Addressbook_Person'
     ],
-    Location::class => [
+    Undkonsorten\Addressmgmt\Domain\Model\Address\Location::class => [
         'tableName' => 'tx_addressmgmt_domain_model_address',
         'recordType' => 'Tx_Addressbook_Location'
 

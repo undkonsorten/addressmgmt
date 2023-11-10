@@ -1,4 +1,3 @@
-<!--suppress HtmlRequiredLangAttribute -->
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
       data-namespace-typo3-fluid="true">
@@ -34,98 +33,87 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <f:flashMessages />
     <div class="tx-addressmgmt a{address.uid}" >
         <f:render partial="Map/ShowSingle" arguments="{address:address, contentUid:contentUid}"/>
-        <h3 class="dashboard__user--headline"><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}" />{address.title} {address.firstName} {address.Name}</h3>
-
+        <h3><f:translate key="tx_addressmgmt_domain_model_address.{address.gender}"></f:translate> {address.title} {address.firstName} {address.Name}</h3>
+  
       <f:if condition="{address.feUser}">
-        <f:then><p class="dashboard__user--feusername">Frontend Username: {address.feUser.username}</p></f:then>
-        <f:else><p class="dashboard__user--email">E-Mail: {address.email}</p></f:else>
+        <f:then><p>fe_username: {address.feUser.username}</p></f:then>
+        <f:else><p>email: {address.email}</p></f:else>
       </f:if>
       <f:for each="{address.images}" as="image">
         <div>
-          <f:image class="dashboard__user--image" image="{image}" alt="{image.alternative}" width="100" />
-          <f:link.action class="button dashboard__user--image-delete" action="delete" controller="File" arguments="{fileReference:image, address:address}"><f:translate key="image.delete" /></f:link.action>
-          <f:link.action class="button dashboard__user--image-edit" action="edit" controller="File" arguments="{fileReference:image, address:address, property:'images'}"><f:translate key="image.edit" /></f:link.action>
+          <f:image src="{image.originalResource.originalFile.uid}" alt="image.alternative" width="100" />
+          <f:link.action class="button" action="delete" controller="File" arguments="{fileReference:image, address:address}"><f:translate key="image.delete" /></f:link.action>
+          <f:link.action class="button" action="edit" controller="File" arguments="{fileReference:image, address:address, property:'images'}"><f:translate key="image.edit" /></f:link.action>
         </div>
       </f:for>
-
+      
       <f:for each="{address.category}" as="category">
-          <p class="dashboard__user--category">{category.title}</p>
+          <p>{category.title}</p>
       </f:for>
 
       <p>
         <f:if condition="{address.organization}">
-          <span class="dashboard__user--organization">
-						<f:translate key="tx_addressmgmt_domain_model_address.organization" />: {address.organization}
-					</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.organization" />: {address.organization}<br />
         </f:if>
         <f:if condition="{address.department}">
-					<span class="dashboard__user--department">
-						<f:translate key="tx_addressmgmt_domain_model_address.department"/>: {address.department}
-					</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.department" />: {address.department}<br />
         </f:if>
         <f:if condition="{address.street}">
-					<span class="dashboard__user--street">
-						<f:translate key="tx_addressmgmt_domain_model_address.street"/>: {address.street}
-					</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.street" />: {address.street}<br />
         </f:if>
         <f:if condition="{address.streetNumber}">
-					<span class="dashboard__user--streetNumber">
-						<f:translate key="tx_addressmgmt_domain_model_address.street_number"/>: {address.streetNumber}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.street_number" />: {address.streetNumber}<br />
+        </f:if>
+        <f:if condition="{address.organization}">
+          <f:translate key="tx_addressmgmt_domain_model_address.organization" />: {address.organization}<br />
         </f:if>
         <f:if condition="{address.addressSupplement}">
-					<span class="dashboard__user--addressSupplement">
-						<f:translate key="tx_addressmgmt_domain_model_address.address_supplement"/>: {address.addressSupplement}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.address_supplement" />: {address.addressSupplement}<br />
         </f:if>
         <f:if condition="{address.zip}">
-					<span class="dashboard__user--zip">
-						<f:translate key="tx_addressmgmt_domain_model_address.zip"/>: {address.zip}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.zip" />: {address.zip}<br />
         </f:if>
         <f:if condition="{address.city}">
-					<span class="dashboard__user--city">
-						<f:translate key="tx_addressmgmt_domain_model_address.city"/>: {address.city}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.city" />: {address.city}<br />
         </f:if>
         <f:if condition="{address.closestCity}">
-					<span class="dashboard__user--closestCity">
-						<f:translate key="tx_addressmgmt_domain_model_address.closest_city"/>: {address.closestCity}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.closest_city" />: {address.closestCity}<br />
         </f:if>
         <f:if condition="{address.state}">
-					<span class="dashboard__user--state">
-						<f:translate key="tx_addressmgmt_domain_model_address.state"/>: {address.state}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.state" />: {address.state}<br />
         </f:if>
         <f:if condition="{address.country}">
-					<span class="dashboard__user--country">
-						<f:translate key="tx_addressmgmt_domain_model_address.country"/>: {address.country}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.country" />: {address.country}<br />
         </f:if>
         <f:if condition="{address.phone}">
-					<span class="dashboard__user--phone">
-						<f:translate key="tx_addressmgmt_domain_model_address.phone"/>: {address.phone}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.phone" />: {address.phone}<br />
         </f:if>
         <f:if condition="{address.mobile}">
-					<span class="dashboard__user--mobile">
-						<f:translate key="tx_addressmgmt_domain_model_address.mobile"/>: {address.mobile}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.mobile" />: {address.mobile}<br />
         </f:if>
         <f:if condition="{address.fax}">
-					<span class="dashboard__user--fax">
-						<f:translate key="tx_addressmgmt_domain_model_address.fax"/>: {address.fax}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.fax" />: {address.fax}<br />
         </f:if>
         <f:if condition="{address.www}">
-					<span class="dashboard__user--www">
-						<f:translate key="tx_addressmgmt_domain_model_address.www.text"/>: {address.www.text}<br/>
-						<f:translate key="tx_addressmgmt_domain_model_address.www.link"/>: {address.www.link}</span><br />
+          <f:translate key="tx_addressmgmt_domain_model_address.www.text" />: {address.www.text}<br />
+          <f:translate key="tx_addressmgmt_domain_model_address.www.link" />: {address.www.link}<br />
+        </f:if>
+        <f:if condition="{address.country}">
+          <f:translate key="tx_addressmgmt_domain_model_address.country" />: {address.country}<br />
         </f:if>
       </p>
       <f:if condition="{address.description}">
-        <p class="dashboard__user--description">
-          <f:translate key="tx_addressmgmt_domain_model_address.description" />: {address.description -> f:format.html()}
+        <p>
+          <f:translate key="tx_addressmgmt_domain_model_address.description" />:<br /> {address.description -> f:format.html()}
         </p>
       </f:if>
       <f:if condition="{address.directions}">
-        <p class="dashboard__user--directions">
-          <f:translate key="tx_addressmgmt_domain_model_address.directions" />: {address.directions -> f:format.html()}
+        <p>
+          <f:translate key="tx_addressmgmt_domain_model_address.directions" />:<br /> {address.directions -> f:format.html()}
         </p>
       </f:if>
-
-       <p class="dashboard__user--latlong">
+      
+       <p>
          <f:if condition="{address.latitude}">
            <f:translate key="tx_addressmgmt_domain_model_address.latitude" />: {address.latitude}<br />
          </f:if>
@@ -135,24 +123,24 @@ Otherwise your changes will be overwritten the next time you save the extension 
        </p>
 
       <f:for each="{address.socialIdentifiers}" as="identifier">
-          <div class="dashboard__user--social-identifier">
+          <div>
               <f:if condition="{identifier.provider.image}">
-                  <f:image class="social-identifier__image {identifier.provider.name}" image="{identifier.provider.image}" width="16" alt="{identifier.provider.name}"/>
+                  <f:image src="{identifier.provider.image.originalResource.forLocalProcessing}" width="16" alt="{identifier.provider.name}"/>
               </f:if>
               <strong>{identifier.provider.name}:</strong>
               {identifier.url}
           </div>
       </f:for>
-
+      
     </div>
+  
 
-
-
+  
     <div>
-        <f:link.action class="button dashboard__user--button-edit" action="edit" arguments="{address:address}"><f:translate key="form.editProfile" /></f:link.action>
-        <f:link.action class="button dashboard__user--button-new-file" action="new" controller="File" arguments="{address:address, property:'images'}"><f:translate key="form.newImage" /></f:link.action>
+        <f:link.action class="button" action="edit" arguments="{address:address}"><f:translate key="form.editProfile" /></f:link.action>
+        <f:link.action class="button" action="new" controller="File" arguments="{address:address, property:'images'}"><f:translate key="form.newImage" /></f:link.action>
         <f:if condition="{address.publishState} == 0">
-            <f:link.action class="button dashboard__user--button-handInForReview" action="handInForReview" arguments="{address:address}"><f:translate key="form.publishMyData" /></f:link.action>
+            <f:link.action class="button" action="handInForReview" arguments="{address:address}"><f:translate key="form.publishMyData" /></f:link.action>
         </f:if>
     </div>
 
@@ -160,6 +148,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="noAddress">
   <f:for each="{types}" as="type" key="key">
-    <f:link.action class="button dashboard__user--button-new-{type}" action="new" arguments="{type:type}"><f:translate key="form.newType" arguments="{0:type}" />{type}</f:link.action>
+    <f:link.action class="button" action="new" arguments="{type:type}"><f:translate key="form.newType" arguments="{0:type}" />{type}</f:link.action>
   </f:for>
+
 </f:section>

@@ -1,8 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use TYPO3\CMS\Extbase\Annotation\Validate;
 /***************************************************************
  *  Copyright notice
  *
@@ -27,6 +25,7 @@ use TYPO3\CMS\Extbase\Annotation\Validate;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  *
  *
@@ -34,15 +33,15 @@ use TYPO3\CMS\Extbase\Annotation\Validate;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class SocialIdentifier extends AbstractEntity {
+class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-  * identifier
-  *
-  * @var \string
-  * @Validate("NotEmpty")
-  */
- protected $identifier;
+	 * identifier
+	 *
+	 * @var \string
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+	 */
+	protected $identifier;
 
 	/**
 	 * urlOverride
@@ -52,11 +51,11 @@ class SocialIdentifier extends AbstractEntity {
 	protected $urlOverride;
 
 	/**
-  * provider
-  *
-  * @var SocialProvider
-  */
- protected $provider;
+	 * provider
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\SocialProvider
+	 */
+	protected $provider;
 	
 	/**
 	 * Returns string representation of identifier
@@ -120,21 +119,21 @@ class SocialIdentifier extends AbstractEntity {
 	}
 
 	/**
-  * Returns the provider
-  *
-  * @return SocialProvider $provider
-  */
- public function getProvider() {
+	 * Returns the provider
+	 *
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\SocialProvider $provider
+	 */
+	public function getProvider() {
 		return $this->provider;
 	}
 
 	/**
-  * Sets the provider
-  *
-  * @param SocialProvider $provider
-  * @return void
-  */
- public function setProvider(SocialProvider $provider) {
+	 * Sets the provider
+	 *
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\SocialProvider $provider
+	 * @return void
+	 */
+	public function setProvider(\Undkonsorten\Addressmgmt\Domain\Model\SocialProvider $provider) {
 		$this->provider = $provider;
 	}
 

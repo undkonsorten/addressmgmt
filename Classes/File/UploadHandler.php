@@ -1,15 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\File;
 
-use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMap;
-use TYPO3\CMS\Core\Resource\ResourceStorage;
-use TYPO3\CMS\Core\Resource\Folder;
-use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\ColumnMap;
-use TYPO3\CMS\Core\Resource\FileReference;
-use TYPO3\CMS\Core\Resource\File;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\ResourceFactory as ResourceFactoryAlias;
 use TYPO3\CMS\Core\Utility\File\BasicFileUtility;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory;
@@ -62,25 +53,25 @@ class UploadHandler {
 	protected $property;
 	
 	/**
-  * The datamap
-  *
-  * @var DataMap
-  */
- protected $dataMap;
+	 * The datamap
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMap
+	 */
+	protected $dataMap;
 	
 	/**
-  * Storage for upload
-  *
-  * @var ResourceStorage
-  */
- protected $storage;
+	 * Storage for upload
+	 * 
+	 * @var \TYPO3\CMS\Core\Resource\ResourceStorage
+	 */
+	protected $storage;
 	
 	/**
-  * Folder for upload
-  *
-  * @var Folder
-  */
- protected $folder;
+	 * Folder for upload
+	 * 
+	 * @var \TYPO3\CMS\Core\Resource\Folder
+	 */
+	protected $folder;
 
     /**
      * @var DataMapper
@@ -141,7 +132,7 @@ class UploadHandler {
 		if(!$this->dataMap->getColumnMap($this->property)) {
 			throw new \UnexpectedValueException('Unknown property ' . get_class($object) . '->' . $this->property, 1383123581);
 		} 
-		return $this->dataMap->getColumnMap($this->property)->getTypeOfRelation() == ColumnMap::RELATION_HAS_ONE;
+		return $this->dataMap->getColumnMap($this->property)->getTypeOfRelation() == \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\ColumnMap::RELATION_HAS_ONE;
 	}
 	
 	/**
@@ -159,13 +150,13 @@ class UploadHandler {
 	}
 	
 	/**
-  * creates the file reference
-  *
-  * @param \TYPO3\CMS\Core\Resource\ $file
-  * @param integer $pid
-  * @return FileReference
-  */
- public function createFileReference(File $file, $pid = NULL) {
+	 * creates the file reference
+	 * 
+	 * @param \TYPO3\CMS\Core\Resource\ $file
+	 * @param integer $pid
+	 * @return \TYPO3\CMS\Core\Resource\FileReference
+	 */
+	public function createFileReference(\TYPO3\CMS\Core\Resource\File $file, $pid = NULL) {
 		if(is_null($pid)) {
 			// @TODO get pid from object
 			throw new \UnexpectedValueException('pid has to be integer', 1383134497);
@@ -185,13 +176,13 @@ class UploadHandler {
 		$data[$tableNames][$uidForeign] = array($fieldName => '1'); // set to the number of images?
 	
 		/* @var $tce \TYPO3\CMS\Core\DataHandling\DataHandler */
-		$tce = GeneralUtility::makeInstance('TYPO3\CMS\Core\DataHandling\DataHandler'); // create TCE instance
+		$tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\DataHandling\DataHandler'); // create TCE instance
 		$tce->stripslashes_values = 0;
 		$tce->enableLogging = FALSE;
 		$tce->start($data, array());
 		$tce->process_datamap();
-		if ($tce->errorLog) DebuggerUtility::var_dump($tce->errorLog);
-		DebuggerUtility::var_dump($file);
+		if ($tce->errorLog) \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($tce->errorLog);
+		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($file);
 		$uid = $tce->substNEWwithIDs['NEW1234'];
 		return $this->resourceFactory->getFileReferenceObject($uid);
 	}
@@ -223,14 +214,14 @@ class UploadHandler {
 	}
 	
 	/**
-  * Creates the file reference
-  * @param FileInterface $file
-  * @param mixed $foreignObject
-  * @param \string $foreignField
-  * @param \integer $pid
-  * @param \string $foreignTable
-  */
- public function createLocalFileReference(FileInterface $file, $foreignObject, $foreignField, $pid = 13, $foreignTable = ''){
+	 * Creates the file reference
+	 * @param \TYPO3\CMS\Core\Resource\FileInterface $file
+	 * @param mixed $foreignObject
+	 * @param \string $foreignField
+	 * @param \integer $pid
+	 * @param \string $foreignTable
+	 */
+	public function createLocalFileReference(\TYPO3\CMS\Core\Resource\FileInterface $file, $foreignObject, $foreignField, $pid = 13, $foreignTable = ''){
 	
 		if(!$foreignTable){
 			$foreignTable = $this->dataMapper->convertClassNameToTableName(get_class($foreignObject));
@@ -247,10 +238,10 @@ class UploadHandler {
 		);
 		$data[$foreignTable][$foreignObject->getUid()] = array($foreignField => 'NEW1234'); // set to the number of images?
 	
-		$tce = GeneralUtility::makeInstance('TYPO3\CMS\Core\DataHandling\DataHandler'); // create TCE instance
+		$tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\DataHandling\DataHandler'); // create TCE instance
 		$tce->start($data, array(), $new_BE_USER);
 		$tce->process_datamap();
-		if ($tce->errorLog) DebuggerUtility::var_dump($tce->errorLog);
+		if ($tce->errorLog) \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($tce->errorLog);
 	}
 	
 	/**
@@ -290,40 +281,40 @@ class UploadHandler {
 	}
 	
 	/**
-  * Gets the storage
-  *
-  * @return ResourceStorage
-  */
- public function getStorage() {
+	 * Gets the storage
+	 * 
+	 * @return \TYPO3\CMS\Core\Resource\ResourceStorage
+	 */
+	public function getStorage() {
 		return $this->storage;
 	}
 	
 	/**
-  * Sets the storage
-  *
-  * @param ResourceStorage $storage
-  * @return void
-  */
- public function setStorage(ResourceStorage $storage) {
+	 * Sets the storage
+	 * 
+	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage $storage
+	 * @return void
+	 */
+	public function setStorage(\TYPO3\CMS\Core\Resource\ResourceStorage $storage) {
 		$this->storage = $storage;
 	}
 	
 	/**
-  * Gets the folder
-  *
-  * @return Folder
-  */
- public function getFolder() {
+	 * Gets the folder
+	 * 
+	 * @return \TYPO3\CMS\Core\Resource\Folder
+	 */
+	public function getFolder() {
 		return $this->folder;
 	}
 	
 	/**
-  * Sets the folder
-  *
-  * @param Folder $folder
-  * @return void
-  */
- public function setFolder(Folder $folder) {
+	 * Sets the folder
+	 * 
+	 * @param \TYPO3\CMS\Core\Resource\Folder $folder
+	 * @return void
+	 */
+	public function setFolder(\TYPO3\CMS\Core\Resource\Folder $folder) {
 		$this->folder = $folder;
 	}
 

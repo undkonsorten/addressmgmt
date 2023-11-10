@@ -1,7 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model\File;
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractValueObject;
 /***************************************************************
  *  Copyright notice
  *
@@ -25,6 +24,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractValueObject;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  *
  *
@@ -32,7 +32,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractValueObject;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class FileMetaData extends AbstractValueObject {
+class FileMetaData extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 
 	/**
 	 * @var \string

@@ -1,5 +1,4 @@
 <?php
-use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 if (!defined ('TYPO3')) {
 	die ('Access denied.');
 }
@@ -11,6 +10,7 @@ $tca = [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
+        'dividers2tabs' => TRUE,
 
         'versioningWS' => true,
         'origUid' => 't3_origuid',
@@ -38,13 +38,23 @@ $tca = [
 	'columns' => [
 		'sys_language_uid' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-			'config' => ['type' => 'language'],
+			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
+			'config' => [
+				'type' => 'select',
+                'renderType' => 'selectSingle',
+				'foreign_table' => 'sys_language',
+				'foreign_table_where' => 'ORDER BY sys_language.title',
+				'items' => [
+					['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages', -1],
+					['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.default_value', 0]
+                ],
+                'default' => 0
+            ],
         ],
 		'l10n_parent' => [
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
 			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -61,7 +71,7 @@ $tca = [
             ],
         ],
 		't3ver_label' => [
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
+			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
@@ -70,7 +80,7 @@ $tca = [
         ],
 		'hidden' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
 			'config' => [
 				'type' => 'check',
             ],
@@ -78,7 +88,7 @@ $tca = [
 		'starttime' => [
 			'exclude' => 1,
 			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
 			'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -88,7 +98,7 @@ $tca = [
 		'endtime' => [
 			'exclude' => 1,
 			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+			'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
 			'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -118,7 +128,7 @@ $tca = [
         ],
     ],
 ];
-if( VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+if( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version()) < 7000000){
     $tca['columns']['link']['config']['wizards']['link']['icon'] = 'link_popup.gif';
 }
 return $tca;

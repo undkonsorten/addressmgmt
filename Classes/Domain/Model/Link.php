@@ -1,7 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 /***************************************************************
  *  Copyright notice
  *
@@ -25,6 +24,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  *
  *
@@ -32,7 +32,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Link extends AbstractEntity {
+class Link extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Link text

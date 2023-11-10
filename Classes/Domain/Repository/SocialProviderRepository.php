@@ -1,7 +1,5 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Repository;
-
-use TYPO3\CMS\Extbase\Persistence\Repository;
 /***************************************************************
  *  Copyright notice
  *
@@ -24,6 +22,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  *
  *
@@ -31,7 +30,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class SocialProviderRepository extends Repository  {
+class SocialProviderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository  {
 	
 	public function initializeObject() {
 	         /** @var $defaultQuerySettings Tx_Extbase_Persistence_Typo3QuerySettings */

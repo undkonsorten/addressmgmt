@@ -1,10 +1,9 @@
 <?php
 namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-class MarkerViewHelper extends AbstractViewHelper {
+class MarkerViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
 
     /**
      * Arguments initialization

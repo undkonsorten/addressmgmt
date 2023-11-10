@@ -1,4 +1,3 @@
-<!--suppress HtmlRequiredLangAttribute -->
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:u="http://typo3.org/ns/Undkonsorten/Addressmgmt/ViewHelpers"
       data-namespace-typo3-fluid="true">
@@ -16,7 +15,7 @@
     </fieldset>
     <f:for each="{categories}" as="category">
       <label for="checkbox-{parent.uid}-{category.uid}">
-        <u:form.checkbox id="checkbox-{parent.uid}-{category.uid}" required="{editableCategories.filter1.configuration.required}" property="category" value="{category.uid}" multiple="1"/>
+        <u:form.checkbox id="checkbox-{parent.uid}-{category.uid}" property="category" value="{category.uid}" multiple="1"/>
         {category.title}</label>
     </f:for>
   </div>
@@ -34,7 +33,7 @@
     </fieldset>
     <f:for each="{categories}" as="category">
       <label for="checkbox-{parent.uid}-{category.uid}">
-        <u:form.checkbox id="checkbox-{parent.uid}-{category.uid}" required="{editableCategories.filter2.configuration.required}" property="category" value="{category.uid}" multiple="1"/>
+        <u:form.checkbox id="checkbox-{parent.uid}-{category.uid}" property="category" value="{category.uid}" multiple="1"/>
         {category.title}</label>
     </f:for>
   </div>
@@ -47,7 +46,7 @@
         <f:else>{parent.title}</f:else>
       </f:if>
     </label>
-    <f:form.select id="select-{parent.uid}" property="category" required="{editableCategories.filter3.configuration.required}" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
+    <f:form.select id="select-{parent.uid}" property="category" required="1" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
   </div>
 </f:groupedFor>
 
@@ -63,7 +62,7 @@
     </fieldset>
     <f:for each="{categories}" as="category">
       <label for="checkbox-{parent.uid}-{category.uid}">
-        <u:form.checkbox id="checkbox-{parent.uid}-{category.uid}" required="{editableCategories.filter4.configuration.required}" property="category" value="{category.uid}" multiple="1"/>
+        <u:form.checkbox id="checkbox-{parent.uid}-{category.uid}" property="category" value="{category.uid}" multiple="1"/>
         {category.title}</label>
     </f:for>
   </div>
@@ -77,6 +76,6 @@
         <f:else>{parent.title}</f:else>
       </f:if>
     </label>
-    <f:form.select id="select-{parent.uid}" property="category" required="{editableCategories.filter5.configuration.required}" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
+    <f:form.select id="select-{parent.uid}" property="category" required="1" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
   </div>
 </f:groupedFor>
