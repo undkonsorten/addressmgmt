@@ -10,8 +10,6 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-
 
 /***************************************************************
  *  Copyright notice
@@ -50,16 +48,6 @@ use Undkonsorten\Addressmgmt\Domain\Model\File\FileUpload;
 use Undkonsorten\Addressmgmt\Domain\Repository\FileReferenceRepository;
 
 class ResourceFactory implements SingletonInterface {
-
-    /**
-     * @var ObjectManager
-     */
-    protected $objectManager;
-
-    public function injectObjectManager(ObjectManager $objectManager): void
-    {
-        $this->objectManager = $objectManager;
-    }
 
     /**
      * @var DataMapFactory
@@ -117,8 +105,7 @@ class ResourceFactory implements SingletonInterface {
 	 * @return ResourceFactory
 	 */
 	static public function getInstance() {
-		$objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-		return $objectManager->get(__CLASS__);
+		return GeneralUtility::makeInstance(__CLASS__);
 	}
 	
 	/**

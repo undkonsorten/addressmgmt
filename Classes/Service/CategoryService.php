@@ -2,7 +2,7 @@
 namespace Undkonsorten\Addressmgmt\Service;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
-use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
+use Undkonsorten\Addressmgmt\Domain\Repository\CategoryRepository;
 
 /***************************************************************
  *  Copyright notice
