@@ -34,7 +34,7 @@ class ItemsProcFunc {
 	public function user_templateLayout(array &$config) {
 		/** @var TemplateLayout $templateLayoutsUtility */
   $templateLayoutsUtility = GeneralUtility::makeInstance(\Undkonsorten\Addressmgmt\Utility\TemplateLayout::class);
-		$templateLayouts = $templateLayoutsUtility->getAvailableTemplateLayouts($config['row']['pid']);
+		$templateLayouts = $templateLayoutsUtility->getAvailableTemplateLayouts($config['row']['pid'] ?? 0);
 		foreach ($templateLayouts as $layout) {
 			$additionalLayout = array(
 				htmlspecialchars($GLOBALS['LANG']->sL($layout[0])),
