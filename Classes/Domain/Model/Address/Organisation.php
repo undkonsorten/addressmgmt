@@ -36,4 +36,3 @@ use Undkonsorten\Addressmgmt\Domain\Model\Address;
 class Organisation extends Address {
 
 }
-?>

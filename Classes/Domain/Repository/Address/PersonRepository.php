@@ -35,4 +35,3 @@ use Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository;
  */
 class PersonRepository extends AddressRepository {
 }
-?>
