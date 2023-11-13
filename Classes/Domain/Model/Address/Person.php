@@ -1,6 +1,8 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model\Address;
 
+use Undkonsorten\Addressmgmt\Domain\Model\Address;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 /***************************************************************
  *  Copyright notice
  *
@@ -25,7 +27,6 @@ namespace Undkonsorten\Addressmgmt\Domain\Model\Address;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
 /**
  *
  *
@@ -33,15 +34,15 @@ namespace Undkonsorten\Addressmgmt\Domain\Model\Address;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Person extends \Undkonsorten\Addressmgmt\Domain\Model\Address {
+class Person extends Address {
 
 	/**
-	 * firstName
-	 *
-	 * @var \string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-	 */
-	protected $firstName;
+  * firstName
+  *
+  * @var \string
+  */
+ #[Validate(['validator' => 'NotEmpty'])]
+ protected $firstName;
 
 	/**
 	 * gender

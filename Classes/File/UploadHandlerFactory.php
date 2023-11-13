@@ -48,7 +48,7 @@ class UploadHandlerFactory {
 
 
     public function buildUploadHandler($object, $property) {
-		$uploadHandler = $this->objectManagerInterface->get('Undkonsorten\Addressmgmt\File\UploadHandler');
+		$uploadHandler = $this->objectManagerInterface->get(UploadHandler::class);
 		$uploadHandler->setObject($object);
 		$uploadHandler->setProperty($property);
 		$uploadHandler->buildDataMap();

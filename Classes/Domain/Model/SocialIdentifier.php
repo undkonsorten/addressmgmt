@@ -1,6 +1,8 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 /***************************************************************
  *  Copyright notice
  *
@@ -25,7 +27,6 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
 /**
  *
  *
@@ -33,15 +34,15 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class SocialIdentifier extends AbstractEntity {
 
 	/**
-	 * identifier
-	 *
-	 * @var \string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-	 */
-	protected $identifier;
+  * identifier
+  *
+  * @var \string
+  */
+ #[Validate(['validator' => 'NotEmpty'])]
+ protected $identifier;
 
 	/**
 	 * urlOverride
@@ -51,11 +52,11 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $urlOverride;
 
 	/**
-	 * provider
-	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Model\SocialProvider
-	 */
-	protected $provider;
+  * provider
+  *
+  * @var SocialProvider
+  */
+ protected $provider;
 	
 	/**
 	 * Returns string representation of identifier
@@ -119,21 +120,21 @@ class SocialIdentifier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the provider
-	 *
-	 * @return \Undkonsorten\Addressmgmt\Domain\Model\SocialProvider $provider
-	 */
-	public function getProvider() {
+  * Returns the provider
+  *
+  * @return SocialProvider $provider
+  */
+ public function getProvider() {
 		return $this->provider;
 	}
 
 	/**
-	 * Sets the provider
-	 *
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\SocialProvider $provider
-	 * @return void
-	 */
-	public function setProvider(\Undkonsorten\Addressmgmt\Domain\Model\SocialProvider $provider) {
+  * Sets the provider
+  *
+  * @param SocialProvider $provider
+  * @return void
+  */
+ public function setProvider(SocialProvider $provider) {
 		$this->provider = $provider;
 	}
 

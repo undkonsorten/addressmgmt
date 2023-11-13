@@ -1,5 +1,8 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Service;
+use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use Undkonsorten\Addressmgmt\Domain\Repository\CategoryRepository;
@@ -47,17 +50,16 @@ class CategoryService {
     }
 
     /**
-	 * Finds all descendants of an given category
-	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory
-	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $resultStorage
-	 */
-
-	public function findAllDescendants (Category $parentCategory, $sorting = null){
+  * Finds all descendants of an given category
+  *
+  * @param Category $parentCategory
+  * @param QueryResult $query
+  * @return ObjectStorage $resultStorage
+  */
+ public function findAllDescendants (Category $parentCategory, $sorting = null){
 		if($parentCategory){
 		    if(is_null($sorting)){
-			 $this->categoryRepository->setDefaultOrderings(array('title'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
+			 $this->categoryRepository->setDefaultOrderings(array('title'=>QueryInterface::ORDER_ASCENDING));
 		    }else{
 		        $this->categoryRepository->setDefaultOrderings($sorting);
 		    }
@@ -65,7 +67,7 @@ class CategoryService {
 
 			$storage = $this->buildStorageFormQuery($allCategories);
 
-			$resultStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+			$resultStorage = new ObjectStorage;
 			$stack = array();
 			array_push($stack, $parentCategory);
 			while(count($stack)>0){
@@ -81,7 +83,7 @@ class CategoryService {
 		return $resultStorage;
 	}
 
-	public function buildCategoryTree(\TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory, $sorting = null){
+	public function buildCategoryTree(Category $parentCategory, $sorting = null){
 	    #$result[] = array('category' => $parentCategory,'children' => array());
 
 	    $children = $this->getChildren($parentCategory, $sorting);
@@ -93,25 +95,25 @@ class CategoryService {
 	    return $result;
 	}
 
-	protected function getChildren(\TYPO3\CMS\Extbase\Domain\Model\Category $parent, $sorting = null){
+	protected function getChildren(Category $parent, $sorting = null){
 	    if(is_null($sorting)){
-	        $this->categoryRepository->setDefaultOrderings(array('title'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
+	        $this->categoryRepository->setDefaultOrderings(array('title'=>QueryInterface::ORDER_ASCENDING));
 	    }else{
 	        $this->categoryRepository->setDefaultOrderings($sorting);
 	    }
-	    $this->categoryRepository->setDefaultOrderings(array('title'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
+	    $this->categoryRepository->setDefaultOrderings(array('title'=>QueryInterface::ORDER_ASCENDING));
 	    return $this->categoryRepository->findByParent($parent);
 
 	}
 
 	/**
-	 * Builds an object storage form query
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-	 */
-	protected function buildStorageFormQuery (\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query){
-		$storage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+  * Builds an object storage form query
+  *
+  * @param QueryResult $query
+  * @return ObjectStorage
+  */
+ protected function buildStorageFormQuery (QueryResult $query){
+		$storage = new ObjectStorage;
 		foreach($query as $category){
 			if($category->getParent()!=NULL) $storage->attach($category);
 		}

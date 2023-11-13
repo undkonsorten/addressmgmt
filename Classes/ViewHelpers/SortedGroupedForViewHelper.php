@@ -1,6 +1,7 @@
 <?php namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
 
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 use TYPO3Fluid\Fluid\ViewHelpers\GroupedForViewHelper;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
@@ -72,7 +73,7 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper {
         }
         if (is_object($each)) {
             if (!$each instanceof \Traversable) {
-                throw new ViewHelper\Exception('GroupedForViewHelper only supports arrays and objects implementing \Traversable interface', 1253108907);
+                throw new Exception('GroupedForViewHelper only supports arrays and objects implementing \Traversable interface', 1253108907);
             }
             $each = iterator_to_array($each);
         }

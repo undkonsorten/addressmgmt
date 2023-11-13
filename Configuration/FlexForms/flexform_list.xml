@@ -5,82 +5,67 @@
 	<sheets>
 		<sDEF>
 			<ROOT>
-				<TCEforms>
-					<sheetTitle>Function</sheetTitle>
-				</TCEforms>
+				<sheetTitle>Function</sheetTitle>
 				<type>array</type>
 				<el>
 				<switchableControllerActions>
-						<TCEforms>
-							<onChange>reload</onChange>
-							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions</label>
-							<config>
+						<onChange>reload</onChange><label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions</label><config>
 								<type>select</type>
 								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.addressList</numIndex>
-										<numIndex index="1">Address->list;Address->show</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.addressList</label>
+										<value>Address->list;Address->show</value>
 									</numIndex>
 									<numIndex index="1">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.addressDetail</numIndex>
-										<numIndex index="1">Address->show</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.addressDetail</label>
+										<value>Address->show</value>
 									</numIndex>
 									<numIndex index="2">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.create</numIndex>
-										<numIndex index="1">Address->new;Address->create;Address->dash</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.create</label>
+										<value>Address->new;Address->create;Address->dash</value>
 									</numIndex>
 									<numIndex index="3">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.edit</numIndex>
-										<numIndex index="1">Address->edit;Address->update;Address->dash</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.edit</label>
+										<value>Address->edit;Address->update;Address->dash</value>
 									</numIndex>
 									<numIndex index="4">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.dash</numIndex>
-										<numIndex index="1">Address->dash;File->edit;File->update;File->new;File->create;File->delete;Address->edit;Address->update;Address->new;Address->create;Address->handInForReview;Address->delete;Address->remove;SocialIdentifier->create;SocialIdentifier->delete;SocialIdentifier->update;SocialIdentifier->edit;</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.switchableControllerActions.dash</label>
+										<value>Address->dash;File->edit;File->update;File->new;File->create;File->delete;Address->edit;Address->update;Address->new;Address->create;Address->handInForReview;Address->delete;Address->remove;SocialIdentifier->create;SocialIdentifier->delete;SocialIdentifier->update;SocialIdentifier->edit;</value>
 									</numIndex>
 								</items>
 								<default>Address->list;Address->show</default>
 							</config>
-						</TCEforms>
 					</switchableControllerActions>
 					<settings.listType>
-						<TCEforms>
-							<onChange>reload</onChange>
-							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.listType</label>
-							<displayCond>
+						<onChange>reload</onChange><label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.listType</label><displayCond>
 								<or>
 									<value1>FIELD:switchableControllerActions:=:Address->list;Address->show</value1>
 									<value2>FIELD:switchableControllerActions:=:</value2>
 								</or>
-							</displayCond>
-							<config>
+							</displayCond><config>
 								<type>select</type>
 								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.listType.all</numIndex>
-										<numIndex index="1">all</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.listType.all</label>
+										<value>all</value>
 									</numIndex>
 									<numIndex index="1">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.listType.manual</numIndex>
-										<numIndex index="1">manual</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.listType.manual</label>
+										<value>manual</value>
 									</numIndex>
 								</items>
 								<default>all</default>
 							</config>
-						</TCEforms>
 					</settings.listType>
 					<settings.category>
-					<TCEforms>
-						<exclude>1</exclude>
-						<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.category</label>
-						<displayCond>
+					<exclude>1</exclude><label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.category</label><displayCond>
 							<and>
 								<value1>FIELD:settings.listType:=:all</value1>
 								<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
 							</and>
-						</displayCond>
-						<config>
+						</displayCond><config>
 							<type>select</type>
                                 <foreign_table>sys_category</foreign_table>
                                 <renderType>selectTree</renderType>
@@ -96,19 +81,14 @@
                              <maxitems>10</maxitems>
                              <minitems>0</minitems>
 						</config>
-					</TCEforms>
 				</settings.category>
 				<settings.addresses>
-					<TCEforms>
-						<exclude>1</exclude>
-						<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.addresses</label>
-						<displayCond>
+					<exclude>1</exclude><label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.addresses</label><displayCond>
 							<and>
 								<value1>FIELD:settings.listType:=:manual</value1>
 								<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
 							</and>
-						</displayCond>
-						<config>
+						</displayCond><config>
 							<type>group</type>
 							<internal_type>db</internal_type>
 							<allowed>tx_addressmgmt_domain_model_address</allowed>
@@ -116,101 +96,85 @@
                              <maxitems>10</maxitems>
                              <minitems>1</minitems>
 						</config>
-					</TCEforms>
 				</settings.addresses>
                 <settings.publishState>
-                    <TCEforms>
-                        <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state</label>
-                        <displayCond>
+                    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state</label><displayCond>
                             <and>
                                 <value1>FIELD:settings.listType:=:all</value1>
 								<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
                             </and>
-                        </displayCond>
-                        <config>
+                        </displayCond><config>
                             <type>select</type>
 							<renderType>selectSingle</renderType>
                             <items>
                                 <numIndex index="0">
-                                    <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.none</numIndex>
-									<numIndex index="1" />
+                                    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.none</label>
+									<value></value>
                                 </numIndex>
                                 <numIndex index="1">
-                                    <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0</numIndex>
-                                    <numIndex index="1">0</numIndex>
+                                    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0</label>
+                                    <value>0</value>
                                 </numIndex>
                                 <numIndex index="2">
-                                    <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1</numIndex>
-                                    <numIndex index="1">1</numIndex>
+                                    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1</label>
+                                    <value>1</value>
                                 </numIndex>
                                 <numIndex index="3">
-                                    <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2</numIndex>
-                                    <numIndex index="1">2</numIndex>
+                                    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2</label>
+                                    <value>2</value>
                                 </numIndex>
                             </items>
                         </config>
-                    </TCEforms>
 
                 </settings.publishState>
 				<settings.orderBy>
-						<TCEforms>
-							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>
-							<displayCond>
+						<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label><displayCond>
 								<and>
 									<value1>FIELD:settings.listType:=:all</value1>
 									<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
 								</and>
-							</displayCond>
-							<config>
+							</displayCond><config>
 								<type>select</type>
 								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
-										<numIndex index="1" />
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</label>
+										<value></value>
 									</numIndex>
 									<numIndex index="1">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.name</numIndex>
-										<numIndex index="1">name</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.name</label>
+										<value>name</value>
 									</numIndex>
 								</items>
 							</config>
-						</TCEforms>
 				</settings.orderBy>
 				<settings.orderDirection>
-						<TCEforms>
-							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
-							<displayCond>
+						<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label><displayCond>
 								<and>
 									<value1>FIELD:settings.listType:=:all</value1>
 									<value2>FIELD:switchableControllerActions:=:Address->list;Address->show</value2>
 								</and>
-							</displayCond>
-							<config>
+							</displayCond><config>
 								<type>select</type>
 								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
-										<numIndex index="1" />
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</label>
+										<value></value>
 									</numIndex>
 									<numIndex index="1">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.asc</numIndex>
-										<numIndex index="1">ASC</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.asc</label>
+										<value>ASC</value>
 									</numIndex>
 									<numIndex index="2">
-										<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.desc</numIndex>
-										<numIndex index="1">DESC</numIndex>
+										<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.desc</label>
+										<value>DESC</value>
 									</numIndex>
 								</items>
 							</config>
-						</TCEforms>
 				</settings.orderDirection>
 				<settings.detailPid>
-						<TCEforms>
-							<exclude>1</exclude>
-							<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.detailPid</label>
-							<config>
+						<exclude>1</exclude><label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexform.detailPid</label><config>
 								<type>group</type>
 								<internal_type>db</internal_type>
 								<allowed>pages</allowed>
@@ -224,25 +188,20 @@
 									</suggest>
 								</wizards>
 							</config>
-						</TCEforms>
 				</settings.detailPid>
 
 				<settings.templateLayout>
-	                <TCEforms>
-					<exclude>1</exclude>
-	                 <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.templateLayout</label>
-	                         <config>
+	                <exclude>1</exclude><label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.templateLayout</label><config>
 	                                 <type>select</type>
 									 <renderType>selectSingle</renderType>
 	                                 <itemsProcFunc>Undkonsorten\Addressmgmt\Hooks\ItemsProcFunc->user_templateLayout</itemsProcFunc>
 	                                 <items>
 	                                         <numIndex index="0" type="array">
-												 <numIndex index="0" />
-												 <numIndex index="1" />
+												 <label></label>
+												 <value></value>
 	                                         </numIndex>
 	                                 </items>
 	                         </config>
-	                 </TCEforms>
                </settings.templateLayout>
 
                <settings.mapConfiguration.clusterMarker>
@@ -252,16 +211,16 @@
 					  <renderType>selectSingle</renderType>
 						<items>
 							<numIndex index="0">
-								<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.definedByTs</numIndex>
-								<numIndex index="1" />
+								<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.definedByTs</label>
+								<value></value>
 							</numIndex>
 							<numIndex index="1">
-								<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.no</numIndex>
-								<numIndex index="1">0</numIndex>
+								<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.no</label>
+								<value>0</value>
 							</numIndex>
 							<numIndex index="2">
-								<numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.yes</numIndex>
-								<numIndex index="1">1</numIndex>
+								<label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.yes</label>
+								<value>1</value>
 							</numIndex>
 						</items>
 					</config>
@@ -274,16 +233,16 @@
 					   <renderType>selectSingle</renderType>
 					   <items>
 						   <numIndex index="0">
-							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.definedByTs</numIndex>
-							   <numIndex index="1" />
+							   <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.definedByTs</label>
+							   <value></value>
 						   </numIndex>
 						   <numIndex index="1">
-							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.no</numIndex>
-							   <numIndex index="1">0</numIndex>
+							   <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.no</label>
+							   <value>0</value>
 						   </numIndex>
 						   <numIndex index="2">
-							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.yes</numIndex>
-							   <numIndex index="1">1</numIndex>
+							   <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.yes</label>
+							   <value>1</value>
 						   </numIndex>
 					   </items>
 				   </config>
@@ -296,73 +255,55 @@
 					   <renderType>selectSingle</renderType>
 					   <items>
 						   <numIndex index="0">
-							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.definedByTs</numIndex>
-							   <numIndex index="1" />
+							   <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.definedByTs</label>
+							   <value></value>
 						   </numIndex>
 						   <numIndex index="1">
-							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.no</numIndex>
-							   <numIndex index="1">0</numIndex>
+							   <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.no</label>
+							   <value>0</value>
 						   </numIndex>
 						   <numIndex index="2">
-							   <numIndex index="0">LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.yes</numIndex>
-							   <numIndex index="1">1</numIndex>
+							   <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:items.yes</label>
+							   <value>1</value>
 						   </numIndex>
 					   </items>
 				   </config>
                </settings.showA-zFilter>
 
          <settings.maxZoom>
-		    <TCEforms>
-		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.maxZoom</label>
-			      <config>
+		    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.maxZoom</label><config>
 				<type>input</type>
 			      </config>
-			    </TCEforms>
 		  </settings.maxZoom>
 
 		  <settings.mapZoom>
-		    <TCEforms>
-		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.zoom</label>
-		      <config>
+		    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.zoom</label><config>
 			<type>input</type>
 		      </config>
-		    </TCEforms>
 		  </settings.mapZoom>
 
 		  <settings.latitude>
-		    <TCEforms>
-		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.latitude</label>
-		      <config>
+		    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.latitude</label><config>
 			<type>input</type>
 		      </config>
-		    </TCEforms>
 		  </settings.latitude>
 
 		  <settings.longitude>
-		    <TCEforms>
-		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.longitude</label>
-		      <config>
+		    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.longitude</label><config>
 			<type>input</type>
 		      </config>
-		    </TCEforms>
 		  </settings.longitude>
 
 		  <settings.accessToken>
-		    <TCEforms>
-		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.accessToken</label>
-		      <config>
+		    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.accessToken</label><config>
 			<type>input</type>
 		      </config>
-		    </TCEforms>
 		  </settings.accessToken>
 
 		  <settings.mapId>
-		    <TCEforms>
-		      <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.mapId</label>
-		      <config>
+		    <label>LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:flexforms.mapId</label><config>
 			<type>input</type>
 		      </config>
-		    </TCEforms>
 		  </settings.mapId>
 				</el>
 			</ROOT>

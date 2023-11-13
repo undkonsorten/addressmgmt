@@ -24,7 +24,6 @@ namespace Undkonsorten\Addressmgmt\Domain\Repository;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
 /**
  *
  *
@@ -32,7 +31,9 @@ namespace Undkonsorten\Addressmgmt\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Core\Database\ReferenceIndex;
 use TYPO3\CMS\Core\Resource\FileRepository as FileRepositoryAlias;
 use TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbBackend;
@@ -45,7 +46,7 @@ class FileReferenceRepository {
 	 * type returned by this repository
 	 * @var \string
 	 */
-	protected $type = 'TYPO3\CMS\Extbase\Domain\Model\FileReference';
+	protected $type = FileReference::class;
 
     /**
      * @var FileRepositoryAlias
@@ -88,27 +89,27 @@ class FileReferenceRepository {
     }
 
     /**
-	 * add method isn't implemented, use resourceFactory instead
-	 * 
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
-	 * @throws \BadMethodCallException
-	 */
-	public function add(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference) {
+  * add method isn't implemented, use resourceFactory instead
+  *
+  * @param FileReference $fileReference
+  * @throws \BadMethodCallException
+  */
+ public function add(FileReference $fileReference) {
 		throw new \BadMethodCallException('Use resourceFactory to add file reference', 1383231125);
 	}
 	
 	/**
-	 * adds a new file reference from raw data
-	 * 
-	 * @param \integer $uidLocal
-	 * @param \string $tableName
-	 * @param \string $fieldName
-	 * @param \integer $uidForeign
-	 * @param \integer $pid
-	 * @param \integer $count
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
-	 */
-	public function addRaw($uidLocal, $tableName, $fieldName, $uidForeign, $pid, $count) {
+  * adds a new file reference from raw data
+  *
+  * @param \integer $uidLocal
+  * @param \string $tableName
+  * @param \string $fieldName
+  * @param \integer $uidForeign
+  * @param \integer $pid
+  * @param \integer $count
+  * @return FileReference
+  */
+ public function addRaw($uidLocal, $tableName, $fieldName, $uidForeign, $pid, $count) {
 		$fileReference = $this->addInternal($uidLocal, $tableName, $fieldName, $uidForeign, $pid);
 		$updateRow = array(
 			'uid' => $uidForeign,
@@ -120,24 +121,24 @@ class FileReferenceRepository {
 	}
 	
 	/**
-	 * updates a file reference
-	 * 
-	 * @param \TYPO3\CMS\Core\Resource\File $file
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
-	 * @return void
-	 */
-	public function updateFileInFileReference(\TYPO3\CMS\Core\Resource\File $file, \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference, $tableName, $fieldName, $uidForeign, $pid) {
+  * updates a file reference
+  *
+  * @param File $file
+  * @param FileReference $fileReference
+  * @return void
+  */
+ public function updateFileInFileReference(File $file, FileReference $fileReference, $tableName, $fieldName, $uidForeign, $pid) {
 		$this->deleteInternal($fileReference);
 		return $this->addInternal($file->getUid(), $tableName, $fieldName, $uidForeign, $pid);
 	}
 	
 	/**
-	 * deletes a file reference
-	 * 
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
-	 * @return void
-	 */
-	public function delete(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference) {
+  * deletes a file reference
+  *
+  * @param FileReference $fileReference
+  * @return void
+  */
+ public function delete(FileReference $fileReference) {
 		$properties = $fileReference->getOriginalResource()->getProperties();
 		$fileReferences = $this->fileRepository->findByRelation($properties['tablenames'], $properties['fieldname'], $properties['uid_foreign']);
 		$count = count($fileReferences);
@@ -151,34 +152,34 @@ class FileReferenceRepository {
 	}
 	
 	/**
-	 * finds a file reference by uid 
-	 * 
-	 * @param \integer $uid
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
-	 */
-	public function findByUid($uid) {
+  * finds a file reference by uid 
+  *
+  * @param \integer $uid
+  * @return FileReference
+  */
+ public function findByUid($uid) {
 		// @TODO implement
 	}
 	
 	/**
-	 * finds all file references for given object/property
-	 * 
-	 * @param \mixed $object
-	 * @param \string $property
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-	 */
-	public function findByForeignObject($object, $property) {
+  * finds all file references for given object/property
+  *
+  * @param \mixed $object
+  * @param \string $property
+  * @return ObjectStorage<FileReference>
+  */
+ public function findByForeignObject($object, $property) {
 		//@TODO implement
 	}
 	
 	/**
-	 * finds one file reference for given object/property
-	 * 
-	 * @param \mixed $object
-	 * @param \string $property
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
-	 */
-	public function findOneByForeignObject($object, $property) {
+  * finds one file reference for given object/property
+  *
+  * @param \mixed $object
+  * @param \string $property
+  * @return FileReference
+  */
+ public function findOneByForeignObject($object, $property) {
 		$fileReferences = $this->findByForeignObject($object, $property);
 		if(!is_null($fileReferences) && $fileReferences->count()) {
 			return $fileReferences->current();
@@ -186,26 +187,26 @@ class FileReferenceRepository {
 	}
 	
 	/**
-	 * finds all file references for given file
-	 * 
-	 * @param \TYPO3\CMS\Core\Resource\File $file
- 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-	 */
-	public function findByFile(\TYPO3\CMS\Core\Resource\File $file) {
+  * finds all file references for given file
+  *
+  * @param File $file
+  * @return ObjectStorage<FileReference>
+  */
+ public function findByFile(File $file) {
 		//@TODO implement
 	}
 
 	/**
-	 * Adds a file reference with given relations
-	 *
-	 * @param \integer $uidLocal
-	 * @param \string $tableName
-	 * @param \string $fieldName
-	 * @param \integer $uidForeign
-	 * @param \integer $pid
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
-	 */
-	protected function addInternal($uidLocal, $tableName, $fieldName, $uidForeign, $pid) {
+  * Adds a file reference with given relations
+  *
+  * @param \integer $uidLocal
+  * @param \string $tableName
+  * @param \string $fieldName
+  * @param \integer $uidForeign
+  * @param \integer $pid
+  * @return FileReference
+  */
+ protected function addInternal($uidLocal, $tableName, $fieldName, $uidForeign, $pid) {
 		$insertRow = array(
 				'uid_local' => $uidLocal,
 				'tstamp' => time(),
@@ -223,11 +224,11 @@ class FileReferenceRepository {
 	}
 	
 	/**
-	 * Deletes a file reference from database
-	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference
-	 */
-	protected function deleteInternal(\TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference) {
+  * Deletes a file reference from database
+  *
+  * @param FileReference $fileReference
+  */
+ protected function deleteInternal(FileReference $fileReference) {
 		$uid = $fileReference->getOriginalResource()->getUid();
 		$row = array(
 			'uid' => $uid,

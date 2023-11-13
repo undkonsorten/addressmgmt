@@ -10,11 +10,11 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers\String;
      *                                                                        *
      * The TYPO3 project - inspiring people to share!                         *
      *                                                                        */
-
+    use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+    use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Extbase\Utility\ArrayUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-    use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
     use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
     /**
@@ -99,11 +99,11 @@ class ExplodeForViewHelper extends AbstractViewHelper
     /**
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
-     * @param \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface $renderingContext
+     * @param RenderingContextInterface $renderingContext
      * @return string
-     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
+     * @throws Exception
      */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface $renderingContext)
+    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
     {
         $templateVariableContainer = $renderingContext->getVariableProvider();
         if ($arguments['each'] === null) {
@@ -114,7 +114,7 @@ class ExplodeForViewHelper extends AbstractViewHelper
             $arguments['each'] = GeneralUtility::trimExplode($delimiter,$arguments['each'],true);
         }
         if (is_object($arguments['each']) && !$arguments['each'] instanceof \Traversable) {
-            throw new \TYPO3Fluid\Fluid\Core\ViewHelper\Exception('ForViewHelper only supports arrays and objects implementing \Traversable interface', 1248728393);
+            throw new Exception('ForViewHelper only supports arrays and objects implementing \Traversable interface', 1248728393);
         }
 
         if ($arguments['reverse'] === true) {

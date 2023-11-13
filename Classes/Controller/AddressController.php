@@ -1,6 +1,7 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
 
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -152,7 +153,7 @@ class AddressController extends BaseController
      * @throws InvalidArgumentTypeException
      * @throws IllegalObjectTypeException
      */
-    public function dashAction(): void
+    public function dashAction(): ResponseInterface
     {
         $address = $this->getLoggedInAddress();
 
@@ -169,6 +170,7 @@ class AddressController extends BaseController
         } else {
             $this->view->assign('address', $this->getLoggedInAddress());
         }
+        return $this->htmlResponse();
     }
 
     /**
@@ -177,18 +179,20 @@ class AddressController extends BaseController
      * @throws InvalidArgumentTypeException
      * @throws Exception
      */
-    public function newAction(string $type): void
+    public function newAction(string $type): ResponseInterface
     {
         $address = $this->createAddressFromFeUser($type);
         $this->assignEditableCategories();
         $this->view->assign('address', $address);
+        return $this->htmlResponse();
 
     }
 
-    public function editAction(Address $address): void
+    public function editAction(Address $address): ResponseInterface
     {
         $this->assignEditableCategories();
         $this->view->assign('address', $address);
+        return $this->htmlResponse();
     }
 
     /**
@@ -224,7 +228,7 @@ class AddressController extends BaseController
      *
      * @return void
      */
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         $orderings = null;
         $addresses = null;
@@ -266,6 +270,7 @@ class AddressController extends BaseController
 
         $this->view->assign('addresses', $addresses);
         $this->view->assign('contentUid', $this->configurationManager->getContentObject()->data['uid']);
+        return $this->htmlResponse();
     }
 
 
@@ -275,10 +280,11 @@ class AddressController extends BaseController
      * @param Address $address
      * @return void
      */
-    public function showAction(Address $address): void
+    public function showAction(Address $address): ResponseInterface
     {
         $this->view->assign('address', $address);
         $this->view->assign('contentUid', $this->configurationManager->getContentObject()->data['uid']);
+        return $this->htmlResponse();
     }
 
     /**

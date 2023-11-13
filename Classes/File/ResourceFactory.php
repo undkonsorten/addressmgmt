@@ -1,6 +1,7 @@
 <?php
 namespace Undkonsorten\Addressmgmt\File;
 
+use TYPO3\CMS\Core\Resource\ResourceStorage;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\Folder;
@@ -109,17 +110,17 @@ class ResourceFactory implements SingletonInterface {
 	}
 	
 	/**
-	 * Upload a file and create reference
-	 * 
-	 * @param FileUpload $fileUpload
-	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|Folder|\string $target
-	 * @param \mixed $object
-	 * @param \string $property
-	 * @param \integer $pid
-	 * @return FileReference
-	 *@throws \Exception
-	 */
-	public function uploadAndReferenceFile(FileUpload $fileUpload, $target, $object, $property, $pid = NULL) {
+  * Upload a file and create reference
+  *
+  * @param FileUpload $fileUpload
+  * @param ResourceStorage|Folder|\string $target
+  * @param \mixed $object
+  * @param \string $property
+  * @param \integer $pid
+  * @return FileReference
+  *@throws \Exception
+  */
+ public function uploadAndReferenceFile(FileUpload $fileUpload, $target, $object, $property, $pid = NULL) {
 		$folder = $this->getFolderFromTarget($target);
 		$file = $this->createFileFromUpload($fileUpload, $folder);
 		if($file) {
@@ -145,14 +146,14 @@ class ResourceFactory implements SingletonInterface {
 	}
 	
 	/**
-	 * Gets a folder from Storage, Folder or combined identifier
-	 * like '1:my/path'
-	 * 
-	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|Folder|\string $target
-	 * @return Folder
-	 *@throws \UnexpectedValueException
-	 */
-	protected function getFolderFromTarget($target) {
+  * Gets a folder from Storage, Folder or combined identifier
+  * like '1:my/path'
+  *
+  * @param ResourceStorage|Folder|\string $target
+  * @return Folder
+  *@throws \UnexpectedValueException
+  */
+ protected function getFolderFromTarget($target) {
 		if(is_null($target)) {
 			throw new \UnexpectedValueException('No target given', 1383226457);
 		}
@@ -199,7 +200,7 @@ class ResourceFactory implements SingletonInterface {
 		$uidLocal = $file->getUid();
 		$foreignParameters = $this->getForeignParameters($object, $property);
 		if(!is_numeric($pid)) {
-			$pid = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, 'pid');
+			$pid = ObjectAccess::getProperty($object, 'pid');
 			if(!is_numeric($pid)) {
 				throw new InvalidArgumentException('No pid given', 1383735988);
 			}
@@ -222,13 +223,13 @@ class ResourceFactory implements SingletonInterface {
 	}
 	
 	/**
-	 * @param FileUpload $fileUpload
-	 * @param \TYPO3\CMS\Core\Resource\ResourceStorage|Folder|\string $target
-	 * @param FileReference $fileReference
-	 * @param \mixed $object
-	 * @param \string $property
-	 */
-	public function replaceFileReferenceByUploadedFile(FileUpload $fileUpload, $target, FileReference $fileReference, $object, $property) {
+  * @param FileUpload $fileUpload
+  * @param ResourceStorage|Folder|\string $target
+  * @param FileReference $fileReference
+  * @param \mixed $object
+  * @param \string $property
+  */
+ public function replaceFileReferenceByUploadedFile(FileUpload $fileUpload, $target, FileReference $fileReference, $object, $property) {
 		$folder = $this->getFolderFromTarget($target);
 		$file = $this->createFileFromUpload($fileUpload, $folder);
 		if($file) {
@@ -251,7 +252,7 @@ class ResourceFactory implements SingletonInterface {
 		$dataMap = $this->dataMapFactory->buildDataMap(get_class($object));
 		$tableName = $dataMap->getTableName();
 		$fieldName = $dataMap->getColumnMap($property)->getColumnName();
-		$uidForeign = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, 'uid');
+		$uidForeign = ObjectAccess::getProperty($object, 'uid');
 		return array('tablenames' =>$tableName, 'uid_foreign' => $uidForeign, 'fieldname' => $fieldName);
 	}
 	

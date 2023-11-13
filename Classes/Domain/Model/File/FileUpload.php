@@ -1,6 +1,8 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model\File;
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractValueObject;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Core\Resource\Exception\UploadException;
 
 /***************************************************************
@@ -34,18 +36,18 @@ use TYPO3\CMS\Core\Resource\Exception\UploadException;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class FileUpload extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
+class FileUpload extends AbstractValueObject {
 
 	/**
-	 * @var \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData
-	 */
-	protected $fileMetaData;
+  * @var FileMetaData
+  */
+ protected $fileMetaData;
 	
 	/**
-	 * @var \string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-	 */
-	protected $tmp_name;
+  * @var \string
+  */
+ #[Validate(['validator' => 'NotEmpty'])]
+ protected $tmp_name;
 	
 	/**
 	 * @var \string
@@ -82,29 +84,29 @@ class FileUpload extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	}
 	
 	/**
-	 * gets the meta
-	 * 
-	 * @return \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData
-	 */
-	public function getFileMetaData() {
+  * gets the meta
+  *
+  * @return FileMetaData
+  */
+ public function getFileMetaData() {
 		return $this->fileMetaData;
 	}
 	
 	/**
-	 * set the file meta data
-	 * 
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData
-	 */
-	public function setFileMetaData(\Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData) {
+  * set the file meta data
+  *
+  * @param FileMetaData $fileMetaData
+  */
+ public function setFileMetaData(FileMetaData $fileMetaData) {
 		$this->fileMetaData = $fileMetaData;
 	}
 	
 	/**
-	 * alias to set the file meta data
-	 * 
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData
-	 */
-	public function setMeta(\Undkonsorten\Addressmgmt\Domain\Model\File\FileMetaData $fileMetaData) {
+  * alias to set the file meta data
+  *
+  * @param FileMetaData $fileMetaData
+  */
+ public function setMeta(FileMetaData $fileMetaData) {
 		$this->setFileMetaData($fileMetaData);
 	}
 	

@@ -1,6 +1,9 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 /***************************************************************
  *  Copyright notice
  *
@@ -25,7 +28,6 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
 /**
  *
  *
@@ -33,15 +35,15 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class SocialProvider extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class SocialProvider extends AbstractEntity {
 
 	/**
-	 * name
-	 *
-	 * @var \string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-	 */
-	protected $name;
+  * name
+  *
+  * @var \string
+  */
+ #[Validate(['validator' => 'NotEmpty'])]
+ protected $name;
 
 	/**
 	 * identifier label
@@ -93,11 +95,11 @@ class SocialProvider extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $www;
 
 	/**
-	 * image
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-	 */
-	protected $image;
+  * image
+  *
+  * @var FileReference
+  */
+ protected $image;
 	
 	/**
 	 * String representation of social provider
@@ -261,21 +263,21 @@ class SocialProvider extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the image
-	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
-	 */
-	public function getImage() {
+  * Returns the image
+  *
+  * @return FileReference $image
+  */
+ public function getImage() {
 		return $this->image;
 	}
 
 	/**
-	 * Sets the image
-	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
-	 * @return void
-	 */
-	public function setImage($image) {
+  * Sets the image
+  *
+  * @param FileReference $image
+  * @return void
+  */
+ public function setImage($image) {
 		$this->image = $image;
 	}
 
