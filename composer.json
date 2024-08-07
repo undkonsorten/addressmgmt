@@ -32,7 +32,7 @@
         "typo3/cms-core": "^11.5 || ^12.4"
     },
 	"suggest": {
-		"in2code/femanager": "^6.1"
+		"in2code/femanager": "^7.0"
 	},
   "replace": {
     "addressmgmt": "self.version",
@@ -68,7 +68,7 @@
       "web-dir": ".Build/Web"
     }
   },
-  "require-dev": {
-    "nimut/testing-framework": "^3.0"
-  }
+	"branch-alias":{
+		"dev-main": "6.1.x-dev"
+	}
 }
