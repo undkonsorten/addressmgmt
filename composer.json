@@ -35,8 +35,7 @@
 		"in2code/femanager": "^7.0"
 	},
   "replace": {
-    "addressmgmt": "self.version",
-    "typo3-ter/addressmgmt": "self.version"
+    "addressmgmt": "self.version"
   },
   "autoload": {
     "psr-4": {
