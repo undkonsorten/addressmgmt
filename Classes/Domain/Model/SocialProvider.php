@@ -41,8 +41,8 @@ class SocialProvider extends AbstractEntity {
   * name
   *
   * @var \string
-  * @Validate("NotEmpty")
   */
+ #[Validate(['validator' => 'NotEmpty'])]
  protected $name;
 
 	/**

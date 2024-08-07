@@ -6,7 +6,7 @@ use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
-use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
+use Undkonsorten\Addressmgmt\Domain\Repository\CategoryRepository;
 
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
@@ -114,7 +114,7 @@ class AddressController extends BaseController
     /**
      * Constructor
      */
-	public function initializeAction(): void
+    public function initializeAction(): void
     {
         $arguments = $this->request->getArguments();
         if (isset($arguments['address']['category']) && is_array($arguments['address']['category'])) {
@@ -127,12 +127,12 @@ class AddressController extends BaseController
             $this->request->setArguments($arguments);
         }
 
-	    if(isset($this->arguments['address'])){
-	       $propertyMappingConfiguration = $this->arguments['address']->getPropertyMappingConfiguration();
-	       $propertyMappingConfiguration->allowProperties('type');
-	       $propertyMappingConfiguration->setTypeConverterOption(PersistentObjectConverter::class, PersistentObjectConverter::CONFIGURATION_OVERRIDE_TARGET_TYPE_ALLOWED, TRUE);
-	    }
-	}
+        if(isset($this->arguments['address'])){
+            $propertyMappingConfiguration = $this->arguments['address']->getPropertyMappingConfiguration();
+            $propertyMappingConfiguration->allowProperties('type');
+            $propertyMappingConfiguration->setTypeConverterOption(PersistentObjectConverter::class, PersistentObjectConverter::CONFIGURATION_OVERRIDE_TARGET_TYPE_ALLOWED, TRUE);
+        }
+    }
 
     /**
      * @throws StopActionException
@@ -238,15 +238,15 @@ class AddressController extends BaseController
         if ($this->settings['listType'] === 'all') {
             /** @noinspection TypeUnsafeComparisonInspection */
             if($this->settings['category'] != '' || $this->settings['publishState']){
-				$addresses = $this->addressRepository->findDemanded(
-                null,
-                GeneralUtility::intExplode(',', $this->settings['category'],true),
-                $this->settings['publishState'],
-                $orderings
-            );
-			}else{
-				$addresses = $this->addressRepository->findDemanded(null,null,null, $orderings);
-			}
+                $addresses = $this->addressRepository->findDemanded(
+                    null,
+                    GeneralUtility::intExplode(',', $this->settings['category'],true),
+                    $this->settings['publishState'],
+                    $orderings
+                );
+            }else{
+                $addresses = $this->addressRepository->findDemanded(null,null,null, $orderings);
+            }
 
         }
 

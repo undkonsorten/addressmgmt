@@ -34,7 +34,7 @@ $tca = [
 		'1' => ['showitem' => ''],
     ],
 	'columns' => [
-	
+
 		'sys_language_uid' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
@@ -48,7 +48,7 @@ $tca = [
 				'type' => 'select',
                 'renderType' => 'selectSingle',
 				'items' => [
-					['', 0],
+					['label' => '', 'value' => 0],
                 ],
 				'foreign_table' => 'tx_addressmgmt_domain_model_room',
 				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_room.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_room.sys_language_uid IN (-1,0)',
@@ -59,16 +59,6 @@ $tca = [
 				'type' => 'passthrough',
             ],
         ],
-
-		't3ver_label' => [
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'max' => 255,
-            ]
-        ],
-	
 		'hidden' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',

@@ -40,8 +40,8 @@ class SocialIdentifier extends AbstractEntity {
   * identifier
   *
   * @var \string
-  * @Validate("NotEmpty")
   */
+ #[Validate(['validator' => 'NotEmpty'])]
  protected $identifier;
 
 	/**

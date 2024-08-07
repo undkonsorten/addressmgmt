@@ -21,8 +21,11 @@ ExtensionUtility::configurePlugin(
 	),
 	// non-cacheable actions
 	array(
-		AddressController::class => 'new, create, edit, update, delete, dash, handInForReview',
-	    FileController::class	 => 'edit, update, new, create, delete'
+		AddressController::class => 'new, create, edit, update, delete',
+	    AddressController::class => 'dash, edit, create, new, update, handInForReview',
+	    FileController::class	 => 'edit, update, new, create, delete',
+	    SocialIdentifierController::class => 'create, delete, update, edit'
+
 	)
 );
 
@@ -30,7 +33,7 @@ ExtensionManagementUtility::addPageTSConfig(
 		'<INCLUDE_TYPOSCRIPT: source="FILE:EXT:addressmgmt/Configuration/TsConfig/TemplateLayout.ts">'
 );
 
-$rootCategory = $extensionConfiguration['rootCategory'];
+$rootCategory = $extensionConfiguration->getProperty('rootCategory');
 $pageTsConfig = sprintf(
 		'TCEFORM.tt_content.pi_flexform.addressmgmt_list.sDEF.settings\.category.config.treeConfig.rootUid = %d' . PHP_EOL,
 		$rootCategory

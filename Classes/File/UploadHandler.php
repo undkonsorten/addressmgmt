@@ -8,6 +8,7 @@ use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\ColumnMap;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\ResourceFactory as ResourceFactoryAlias;
@@ -185,7 +186,7 @@ class UploadHandler {
 		$data[$tableNames][$uidForeign] = array($fieldName => '1'); // set to the number of images?
 	
 		/* @var $tce \TYPO3\CMS\Core\DataHandling\DataHandler */
-		$tce = GeneralUtility::makeInstance('TYPO3\CMS\Core\DataHandling\DataHandler'); // create TCE instance
+		$tce = GeneralUtility::makeInstance(DataHandler::class); // create TCE instance
 		$tce->stripslashes_values = 0;
 		$tce->enableLogging = FALSE;
 		$tce->start($data, array());
@@ -247,7 +248,7 @@ class UploadHandler {
 		);
 		$data[$foreignTable][$foreignObject->getUid()] = array($foreignField => 'NEW1234'); // set to the number of images?
 	
-		$tce = GeneralUtility::makeInstance('TYPO3\CMS\Core\DataHandling\DataHandler'); // create TCE instance
+		$tce = GeneralUtility::makeInstance(DataHandler::class); // create TCE instance
 		$tce->start($data, array(), $new_BE_USER);
 		$tce->process_datamap();
 		if ($tce->errorLog) DebuggerUtility::var_dump($tce->errorLog);

@@ -49,7 +49,7 @@ $tca = [
 				'type' => 'select',
                 'renderType' => 'selectSingle',
 				'items' => [
-					['', 0],
+					['label' => '', 'value' => 0],
                 ],
 				'foreign_table' => 'tx_addressmgmt_domain_model_link',
 				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_link.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_link.sys_language_uid IN (-1,0)',
@@ -59,14 +59,6 @@ $tca = [
 			'config' => [
 				'type' => 'passthrough',
             ],
-        ],
-		't3ver_label' => [
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'max' => 255,
-            ]
         ],
 		'hidden' => [
 			'exclude' => 1,

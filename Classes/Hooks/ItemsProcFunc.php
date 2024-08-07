@@ -14,6 +14,7 @@ namespace Undkonsorten\Addressmgmt\Hooks;
  *
  * The TYPO3 project - inspiring people to share!
  */
+use GeorgRinger\News\Utility\TemplateLayout;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -31,9 +32,9 @@ class ItemsProcFunc {
 	 * @return void
 	 */
 	public function user_templateLayout(array &$config) {
-		/** @var \GeorgRinger\News\Utility\TemplateLayout $templateLayoutsUtility */
-		$templateLayoutsUtility = GeneralUtility::makeInstance('Undkonsorten\Addressmgmt\Utility\TemplateLayout');
-		$templateLayouts = $templateLayoutsUtility->getAvailableTemplateLayouts($config['row']['pid']);
+		/** @var TemplateLayout $templateLayoutsUtility */
+  $templateLayoutsUtility = GeneralUtility::makeInstance(\Undkonsorten\Addressmgmt\Utility\TemplateLayout::class);
+		$templateLayouts = $templateLayoutsUtility->getAvailableTemplateLayouts($config['row']['pid'] ?? 0);
 		foreach ($templateLayouts as $layout) {
 			$additionalLayout = array(
 				htmlspecialchars($GLOBALS['LANG']->sL($layout[0])),

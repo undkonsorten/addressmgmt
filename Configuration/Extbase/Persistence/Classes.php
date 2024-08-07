@@ -10,9 +10,9 @@ return [
     Address::class => [
         'tableName' => 'tx_addressmgmt_domain_model_address',
         'subclasses' => [
-            'Undkonsorten\Addressmgmt\Domain\Model\Address\Person' => Person::class,
-            'Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation' => Organisation::class,
-            'Undkonsorten\Addressmgmt\Domain\Model\Address\Location' => Location::class
+            Person::class => Person::class,
+            Organisation::class => Organisation::class,
+            Location::class => Location::class
         ]
     ],
     Organisation::class => [

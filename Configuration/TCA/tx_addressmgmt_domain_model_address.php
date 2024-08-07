@@ -1,5 +1,6 @@
 <?php
 
+use Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use Undkonsorten\Addressmgmt\Domain\Model\Address;
@@ -7,14 +8,14 @@ use Undkonsorten\Addressmgmt\Domain\Model\Address;
 if (!defined ('TYPO3')) {
 	die ('Access denied.');
 }
-$settings = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['addressmgmt'];
+$settings = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['addressmgmt'] ?? [];
 $tca = [
     'ctrl' => [
         'type' => 'type',
         'title'	=> 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address',
         'label' => 'name',
         'label_alt' => 'first_name',
-        'label_alt_force' => TRUE,
+        'label_alt_force' => TRUE,#
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -110,7 +111,7 @@ $tca = [
 				'type' => 'select',
 			    'renderType' => 'selectSingle',
 				'items' => [
-					['', 0],
+					['label' => '', 'value' => 0],
                 ],
 				'foreign_table' => 'tx_addressmgmt_domain_model_address',
 				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_address.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_address.sys_language_uid IN (-1,0)',
@@ -120,14 +121,6 @@ $tca = [
 			'config' => [
 				'type' => 'passthrough',
             ],
-        ],
-		't3ver_label' => [
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'max' => 255,
-            ]
         ],
 		'hidden' => [
 			'exclude' => 1,
@@ -163,10 +156,10 @@ $tca = [
 			    'renderType' => 'selectSingle',
 				'default' => '',
 				'items' => [
-				    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.choose_type', '0'],
-					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_person', 'Tx_Addressbook_Person'],
-					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_organisation', 'Tx_Addressbook_Organisation'],
-				    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_location', 'Tx_Addressbook_Location'],
+				    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.choose_type', 'value' => '0'],
+					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_person', 'value' => 'Tx_Addressbook_Person'],
+					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_organisation', 'value' => 'Tx_Addressbook_Organisation'],
+				    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_location', 'value' => 'Tx_Addressbook_Location'],
                 ],
             ],
         ],
@@ -185,7 +178,8 @@ $tca = [
 			'config' => [
 				'type' => 'input',
 				'size' => 40,
-				'eval' => 'trim,required'
+				'eval' => 'trim',
+    'required' => true
             ],
         ],
 		'gender' => [
@@ -195,10 +189,10 @@ $tca = [
 				'type' => 'select',
 			    'renderType' => 'selectSingle',
 				'items' => [
-					['', ''],
-					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.1', 1],
-					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.2', 2],
-					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.3', 3],
+					['label' => '', 'value' => ''],
+					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.1', 'value' => 1],
+					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.2', 'value' => 2],
+					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.3', 'value' => 3],
                 ],
 				'size' => 1,
 				'maxitems' => 1,
@@ -422,7 +416,7 @@ $tca = [
 			'config' => [
 				'type' => 'input',
 				'size' => 10,
-				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
+				'eval' => Coordinate::class
             ],
         ],
 		'longitude' => [
@@ -431,7 +425,7 @@ $tca = [
 			'config' => [
 				'type' => 'input',
 				'size' => 10,
-				'eval' => 'Undkonsorten\Addressmgmt\Utility\Evaluation\Coordinate'
+				'eval' => Coordinate::class
             ],
         ],
         'publish_state' => [
@@ -441,10 +435,10 @@ $tca = [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', ''],
-                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0', Address::PUBLISH_CREATED],
-                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1', Address::PUBLISH_WAITING],
-                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2', Address::PUBLISH_PUBLISHED],
+                    ['label' => '', 'value' => ''],
+                    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0', 'value' => Address::PUBLISH_CREATED],
+                    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1', 'value' => Address::PUBLISH_WAITING],
+                    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2', 'value' => Address::PUBLISH_PUBLISHED],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -498,7 +492,7 @@ $tca = [
                 'renderMode' => 'tree',
                 'treeConfig' => [
                         'parentField' => 'parent',
-                        'rootUid' => $settings['rootCategory'],
+                        'rootUid' => $settings['rootCategory'] ?? '',
                         'appearance' => [
                                 'expandAll' => TRUE,
                                 'showHeader' => TRUE,
@@ -545,7 +539,8 @@ $tca = [
 				'config' => [
 						'type' => 'input',
 						'size' => 10,
-						'eval' => 'num,null',
+						'eval' => 'num',
+      'nullable' => true,
                 ],
         ],
 	    'relation' => [
@@ -567,7 +562,7 @@ $tca = [
     ],
 ];
 
-if(!$settings['feUserRelation']) {
+if(isset($settings['feUserRelation']) && !$settings['feUserRelation']) {
 	$GLOBALS['TCA']['tx_addressmgmt_domain_model_address']['columns']['fe_user'] = array(
 		'exclude' => 1,
 		'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.fe_user',

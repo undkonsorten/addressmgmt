@@ -46,7 +46,7 @@ class FileReferenceRepository {
 	 * type returned by this repository
 	 * @var \string
 	 */
-	protected $type = 'TYPO3\CMS\Extbase\Domain\Model\FileReference';
+	protected $type = FileReference::class;
 
     /**
      * @var FileRepositoryAlias

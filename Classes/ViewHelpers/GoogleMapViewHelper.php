@@ -26,11 +26,6 @@ class GoogleMapViewHelper extends AbstractTagBasedViewHelper {
         $this->registerArgument('mapZoom', 'integer', 'Map zoom', false, null);
         $this->registerArgument('markerAtCenter', 'boolean', 'Marker At Center', false, null);
         $this->registerArgument('markerTitle', 'string', 'Marker Title', false, null);
-        $this->registerArgument('latitude', 'mixed', '', false, 'NULL');
-        $this->registerArgument('longitude', 'mixed', '', false, 'NULL');
-        $this->registerArgument('mapZoom', 'mixed', '', false, 'NULL');
-        $this->registerArgument('markerAtCenter', 'mixed', '', false, 'NULL');
-        $this->registerArgument('markerTitle', 'mixed', '', false, 'NULL');
 	}
 
     /**

@@ -40,8 +40,8 @@ class Person extends Address {
   * firstName
   *
   * @var \string
-  * @Validate("NotEmpty")
   */
+ #[Validate(['validator' => 'NotEmpty'])]
  protected $firstName;
 
 	/**

@@ -3,9 +3,9 @@
 .. _TypoScript:
 
 
-==========
+=====================
 TypoScript
-==========
+=====================
 
 This page is divided into the following sections which are all configurable by using TypoScript:
 
@@ -18,7 +18,7 @@ This page is divided into the following sections which are all configurable by u
 
 
 Include static TypoScript
-=========================
+========================================
 
 The extension ships some TypoScript code which needs to be included.
 
@@ -32,7 +32,7 @@ The extension ships some TypoScript code which needs to be included.
    :scale: 70
 
 Include TypoScript in site_package
-----------------------------------
+""""""""""""""
 
 Another way is to include the addressmgmt TypoScript in a :ref:`TYPO3 site_package <t3sitepackage:start>`.
 They are several kind of ways to include the TypoScript from extensions. Use your preferred way.
@@ -60,7 +60,7 @@ Persistence
 
 
 storagePid
-""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -79,7 +79,7 @@ storagePid
 
 
 recursive
-"""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -98,7 +98,7 @@ recursive
 
 
 newRecordStoragePid
-"""""""""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -117,7 +117,7 @@ newRecordStoragePid
 
 
 orderBy
-"""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -155,7 +155,7 @@ orderDirection
 
 
 showA-zFilter
-"""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -174,7 +174,7 @@ showA-zFilter
 
 
 pidsA-z
-"""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -193,7 +193,7 @@ pidsA-z
 
 
 detailPid
-"""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -212,7 +212,7 @@ detailPid
 
 
 pidsLogin
-"""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -242,7 +242,7 @@ target.default
   Default
     `1:default`
   Description
-    Defines the storage where files, uploaded by a frontend user will be stored. `1` stands for storage with the uid `1` - which is usually the folder `/fileadmin/`
+    Defines the storage where files, uploaded by a frontend user will be stored. `1` stands for storage with the uid `1` - which is usually the folder `/fileadmin/
   Example
     ::
 
@@ -250,7 +250,7 @@ target.default
 
 
 target.images
-"""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -261,14 +261,14 @@ target.images
   Default
     `1:image`
   Description
-    Defines the storage where images, uploaded by a frontend user will be stored. `1` stands for storage with the uid `1` - which is usually the folder `/fileadmin/`
+    Defines the storage where images, uploaded by a frontend user will be stored. `1` stands for storage with the uid `1` - which is usually the folder `/fileadmin/
   Example
     ::
 
       plugin.tx_addressmgmt.settings.target.images = 1:default
 
 createDefaultAddressType
-""""""""""""""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -287,12 +287,12 @@ createDefaultAddressType
 
 
 Map Display
------------
+===========
 
 
 
 latitude
-""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -311,7 +311,7 @@ latitude
 
 
 longitude
-"""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -330,7 +330,7 @@ longitude
 
 
 fitBounds
-"""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -349,7 +349,7 @@ fitBounds
 
 
 clusterMarker
-"""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -368,7 +368,7 @@ clusterMarker
 
 
 tileLayerConfiguration.options.accessToken
-""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -386,7 +386,7 @@ tileLayerConfiguration.options.accessToken
       plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.accessToken = x3dma0ena4fdsajsapf
 
 tileLayerConfiguration.options.id
-"""""""""""""""""""""""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -405,7 +405,7 @@ tileLayerConfiguration.options.id
 
 
 tileLayerConfiguration.urlTemplate
-""""""""""""""""""""""""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -424,7 +424,7 @@ tileLayerConfiguration.urlTemplate
 
 
 tileLayerConfiguration.options.maxZoom
-""""""""""""""""""""""""""""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -443,7 +443,7 @@ tileLayerConfiguration.options.maxZoom
 
 
 tileLayerConfiguration.options.attribution
-""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -471,9 +471,7 @@ There are more settings avialable in the `setup.txt`. We explain here items that
 
 
 editableCategoryConfiguration
------------------------------
-
-
+""""""""""""""
 
 .. container:: table-row
 
@@ -488,15 +486,15 @@ editableCategoryConfiguration
   Example
     ::
 
-      plugin.tx_addressmgmt.settings.editableCategoryConfiguration.default {
-         rootCategory = 1
-         orderBy = title
-         sorting = ASC
-      }
+         plugin.tx_addressmgmt.settings.editableCategoryConfiguration.default {
+				rootCategory = 1
+				orderBy = title
+				sorting = ASC
+			}
 
 
 filterConfiguration
-"""""""""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -511,22 +509,22 @@ filterConfiguration
   Example
     ::
 
-      plugin.tx_addressmgmt.settings.filterConfiguration {
-         filter1 {
-            rootCategory = 1
-            orderBy = title
-            sorting = DESC
-         }
-         filter2 {
-            rootCategory = 3
-            orderBy = sorting
-            sorting = ASC
-         }
-      }
+         plugin.tx_addressmgmt.settings.filterConfiguration {
+            filter1 {
+               rootCategory = 1
+               orderBy = title
+               sorting = DESC
+            }
+            filter2 {
+               rootCategory = 3
+               orderBy = sorting
+               sorting = ASC
+            }
+		   }
 
 
 list.media.width
-""""""""""""""""
+""""""""""""""
 
 .. container:: table-row
 
@@ -541,5 +539,4 @@ list.media.width
   Example
     ::
 
-      plugin.tx_addressmgmt.settings.list.media.width = 400
-
+         plugin.tx_addressmgmt.settings.list.media.width = 400

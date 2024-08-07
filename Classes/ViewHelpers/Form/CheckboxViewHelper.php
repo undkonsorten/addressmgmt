@@ -57,7 +57,7 @@ class CheckboxViewHelper extends AbstractFormFieldViewHelper
      * @return void
      * @api
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerTagAttribute(
