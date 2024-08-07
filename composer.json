@@ -34,9 +34,6 @@
 	"suggest": {
 		"in2code/femanager": "^7.0"
 	},
-  "replace": {
-	  "undkonsorten/addressmgmt": "self.version"
-  },
   "autoload": {
     "psr-4": {
       "Undkonsorten\\Addressmgmt\\": "Classes"
