@@ -35,7 +35,7 @@
 		"in2code/femanager": "^7.0"
 	},
   "replace": {
-    "addressmgmt": "self.version"
+	  "undkonsorten/addressmgmt": "self.version"
   },
   "autoload": {
     "psr-4": {
