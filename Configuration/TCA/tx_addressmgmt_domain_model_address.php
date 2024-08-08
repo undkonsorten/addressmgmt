@@ -196,7 +196,8 @@ $tca = [
                 ],
 				'size' => 1,
 				'maxitems' => 1,
-				'eval' => ''
+    'nullable' => true,
+    'nullable' => true
             ],
         ],
 		'title' => [
@@ -442,7 +443,8 @@ $tca = [
                 ],
                 'size' => 1,
                 'maxitems' => 1,
-                'eval' => ''
+                'nullable' => true,
+                'nullable' => true
             ],
         ],
 	    'geojson' => [
