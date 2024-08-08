@@ -5,7 +5,7 @@ use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Domain\Model\FrontendUser;
+use Undkonsorten\Addressmgmt\Domain\Model\Extbase\FrontendUser;
 use Undkonsorten\Addressmgmt\Domain\Repository\FrontendUserRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -75,32 +75,6 @@ class BaseController extends ActionController {
 	}
 
 	/**
-	 * Requires CHash for the current action
-	 * log to devLog if no CHash was given
-	 *
-	 * @return void
-	 */
-	protected function requireCacheHash() {
-		$this->typoScriptFrontendController->reqCHash();
-
-		//@TODO respect logging settings from extension here
-        //@TODO refactor to new logging API
-//		if(!$this->typoScriptFrontendController->cHash) {
-//			GeneralUtility::devLog(
-//			"There was no cHash given to this action, 1410970141",
-//			$this->extensionName,
-//			GeneralUtility::SYSLOG_SEVERITY_NOTICE,
-//			array(
-//			'referrer' => GeneralUtility::getIndpEnv('HTTP_REFERER'),
-//			'requestUri' => GeneralUtility::getIndpEnv('REQUEST_URI'),
-//			'controller' => $this->controllerContext->getRequest()->getControllerName(),
-//			'action' => $this->controllerContext->getRequest()->getControllerActionName(),
-//			)
-//			);
-//		}
-	}
-
-	/**
 	 * overrides flexform settings with original typoscript values when
 	 * flexform value is empty and settings key is defined in
 	 * 'settings.overrideFlexformSettingsIfEmpty'
@@ -108,6 +82,7 @@ class BaseController extends ActionController {
 	 * @return void
 	 */
 	public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager) {
+        parent::injectConfigurationManager($configurationManager);
         $this->configurationManager = $configurationManager;
 		$originalSettings = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
 		$typoScriptSettings = $this->configurationManager->getConfiguration(
@@ -140,6 +115,7 @@ class BaseController extends ActionController {
 			}
 			$this->settings = $originalSettings;
 		}
+
 	}
 
 
@@ -200,11 +176,10 @@ class BaseController extends ActionController {
 	    }
 	}
 
-	/**
-	 * Return logged in frontend user, if any, NULL otherwise
-	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
-	 */
+    /**
+     * @return object|FrontendUser|null
+     * @throws Exception
+     */
 	protected function getLoggedInFrontendUser() {
 	    /** @var FrontendUser $frontendUser */
 	    $frontendUser = NULL;
