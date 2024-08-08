@@ -5,15 +5,6 @@ if (!defined('TYPO3')) {
 	die ('Access denied.');
 }
 
-ExtensionUtility::registerPlugin(
-    'Addressmgmt',
-	'List',
-	'Address Management'
-);
-
-
-
-
 ExtensionManagementUtility::addLLrefForTCAdescr('tx_addressmgmt_domain_model_address', 'EXT:addressmgmt/Resources/Private/Language/locallang_csh_tx_addressbook_domain_model_address.xlf');
 
 // Need pid in fe_user to be able to move records from FE

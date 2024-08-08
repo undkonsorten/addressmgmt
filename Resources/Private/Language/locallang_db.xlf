@@ -351,6 +351,22 @@
 			<trans-unit id="tx_addressmgmt_domain_model_address.gender_other" resname="tx_addressmgmt_domain_model_address.gender_other">
 				<source></source>
 			</trans-unit>
+			<trans-unit id="plugin.list.title" resname="plugin.list.title">
+				<source>List</source>
+			</trans-unit>
+			<trans-unit id="plugin.dash.title" resname="plugin.list.title">
+				<source>Dash</source>
+			</trans-unit>
+			<trans-unit id="plugin.edit.title" resname="plugin.list.title">
+				<source>Edit</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.create.title" resname="plugin.list.title">
+				<source>Create</source>
+			</trans-unit>
+			<trans-unit id="plugin.show.title" resname="plugin.list.title">
+				<source>Create</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

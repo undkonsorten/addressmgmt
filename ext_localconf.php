@@ -1,4 +1,6 @@
 <?php
+
+use Undkonsorten\Addressmgmt\Domain\Model\SocialIdentifier;
 use Undkonsorten\Addressmgmt\Service\ExtensionConfigurationService;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 use Undkonsorten\Addressmgmt\Controller\AddressController;
@@ -14,19 +16,70 @@ $extensionConfiguration = ExtensionConfigurationService::getInstance('addressmgm
 ExtensionUtility::configurePlugin(
 	'Addressmgmt',
 	'List',
-	array(
+	[
 		AddressController::class => 'list, show',
         FileController::class  => '',
 
-	),
-	// non-cacheable actions
-	array(
-		AddressController::class => 'new, create, edit, update, delete',
-	    AddressController::class => 'dash, edit, create, new, update, handInForReview',
-	    FileController::class	 => 'edit, update, new, create, delete',
-	    SocialIdentifierController::class => 'create, delete, update, edit'
+    ],
+    [],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+ExtensionUtility::configurePlugin(
+    'Addressmgmt',
+    'Show',
+    [
+        AddressController::class => 'show',
+        FileController::class  => '',
 
-	)
+    ],
+    [],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+ExtensionUtility::configurePlugin(
+    'Addressmgmt',
+    'Create',
+    [
+        AddressController::class => 'new, create, dash',
+        FileController::class  => '',
+
+    ],
+    [
+        AddressController::class => 'new, create, dash',
+        FileController::class  => '',
+
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+ExtensionUtility::configurePlugin(
+    'Addressmgmt',
+    'Edit',
+    [
+        AddressController::class => 'edit, update, dash',
+        FileController::class  => '',
+
+    ],
+    [
+        AddressController::class => 'new, create, dash',
+        FileController::class  => '',
+
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+ExtensionUtility::configurePlugin(
+    'Addressmgmt',
+    'Dash',
+    [
+        AddressController::class => 'dash, edit, update, new, create, handInForReview, delete, remove',
+        FileController::class  => 'edit, update, new, create, delete, ',
+        SocialIdentifier::class => 'create, delete, update, edit'
+
+    ],
+    [
+        AddressController::class => 'new, create, dash',
+        FileController::class  => '',
+
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
 ExtensionManagementUtility::addPageTSConfig(
