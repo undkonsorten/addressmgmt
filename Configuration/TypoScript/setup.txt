@@ -110,3 +110,5 @@ page.includeJSFooterlibs.tx_addressmgmt_sematic_map_main = EXT:addressmgmt/Resou
 page.includeJSFooter.tx_addressmgmt_mapFilter = EXT:addressmgmt/Resources/Public/Javascript/filter.js
 # a-z filter by jquery
 page.includeJSFooter.tx_addressmgmt_mapAzFilter = EXT:addressmgmt/Resources/Public/Javascript/az-filter.js
+
+config.tx_extbase.features.requireCHashArgumentForActionArguments = 1
