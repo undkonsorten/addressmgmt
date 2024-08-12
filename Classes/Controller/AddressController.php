@@ -156,7 +156,14 @@ class AddressController extends BaseController
     public function dashAction(): ResponseInterface
     {
         $address = $this->getLoggedInAddress();
-
+        $frontendUser = $this->getLoggedInFrontendUser();
+        if(is_null($frontendUser)){
+            if($this->settings['pidsLogin']) {
+                return $this->redirectToUri($this->buildPageLink($this->settings['pidsLogin'], TRUE));
+            } else {
+                throw new Exception('PidLogin not set. Cannot redirect.', '1508229013');
+            }
+        }
         if (is_null($address)) {
             if ($this->settings['createDefaultAddressType'] !== '') {
                 $address = $this->createAddressFromFeUser($this->settings['createDefaultAddressType']);

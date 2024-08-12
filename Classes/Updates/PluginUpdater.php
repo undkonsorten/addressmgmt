@@ -11,8 +11,6 @@ declare(strict_types=1);
 
 namespace Undkonsorten\Addressmgmt\Updates;
 
-
-use Psr\EventDispatcher\EventDispatcherInterface;
 use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -27,45 +25,25 @@ class PluginUpdater implements UpgradeWizardInterface
 {
     private const MIGRATION_SETTINGS = [
         [
-            'switchableControllerActions' => 'News->list;News->detail',
-            'targetListType' => 'news_pi1',
+            'switchableControllerActions' => 'Address->list;Address->show',
+            'targetListType' => 'addressmgmt_list',
         ],
         [
-            'switchableControllerActions' => 'News->list',
-            'targetListType' => 'news_newsliststicky',
+            'switchableControllerActions' => 'Address->show',
+            'targetListType' => 'addressmgmt_list',
         ],
         [
-            'switchableControllerActions' => 'News->selectedList',
-            'targetListType' => 'news_newsselectedlist',
+            'switchableControllerActions' => 'Address->new;Address->create;Address->dash',
+            'targetListType' => 'addressmgmt_create',
         ],
         [
-            'switchableControllerActions' => 'News->detail',
-            'targetListType' => 'news_newsdetail',
+            'switchableControllerActions' => 'Address->edit;Address->update;Address->dash',
+            'targetListType' => 'addressmgmt_edit',
         ],
         [
-            'switchableControllerActions' => 'News->dateMenu',
-            'targetListType' => 'news_newsdatemenu',
-        ],
-        [
-            'switchableControllerActions' => 'News->searchForm',
-            'targetListType' => 'news_newssearchform',
-        ],
-        [
-            'switchableControllerActions' => 'News->searchResult',
-            'targetListType' => 'news_newssearchresult',
-        ],
-        [
-            'switchableControllerActions' => 'Category->list',
-            'targetListType' => 'news_categorylist',
-        ],
-        [
-            'switchableControllerActions' => 'Tag->list',
-            'targetListType' => 'news_taglist',
-        ],
-        [
-            'switchableControllerActions' => 'News->month',
-            'targetListType' => 'eventnews_newsmonth',
-        ],
+            'switchableControllerActions' => 'Address->dash;File->edit;File->update;File->new;File->create;File->delete;Address->edit;Address->update;Address->new;Address->create;Address->handInForReview;Address->delete;Address->remove;SocialIdentifier->create;SocialIdentifier->delete;SocialIdentifier->update;SocialIdentifier->edit;',
+            'targetListType' => 'addressmgmt_dash',
+        ]
     ];
 
     /** @var FlexFormService */
@@ -76,23 +54,21 @@ class PluginUpdater implements UpgradeWizardInterface
      */
     protected $flexFormTools;
 
-    protected EventDispatcherInterface $eventDispatcher;
 
     public function __construct()
     {
         $this->flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
         $this->flexFormTools = GeneralUtility::makeInstance(FlexFormTools::class);
-        $this->eventDispatcher = GeneralUtility::makeInstance(EventDispatcherInterface::class);
     }
 
     public function getIdentifier(): string
     {
-        return 'txNewsPluginUpdater';
+        return 'txAddressmgmtPluginUpdater';
     }
 
     public function getTitle(): string
     {
-        return 'EXT:news: Migrate plugins';
+        return 'EXT:addressmgmt: Migrate plugins';
     }
 
     public function getDescription(): string
@@ -136,7 +112,6 @@ class PluginUpdater implements UpgradeWizardInterface
         foreach ($records as $record) {
             $flexForm = $this->flexFormService->convertFlexFormContentToArray($record['pi_flexform']);
             $targetListType = $this->getTargetListType($flexForm['switchableControllerActions'] ?? '');
-            $targetListType = $this->eventDispatcher->dispatch(new PluginUpdaterListTypeEvent($flexForm, $record, $targetListType))->getListType();
 
             if ($targetListType === '') {
                 continue;
@@ -152,16 +127,17 @@ class PluginUpdater implements UpgradeWizardInterface
             $flexFormData = GeneralUtility::xml2array($newFlexform);
 
             // Remove flexform data which do not exist in flexform of new plugin
-            foreach ($flexFormData['data'] as $sheetKey => $sheetData) {
-                // Remove empty sheets
-                if (!count($flexFormData['data'][$sheetKey]['lDEF']) > 0) {
-                    unset($flexFormData['data'][$sheetKey]);
+            if(is_array($flexFormData) && is_array($flexFormData['data'])){
+                foreach ($flexFormData['data'] as $sheetKey => $sheetData) {
+                    // Remove empty sheets
+                    if (!count($flexFormData['data'][$sheetKey]['lDEF']) > 0) {
+                        unset($flexFormData['data'][$sheetKey]);
+                    }
                 }
-            }
-
-            if (count($flexFormData['data']) > 0) {
-                $newFlexform = $this->array2xml($flexFormData);
-            } else {
+                if (count($flexFormData['data']) > 0) {
+                    $newFlexform = $this->array2xml($flexFormData);
+                }
+            }else{
                 $newFlexform = '';
             }
 
@@ -187,7 +163,7 @@ class PluginUpdater implements UpgradeWizardInterface
                 ),
                 $queryBuilder->expr()->eq(
                     'list_type',
-                    $queryBuilder->createNamedParameter('news_pi1')
+                    $queryBuilder->createNamedParameter('addressmgmt_list')
                 )
             )
             ->executeQuery()

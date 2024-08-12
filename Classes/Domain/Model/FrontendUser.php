@@ -13,12 +13,11 @@
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace Undkonsorten\Addressmgmt\Domain\Model\Extbase;
+namespace Undkonsorten\Addressmgmt\Domain\Model;
 
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Undkonsorten\Addressmgmt\Domain\Model\Extbase\FrontendUserGroup;
 
 
 class FrontendUser extends AbstractEntity

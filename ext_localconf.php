@@ -92,4 +92,5 @@ $pageTsConfig = sprintf(
 		$rootCategory
 );
 ExtensionManagementUtility::addPageTSConfig($pageTsConfig);
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['txAddressmgmtPluginUpdater'] = \Undkonsorten\Addressmgmt\Updates\PluginUpdater::class;
 

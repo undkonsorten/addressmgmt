@@ -5,7 +5,7 @@ use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use Undkonsorten\Addressmgmt\Domain\Model\Extbase\FrontendUser;
+use Undkonsorten\Addressmgmt\Domain\Model\FrontendUser;
 use Undkonsorten\Addressmgmt\Domain\Repository\FrontendUserRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -187,13 +187,6 @@ class BaseController extends ActionController {
 	    if(isset($user['uid'])) {
 	        $frontendUser = $this->frontendUserRepository->findByUid($user['uid']);
 	    }
-	    if(is_null($frontendUser)) {
-	        if($this->settings['pidsLogin']) {
-                $this->redirectToUri($this->buildPageLink($this->settings['pidsLogin'], TRUE));
-            } else {
-                throw new Exception('PidLogin not set. Cannot redirect.', '1508229013');
-            }
-	    }
 	    return $frontendUser;
 	}
 
@@ -212,8 +205,10 @@ class BaseController extends ActionController {
         $this->uriBuilder->reset();
         $this->uriBuilder->setTargetPageUid(intval($pageUid));
         if($addReturnUrl) {
+            $request = $GLOBALS['TYPO3_REQUEST'];
+            $normalizedParams = $request->getAttribute('normalizedParams');
             /** @noinspection NullPointerExceptionInspection */
-            $this->uriBuilder->setArguments(array('return_url' => $this->uriBuilder->getRequest()->getRequestUri()));
+            $this->uriBuilder->setArguments(array('return_url' => $normalizedParams->getRequestUrl()));
         }
         return $this->uriBuilder->build();
     }
