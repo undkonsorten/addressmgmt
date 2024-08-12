@@ -1,6 +1,7 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Controller;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -98,15 +99,15 @@ class FileController extends BaseController {
  #[IgnoreValidation(['value' => '$address'])]
  public function newAction(Address $address, $property, FileUpload $fileUpload = NULL, FileReference $fileReference = NULL): ResponseInterface{
 		if(is_null($fileUpload)) {
-			$fileUpload = $this->objectManager->get(FileUpload::class);
+			$fileUpload = GeneralUtility::makeInstance(FileUpload::class);
 			if ('image' == $property) {
 				$fileUpload->getFileMetaData()->setAlternative($address->getFullName());
 			}
 			if(!is_null($fileReference)) {
-				$this->resourceFactory->updateFileMetaDataFromFileReference($fileUpload->getFileMetaData(), $fileReference);	
+				$this->resourceFactory->updateFileMetaDataFromFileReference($fileUpload->getFileMetaData(), $fileReference);
 			}
 		}
-		
+
 		$this->view->assign('fileUpload', $fileUpload);
 		$this->view->assign('address', $address);
 		$this->view->assign('property', $property);
@@ -114,7 +115,7 @@ class FileController extends BaseController {
 		$this->view->assign('fileReference', $fileReference);
   return $this->htmlResponse();
 	}
-	
+
 	/**
   * Update an existing File
   *
@@ -127,7 +128,7 @@ class FileController extends BaseController {
  #[IgnoreValidation(['value' => '$address'])]
  public function editAction(Address $address, FileReference $fileReference, $property, FileMetaData $fileMetaData = NULL): ResponseInterface{
 		if(is_null($fileMetaData)) {
-			$fileMetaData = $this->objectManager->get(FileMetaData::class);
+			$fileMetaData = GeneralUtility::makeInstance(FileMetaData::class);
 			if(!is_null($fileReference)) {
 				$this->resourceFactory->updateFileMetaDataFromFileReference($fileMetaData, $fileReference);
 			}
@@ -138,7 +139,7 @@ class FileController extends BaseController {
 		$this->view->assign('fileReference', $fileReference);
   return $this->htmlResponse();
 	}
-	
+
 	/**
 	 *
 	 * @param Address $address
@@ -175,7 +176,7 @@ class FileController extends BaseController {
 			throw new \Exception('cant find upload property ' . $propertyUpload);
 		}
 		$fileUpload = ObjectAccess::getProperty($address, $propertyUpload);
-		
+
 		if(!is_null($fileReference)){
 			$fileReference = $this->resourceFactory->replaceFileReferenceByUploadedFile($fileUpload, $target, $fileReference, $address, $property);
 		} else {
@@ -184,7 +185,7 @@ class FileController extends BaseController {
 
 		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0=>htmlspecialchars($fileUpload->getName()))));
 		$this->redirect('dash','Address');
-	
+
 	}
 	/**
 	 *
@@ -195,7 +196,7 @@ class FileController extends BaseController {
 		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0=>$fileReference->getUid())));
 		$this->redirect('dash','Address');
 	}
-	
+
 	protected function getErrorFlashMessage(){
 		$message = array();
 		foreach ($this->arguments->validate()->getFlattenedErrors() as $propertyPath => $errors) {
@@ -205,6 +206,6 @@ class FileController extends BaseController {
 		}
 		return $message;
 	}
-		
+
 
 }
