@@ -3,10 +3,18 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressmgmt" target-language="de">
     <header/>
     <body>
-
-			
-			
-			
-		</body>
+      <trans-unit id="identifier.description" approved="yes">
+        <source>identifier</source>
+        <target state="final">Kennung</target>
+      </trans-unit>
+      <trans-unit id="url_override.description" approved="yes">
+        <source>urlOverride</source>
+        <target state="final">Url Überschreibung</target>
+      </trans-unit>
+      <trans-unit id="provider.description" approved="yes">
+        <source>provider</source>
+        <target state="final">Anbieter</target>
+      </trans-unit>
+    </body>
   </file>
 </xliff>
