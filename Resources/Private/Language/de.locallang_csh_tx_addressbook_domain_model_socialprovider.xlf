@@ -3,11 +3,22 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressmgmt" target-language="de">
     <header/>
     <body>
-
-			
-			
-			
-			
-		</body>
+      <trans-unit id="name.description" approved="yes">
+        <source>name</source>
+        <target state="final">Name</target>
+      </trans-unit>
+      <trans-unit id="url_scheme.description" approved="yes">
+        <source>urlScheme</source>
+        <target state="final">Url Schema</target>
+      </trans-unit>
+      <trans-unit id="www.description" approved="yes">
+        <source>www</source>
+        <target state="final">Internet</target>
+      </trans-unit>
+      <trans-unit id="image.description" approved="yes">
+        <source>image</source>
+        <target state="final">Bild</target>
+      </trans-unit>
+    </body>
   </file>
 </xliff>
