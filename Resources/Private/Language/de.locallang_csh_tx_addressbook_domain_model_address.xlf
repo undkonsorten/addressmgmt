@@ -3,32 +3,106 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T00:06:57Z" product-name="addressmgmt" target-language="de">
     <header/>
     <body>
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		</body>
+      <trans-unit id="first_name.description" approved="yes">
+        <source>firstName</source>
+        <target state="final">Vorname</target>
+      </trans-unit>
+      <trans-unit id="name.description" approved="yes">
+        <source>name</source>
+        <target state="final">Nachname</target>
+      </trans-unit>
+      <trans-unit id="gender.description" approved="yes">
+        <source>gender</source>
+        <target state="final">Geschlecht</target>
+      </trans-unit>
+      <trans-unit id="title.description" approved="yes">
+        <source>title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="organization.description" approved="yes">
+        <source>organization</source>
+        <target state="final">Organisation</target>
+      </trans-unit>
+      <trans-unit id="department.description" approved="yes">
+        <source>department</source>
+        <target state="final">Abteilung</target>
+      </trans-unit>
+      <trans-unit id="street.description" approved="yes">
+        <source>street</source>
+        <target state="final">Straße</target>
+      </trans-unit>
+      <trans-unit id="street_number.description" approved="yes">
+        <source>streetNumber</source>
+        <target state="final">Hausnummer</target>
+      </trans-unit>
+      <trans-unit id="address_supplement.description" approved="yes">
+        <source>addressSupplement</source>
+        <target state="final">Adresszusatz</target>
+      </trans-unit>
+      <trans-unit id="city.description" approved="yes">
+        <source>city</source>
+        <target state="final">Stadt</target>
+      </trans-unit>
+      <trans-unit id="zip.description" approved="yes">
+        <source>zip</source>
+        <target state="final">PLZ</target>
+      </trans-unit>
+      <trans-unit id="country.description" approved="yes">
+        <source>country</source>
+        <target state="final">Land</target>
+      </trans-unit>
+      <trans-unit id="state.description" approved="yes">
+        <source>state</source>
+        <target state="final">Bundesland</target>
+      </trans-unit>
+      <trans-unit id="closest_city.description" approved="yes">
+        <source>closestCity</source>
+        <target state="final">nächste größere Stadt</target>
+      </trans-unit>
+      <trans-unit id="email.description" approved="yes">
+        <source>email</source>
+        <target state="final">E-Mail</target>
+      </trans-unit>
+      <trans-unit id="phone.description" approved="yes">
+        <source>phone</source>
+        <target state="final">Telefon</target>
+      </trans-unit>
+      <trans-unit id="mobile.description" approved="yes">
+        <source>mobile</source>
+        <target state="final">Handy</target>
+      </trans-unit>
+      <trans-unit id="fax.description" approved="yes">
+        <source>fax</source>
+        <target state="final">Fax</target>
+      </trans-unit>
+      <trans-unit id="www.description" approved="yes">
+        <source>www</source>
+        <target state="final">Internet</target>
+      </trans-unit>
+      <trans-unit id="description.description" approved="yes">
+        <source>description</source>
+        <target state="final">Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="image.description" approved="yes">
+        <source>image</source>
+        <target state="final">Bild</target>
+      </trans-unit>
+      <trans-unit id="latitude.description" approved="yes">
+        <source>latitude</source>
+        <target state="final">Geografische Breite</target>
+      </trans-unit>
+      <trans-unit id="longitude.description" approved="yes">
+        <source>longitude</source>
+        <target state="final">Geografische Länge</target>
+      </trans-unit>
+      <trans-unit id="fe_user.description" approved="yes">
+        <source>feUser</source>
+        <target state="final">Frontendbenutzer</target>
+      </trans-unit>
+      <trans-unit id="social_identifiers.description" approved="yes">
+        <source>socialIdentifiers</source>
+        <target state="final">Social Media Kennung</target>
+      </trans-unit>
+    </body>
   </file>
 </xliff>
