@@ -79,7 +79,7 @@ class AddressRepository extends Repository
         }
 		if(count($constraints)>0){
             $query->matching(
-                $query->logicalAnd($constraints)
+                $query->logicalAnd(...$constraints)
             );
         }
 
