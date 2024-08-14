@@ -1,5 +1,6 @@
 <?php
 namespace Undkonsorten\Addressmgmt\Domain\Model;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Annotation\Validate;
@@ -51,10 +52,6 @@ abstract class Address extends AbstractEntity implements AddressInterface {
      */
     protected $stringUtility;
 
-    public function injectStringUtility(StringUtility $stringUtility): void
-    {
-        $this->stringUtility = $stringUtility;
-    }
 
     /**
      * @var integer
@@ -62,10 +59,10 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	protected $publishState;
 
 	/**
-  *
-  * @var ObjectStorage<Category>
-  */
- protected $category;
+    *
+    * @var ObjectStorage<Category>
+    */
+    protected $category;
 
 	/**
 	 * type
@@ -75,12 +72,12 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	protected $type;
 
 	/**
-  * name
-  *
-  * @var \string
-  */
- #[Validate(['validator' => 'NotEmpty'])]
- protected $name;
+    * name
+    *
+    * @var \string
+    */
+    #[Validate(['validator' => 'NotEmpty'])]
+    protected $name;
 
 	/**
 	 * map zoom
@@ -118,11 +115,11 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	protected $streetNumber;
 
 	/**
-  * The link to the event page
-  *
-  * @var Link
-  */
- protected $link;
+    * The link to the event page
+    *
+    * @var Link
+    */
+    protected $link;
 
 	/**
 	 * addressSupplement
@@ -299,7 +296,8 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 	 *
 	 * @return \string
 	 */
-	public function __toString() {
+	public function __toString(): string
+    {
 		return $this->getFullName();
 	}
 
@@ -960,6 +958,7 @@ abstract class Address extends AbstractEntity implements AddressInterface {
 
     protected function normalizeFirstLetter($string) {
         // @TODO find better solution
+        $this->stringUtility = GeneralUtility::makeInstance(StringUtility::class);
         $string = $this->stringUtility->slugify($string);
         $string = strtolower(preg_replace('/^[^\w]+/', '', $string));
         $string = preg_replace('/^[\d]+/', self::FIRST_LETTER_MISC, $string);
