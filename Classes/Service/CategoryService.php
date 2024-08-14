@@ -73,7 +73,7 @@ class CategoryService {
 			while(count($stack)>0){
 				$currentRoot = array_pop($stack);
 				foreach($storage as $category){
-					if($category->getParent() === $currentRoot){
+					if($category->getParent()->getUid() === $currentRoot->getUid()){
 						$resultStorage->attach($category);
 						array_push($stack, $category);
 					}
