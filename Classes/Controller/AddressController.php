@@ -139,7 +139,7 @@ class AddressController extends BaseController
      * @throws UnknownObjectException
      * @throws IllegalObjectTypeException
      */
-    public function handInForReviewAction(Address $address): void
+    public function handInForReviewAction(Address $address): ResponseInterface
     {
         $address->setPublishState(Address::PUBLISH_WAITING);
         $this->addressRepository->update($address);
@@ -208,12 +208,12 @@ class AddressController extends BaseController
      * @throws IllegalObjectTypeException
      * @throws TooDirtyException
      */
-    public function createAction(Address $address): void
+    public function createAction(Address $address): ResponseInterface
     {
         $this->addressService->updateCoordinates($address);
         $this->addressRepository->add($address);
         $this->addFlashMessage($this->localize('flashMessage.created'),AbstractMessage::OK);
-        $this->redirect('dash');
+        return $this->redirect('dash');
     }
 
     /**
@@ -222,12 +222,12 @@ class AddressController extends BaseController
      * @throws IllegalObjectTypeException
      * @throws TooDirtyException
      */
-    public function updateAction(Address $address): void
+    public function updateAction(Address $address): ResponseInterface
     {
         $this->addressService->updateCoordinates($address);
         $this->addressRepository->update($address);
         $this->addFlashMessage($this->localize('flashMessage.updated'),AbstractMessage::OK);
-        $this->redirect('dash');
+        return $this->redirect('dash');
     }
 
     /**
