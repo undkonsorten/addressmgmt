@@ -10,7 +10,7 @@ foreach ($pluginConfig as $pluginName) {
         'Addressmgmt',
         \TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($pluginName),
         'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.' . $pluginName . '.title',
-        null,
+        'ext-addressmgmt-plugin-'.$pluginName.'-icon',
         'addressmgmt'
     );
 
@@ -21,7 +21,7 @@ foreach ($pluginConfig as $pluginName) {
         'FILE:EXT:addressmgmt/Configuration/FlexForms/flexform_' . $pluginName . '.xml',
         $contentTypeName
     );
-    $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'][$contentTypeName] = 'ext-addressmgmt-plugin-' . $pluginName;
+    $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'][$contentTypeName] = 'ext-addressmgmt-plugin-' . $pluginName . '-icon';
     $GLOBALS['TCA']['tt_content']['types'][$contentTypeName]['showitem'] = '
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;;general,

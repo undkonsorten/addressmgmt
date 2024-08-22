@@ -83,7 +83,10 @@ ExtensionUtility::configurePlugin(
 );
 
 ExtensionManagementUtility::addPageTSConfig(
-		'@import \'EXT:addressmgmt/Configuration/TsConfig/TemplateLayout.page.typoscript\'>'
+    '
+	@import \'EXT:addressmgmt/Configuration/TsConfig/TemplateLayout.page.typoscript\'>
+    @import \'EXT:addressmgmt/Configuration/TsConfig/ContentElementWizard.page.typoscript\'
+    '
 );
 
 $rootCategory = $extensionConfiguration->getProperty('rootCategory');

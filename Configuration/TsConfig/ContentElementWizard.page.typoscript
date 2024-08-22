@@ -1,0 +1,47 @@
+mod.wizards.newContentElement.wizardItems.ext-addressmgmt {
+  header = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.title
+  after = common
+  elements {
+    addressmgmt_dash {
+      iconIdentifier = ext-addressmgmt-plugin-dash-icon
+      title = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.dash.title
+      description = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.dash.description
+      tt_content_defValues {
+        CType = addressmgmt_dash
+      }
+    }
+    addressmgmt_edit {
+      iconIdentifier = ext-addressmgmt-plugin-edit-icon
+      title = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.edit.title
+      description = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.edit.description
+      tt_content_defValues {
+        CType = addressmgmt_edit
+      }
+    }
+    addressmgmt_create {
+      iconIdentifier = ext-addressmgmt-plugin-create-icon
+      title = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.create.title
+      description = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.create.description
+      tt_content_defValues {
+        CType = addressmgmt_create
+      }
+    }
+    addressmgmt_show {
+      iconIdentifier = ext-addressmgmt-plugin-show-icon
+      title = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.show.title
+      description = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.show.description
+      tt_content_defValues {
+        CType = addressmgmt_show
+      }
+    }
+    addressmgmt_list {
+      iconIdentifier = ext-addressmgmt-plugin-list-icon
+      title = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.list.title
+      description = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.list.description
+      tt_content_defValues {
+        CType = addressmgmt_list
+      }
+    }
+  }
+  show = *
+}

@@ -352,20 +352,38 @@
 				<source></source>
 			</trans-unit>
 			<trans-unit id="plugin.list.title" resname="plugin.list.title">
-				<source>List</source>
+				<source>Addressmgmt List</source>
+			</trans-unit>
+			<trans-unit id="plugin.list.description" resname="plugin.list.title">
+				<source>List addresses as unordered list or showing them on a map.</source>
 			</trans-unit>
 			<trans-unit id="plugin.dash.title" resname="plugin.list.title">
-				<source>Dash</source>
+				<source>Addressmgmt Dash</source>
+			</trans-unit>
+			<trans-unit id="plugin.dash.description" resname="plugin.list.title">
+				<source>Dashboard for address.</source>
 			</trans-unit>
 			<trans-unit id="plugin.edit.title" resname="plugin.list.title">
-				<source>Edit</source>
+				<source>Addressmgmt Edit</source>
+			</trans-unit>
+			<trans-unit id="plugin.edit.description" resname="plugin.list.title">
+				<source>Edit address data in frontend.</source>
 			</trans-unit>
 
 			<trans-unit id="plugin.create.title" resname="plugin.list.title">
-				<source>Create</source>
+				<source>Addressmgmt Create</source>
+			</trans-unit>
+			<trans-unit id="plugin.create.description" resname="plugin.list.title">
+				<source>Create address in frontend.</source>
 			</trans-unit>
 			<trans-unit id="plugin.show.title" resname="plugin.list.title">
-				<source>Create</source>
+				<source>Addressmgmt Show</source>
+			</trans-unit>
+			<trans-unit id="plugin.show.description" resname="plugin.list.title">
+				<source>Deatil view for address data.</source>
+			</trans-unit>
+			<trans-unit id="plugin.title" resname="plugin.list.title">
+				<source>Address Management</source>
 			</trans-unit>
 		</body>
 	</file>
