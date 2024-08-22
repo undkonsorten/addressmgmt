@@ -5,6 +5,7 @@
 
 
 <f:groupedFor each="{editableCategories.filter1.categories}" as="categories" groupBy="parent" groupKey="parent">
+	x
   <div class="form-field-wrap edit-cat-{parent.uid} form-checkbox">
     <fieldset>
       <legend>
@@ -40,15 +41,20 @@
   </div>
 </f:groupedFor>
 <f:groupedFor each="{editableCategories.filter3.categories}" as="categories" groupBy="parent" groupKey="parent">
-  <div class="form-field-wrap edit-cat-{parent.uid} form-checkbox">
-    <label for="select-{parent.uid}">
-      <f:if condition="{parent.description}">
-        <f:then>{parent.description}</f:then>
-        <f:else>{parent.title}</f:else>
-      </f:if>
-    </label>
-    <f:form.select id="select-{parent.uid}" property="category" required="{editableCategories.filter3.configuration.required}" options="{categories}" optionLabelField="title" prependOptionLabel="{f:translate(key:'edit.category.choose')}" prependOptionValue="" />
-  </div>
+	<fieldset>
+		<legend>
+			<f:if condition="{parent.description}">
+				<f:then>{parent.description}</f:then>
+				<f:else>{parent.title}</f:else>
+			</f:if>
+		</legend>
+	</fieldset>
+	<f:for each="{categories}" as="category">
+		<label for="checkbox-{parent.uid}-{category.uid}">
+			<u:form.checkbox id="checkbox-{parent.uid}-{category.uid}" required="{editableCategories.filter3.configuration.required}" property="category" value="{category.uid}" multiple="1"/>
+			{category.title}</label>
+	</f:for>
+	</div>
 </f:groupedFor>
 
 <f:groupedFor each="{editableCategories.filter4.categories}" as="categories" groupBy="parent" groupKey="parent">

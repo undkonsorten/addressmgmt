@@ -124,7 +124,7 @@ class AddressController extends BaseController
                     unset($arguments['address']['category'][$key]);
                 }
             }
-            $this->request->setArguments($arguments);
+            $this->request->withArguments($arguments);
         }
 
         if(isset($this->arguments['address'])){
