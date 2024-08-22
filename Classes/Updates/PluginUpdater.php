@@ -30,7 +30,7 @@ class PluginUpdater implements UpgradeWizardInterface
         ],
         [
             'switchableControllerActions' => 'Address->show',
-            'targetListType' => 'addressmgmt_list',
+            'targetListType' => 'addressmgmt_show',
         ],
         [
             'switchableControllerActions' => 'Address->new;Address->create;Address->dash',
