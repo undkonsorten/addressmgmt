@@ -146,10 +146,10 @@ class FileController extends BaseController {
 	 * @param FileMetaData $fileMetaData
 	 * @param FileReference $fileReference
 	 */
-	public function updateAction(Address $address, FileMetaData $fileMetaData = NULL, FileReference $fileReference = NULL){
+	public function updateAction(Address $address, FileMetaData $fileMetaData = NULL, FileReference $fileReference = NULL): ResponseInterface{
 		$file = $fileReference->getOriginalResource()->getOriginalFile();
 		$this->resourceFactory->updateFileWithMetaData($file, $fileMetaData);
-		$this->redirect('dash','Address');
+		return $this->redirect('dash','Address');
 	}
 
 	/**
@@ -159,7 +159,7 @@ class FileController extends BaseController {
 	 * @param  \sting $propertyUpload
 	 * @param Address $address
 	 */
-	public function createAction(Address $address, $property, FileReference $fileReference = NULL){
+	public function createAction(Address $address, $property, FileReference $fileReference = NULL): ResponseInterface{
 
 		//@TODO get from TS settigns settings.target.$property '1:user_upload'
 		if(isset($this->settings['target'][$property])) {
@@ -184,17 +184,17 @@ class FileController extends BaseController {
 		}
 
 		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0=>htmlspecialchars($fileUpload->getName()))));
-		$this->redirect('dash','Address');
+		return $this->redirect('dash','Address');
 
 	}
 	/**
 	 *
 	 * @param FileReference $fileReference
 	 */
-	public function deleteAction(FileReference $fileReference){
+	public function deleteAction(FileReference $fileReference): ResponseInterface{
 		$this->resourceFactory->deleteFileReference($fileReference);
 		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0=>$fileReference->getUid())));
-		$this->redirect('dash','Address');
+		return $this->redirect('dash','Address');
 	}
 
 	protected function getErrorFlashMessage(){
