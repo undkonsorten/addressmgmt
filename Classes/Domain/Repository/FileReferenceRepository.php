@@ -5,7 +5,7 @@ namespace Undkonsorten\Addressmgmt\Domain\Repository;
  *  Copyright notice
  *
  *  (c) 2013 Eike Starkmann <starkmann@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -41,7 +41,7 @@ use TYPO3\CMS\Extbase\Property\PropertyMapper;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class FileReferenceRepository {
-	
+
 	/**
 	 * type returned by this repository
 	 * @var \string
@@ -97,7 +97,7 @@ class FileReferenceRepository {
  public function add(FileReference $fileReference) {
 		throw new \BadMethodCallException('Use resourceFactory to add file reference', 1383231125);
 	}
-	
+
 	/**
   * adds a new file reference from raw data
   *
@@ -119,7 +119,7 @@ class FileReferenceRepository {
 		$this->referenceIndex->updateRefIndexTable($tableName, $uidForeign);
 		return $fileReference;
 	}
-	
+
 	/**
   * updates a file reference
   *
@@ -131,7 +131,7 @@ class FileReferenceRepository {
 		$this->deleteInternal($fileReference);
 		return $this->addInternal($file->getUid(), $tableName, $fieldName, $uidForeign, $pid);
 	}
-	
+
 	/**
   * deletes a file reference
   *
@@ -142,17 +142,19 @@ class FileReferenceRepository {
 		$properties = $fileReference->getOriginalResource()->getProperties();
 		$fileReferences = $this->fileRepository->findByRelation($properties['tablenames'], $properties['fieldname'], $properties['uid_foreign']);
 		$count = count($fileReferences);
-		$this->deleteInternal($fileReference);
-		$row = array(
-			'uid' => $properties['uid_foreign'],
-			$properties['fieldname'] => $count-1,
-		);
-		$this->typo3DbBackend->updateRow($properties['tablenames'], $row);
-		$this->referenceIndex->updateRefIndexTable($properties['tablenames'], $properties['uid_foreign']);
+        if($count > 0){
+            $this->deleteInternal($fileReference);
+            $row = array(
+                'uid' => $properties['uid_foreign'],
+                $properties['fieldname'] => $count-1,
+            );
+            $this->typo3DbBackend->updateRow($properties['tablenames'], $row);
+            $this->referenceIndex->updateRefIndexTable($properties['tablenames'], $properties['uid_foreign']);
+        }
 	}
-	
+
 	/**
-  * finds a file reference by uid 
+  * finds a file reference by uid
   *
   * @param \integer $uid
   * @return FileReference
@@ -160,7 +162,7 @@ class FileReferenceRepository {
  public function findByUid($uid) {
 		// @TODO implement
 	}
-	
+
 	/**
   * finds all file references for given object/property
   *
@@ -171,7 +173,7 @@ class FileReferenceRepository {
  public function findByForeignObject($object, $property) {
 		//@TODO implement
 	}
-	
+
 	/**
   * finds one file reference for given object/property
   *
@@ -185,7 +187,7 @@ class FileReferenceRepository {
 			return $fileReferences->current();
 		}
 	}
-	
+
 	/**
   * finds all file references for given file
   *
@@ -222,7 +224,7 @@ class FileReferenceRepository {
 		return $this->propertyMapper->convert($uid, $this->type);
 		// return $this->fileRepository->findFileReferenceByUid($uid);
 	}
-	
+
 	/**
   * Deletes a file reference from database
   *
@@ -237,7 +239,7 @@ class FileReferenceRepository {
 		$this->typo3DbBackend->updateRow('sys_file_reference', $row);
 		$this->referenceIndex->updateRefIndexTable('sys_file_reference', $uid);
 	}
-	
-	
+
+
 }
 ?>
