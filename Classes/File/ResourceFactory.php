@@ -10,13 +10,14 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 
 /***************************************************************
  *  Copyright notice
  *
  *  (c) 2013 Eike Starkmann <starkmann@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -50,6 +51,15 @@ use Undkonsorten\Addressmgmt\Domain\Repository\FileReferenceRepository;
 
 class ResourceFactory implements SingletonInterface {
 
+    /**
+     * @var PersistenceManager
+     */
+    protected $persistenceManager;
+
+    public function injectPersistenceManager(PersistenceManager $persistenceManager): void
+    {
+        $this->persistenceManager = $persistenceManager;
+    }
     /**
      * @var DataMapFactory
      */
@@ -108,7 +118,7 @@ class ResourceFactory implements SingletonInterface {
 	static public function getInstance() {
 		return GeneralUtility::makeInstance(__CLASS__);
 	}
-	
+
 	/**
   * Upload a file and create reference
   *
@@ -130,10 +140,10 @@ class ResourceFactory implements SingletonInterface {
 		}
 		return $fileReference;
 	}
-	
+
 	/**
 	 * Creates a file from upload data
-	 * 
+	 *
 	 * @param FileUpload $fileUpload
 	 * @param Folder $folder
 	 * @param \string $conflictMode defines handling for name conflicts (cancel,replace,rename)
@@ -142,9 +152,9 @@ class ResourceFactory implements SingletonInterface {
 	protected function createFileFromUpload(FileUpload $fileUpload, Folder $folder, $conflictMode = 'rename') {
 		$file = $folder->getStorage()->addUploadedFile($fileUpload->getFileUploadArray(), $folder, NULL, $conflictMode);
 		$this->updateFileWithMetaData($file, $fileUpload->getFileMetaData());
-		return $file; 
+		return $file;
 	}
-	
+
 	/**
   * Gets a folder from Storage, Folder or combined identifier
   * like '1:my/path'
@@ -166,11 +176,11 @@ class ResourceFactory implements SingletonInterface {
 		} elseif (is_string($target)){
 			$array = explode(":", $target);
 			if(!is_int((int)$array[0])) throw new \UnexpectedValueException('Unexpected format '.$target.' Expecting "storage(int):folder(string)"',1384358666);
-			
+
 			$storage = $this->storageRepository->findByUid($array[0]);
-			
+
 			if(is_null($storage)) throw new \UnexpectedValueException('Storage '.$array[0].' not found.',1384358679);
-			
+
 			if(!is_null($array[1])){
 				if($storage->hasFolder($array[1])){
 					$folder = $storage->getFolder($array[1]);
@@ -185,10 +195,10 @@ class ResourceFactory implements SingletonInterface {
 		}
 		return $folder;
 	}
-	
+
 	/**
 	 * creates a file reference
-	 * 
+	 *
 	 * @param File $file
 	 * @param \mixed $object
 	 * @param \string $property
@@ -209,9 +219,9 @@ class ResourceFactory implements SingletonInterface {
 		$fileReference = $this->fileReferenceRepository->addRaw($uidLocal, $foreignParameters['tablenames'], $foreignParameters['fieldname'], $foreignParameters['uid_foreign'], $pid, $count);
 		return $fileReference;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @TODO implement deleteFileIfPossible
 	 * @param FileReference $fileReference
 	 * @param \mixed $object
@@ -221,7 +231,7 @@ class ResourceFactory implements SingletonInterface {
 	public function deleteFileReference(FileReference $fileReference) {
 		$this->fileReferenceRepository->delete($fileReference);
 	}
-	
+
 	/**
   * @param FileUpload $fileUpload
   * @param ResourceStorage|Folder|\string $target
@@ -240,13 +250,13 @@ class ResourceFactory implements SingletonInterface {
 		}
 		return $fileReference;
 	}
-	
+
 	/**
 	 * gets foreign parameters for database queries from object and property
-	 * 
+	 *
 	 * @param \mixed $object
 	 * @param \string $property
-	 * @return \array 
+	 * @return \array
 	 */
 	protected function getForeignParameters($object, $property) {
 		$dataMap = $this->dataMapFactory->buildDataMap(get_class($object));
@@ -255,10 +265,10 @@ class ResourceFactory implements SingletonInterface {
 		$uidForeign = ObjectAccess::getProperty($object, 'uid');
 		return array('tablenames' =>$tableName, 'uid_foreign' => $uidForeign, 'fieldname' => $fieldName);
 	}
-	
+
 	/**
 	 * Updates a file object with given meta data
-	 * 
+	 *
 	 * @param File $file
 	 * @param FileMetaData $fileMetaData
 	 * @return void
@@ -271,17 +281,15 @@ class ResourceFactory implements SingletonInterface {
 			'description',
 		);
 		foreach ($propertiesToBeUpdated as $property) {
-			$value = ObjectAccess::getProperty($fileMetaData, $property);
-			$file->updateProperties(array($property => $value));
-		}
-		if (count($file->getUpdatedProperties())) {
-			$this->fileRepository->update($file);
+            $metaData = $file->getMetaData();
+            $metaData->offsetSet($property, $fileMetaData->_getProperty($property));
+            $metaData->save();
 		}
 	}
-	
+
 	/**
 	 * Updates fileMetaData with meta data from fileReference
-	 * 
+	 *
 	 * @param FileMetaData $fileMetaData
 	 * @param FileReference $fileReference
 	 * @return void
