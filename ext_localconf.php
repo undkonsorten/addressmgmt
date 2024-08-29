@@ -18,8 +18,6 @@ ExtensionUtility::configurePlugin(
 	'List',
 	[
 		AddressController::class => 'list, show',
-        FileController::class  => '',
-
     ],
     [],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
@@ -29,8 +27,6 @@ ExtensionUtility::configurePlugin(
     'Show',
     [
         AddressController::class => 'show',
-        FileController::class  => '',
-
     ],
     [],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
@@ -40,13 +36,9 @@ ExtensionUtility::configurePlugin(
     'Create',
     [
         AddressController::class => 'new, create, dash',
-        FileController::class  => '',
-
     ],
     [
         AddressController::class => 'new, create, dash',
-        FileController::class  => '',
-
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
@@ -54,14 +46,10 @@ ExtensionUtility::configurePlugin(
     'Addressmgmt',
     'Edit',
     [
-        AddressController::class => 'edit, update, dash',
-        FileController::class  => '',
-
+        AddressController::class => 'new, create, edit, update, dash',
     ],
     [
-        AddressController::class => 'new, create, dash',
-        FileController::class  => '',
-
+        AddressController::class => 'new, create, edit, update, dash',
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
@@ -70,14 +58,13 @@ ExtensionUtility::configurePlugin(
     'Dash',
     [
         AddressController::class => 'dash, edit, update, new, create, handInForReview, delete, remove',
-        FileController::class  => 'edit, update, new, create, delete, ',
-        SocialIdentifier::class => 'create, delete, update, edit'
-
+        SocialIdentifier::class => 'create, delete, update, edit',
+        FileController::class  => 'edit, update, new, create, delete, '
     ],
     [
         AddressController::class => 'new, create, dash',
-        FileController::class  => '',
-
+        FileController::class  => 'edit, update, new, create, delete, ',
+        SocialIdentifier::class => 'create, delete, update, edit',
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
