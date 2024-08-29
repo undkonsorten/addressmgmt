@@ -150,9 +150,12 @@ class ResourceFactory implements SingletonInterface {
 	 * @return File
 	 */
 	protected function createFileFromUpload(FileUpload $fileUpload, Folder $folder, $conflictMode = 'rename') {
-		$file = $folder->getStorage()->addUploadedFile($fileUpload->getFileUploadArray(), $folder, NULL, $conflictMode);
-		$this->updateFileWithMetaData($file, $fileUpload->getFileMetaData());
-		return $file;
+        if(is_uploaded_file($fileUpload->getTemporaryName())){
+            $file = $folder->getStorage()->addUploadedFile($fileUpload->getFileUploadArray(), $folder, NULL, $conflictMode);
+            $this->updateFileWithMetaData($file, $fileUpload->getFileMetaData());
+            return $file;
+        }
+        return null;
 	}
 
 	/**
