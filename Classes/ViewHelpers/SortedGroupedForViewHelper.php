@@ -35,7 +35,8 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-class SortedGroupedForViewHelper extends GroupedForViewHelper {
+class SortedGroupedForViewHelper extends GroupedForViewHelper
+{
 
     /**
      * @var \string
@@ -50,11 +51,13 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper {
     /**
      * registers additional arguments used by this viewhelper
      */
-    public function initializeArguments() {
+    public function initializeArguments()
+    {
         $this->registerArgument('sortBy', 'string', 'Groups will be sorted by this property', FALSE, '');
         $this->registerArgument('order', 'string', 'Sorting order, asc or desc', FALSE, self::ORDER_ASCENDING);
         parent::initializeArguments();
     }
+
     /**
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
@@ -79,7 +82,7 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper {
         }
 
         $groups = static::groupElements($each, $groupBy);
-        $groups = static::sortElements($groups, $arguments['sortBy'],$arguments['order']);
+        $groups = static::sortElements($groups, $arguments['sortBy'], $arguments['order']);
 
         $templateVariableContainer = $renderingContext->getVariableProvider();
         foreach ($groups['values'] as $currentGroupIndex => $group) {
@@ -91,12 +94,14 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper {
         }
         return $output;
     }
+
     /**
      * @param \array $elements
      * @param \string $groupBy
      * @return \array
      */
-    static protected function sortElements(array $groups, $sortBy, $order) {
+    static protected function sortElements(array $groups, $sortBy, $order)
+    {
         if ($sortBy && count($groups['keys'])) {
             $groups = static::sortGroups($groups);
         }
@@ -107,15 +112,13 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper {
      * @param \array $groups
      * @return \array
      */
-    static protected function sortGroups($groups) {
+    static protected function sortGroups($groups)
+    {
         ksort($groups['values']);
         $keys = array_keys($groups['values']);
         $groups['keys'] = array_combine($keys, $keys);
         return $groups;
     }
-
-
-
 
 
 }

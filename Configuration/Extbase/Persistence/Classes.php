@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 use Undkonsorten\Addressmgmt\Domain\Model\Category;
 use Undkonsorten\Addressmgmt\Domain\Model\Address;

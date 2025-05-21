@@ -10,6 +10,7 @@ mod.wizards.newContentElement.wizardItems.ext-addressmgmt {
         CType = addressmgmt_dash
       }
     }
+
     addressmgmt_edit {
       iconIdentifier = ext-addressmgmt-plugin-edit-icon
       title = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.edit.title
@@ -18,6 +19,7 @@ mod.wizards.newContentElement.wizardItems.ext-addressmgmt {
         CType = addressmgmt_edit
       }
     }
+
     addressmgmt_create {
       iconIdentifier = ext-addressmgmt-plugin-create-icon
       title = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.create.title
@@ -26,6 +28,7 @@ mod.wizards.newContentElement.wizardItems.ext-addressmgmt {
         CType = addressmgmt_create
       }
     }
+
     addressmgmt_show {
       iconIdentifier = ext-addressmgmt-plugin-show-icon
       title = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.show.title
@@ -34,6 +37,7 @@ mod.wizards.newContentElement.wizardItems.ext-addressmgmt {
         CType = addressmgmt_show
       }
     }
+
     addressmgmt_list {
       iconIdentifier = ext-addressmgmt-plugin-list-icon
       title = LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.list.title
@@ -43,5 +47,6 @@ mod.wizards.newContentElement.wizardItems.ext-addressmgmt {
       }
     }
   }
+
   show = *
 }

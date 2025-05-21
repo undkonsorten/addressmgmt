@@ -3,6 +3,7 @@
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -28,49 +29,55 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-class ExtensionConfigurationService {
-	
-	/**
-	 * @var \array
-	 */
-	protected $configuration;
-	
-	/**
-	 * @param \string $extensionKey
-	 * @return \Undkonsorten\Publications\Service\ExtensionConfigurationService
-	 */
-	static public function getInstance($extensionKey) {
-		return GeneralUtility::makeInstance(self::class, $extensionKey);
-	}
-	
-	/**
-	 * @param \string $extensionKey
-	 */
-	public function __construct($extensionKey = NULL) {
-		if (!is_string($extensionKey)) {
-			$extensionKey = $this->getExtensionKeyFromNamespace();
-		} 
-		$this->load($extensionKey);
-	}
-	
-	/**
-	 * @param \string $extensionKey
-	 */
-	public function load($extensionKey) {
-		$this->configuration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey] ?? [];
-	}
-	
-	/**
-	 * @param \string $propertyPath
-	 * @return \mixed
-	 */
-	public function getProperty($propertyPath) {
-		return ObjectAccess::getPropertyPath($this->configuration, $propertyPath);
-	}
-	
-	protected function getExtensionKeyFromNamespace() {
-		$namespace = __NAMESPACE__;
-		$extensionName = explode('\\', $namespace)[1];
-		return GeneralUtility::camelCaseToLowerCaseUnderscored($extensionName);
-	}
+class ExtensionConfigurationService
+{
+
+    /**
+     * @var \array
+     */
+    protected $configuration;
+
+    /**
+     * @param \string $extensionKey
+     * @return \Undkonsorten\Publications\Service\ExtensionConfigurationService
+     */
+    static public function getInstance($extensionKey)
+    {
+        return GeneralUtility::makeInstance(self::class, $extensionKey);
+    }
+
+    /**
+     * @param \string $extensionKey
+     */
+    public function __construct($extensionKey = NULL)
+    {
+        if (!is_string($extensionKey)) {
+            $extensionKey = $this->getExtensionKeyFromNamespace();
+        }
+        $this->load($extensionKey);
+    }
+
+    /**
+     * @param \string $extensionKey
+     */
+    public function load($extensionKey)
+    {
+        $this->configuration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey] ?? [];
+    }
+
+    /**
+     * @param \string $propertyPath
+     * @return \mixed
+     */
+    public function getProperty($propertyPath)
+    {
+        return ObjectAccess::getPropertyPath($this->configuration, $propertyPath);
+    }
+
+    protected function getExtensionKeyFromNamespace()
+    {
+        $namespace = __NAMESPACE__;
+        $extensionName = explode('\\', $namespace)[1];
+        return GeneralUtility::camelCaseToLowerCaseUnderscored($extensionName);
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
@@ -10,7 +11,7 @@ foreach ($pluginConfig as $pluginName) {
         'Addressmgmt',
         \TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($pluginName),
         'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:plugin.' . $pluginName . '.title',
-        'ext-addressmgmt-plugin-'.$pluginName.'-icon',
+        'ext-addressmgmt-plugin-' . $pluginName . '-icon',
         'addressmgmt'
     );
 

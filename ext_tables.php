@@ -1,21 +1,23 @@
 <?php
+
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 if (!defined('TYPO3')) {
-	die ('Access denied.');
+    die ('Access denied.');
 }
 
 ExtensionManagementUtility::addLLrefForTCAdescr('tx_addressmgmt_domain_model_address', 'EXT:addressmgmt/Resources/Private/Language/locallang_csh_tx_addressbook_domain_model_address.xlf');
 
 // Need pid in fe_user to be able to move records from FE
 $frontendUserColumns = array(
-	'pid' => array(
-		'config' => array(
-			'type' => 'passthrough',
-		),
-	),
+    'pid' => array(
+        'config' => array(
+            'type' => 'passthrough',
+        ),
+    ),
 );
-ExtensionManagementUtility::addTCAcolumns('fe_users',$frontendUserColumns);
+ExtensionManagementUtility::addTCAcolumns('fe_users', $frontendUserColumns);
 
 ExtensionManagementUtility::allowTableOnStandardPages('tx_addressmgmt_domain_model_address');
 

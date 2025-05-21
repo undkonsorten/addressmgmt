@@ -1,9 +1,9 @@
 {
-    "name": "undkonsorten/addressmgmt",
-    "type": "typo3-cms-extension",
-    "description": "Address Management",
-    "homepage": "https://www.undkonsorten.com",
-    "authors": [
+	"name": "undkonsorten/addressmgmt",
+	"type": "typo3-cms-extension",
+	"description": "Address Management",
+	"homepage": "https://www.undkonsorten.com",
+	"authors": [
 		{
 			"name": "Eike Starkmann",
 			"email": "starkmann@undkonsorten.com",
@@ -22,49 +22,55 @@
 			"homepage": "http://undkonsorten.com",
 			"role": "Product Owner"
 		}
-    ],
-    "license": ["GPL-2.0+"],
-    "keywords": ["address", "TYPO3", "contacts"],
-    "support": {
-        "issues": "https://support.undkonsorten.com/projects/events"
-    },
-    "require": {
-        "typo3/cms-core": "^11.5 || ^12.4 || ^13.4"
-    },
+	],
+	"license": [
+		"GPL-2.0+"
+	],
+	"keywords": [
+		"address",
+		"TYPO3",
+		"contacts"
+	],
+	"support": {
+		"issues": "https://support.undkonsorten.com/projects/events"
+	},
+	"require": {
+		"typo3/cms-core": "^11.5 || ^12.4 || ^13.4"
+	},
 	"suggest": {
 		"in2code/femanager": "^7.0"
 	},
-  "autoload": {
-    "psr-4": {
-      "Undkonsorten\\Addressmgmt\\": "Classes"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Undkonsorten\\Addressmgmt\\Tests\\": "Tests"
-    }
-  },
-  "scripts": {
-    "link-extension": [
-      "@php -r 'is_dir($extFolder=__DIR__.\"/.Build/Web/typo3conf/ext/\") || mkdir($extFolder, 0777, true);'",
-      "@php -r 'file_exists($extFolder=__DIR__.\"/.Build/Web/typo3conf/ext/addressmgmt\") || symlink(__DIR__,$extFolder);'"
-    ],
-    "test:unit": "phpunit",
-    "post-autoload-dump": [
-      "@link-extension"
-    ]
-  },
-  "config": {
-    "vendor-dir": ".Build/vendor"
-  },
-  "extra": {
-    "typo3/cms": {
-      "extension-key": "addressmgmt",
-      "cms-package-dir": "{$vendor-dir}/typo3/cms",
-      "web-dir": ".Build/Web"
-    },
-    "branch-alias":{
-	  "dev-main": "6.1.x-dev"
+	"autoload": {
+		"psr-4": {
+			"Undkonsorten\\Addressmgmt\\": "Classes"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Undkonsorten\\Addressmgmt\\Tests\\": "Tests"
+		}
+	},
+	"scripts": {
+		"link-extension": [
+			"@php -r 'is_dir($extFolder=__DIR__.\"/.Build/Web/typo3conf/ext/\") || mkdir($extFolder, 0777, true);'",
+			"@php -r 'file_exists($extFolder=__DIR__.\"/.Build/Web/typo3conf/ext/addressmgmt\") || symlink(__DIR__,$extFolder);'"
+		],
+		"test:unit": "phpunit",
+		"post-autoload-dump": [
+			"@link-extension"
+		]
+	},
+	"config": {
+		"vendor-dir": ".Build/vendor"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "addressmgmt",
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"web-dir": ".Build/Web"
+		},
+		"branch-alias": {
+			"dev-main": "6.1.x-dev"
+		}
 	}
-  }
 }

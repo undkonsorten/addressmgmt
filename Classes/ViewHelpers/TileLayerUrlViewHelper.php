@@ -4,8 +4,6 @@
 namespace Undkonsorten\Addressmgmt\ViewHelpers;
 
 
-
-
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
@@ -50,8 +48,8 @@ class TileLayerUrlViewHelper extends AbstractViewHelper
         } else {
             $content = $renderChildrenClosure();
         }
-        $url = str_replace('{id}',$content['options']['id'],$content['urlTemplate']);
-        $url = str_replace('{accessToken}',$content['options']['accessToken'],$url);
+        $url = str_replace('{id}', $content['options']['id'], $content['urlTemplate']);
+        $url = str_replace('{accessToken}', $content['options']['accessToken'], $url);
 
         return $url;
     }

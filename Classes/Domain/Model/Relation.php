@@ -1,8 +1,10 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use Undkonsorten\Addressmgmt\Domain\Model\Address\Location;
+
 /***************************************************************
  *
  *  Copyright notice
@@ -27,81 +29,89 @@ use Undkonsorten\Addressmgmt\Domain\Model\Address\Location;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  * Relation
  */
-class Relation extends AbstractEntity {
+class Relation extends AbstractEntity
+{
 
-	/**
-  * room
-  *
-  * @var Room
-  */
- protected $room = NULL;
+    /**
+     * room
+     *
+     * @var Room
+     */
+    protected $room = NULL;
 
-	/**
-  * location
-  *
-  * @var Location
-  */
- protected $location = NULL;
+    /**
+     * location
+     *
+     * @var Location
+     */
+    protected $location = NULL;
 
-	/**
-  * Returns the room
-  *
-  * @return Room $room
-  */
- public function getRoom() {
-		return $this->room;
-	}
+    /**
+     * Returns the room
+     *
+     * @return Room $room
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
 
-	/**
-  * Sets the room
-  *
-  * @param Room $room
-  * @return void
-  */
- public function setRoom(Room $room) {
-		$this->room = $room;
-	}
+    /**
+     * Sets the room
+     *
+     * @param Room $room
+     * @return void
+     */
+    public function setRoom(Room $room)
+    {
+        $this->room = $room;
+    }
 
-	/**
-	 * __construct
-	 */
-	public function __construct() {
-		//Do not remove the next line: It would break the functionality
-		$this->initStorageObjects();
-	}
+    /**
+     * __construct
+     */
+    public function __construct()
+    {
+        //Do not remove the next line: It would break the functionality
+        $this->initStorageObjects();
+    }
 
-	/**
-	 * Initializes all ObjectStorage properties
-	 * Do not modify this method!
-	 * It will be rewritten on each save in the extension builder
-	 * You may modify the constructor of this class instead
-	 *
-	 * @return void
-	 */
-	protected function initStorageObjects() {
-		
-	}
+    /**
+     * Initializes all ObjectStorage properties
+     * Do not modify this method!
+     * It will be rewritten on each save in the extension builder
+     * You may modify the constructor of this class instead
+     *
+     * @return void
+     */
+    protected function initStorageObjects()
+    {
 
-	/**
-  * Returns the location
-  *
-  * @return Location $location
-  */
- public function getLocation() {
-		return $this->location;
-	}
+    }
 
-	/**
-  * Sets the location
-  *
-  * @param Location $location
-  * @return void
-  */
- public function setLocation(Location $location) {
-		$this->location = $location;
-	}
+    /**
+     * Returns the location
+     *
+     * @return Location $location
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Sets the location
+     *
+     * @param Location $location
+     * @return void
+     */
+    public function setLocation(Location $location)
+    {
+        $this->location = $location;
+    }
 
 }

@@ -127,7 +127,7 @@ class PluginUpdater implements UpgradeWizardInterface
             $flexFormData = GeneralUtility::xml2array($newFlexform);
 
             // Remove flexform data which do not exist in flexform of new plugin
-            if(is_array($flexFormData) && is_array($flexFormData['data'])){
+            if (is_array($flexFormData) && is_array($flexFormData['data'])) {
                 foreach ($flexFormData['data'] as $sheetKey => $sheetData) {
                     // Remove empty sheets
                     if (!count($flexFormData['data'][$sheetKey]['lDEF']) > 0) {
@@ -137,7 +137,7 @@ class PluginUpdater implements UpgradeWizardInterface
                 if (count($flexFormData['data']) > 0) {
                     $newFlexform = $this->array2xml($flexFormData);
                 }
-            }else{
+            } else {
                 $newFlexform = '';
             }
 

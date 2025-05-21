@@ -1,9 +1,11 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\Utility;
 
 use TYPO3\CMS\Core\Charset\CharsetConverter;
 use TYPO3\Flow\Package\Exception\ProtectedPackageKeyException;
 use TYPO3\CMS\Core\SingletonInterface;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -29,7 +31,8 @@ use TYPO3\CMS\Core\SingletonInterface;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-class StringUtility implements SingletonInterface {
+class StringUtility implements SingletonInterface
+{
 
     /**
      * @var CharsetConverter
@@ -47,7 +50,8 @@ class StringUtility implements SingletonInterface {
      * @param \string $charset
      * @return \string
      */
-    public function slugify($string, $charset = 'utf-8') {
+    public function slugify($string, $charset = 'utf-8')
+    {
         return $this->charsetConverter->specCharsToASCII($charset, $string);
     }
 

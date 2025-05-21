@@ -1,12 +1,14 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /***************************************************************
  *  Copyright notice
  *
  *  (c) 2013 Eike Starkmann <starkmann@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -25,6 +27,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  *
  *
@@ -32,59 +35,65 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Link extends AbstractEntity {
+class Link extends AbstractEntity
+{
 
-	/**
-	 * Link text
-	 *
-	 * @var \string
-	 */
-	protected $text;
+    /**
+     * Link text
+     *
+     * @var \string
+     */
+    protected $text;
 
-	/**
-	 * The page
-	 *
-	 * @var \string
-	 */
-	protected $link;
+    /**
+     * The page
+     *
+     * @var \string
+     */
+    protected $link;
 
-	/**
-	 * Returns the text
-	 *
-	 * @return \string $text
-	 */
-	public function getText() {
-		return $this->text;
-	}
+    /**
+     * Returns the text
+     *
+     * @return \string $text
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
 
-	/**
-	 * Sets the text
-	 *
-	 * @param \string $text
-	 * @return void
-	 */
-	public function setText($text) {
-		$this->text = $text;
-	}
+    /**
+     * Sets the text
+     *
+     * @param \string $text
+     * @return void
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
 
-	/**
-	 * Returns the link
-	 *
-	 * @return \string $link
-	 */
-	public function getLink() {
-		return $this->link;
-	}
+    /**
+     * Returns the link
+     *
+     * @return \string $link
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
 
-	/**
-	 * Sets the link
-	 *
-	 * @param \string $link
-	 * @return void
-	 */
-	public function setLink($link) {
-		$this->link = $link;
-	}
+    /**
+     * Sets the link
+     *
+     * @param \string $link
+     * @return void
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+    }
 
 }
+
 ?>

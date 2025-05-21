@@ -1,10 +1,10 @@
 <?php
-if (!defined ('TYPO3')) {
+if (!defined('TYPO3')) {
     die ('Access denied.');
 }
 $tca = [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room',
+        'title' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room',
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -24,99 +24,99 @@ $tca = [
         'searchFields' => 'name,',
         'iconfile' => 'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_room.png',
     ],
-	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, name, capacity, description',
+    'interface' => [
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, name, capacity, description',
     ],
-	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, name, capacity, description'],
+    'types' => [
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, name, capacity, description'],
     ],
-	'palettes' => [
-		'1' => ['showitem' => ''],
+    'palettes' => [
+        '1' => ['showitem' => ''],
     ],
-	'columns' => [
+    'columns' => [
 
-		'sys_language_uid' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-			'config' => ['type' => 'language'],
+        'sys_language_uid' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => ['type' => 'language'],
         ],
-		'l10n_parent' => [
-			'displayCond' => 'FIELD:sys_language_uid:>:0',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-			'config' => [
-				'type' => 'select',
+        'l10n_parent' => [
+            'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectSingle',
-				'items' => [
-					['', 0],
+                'items' => [
+                    ['label' => '', 'value' => 0],
                 ],
-				'foreign_table' => 'tx_addressmgmt_domain_model_room',
-				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_room.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_room.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_addressmgmt_domain_model_room',
+                'foreign_table_where' => 'AND tx_addressmgmt_domain_model_room.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_room.sys_language_uid IN (-1,0)',
             ],
         ],
-		'l10n_diffsource' => [
-			'config' => [
-				'type' => 'passthrough',
+        'l10n_diffsource' => [
+            'config' => [
+                'type' => 'passthrough',
             ],
         ],
-		'hidden' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
-			'config' => [
-				'type' => 'check',
+        'hidden' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'config' => [
+                'type' => 'check',
             ],
         ],
-		'starttime' => [
-			'exclude' => 1,
-			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
-			'config' => [
-				'type' => 'input',
+        'starttime' => [
+            'exclude' => 1,
+            'allowLanguageSynchronization' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'config' => [
+                'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
             ],
         ],
-		'endtime' => [
-			'exclude' => 1,
-			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
-			'config' => [
-				'type' => 'input',
+        'endtime' => [
+            'exclude' => 1,
+            'allowLanguageSynchronization' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'config' => [
+                'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
             ],
         ],
 
-		'name' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.name',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+        'name' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.name',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
             ],
         ],
-	    'capacity' => [
-	        'exclude' => 1,
-	        'allowLanguageSynchronization' => true,
-	        'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.capacity',
-	        'config' => [
-	            'type' => 'input',
-	            'size' => 13,
-	            'max' => 20,
-	            'eval' => 'int',
-	            'checkbox' => 0,
-	            'default' => 0,
+        'capacity' => [
+            'exclude' => 1,
+            'allowLanguageSynchronization' => true,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.capacity',
+            'config' => [
+                'type' => 'input',
+                'size' => 13,
+                'max' => 20,
+                'eval' => 'int',
+                'checkbox' => 0,
+                'default' => 0,
             ],
         ],
-	    'description' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.description',
-	        'config' => [
-	            'type' => 'text',
-	            'cols' => 40,
-	            'rows' => 10,
-	            'eval' => 'trim',
+        'description' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.description',
+            'config' => [
+                'type' => 'text',
+                'cols' => 40,
+                'rows' => 10,
+                'eval' => 'trim',
             ],
         ],
 

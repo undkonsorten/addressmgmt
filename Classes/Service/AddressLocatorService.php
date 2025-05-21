@@ -81,8 +81,9 @@ class AddressLocatorService
      */
     protected function shouldUpdateCoordinates(
         Address $address,
-        $propertiesToConsider = []
-    ) {
+                $propertiesToConsider = []
+    )
+    {
         $coordinatesDirty = $address->_isDirty('latitude') || $address->_isDirty('longitude');
         $isNew = $address->_isNew();
         $propertiesDirty = array_reduce($propertiesToConsider, function ($carry, $property) use ($address) {
@@ -90,26 +91,26 @@ class AddressLocatorService
         }, false);
 
         // Is new and no coordinates given
-        if($isNew && $address->getLatitude() === '' && $address->getLongitude() === ''){
+        if ($isNew && $address->getLatitude() === '' && $address->getLongitude() === '') {
             return true;
         }
         // Is new and coordinates are given coordinates given
-        if($isNew && $address->getLatitude() !== '' && $address->getLongitude() !== ''){
+        if ($isNew && $address->getLatitude() !== '' && $address->getLongitude() !== '') {
             return false;
         }
 
         //Coordinates changed but not empty
-        if($coordinatesDirty && $address->getLatitude() !== '' && $address->getLongitude() !== ''){
+        if ($coordinatesDirty && $address->getLatitude() !== '' && $address->getLongitude() !== '') {
             return false;
         }
 
         //Coordinates changed but empty
-        if($coordinatesDirty && $address->getLatitude() === '' && $address->getLongitude() === ''){
+        if ($coordinatesDirty && $address->getLatitude() === '' && $address->getLongitude() === '') {
             return true;
         }
 
         //Object was edited but coordinates are not dirty, the address might have changed, so update
-        if(!$coordinatesDirty && !$isNew){
+        if (!$coordinatesDirty && !$isNew) {
             return true;
         }
 

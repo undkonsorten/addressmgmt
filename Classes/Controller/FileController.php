@@ -1,4 +1,5 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -45,7 +46,8 @@ use Undkonsorten\Addressmgmt\File\ResourceFactory;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class FileController extends BaseController {
+class FileController extends BaseController
+{
 
     /**
      * @var StorageRepository
@@ -89,123 +91,130 @@ class FileController extends BaseController {
 
 
     /**
-  * Add a new File
-  *
-  * @param Address $address
-  * @param \string $property
-  * @param FileReference $fileReference
-  *
-  */
- #[IgnoreValidation(['value' => '$address'])]
- public function newAction(Address $address, $property, FileUpload $fileUpload = NULL, FileReference $fileReference = NULL): ResponseInterface{
-		if(is_null($fileUpload)) {
-			$fileUpload = GeneralUtility::makeInstance(FileUpload::class);
-			if ('image' == $property) {
-				$fileUpload->getFileMetaData()->setAlternative($address->getFullName());
-			}
-			if(!is_null($fileReference)) {
-				$this->resourceFactory->updateFileMetaDataFromFileReference($fileUpload->getFileMetaData(), $fileReference);
-			}
-		}
+     * Add a new File
+     *
+     * @param Address $address
+     * @param \string $property
+     * @param FileReference $fileReference
+     *
+     */
+    #[IgnoreValidation(['value' => '$address'])]
+    public function newAction(Address $address, $property, FileUpload $fileUpload = NULL, FileReference $fileReference = NULL): ResponseInterface
+    {
+        if (is_null($fileUpload)) {
+            $fileUpload = GeneralUtility::makeInstance(FileUpload::class);
+            if ('image' == $property) {
+                $fileUpload->getFileMetaData()->setAlternative($address->getFullName());
+            }
+            if (!is_null($fileReference)) {
+                $this->resourceFactory->updateFileMetaDataFromFileReference($fileUpload->getFileMetaData(), $fileReference);
+            }
+        }
 
-		$this->view->assign('fileUpload', $fileUpload);
-		$this->view->assign('address', $address);
-		$this->view->assign('property', $property);
-		$this->view->assign('propertyUpload', $property."Upload");
-		$this->view->assign('fileReference', $fileReference);
-  return $this->htmlResponse();
-	}
+        $this->view->assign('fileUpload', $fileUpload);
+        $this->view->assign('address', $address);
+        $this->view->assign('property', $property);
+        $this->view->assign('propertyUpload', $property . "Upload");
+        $this->view->assign('fileReference', $fileReference);
+        return $this->htmlResponse();
+    }
 
-	/**
-  * Update an existing File
-  *
-  * @param Address $address
-  * @param FileReference $fileReference
-  * @param \string $property
-  * @param FileMetaData $fileMetaData
-  *
-  */
- #[IgnoreValidation(['value' => '$address'])]
- public function editAction(Address $address, FileReference $fileReference, $property, FileMetaData $fileMetaData = NULL): ResponseInterface{
-		if(is_null($fileMetaData)) {
-			$fileMetaData = GeneralUtility::makeInstance(FileMetaData::class);
-			if(!is_null($fileReference)) {
-				$this->resourceFactory->updateFileMetaDataFromFileReference($fileMetaData, $fileReference);
-			}
-		}
-		$this->view->assign('fileMetaData', $fileMetaData);
-		$this->view->assign('address', $address);
-		$this->view->assign('property', $property);
-		$this->view->assign('fileReference', $fileReference);
-  return $this->htmlResponse();
-	}
+    /**
+     * Update an existing File
+     *
+     * @param Address $address
+     * @param FileReference $fileReference
+     * @param \string $property
+     * @param FileMetaData $fileMetaData
+     *
+     */
+    #[IgnoreValidation(['value' => '$address'])]
+    public function editAction(Address $address, FileReference $fileReference, $property, FileMetaData $fileMetaData = NULL): ResponseInterface
+    {
+        if (is_null($fileMetaData)) {
+            $fileMetaData = GeneralUtility::makeInstance(FileMetaData::class);
+            if (!is_null($fileReference)) {
+                $this->resourceFactory->updateFileMetaDataFromFileReference($fileMetaData, $fileReference);
+            }
+        }
+        $this->view->assign('fileMetaData', $fileMetaData);
+        $this->view->assign('address', $address);
+        $this->view->assign('property', $property);
+        $this->view->assign('fileReference', $fileReference);
+        return $this->htmlResponse();
+    }
 
-	/**
-	 *
-	 * @param Address $address
-	 * @param FileMetaData $fileMetaData
-	 * @param FileReference $fileReference
-	 */
-	public function updateAction(Address $address, FileMetaData $fileMetaData = NULL, FileReference $fileReference = NULL): ResponseInterface{
-		$file = $fileReference->getOriginalResource()->getOriginalFile();
-		$this->resourceFactory->updateFileWithMetaData($file, $fileMetaData);
-		return $this->redirect('dash','Address');
-	}
+    /**
+     *
+     * @param Address $address
+     * @param FileMetaData $fileMetaData
+     * @param FileReference $fileReference
+     */
+    public function updateAction(Address $address, FileMetaData $fileMetaData = NULL, FileReference $fileReference = NULL): ResponseInterface
+    {
+        $file = $fileReference->getOriginalResource()->getOriginalFile();
+        $this->resourceFactory->updateFileWithMetaData($file, $fileMetaData);
+        return $this->redirect('dash', 'Address');
+    }
 
-	/**
-	 *
-	 * @param FileReference $fileReference
-	 * @param \string $property
-	 * @param  \sting $propertyUpload
-	 * @param Address $address
-	 */
-	public function createAction(Address $address, $property, FileReference $fileReference = NULL): ResponseInterface{
+    /**
+     *
+     * @param FileReference $fileReference
+     * @param \string $property
+     * @param \sting $propertyUpload
+     * @param Address $address
+     */
+    public function createAction(Address $address, $property, FileReference $fileReference = NULL): ResponseInterface
+    {
 
-		//@TODO get from TS settigns settings.target.$property '1:user_upload'
-		if(isset($this->settings['target'][$property])) {
-			$target = $this->settings['target'][$property];
-		} elseif (isset($this->settings['target']['default'])) {
-			$target = $this->settings['target']['default'];
-		} else {
-			throw new \UnexpectedValueException('No target given', 1384353485);
-		}
+        //@TODO get from TS settigns settings.target.$property '1:user_upload'
+        if (isset($this->settings['target'][$property])) {
+            $target = $this->settings['target'][$property];
+        } elseif (isset($this->settings['target']['default'])) {
+            $target = $this->settings['target']['default'];
+        } else {
+            throw new \UnexpectedValueException('No target given', 1384353485);
+        }
 
-		$propertyUpload = $property."Upload";
+        $propertyUpload = $property . "Upload";
 
-		if(!ObjectAccess::isPropertyGettable($address, $propertyUpload)) {
-			throw new \Exception('cant find upload property ' . $propertyUpload);
-		}
-		$fileUpload = ObjectAccess::getProperty($address, $propertyUpload);
+        if (!ObjectAccess::isPropertyGettable($address, $propertyUpload)) {
+            throw new \Exception('cant find upload property ' . $propertyUpload);
+        }
+        $fileUpload = ObjectAccess::getProperty($address, $propertyUpload);
 
-		if(!is_null($fileReference)){
-			$fileReference = $this->resourceFactory->replaceFileReferenceByUploadedFile($fileUpload, $target, $fileReference, $address, $property);
-		} else {
-			$fileReference = $this->resourceFactory->uploadAndReferenceFile($fileUpload, $target, $address, $property);
-		}
+        if (!is_null($fileReference)) {
+            $fileReference = $this->resourceFactory->replaceFileReferenceByUploadedFile($fileUpload, $target, $fileReference, $address, $property);
+        } else {
+            $fileReference = $this->resourceFactory->uploadAndReferenceFile($fileUpload, $target, $address, $property);
+        }
 
-		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0=>htmlspecialchars($fileUpload->getName()))));
-		return $this->redirect('dash','Address');
+        $this->addFlashMessage(LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0 => htmlspecialchars($fileUpload->getName()))));
+        return $this->redirect('dash', 'Address');
 
-	}
-	/**
-	 *
-	 * @param FileReference $fileReference
-	 */
-	public function deleteAction(FileReference $fileReference): ResponseInterface{
-		$this->resourceFactory->deleteFileReference($fileReference);
-		$this->addFlashMessage(LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0=>$fileReference->getUid())));
-		return $this->redirect('dash','Address');
-	}
+    }
 
-	protected function getErrorFlashMessage(){
-		$message = array();
-		foreach ($this->arguments->validate()->getFlattenedErrors() as $propertyPath => $errors) {
-				foreach ($errors as $error) {
-					$message .= 'Error for ' . $propertyPath . ':  ' . $error->render() . PHP_EOL;
-				}
-		}
-		return $message;
-	}
+    /**
+     *
+     * @param FileReference $fileReference
+     */
+    public function deleteAction(FileReference $fileReference): ResponseInterface
+    {
+        $this->resourceFactory->deleteFileReference($fileReference);
+        $this->addFlashMessage(LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0 => $fileReference->getUid())));
+        return $this->redirect('dash', 'Address');
+    }
+
+    protected function getErrorFlashMessage()
+    {
+        $message = array();
+        foreach ($this->arguments->validate()->getFlattenedErrors() as $propertyPath => $errors) {
+            foreach ($errors as $error) {
+                $message .= 'Error for ' . $propertyPath . ':  ' . $error->render() . PHP_EOL;
+            }
+        }
+        return $message;
+    }
 
 
 }

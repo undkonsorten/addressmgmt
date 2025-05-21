@@ -1,5 +1,7 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\Service;
+
 use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
@@ -37,7 +39,8 @@ use Undkonsorten\Addressmgmt\Domain\Repository\CategoryRepository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class CategoryService {
+class CategoryService
+{
 
     /**
      * @var CategoryRepository
@@ -50,75 +53,79 @@ class CategoryService {
     }
 
     /**
-  * Finds all descendants of an given category
-  *
-  * @param Category $parentCategory
-  * @param QueryResult $query
-  * @return ObjectStorage $resultStorage
-  */
- public function findAllDescendants (Category $parentCategory, $sorting = null){
-		if($parentCategory){
-		    if(is_null($sorting)){
-			 $this->categoryRepository->setDefaultOrderings(array('title'=>QueryInterface::ORDER_ASCENDING));
-		    }else{
-		        $this->categoryRepository->setDefaultOrderings($sorting);
-		    }
-			$allCategories = $this->categoryRepository->findAll();
+     * Finds all descendants of an given category
+     *
+     * @param Category $parentCategory
+     * @param QueryResult $query
+     * @return ObjectStorage $resultStorage
+     */
+    public function findAllDescendants(Category $parentCategory, $sorting = null)
+    {
+        if ($parentCategory) {
+            if (is_null($sorting)) {
+                $this->categoryRepository->setDefaultOrderings(array('title' => QueryInterface::ORDER_ASCENDING));
+            } else {
+                $this->categoryRepository->setDefaultOrderings($sorting);
+            }
+            $allCategories = $this->categoryRepository->findAll();
 
-			$storage = $this->buildStorageFormQuery($allCategories);
+            $storage = $this->buildStorageFormQuery($allCategories);
 
-			$resultStorage = new ObjectStorage;
-			$stack = array();
-			array_push($stack, $parentCategory);
-			while(count($stack)>0){
-				$currentRoot = array_pop($stack);
-				foreach($storage as $category){
-					if($category->getParent()->getUid() === $currentRoot->getUid()){
-						$resultStorage->attach($category);
-						array_push($stack, $category);
-					}
-				}
-			}
-		}
-		return $resultStorage;
-	}
+            $resultStorage = new ObjectStorage;
+            $stack = array();
+            array_push($stack, $parentCategory);
+            while (count($stack) > 0) {
+                $currentRoot = array_pop($stack);
+                foreach ($storage as $category) {
+                    if ($category->getParent()->getUid() === $currentRoot->getUid()) {
+                        $resultStorage->attach($category);
+                        array_push($stack, $category);
+                    }
+                }
+            }
+        }
+        return $resultStorage;
+    }
 
-	public function buildCategoryTree(Category $parentCategory, $sorting = null){
-	    #$result[] = array('category' => $parentCategory,'children' => array());
+    public function buildCategoryTree(Category $parentCategory, $sorting = null)
+    {
+        #$result[] = array('category' => $parentCategory,'children' => array());
 
-	    $children = $this->getChildren($parentCategory, $sorting);
-	    if($children){
-	        foreach($children as $child){
-	            $result[] = array('category' => $child, 'children' =>  $this->buildCategoryTree ($child));
-	        }
-	    }
-	    return $result;
-	}
+        $children = $this->getChildren($parentCategory, $sorting);
+        if ($children) {
+            foreach ($children as $child) {
+                $result[] = array('category' => $child, 'children' => $this->buildCategoryTree($child));
+            }
+        }
+        return $result;
+    }
 
-	protected function getChildren(Category $parent, $sorting = null){
-	    if(is_null($sorting)){
-	        $this->categoryRepository->setDefaultOrderings(array('title'=>QueryInterface::ORDER_ASCENDING));
-	    }else{
-	        $this->categoryRepository->setDefaultOrderings($sorting);
-	    }
-	    $this->categoryRepository->setDefaultOrderings(array('title'=>QueryInterface::ORDER_ASCENDING));
-	    return $this->categoryRepository->findByParent($parent);
+    protected function getChildren(Category $parent, $sorting = null)
+    {
+        if (is_null($sorting)) {
+            $this->categoryRepository->setDefaultOrderings(array('title' => QueryInterface::ORDER_ASCENDING));
+        } else {
+            $this->categoryRepository->setDefaultOrderings($sorting);
+        }
+        $this->categoryRepository->setDefaultOrderings(array('title' => QueryInterface::ORDER_ASCENDING));
+        return $this->categoryRepository->findByParent($parent);
 
-	}
+    }
 
-	/**
-  * Builds an object storage form query
-  *
-  * @param QueryResult $query
-  * @return ObjectStorage
-  */
- protected function buildStorageFormQuery (QueryResult $query){
-		$storage = new ObjectStorage;
-		foreach($query as $category){
-			if($category->getParent()!=NULL) $storage->attach($category);
-		}
-		return $storage;
-	}
+    /**
+     * Builds an object storage form query
+     *
+     * @param QueryResult $query
+     * @return ObjectStorage
+     */
+    protected function buildStorageFormQuery(QueryResult $query)
+    {
+        $storage = new ObjectStorage;
+        foreach ($query as $category) {
+            if ($category->getParent() != NULL) $storage->attach($category);
+        }
+        return $storage;
+    }
 
 }
 

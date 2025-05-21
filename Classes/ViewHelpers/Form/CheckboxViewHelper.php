@@ -11,6 +11,7 @@ namespace Undkonsorten\Addressmgmt\ViewHelpers\Form;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
+
 use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 use TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper;
 
@@ -76,8 +77,8 @@ class CheckboxViewHelper extends AbstractFormFieldViewHelper
     /**
      * Renders the checkbox.
      *
-     * @throws Exception
      * @return string
+     * @throws Exception
      * @api
      */
     public function render()
@@ -111,7 +112,7 @@ class CheckboxViewHelper extends AbstractFormFieldViewHelper
         } elseif ($multiple === true) {
             $nameAttribute .= '[]';
         } elseif ($propertyValue !== null) {
-            $checked = (boolean) $propertyValue === (boolean) $valueAttribute;
+            $checked = (boolean)$propertyValue === (boolean)$valueAttribute;
         }
 
         $this->registerFieldNameForFormTokenGeneration($nameAttribute);

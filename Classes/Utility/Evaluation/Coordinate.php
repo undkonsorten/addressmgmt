@@ -5,7 +5,7 @@ namespace Undkonsorten\Addressmgmt\Utility\Evaluation;
  *  Copyright notice
  *
  *  (c) 2013 Felix Althaus <felix.althaus@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -32,23 +32,26 @@ namespace Undkonsorten\Addressmgmt\Utility\Evaluation;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Coordinate {
+class Coordinate
+{
 
-	/**
-	 * evaluates the value in BE
-	 * @TODO better normalization/distinguish longitude/latitude
-	 * 
-	 * @param string $value Value in the field when submitted
-	 * @param string $is_in Value of the is_in key of TCA column configuration
-	 * @param bool &$set Write to database?
-	 * @return $value the evaluated value
-	 */
-	public function evaluateFieldValue($value, $is_in, &$set) {
-		if(strpos($value, ',') > -1 && !(strpos($value, '.') > -1)) {
-			$value = str_replace(',', '.', $value);
-		}
-		return sprintf('%01.6f', $value);
-	}
+    /**
+     * evaluates the value in BE
+     * @TODO better normalization/distinguish longitude/latitude
+     *
+     * @param string $value Value in the field when submitted
+     * @param string $is_in Value of the is_in key of TCA column configuration
+     * @param bool &$set Write to database?
+     * @return $value the evaluated value
+     */
+    public function evaluateFieldValue($value, $is_in, &$set)
+    {
+        if (strpos($value, ',') > -1 && !(strpos($value, '.') > -1)) {
+            $value = str_replace(',', '.', $value);
+        }
+        return sprintf('%01.6f', $value);
+    }
 
 }
+
 ?>

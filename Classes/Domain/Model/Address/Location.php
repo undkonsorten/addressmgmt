@@ -1,13 +1,15 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\Domain\Model\Address;
 
 use Undkonsorten\Addressmgmt\Domain\Model\Address;
+
 /***************************************************************
  *  Copyright notice
  *
  *  (c) 2013 Felix Althaus <felix.althaus@undkonsorten.com>, undkonsorten
  *  Eike Starkmann <eike.starkmann@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -26,6 +28,7 @@ use Undkonsorten\Addressmgmt\Domain\Model\Address;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  *
  *
@@ -33,7 +36,8 @@ use Undkonsorten\Addressmgmt\Domain\Model\Address;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Location extends Address {
+class Location extends Address
+{
 
 
 }

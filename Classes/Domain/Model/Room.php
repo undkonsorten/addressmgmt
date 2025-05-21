@@ -1,7 +1,9 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /***************************************************************
  *
  *  Copyright notice
@@ -26,59 +28,63 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  * Room
  */
-class Room extends AbstractEntity {
+class Room extends AbstractEntity
+{
 
-	/**
-	 * name
-	 *
-	 * @var string
-	 */
-	protected $name = '';
-	
-	/**
-	 * 
-	 * @var integer
-	 */
-	protected $capacity = 0;
-	
-	/**
-	 * 
-	 * @var string
-	 */
-	protected $description = '';
+    /**
+     * name
+     *
+     * @var string
+     */
+    protected $name = '';
 
-	/**
-	 * Returns the name
-	 *
-	 * @return string $name
-	 */
-	public function getName() {
-		return $this->name;
-	}
+    /**
+     *
+     * @var integer
+     */
+    protected $capacity = 0;
 
-	/**
-	 * Sets the name
-	 *
-	 * @param string $name
-	 * @return void
-	 */
-	public function setName($name) {
-		$this->name = $name;
-	}
+    /**
+     *
+     * @var string
+     */
+    protected $description = '';
 
-	/**
-	 * 
-	 */
+    /**
+     * Returns the name
+     *
+     * @return string $name
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Sets the name
+     *
+     * @param string $name
+     * @return void
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     *
+     */
     public function getCapacity()
     {
         return $this->capacity;
     }
 
     /**
-     * 
+     *
      * @param integer $capacity
      */
     public function setCapacity($capacity)
@@ -87,7 +93,7 @@ class Room extends AbstractEntity {
     }
 
     /**
-     * 
+     *
      * @return string
      */
     public function getDescription()
@@ -96,14 +102,13 @@ class Room extends AbstractEntity {
     }
 
     /**
-     * 
+     *
      * @param string $description
      */
     public function setDescription($description)
     {
         $this->description = $description;
     }
- 
 
-	
+
 }

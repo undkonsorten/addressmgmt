@@ -3,12 +3,13 @@ namespace Undkonsorten\Addressmgmt\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Annotation\Validate;
+
 /***************************************************************
  *  Copyright notice
  *
  *  (c) 2013 Felix Althaus <felix.althaus@undkonsorten.com>, undkonsorten
  *  Eike Starkmann <eike.starkmann@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -27,6 +28,7 @@ use TYPO3\CMS\Extbase\Annotation\Validate;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 /**
  *
  *
@@ -34,109 +36,119 @@ use TYPO3\CMS\Extbase\Annotation\Validate;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class SocialIdentifier extends AbstractEntity {
+class SocialIdentifier extends AbstractEntity
+{
 
-	/**
-  * identifier
-  *
-  * @var \string
-  */
- #[Validate(['validator' => 'NotEmpty'])]
- protected $identifier;
+    /**
+     * identifier
+     *
+     * @var \string
+     */
+    #[Validate(['validator' => 'NotEmpty'])]
+    protected $identifier;
 
-	/**
-	 * urlOverride
-	 *
-	 * @var \string
-	 */
-	protected $urlOverride;
+    /**
+     * urlOverride
+     *
+     * @var \string
+     */
+    protected $urlOverride;
 
-	/**
-  * provider
-  *
-  * @var SocialProvider
-  */
- protected $provider;
-	
-	/**
-	 * Returns string representation of identifier
-	 * 
-	 * @return \string
-	 */
-	public function __toString() {
-		return $this->getIdentifier();
-	}
+    /**
+     * provider
+     *
+     * @var SocialProvider
+     */
+    protected $provider;
 
-	/**
-	 * Returns the identifier
-	 *
-	 * @return \string $identifier
-	 */
-	public function getIdentifier() {
-		return $this->identifier;
-	}
+    /**
+     * Returns string representation of identifier
+     *
+     * @return \string
+     */
+    public function __toString()
+    {
+        return $this->getIdentifier();
+    }
 
-	/**
-	 * Sets the identifier
-	 *
-	 * @param \string $identifier
-	 * @return void
-	 */
-	public function setIdentifier($identifier) {
-		$this->identifier = $identifier;
-	}
-	
-	/**
-	 * Returns url as from provider template if not locally overridden
-	 * 
-	 * @return \string
-	 */
-	public function getUrl() {
-		if (is_string($this->getUrlOverride()) && strlen($this->getUrlOverride())) {
-			return $this->getUrlOverride();
-		} elseif ($this->getProvider()->getUrlScheme()) {
-			return sprintf($this->getProvider()->getUrlScheme(), $this->getIdentifier());
-		}
-		return null;
-	}
+    /**
+     * Returns the identifier
+     *
+     * @return \string $identifier
+     */
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
 
-	/**
-	 * Returns the urlOverride
-	 *
-	 * @return \string $urlOverride
-	 */
-	public function getUrlOverride() {
-		return $this->urlOverride;
-	}
+    /**
+     * Sets the identifier
+     *
+     * @param \string $identifier
+     * @return void
+     */
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
+    }
 
-	/**
-	 * Sets the urlOverride
-	 *
-	 * @param \string $urlOverride
-	 * @return void
-	 */
-	public function setUrlOverride($urlOverride) {
-		$this->urlOverride = $urlOverride;
-	}
+    /**
+     * Returns url as from provider template if not locally overridden
+     *
+     * @return \string
+     */
+    public function getUrl()
+    {
+        if (is_string($this->getUrlOverride()) && strlen($this->getUrlOverride())) {
+            return $this->getUrlOverride();
+        } elseif ($this->getProvider()->getUrlScheme()) {
+            return sprintf($this->getProvider()->getUrlScheme(), $this->getIdentifier());
+        }
+        return null;
+    }
 
-	/**
-  * Returns the provider
-  *
-  * @return SocialProvider $provider
-  */
- public function getProvider() {
-		return $this->provider;
-	}
+    /**
+     * Returns the urlOverride
+     *
+     * @return \string $urlOverride
+     */
+    public function getUrlOverride()
+    {
+        return $this->urlOverride;
+    }
 
-	/**
-  * Sets the provider
-  *
-  * @param SocialProvider $provider
-  * @return void
-  */
- public function setProvider(SocialProvider $provider) {
-		$this->provider = $provider;
-	}
+    /**
+     * Sets the urlOverride
+     *
+     * @param \string $urlOverride
+     * @return void
+     */
+    public function setUrlOverride($urlOverride)
+    {
+        $this->urlOverride = $urlOverride;
+    }
+
+    /**
+     * Returns the provider
+     *
+     * @return SocialProvider $provider
+     */
+    public function getProvider()
+    {
+        return $this->provider;
+    }
+
+    /**
+     * Sets the provider
+     *
+     * @param SocialProvider $provider
+     * @return void
+     */
+    public function setProvider(SocialProvider $provider)
+    {
+        $this->provider = $provider;
+    }
 
 }
+
 ?>

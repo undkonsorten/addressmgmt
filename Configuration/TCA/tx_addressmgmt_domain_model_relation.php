@@ -1,12 +1,14 @@
 <?php
+
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-if (!defined ('TYPO3')) {
+
+if (!defined('TYPO3')) {
     die ('Access denied.');
 }
 
 $tca = [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_relation',
+        'title' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_relation',
         'label' => 'location, room',
         'label_alt' => 'location, room',
         'label_alt_force' => TRUE,
@@ -27,99 +29,99 @@ $tca = [
         'searchFields' => 'room,location,',
         'iconfile' => 'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_relation.png'
     ],
-	'interface' => [
-		'showRecordFieldList' => 'location, room',
+    'interface' => [
+        'showRecordFieldList' => 'location, room',
     ],
-	'types' => [
-		'1' => ['showitem' => 'location, room'],
+    'types' => [
+        '1' => ['showitem' => 'location, room'],
     ],
-	'palettes' => [
-		'1' => ['showitem' => ''],
+    'palettes' => [
+        '1' => ['showitem' => ''],
     ],
-	'columns' => [
+    'columns' => [
 
-		'sys_language_uid' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-			'config' => ['type' => 'language'],
+        'sys_language_uid' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => ['type' => 'language'],
         ],
-		'l10n_parent' => [
-			'displayCond' => 'FIELD:sys_language_uid:>:0',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-			'config' => [
-				'type' => 'select',
-        'renderType' => 'selectSingle',
-				'items' => [
-					['', 0],
+        'l10n_parent' => [
+            'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['label' => '', 'value' => 0],
                 ],
-				'foreign_table' => 'tx_addressmgmt_domain_model_relation',
-				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_relation.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_relation.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_addressmgmt_domain_model_relation',
+                'foreign_table_where' => 'AND tx_addressmgmt_domain_model_relation.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_relation.sys_language_uid IN (-1,0)',
             ],
         ],
-		'l10n_diffsource' => [
-			'config' => [
-				'type' => 'passthrough',
+        'l10n_diffsource' => [
+            'config' => [
+                'type' => 'passthrough',
             ],
         ],
 
-		'hidden' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
-			'config' => [
-				'type' => 'check',
+        'hidden' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'config' => [
+                'type' => 'check',
             ],
         ],
-		'starttime' => [
-			'exclude' => 1,
-			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
-			'config' => [
-				'type' => 'input',
+        'starttime' => [
+            'exclude' => 1,
+            'allowLanguageSynchronization' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'config' => [
+                'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
             ],
         ],
-		'endtime' => [
-			'exclude' => 1,
-			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
-			'config' => [
-				'type' => 'input',
+        'endtime' => [
+            'exclude' => 1,
+            'allowLanguageSynchronization' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'config' => [
+                'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'dbType' => 'datetime',
                 'eval' => 'datetime',
             ],
         ],
 
-		'room' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_relation.room',
-			'config' => [
-				'type' => 'inline',
-				'foreign_table' => 'tx_addressmgmt_domain_model_room',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'appearance' => [
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1,
-				    'newRecordLinkAddTitle' => TRUE,
+        'room' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_relation.room',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_addressmgmt_domain_model_room',
+                'minitems' => 0,
+                'maxitems' => 1,
+                'appearance' => [
+                    'collapseAll' => 0,
+                    'levelLinksPosition' => 'top',
+                    'showSynchronizationLink' => 1,
+                    'showPossibleLocalizationRecords' => 1,
+                    'showAllLocalizationLink' => 1,
+                    'newRecordLinkAddTitle' => TRUE,
                 ],
             ],
         ],
-		'location' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_relation.location',
-			'config' => [
-				'type' => 'select',
+        'location' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_relation.location',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectSingle',
-				'foreign_table' => 'tx_addressmgmt_domain_model_address',
-			    'foreign_table_where' => 'AND tx_addressmgmt_domain_model_address.type = \'Tx_Addressbook_Location\'',
-				'minitems' => 0,
-				'maxitems' => 1,
+                'foreign_table' => 'tx_addressmgmt_domain_model_address',
+                'foreign_table_where' => 'AND tx_addressmgmt_domain_model_address.type = \'Tx_Addressbook_Location\'',
+                'minitems' => 0,
+                'maxitems' => 1,
                 'fieldControl' => [
                     'addRecord' => [
                         'options' => [
@@ -142,7 +144,7 @@ $tca = [
 
     ],
 ];
-if( VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+if (VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000) {
     $tca['columns']['location']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
     $tca['columns']['location']['config']['wizards']['edit']['icon'] = 'edit2.gif';
 

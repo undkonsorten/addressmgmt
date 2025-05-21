@@ -1,4 +1,5 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\Controller;
 
 use Psr\Http\Message\ResponseInterface;
@@ -127,7 +128,7 @@ class AddressController extends BaseController
             $this->request->withArguments($arguments);
         }
 
-        if(isset($this->arguments['address'])){
+        if (isset($this->arguments['address'])) {
             $propertyMappingConfiguration = $this->arguments['address']->getPropertyMappingConfiguration();
             $propertyMappingConfiguration->allowProperties('type');
             $propertyMappingConfiguration->setTypeConverterOption(PersistentObjectConverter::class, PersistentObjectConverter::CONFIGURATION_OVERRIDE_TARGET_TYPE_ALLOWED, TRUE);
@@ -143,7 +144,7 @@ class AddressController extends BaseController
     {
         $address->setPublishState(Address::PUBLISH_WAITING);
         $this->addressRepository->update($address);
-        $this->addFlashMessage($this->localize('flashMessage.handInForReview'),AbstractMessage::OK);
+        $this->addFlashMessage($this->localize('flashMessage.handInForReview'), AbstractMessage::OK);
         $this->redirect('dash');
 
     }
@@ -157,8 +158,8 @@ class AddressController extends BaseController
     {
         $address = $this->getLoggedInAddress();
         $frontendUser = $this->getLoggedInFrontendUser();
-        if(is_null($frontendUser)){
-            if($this->settings['pidsLogin']) {
+        if (is_null($frontendUser)) {
+            if ($this->settings['pidsLogin']) {
                 return $this->redirectToUri($this->buildPageLink($this->settings['pidsLogin'], TRUE));
             } else {
                 throw new Exception('PidLogin not set. Cannot redirect.', '1508229013');
@@ -212,7 +213,7 @@ class AddressController extends BaseController
     {
         $this->addressService->updateCoordinates($address);
         $this->addressRepository->add($address);
-        $this->addFlashMessage($this->localize('flashMessage.created'),AbstractMessage::OK);
+        $this->addFlashMessage($this->localize('flashMessage.created'), AbstractMessage::OK);
         return $this->redirect('dash');
     }
 
@@ -226,7 +227,7 @@ class AddressController extends BaseController
     {
         $this->addressService->updateCoordinates($address);
         $this->addressRepository->update($address);
-        $this->addFlashMessage($this->localize('flashMessage.updated'),AbstractMessage::OK);
+        $this->addFlashMessage($this->localize('flashMessage.updated'), AbstractMessage::OK);
         return $this->redirect('dash');
     }
 
@@ -244,21 +245,21 @@ class AddressController extends BaseController
         }
         if ($this->settings['listType'] === 'all') {
             /** @noinspection TypeUnsafeComparisonInspection */
-            if($this->settings['category'] != '' || $this->settings['publishState']){
+            if ($this->settings['category'] != '' || $this->settings['publishState']) {
                 $addresses = $this->addressRepository->findDemanded(
                     null,
-                    GeneralUtility::intExplode(',', $this->settings['category'],true),
+                    GeneralUtility::intExplode(',', $this->settings['category'], true),
                     $this->settings['publishState'],
                     $orderings
                 );
-            }else{
-                $addresses = $this->addressRepository->findDemanded(null,null,null, $orderings);
+            } else {
+                $addresses = $this->addressRepository->findDemanded(null, null, null, $orderings);
             }
 
         }
 
         if ($this->settings['listType'] === 'manual' && $this->settings['addresses']) {
-            $addresses = $this->addressRepository->findDemanded(GeneralUtility::intExplode(',',$this->settings['addresses']), null, null, $orderings);
+            $addresses = $this->addressRepository->findDemanded(GeneralUtility::intExplode(',', $this->settings['addresses']), null, null, $orderings);
         }
 
         if ($this->settings['filterConfiguration']) {

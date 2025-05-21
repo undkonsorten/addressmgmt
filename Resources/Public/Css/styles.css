@@ -3,6 +3,7 @@
 	list-style: none;
 	padding-left: 0;
 }
+
 .tx-addressmgmt .module-list-item,
 .tx-addressmgmt .list-item {
 	display: flex;
@@ -10,19 +11,23 @@
 	padding-bottom: 1em;
 	border-bottom: 1px solid lightgrey;
 }
+
 .tx-addressmgmt .module-list-item .figure-wrap,
 .tx-addressmgmt .list-item .figure-wrap {
 	margin-right: 1em;
 	width: 200px;
 }
+
 .tx-addressmgmt .module-list-item .text-wrap,
 .tx-addressmgmt .list-item .text-wrap {
 	flex: 1 0;
 }
+
 .tx-addressmgmt .categories {
 	display: inline-block;
 	margin-top: 1em;
 }
+
 .tx-addressmgmt .category,
 .tx-addressmgmt .city {
 	color: white;
@@ -35,15 +40,18 @@
 	margin-right: .5em;
 	background-color: #17a2b8;
 }
+
 .tx-addressmgmt .city {
 	background-color: #28a745;
 }
+
 .tx-addressmgmt .map-filter {
 	margin: 1em 0;
 	padding: 1em 0;
 	border-top: 1px solid lightgrey;
 	border-bottom: 1px solid lightgrey;
 }
+
 .tx-addressmgmt .button,
 .tx-addressmgmt .map-filter button,
 .tx-addressmgmt .form-edit-address input[type=submit] {
@@ -65,18 +73,21 @@
 	font-size: 1rem;
 	line-height: 1.5;
 	border-radius: .25rem;
-	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+
 .tx-addressmgmt .button:hover,
 .tx-addressmgmt .map-filter button:hover,
-.tx-addressmgmt .form-edit-address  input[type=submit]:hover {
+.tx-addressmgmt .form-edit-address input[type=submit]:hover {
 	color: #fff;
 	background-color: #0069d9;
 	border-color: #0062cc;
 }
+
 .tx-addressmgmt .no-results {
 	display: none;
 }
+
 .tx-addressmgmt .map-filter select,
 .tx-addressmgmt .form-edit-address input[type=text],
 .tx-addressmgmt .form-edit-address input[type=email],
@@ -92,13 +103,15 @@
 	background-clip: padding-box;
 	border: 1px solid #ced4da;
 	border-radius: .25rem;
-	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 	margin-bottom: 1em;
 }
+
 .tx-addressmgmt .letter-list {
 	display: flex;
 	margin-bottom: 2em;
 }
+
 .tx-addressmgmt .letter-list > * {
 	position: relative;
 	display: block;
@@ -108,20 +121,25 @@
 	background-color: #fff;
 	border: 1px solid #dee2e6;
 }
+
 .tx-addressmgmt .letter-list > a {
 	color: #007bff;
 }
+
 .tx-addressmgmt .letter-list > *:first-child {
 	border-top-left-radius: .25rem;
 	border-bottom-left-radius: .25rem;
 }
+
 .tx-addressmgmt .letter-list > *:last-child {
 	border-top-right-radius: .25rem;
 	border-bottom-right-radius: .25rem;
 }
+
 .tx-addressmgmt .semantic-map {
 	margin-bottom: 1em;
 }
+
 .tx-addressmgmt figure img {
 	margin: 0;
 }

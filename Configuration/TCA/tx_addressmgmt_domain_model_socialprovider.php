@@ -1,13 +1,15 @@
 <?php
+
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Resource\File;
-if (!defined ('TYPO3')) {
-	die ('Access denied.');
+
+if (!defined('TYPO3')) {
+    die ('Access denied.');
 }
 
 $tca = [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider',
+        'title' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider',
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -25,13 +27,13 @@ $tca = [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'name,url_scheme,www,',
-        'iconfile' =>'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_socialprovider.png'
+        'iconfile' => 'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_socialprovider.png'
     ],
-	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, url_scheme, www, image',
+    'interface' => [
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, url_scheme, www, image',
     ],
-	'types' => [
-		'1' => [
+    'types' => [
+        '1' => [
             'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, name, url_scheme, www, image,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:div.naming,
 				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.identifier;identifier,
@@ -39,144 +41,144 @@ $tca = [
 			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,starttime, endtime'
         ],
     ],
-	'palettes' => [
-		'identifier' => ['showitem' => 'identifier_label,--linebreak--,identifier_description', 'canNotCollapse' => TRUE],
-		'url_override' => ['showitem' => 'show_url_override,--linebreak--,url_override_label,--linebreak--,url_override_description', 'canNotCollapse' => TRUE],
+    'palettes' => [
+        'identifier' => ['showitem' => 'identifier_label,--linebreak--,identifier_description', 'canNotCollapse' => TRUE],
+        'url_override' => ['showitem' => 'show_url_override,--linebreak--,url_override_label,--linebreak--,url_override_description', 'canNotCollapse' => TRUE],
     ],
-	'columns' => [
-		'sys_language_uid' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-			'config' => ['type' => 'language'],
+    'columns' => [
+        'sys_language_uid' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => ['type' => 'language'],
         ],
-		'l10n_parent' => [
-			'displayCond' => 'FIELD:sys_language_uid:>:0',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-			'config' => [
-				'type' => 'select',
+        'l10n_parent' => [
+            'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectSingle',
-				'items' => [
-					['', 0],
+                'items' => [
+                    ['label' => '', 'value' => 0],
                 ],
-				'foreign_table' => 'tx_addressmgmt_domain_model_socialprovider',
-				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_socialprovider.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_socialprovider.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_addressmgmt_domain_model_socialprovider',
+                'foreign_table_where' => 'AND tx_addressmgmt_domain_model_socialprovider.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_socialprovider.sys_language_uid IN (-1,0)',
             ],
         ],
-		'l10n_diffsource' => [
-			'config' => [
-				'type' => 'passthrough',
+        'l10n_diffsource' => [
+            'config' => [
+                'type' => 'passthrough',
             ],
         ],
-		'hidden' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
-			'config' => [
-				'type' => 'check',
+        'hidden' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'config' => [
+                'type' => 'check',
             ],
         ],
-		'starttime' => [
-			'exclude' => 1,
-			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
-			'config' => [
-				'type' => 'input',
+        'starttime' => [
+            'exclude' => 1,
+            'allowLanguageSynchronization' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'config' => [
+                'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
             ],
         ],
-		'endtime' => [
-			'exclude' => 1,
-			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
-			'config' => [
-				'type' => 'input',
+        'endtime' => [
+            'exclude' => 1,
+            'allowLanguageSynchronization' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'config' => [
+                'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
             ],
         ],
-		'name' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.name',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim',
-    'required' => true
+        'name' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.name',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'required' => true
             ],
         ],
-		'identifier_label' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.identifier_label',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+        'identifier_label' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.identifier_label',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
             ],
         ],
-		'identifier_description' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.identifier_description',
-			'config' => [
-				'type' => 'text',
-				'cols' => 30,
-				'rows' => 4,
-				'eval' => 'trim'
+        'identifier_description' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.identifier_description',
+            'config' => [
+                'type' => 'text',
+                'cols' => 30,
+                'rows' => 4,
+                'eval' => 'trim'
             ],
         ],
-		'url_scheme' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_scheme',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+        'url_scheme' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_scheme',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
             ],
         ],
-		'url_override_label' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_override_label',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+        'url_override_label' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_override_label',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
             ],
         ],
-		'url_override_description' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_override_description',
-			'config' => [
-				'type' => 'text',
-				'cols' => 30,
-				'rows' => 4,
-				'eval' => 'trim'
+        'url_override_description' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.url_override_description',
+            'config' => [
+                'type' => 'text',
+                'cols' => 30,
+                'rows' => 4,
+                'eval' => 'trim'
             ],
         ],
-		'show_url_override' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.show_url_override',
-			'config' => [
-				'type' => 'check',
+        'show_url_override' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.show_url_override',
+            'config' => [
+                'type' => 'check',
             ],
         ],
-		'www' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.www',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+        'www' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.www',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
             ],
         ],
-		'image' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.image',
-			'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-				'image',
-				[
-					'maxitems' => 1,
-					'appearance' => [
-							'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+        'image' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_socialprovider.image',
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
+                'image',
+                [
+                    'maxitems' => 1,
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
                     ],
                     'overrideChildTca' => [
                         'types' => [
@@ -193,8 +195,8 @@ $tca = [
                         ],
                     ],
                 ],
-				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-			),
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            ),
         ],
     ],
 ];

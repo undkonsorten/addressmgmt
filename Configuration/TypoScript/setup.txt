@@ -1,86 +1,96 @@
 plugin.tx_addressmgmt {
-	persistence.classes {
-		Undkonsorten\Addressmgmt\Domain\Model\Address\Person.newRecordStoragePid = {$plugin.tx_addressmgmt.persistence.newRecordStoragePid}
-		Undkonsorten\Addressmgmt\Domain\Model\Address\Location.newRecordStoragePid = {$plugin.tx_addressmgmt.persistence.newRecordStoragePid}
-		Undkonsorten\Addressmgmt\Domain\Model\Address\Person.newRecordStoragePid = {$plugin.tx_addressmgmt.persistence.newRecordStoragePid}
-	}
-	persistence.storagePid = {$plugin.tx_addressmgmt.persistence.storagePid}
-	persistence.recursive = {$plugin.tx_addressmgmt.persistence.recursive}
-	view {
-		templateRootPaths {
-			0 = EXT:addressmgmt/Resources/Private/Templates/
-			10 = {$plugin.tx_addressmgmt.view.templateRootPath}
-		}
-		partialRootPaths {
-			0 = EXT:addressmgmt/Resources/Private/Partials/
-			10 = {$plugin.tx_addressmgmt.view.partialRootPath}
-		}
-		layoutRootPaths {
-			0 = EXT:addressmgmt/Resources/Private/Layouts/
-			10 = {$plugin.tx_addressmgmt.view.layoutRootPath}
-		}
-	}
-	features {
-		# uncomment the following line to enable the new Property Mapper.
-		rewrittenPropertyMapper = 1
-	}
-	settings {
-		detailPid = {$plugin.tx_addressmgmt.settings.detailPid}
+    persistence.classes {
+        Undkonsorten\Addressmgmt\Domain\Model\Address\Person.newRecordStoragePid = {$plugin.tx_addressmgmt.persistence.newRecordStoragePid}
+        Undkonsorten\Addressmgmt\Domain\Model\Address\Location.newRecordStoragePid = {$plugin.tx_addressmgmt.persistence.newRecordStoragePid}
+        Undkonsorten\Addressmgmt\Domain\Model\Address\Person.newRecordStoragePid = {$plugin.tx_addressmgmt.persistence.newRecordStoragePid}
+    }
+
+    persistence.storagePid = {$plugin.tx_addressmgmt.persistence.storagePid}
+    persistence.recursive = {$plugin.tx_addressmgmt.persistence.recursive}
+    view {
+        templateRootPaths {
+            0 = EXT:addressmgmt/Resources/Private/Templates/
+            10 = {$plugin.tx_addressmgmt.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            0 = EXT:addressmgmt/Resources/Private/Partials/
+            10 = {$plugin.tx_addressmgmt.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            0 = EXT:addressmgmt/Resources/Private/Layouts/
+            10 = {$plugin.tx_addressmgmt.view.layoutRootPath}
+        }
+    }
+
+    features {
+        # uncomment the following line to enable the new Property Mapper.
+        rewrittenPropertyMapper = 1
+    }
+
+    settings {
+        detailPid = {$plugin.tx_addressmgmt.settings.detailPid}
         showA-zFilter = {$plugin.tx_addressmgmt.settings.showA-zFilter}
-	    orderDirection = {$plugin.tx_addressmgmt.settings.orderDirection}
-	    orderBy = {$plugin.tx_addressmgmt.settings.orderBy}
-        editableCategoryConfiguration{
-			#default{
-			#	rootCategory = 1
-			#	orderBy = title
-			#	sorting = ASC
-			#}
-    	}
-	    recursive = {$plugin.tx_addressmgmt.settings.recursive}
-	    target{
+        orderDirection = {$plugin.tx_addressmgmt.settings.orderDirection}
+        orderBy = {$plugin.tx_addressmgmt.settings.orderBy}
+        editableCategoryConfiguration {
+            #default{
+            #    rootCategory = 1
+            #    orderBy = title
+            #    sorting = ASC
+            #}
+        }
+
+        recursive = {$plugin.tx_addressmgmt.settings.recursive}
+        target {
             default = {$plugin.tx_addressmgmt.settings.target.default}
             images = {$plugin.tx_addressmgmt.settings.target.images}
         }
-		# Remove # (hash) from constant to enable marker clusters
-		{$plugin.tx_addressmgmt.settings.useMarkerClusters} useMarkerClusters = 1
 
-		filterConfiguration{
-#			filter1{
-#				rootCategory = 1
-#				orderBy = title
-#				sorting = DESC
-#			}
-#			filter2{
-#				rootCategory = 3
-#				orderBy = sorting
-#				sorting = ASC
-#			}
-		}
-		pidsA-z = {$plugin.tx_addressmgmt.settings.pidsA-z}
-		pidsLogin = {$plugin.tx_addressmgmt.settings.pidsLogin}
-		overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
-		mapConfiguration {
-			latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}
-			longitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.longitude}
-			zoom = {$plugin.tx_addressmgmt.settings.mapConfiguration.zoom}
-			#map padding in px-units
-			fitBounds = {$plugin.tx_addressmgmt.settings.mapConfiguration.fitBounds}
-			clusterMarker = {$plugin.tx_addressmgmt.settings.mapConfiguration.clusterMarker}
-		}
-		createDefaultAddressType = {$plugin.tx_addressmgmt.settings.createDefaultAddressType}
-		tileLayerConfiguration {
-			urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}
-			options {
-				id = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.id}
-				accessToken = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.accessToken}
-				attribution = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.attribution}
-			}
-		}
+        # Remove # (hash) from constant to enable marker clusters
+        {$plugin.tx_addressmgmt.settings.useMarkerClusters}useMarkerClusters = 1
+
+        filterConfiguration {
+            #            filter1{
+            #                rootCategory = 1
+            #                orderBy = title
+            #                sorting = DESC
+            #            }
+            #            filter2{
+            #                rootCategory = 3
+            #                orderBy = sorting
+            #                sorting = ASC
+            #            }
+        }
+
+        pidsA-z = {$plugin.tx_addressmgmt.settings.pidsA-z}
+        pidsLogin = {$plugin.tx_addressmgmt.settings.pidsLogin}
+        overrideFlexformSettingsIfEmpty = {$plugin.tx_addressmgmt.settings.overrideFlexformSettingsIfEmpty}
+        mapConfiguration {
+            latitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.latitude}
+            longitude = {$plugin.tx_addressmgmt.settings.mapConfiguration.longitude}
+            zoom = {$plugin.tx_addressmgmt.settings.mapConfiguration.zoom}
+            #map padding in px-units
+            fitBounds = {$plugin.tx_addressmgmt.settings.mapConfiguration.fitBounds}
+            clusterMarker = {$plugin.tx_addressmgmt.settings.mapConfiguration.clusterMarker}
+        }
+
+        createDefaultAddressType = {$plugin.tx_addressmgmt.settings.createDefaultAddressType}
+        tileLayerConfiguration {
+            urlTemplate = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.urlTemplate}
+            options {
+                id = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.id}
+                accessToken = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.accessToken}
+                attribution = {$plugin.tx_addressmgmt.settings.tileLayerConfiguration.options.attribution}
+            }
+        }
+
         list {
             cropMaxCharacters = {$plugin.tx_addressmgmt.settings.list.cropMaxCharacters}
-			media.width = 320
+            media.width = 320
         }
-	}
+    }
 }
 
 # leaflet 1.0.2 marker class: leaflet-marker-icon leaflet-zoom-animated leaflet-interactive

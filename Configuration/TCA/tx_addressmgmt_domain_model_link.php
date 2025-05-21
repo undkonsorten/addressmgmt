@@ -1,12 +1,14 @@
 <?php
+
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-if (!defined ('TYPO3')) {
-	die ('Access denied.');
+
+if (!defined('TYPO3')) {
+    die ('Access denied.');
 }
 
 $tca = [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_link',
+        'title' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_link',
         'label' => 'text',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -24,93 +26,93 @@ $tca = [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'text,link,',
-        'iconfile' =>'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_link.png'
+        'iconfile' => 'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_link.png'
     ],
-	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, text, link',
+    'interface' => [
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, text, link',
     ],
-	'types' => [
-		'1' => ['showitem' => 'text, link,--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, starttime, endtime'],
+    'types' => [
+        '1' => ['showitem' => 'text, link,--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, starttime, endtime'],
     ],
-	'palettes' => [
-		'1' => ['showitem' => ''],
+    'palettes' => [
+        '1' => ['showitem' => ''],
     ],
-	'columns' => [
-		'sys_language_uid' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-			'config' => ['type' => 'language'],
+    'columns' => [
+        'sys_language_uid' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => ['type' => 'language'],
         ],
-		'l10n_parent' => [
-			'displayCond' => 'FIELD:sys_language_uid:>:0',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-			'config' => [
-				'type' => 'select',
+        'l10n_parent' => [
+            'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectSingle',
-				'items' => [
-					['', 0],
+                'items' => [
+                    ['label' => '', 'value' => 0],
                 ],
-				'foreign_table' => 'tx_addressmgmt_domain_model_link',
-				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_link.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_link.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_addressmgmt_domain_model_link',
+                'foreign_table_where' => 'AND tx_addressmgmt_domain_model_link.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_link.sys_language_uid IN (-1,0)',
             ],
         ],
-		'l10n_diffsource' => [
-			'config' => [
-				'type' => 'passthrough',
+        'l10n_diffsource' => [
+            'config' => [
+                'type' => 'passthrough',
             ],
         ],
-		'hidden' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
-			'config' => [
-				'type' => 'check',
+        'hidden' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'config' => [
+                'type' => 'check',
             ],
         ],
-		'starttime' => [
-			'exclude' => 1,
-			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
-			'config' => [
+        'starttime' => [
+            'exclude' => 1,
+            'allowLanguageSynchronization' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
             ],
         ],
-		'endtime' => [
-			'exclude' => 1,
-			'allowLanguageSynchronization' => true,
-			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
-			'config' => [
+        'endtime' => [
+            'exclude' => 1,
+            'allowLanguageSynchronization' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
             ],
         ],
-		'text' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_link.text',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+        'text' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_link.text',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
             ],
         ],
-		'link' => [
-			'exclude' => 0,
-			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_link.link',
-			'config' => [
-	            'type' => 'input',
-	            'size' => '50',
-	            'max' => '256',
-	            'eval' => 'trim',
+        'link' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_link.link',
+            'config' => [
+                'type' => 'input',
+                'size' => '50',
+                'max' => '256',
+                'eval' => 'trim',
                 'renderType' => 'inputLink',
-	            'softref' => 'typolink',
+                'softref' => 'typolink',
             ],
         ],
     ],
 ];
-if( VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+if (VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000) {
     $tca['columns']['link']['config']['wizards']['link']['icon'] = 'link_popup.gif';
 }
 return $tca;

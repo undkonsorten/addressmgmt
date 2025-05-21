@@ -1,23 +1,25 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\ViewHelpers\String;
 
-    /*                                                                        *
-     * This script is backported from the TYPO3 Flow package "TYPO3.Fluid".   *
-     *                                                                        *
-     * It is free software; you can redistribute it and/or modify it under    *
-     * the terms of the GNU Lesser General Public License, either version 3   *
-     *  of the License, or (at your option) any later version.                *
-     *                                                                        *
-     * The TYPO3 project - inspiring people to share!                         *
-     *                                                                        */
-    use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
-    use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Extbase\Utility\ArrayUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-    use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+/*                                                                        *
+ * This script is backported from the TYPO3 Flow package "TYPO3.Fluid".   *
+ *                                                                        *
+ * It is free software; you can redistribute it and/or modify it under    *
+ * the terms of the GNU Lesser General Public License, either version 3   *
+ *  of the License, or (at your option) any later version.                *
+ *                                                                        *
+ * The TYPO3 project - inspiring people to share!                         *
+ *                                                                        */
 
-    /**
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\ArrayUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+
+/**
  * Loop view helper which can be used to interate over array.
  * Implements what a basic foreach()-PHP-method does.
  *
@@ -67,6 +69,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class ExplodeForViewHelper extends AbstractViewHelper
 {
     protected $escapeOutput = false;
+
     /**
      * Iterates through elements of $each and renders child nodes
      *
@@ -111,7 +114,7 @@ class ExplodeForViewHelper extends AbstractViewHelper
         }
         if (is_string($arguments['each'])) {
             (empty($arguments['delimiter'])) ? $delimiter = ',' : $delimiter = $arguments['delimiter'];
-            $arguments['each'] = GeneralUtility::trimExplode($delimiter,$arguments['each'],true);
+            $arguments['each'] = GeneralUtility::trimExplode($delimiter, $arguments['each'], true);
         }
         if (is_object($arguments['each']) && !$arguments['each'] instanceof \Traversable) {
             throw new Exception('ForViewHelper only supports arrays and objects implementing \Traversable interface', 1248728393);

@@ -1,9 +1,11 @@
 <?php
+
 namespace Undkonsorten\Addressmgmt\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -50,40 +52,41 @@ class AddressRepository extends Repository
      * @param array $orderings
      * @throws InvalidQueryException
      */
-	public function findDemanded($addresses = null,$categories= null, $publishState = null, $orderings=null){
-		$query = $this->createQuery();
-		$constraints = array();
-		if($orderings){
-			 $query->setOrderings($orderings);
+    public function findDemanded($addresses = null, $categories = null, $publishState = null, $orderings = null)
+    {
+        $query = $this->createQuery();
+        $constraints = array();
+        if ($orderings) {
+            $query->setOrderings($orderings);
         }
         /** @noinspection NotOptimalIfConditionsInspection */
         /** @noinspection TypeUnsafeComparisonInspection */
-        if(!is_null($addresses) && $addresses != ''){
+        if (!is_null($addresses) && $addresses != '') {
             $querySettings = $query->getQuerySettings();
             $querySettings->setRespectStoragePage(false);
             $query->setQuerySettings($querySettings);
-		    $query->matching(
+            $query->matching(
                 $query->in('uid', $addresses)
-			);
-		    return $query->execute();
+            );
+            return $query->execute();
         }
 
         /** @noinspection NotOptimalIfConditionsInspection */
         /** @noinspection TypeUnsafeComparisonInspection */
-        if(!is_null($publishState) && $publishState != '') {
-            $constraints[] =$query->equals('publishState', $publishState);
-		}
-
-        if(is_array($categories) && count($categories) > 0) {
-            $constraints[] =$query->in('category.uid', $categories);
+        if (!is_null($publishState) && $publishState != '') {
+            $constraints[] = $query->equals('publishState', $publishState);
         }
-		if(count($constraints)>0){
+
+        if (is_array($categories) && count($categories) > 0) {
+            $constraints[] = $query->in('category.uid', $categories);
+        }
+        if (count($constraints) > 0) {
             $query->matching(
                 $query->logicalAnd(...$constraints)
             );
         }
 
-		return $query->execute();
-	}
+        return $query->execute();
+    }
 }
 
