@@ -29,7 +29,7 @@
         "issues": "https://support.undkonsorten.com/projects/events"
     },
     "require": {
-        "typo3/cms-core": "^11.5 || ^12.4"
+        "typo3/cms-core": "^11.5 || ^12.4 || ^13.4"
     },
 	"suggest": {
 		"in2code/femanager": "^7.0"
