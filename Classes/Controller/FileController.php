@@ -205,7 +205,7 @@ class FileController extends BaseController
         return $this->redirect('dash', 'Address');
     }
 
-    protected function getErrorFlashMessage()
+    protected function getErrorFlashMessage(): bool|string
     {
         $message = array();
         foreach ($this->arguments->validate()->getFlattenedErrors() as $propertyPath => $errors) {

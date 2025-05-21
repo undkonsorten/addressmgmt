@@ -11,5 +11,5 @@ class Category extends \TYPO3\CMS\Extbase\Domain\Model\Category
      * @var Category|null
      * @Extbase\ORM\Lazy
      */
-    protected $parent;
+    protected \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy|\TYPO3\CMS\Extbase\Domain\Model\Category|null $parent;
 }

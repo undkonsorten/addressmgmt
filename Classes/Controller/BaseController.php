@@ -61,7 +61,7 @@ class BaseController extends ActionController
     /**
      * @var ConfigurationManagerInterface
      */
-    protected $configurationManager;
+    protected ConfigurationManagerInterface $configurationManager;
 
     public function __construct()
     {
@@ -86,7 +86,7 @@ class BaseController extends ActionController
      *
      * @return void
      */
-    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager)
+    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager): void
     {
         parent::injectConfigurationManager($configurationManager);
         $this->configurationManager = $configurationManager;
@@ -148,14 +148,14 @@ class BaseController extends ActionController
     /**
      * @return void
      */
-    public function initializeAction()
+    public function initializeAction(): void
     {
         parent::initializeAction();
         $this->addCacheTag();
     }
 
 
-    protected function getErrorFlashMessage()
+    protected function getErrorFlashMessage(): bool|string
     {
         //#DebuggerUtility::var_dump($this->controllerContext->getArguments()->validate()->getFlattenedErrors());
         return FALSE;
