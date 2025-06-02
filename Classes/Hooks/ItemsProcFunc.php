@@ -33,7 +33,7 @@ class ItemsProcFunc
      * @param array &$config configuration array
      * @return void
      */
-    public function user_templateLayout(array &$config)
+    public function user_templateLayout(array &$config): void
     {
         /** @var TemplateLayout $templateLayoutsUtility */
         $templateLayoutsUtility = GeneralUtility::makeInstance(\Undkonsorten\Addressmgmt\Utility\TemplateLayout::class);

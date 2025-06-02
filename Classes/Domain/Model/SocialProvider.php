@@ -130,7 +130,7 @@ class SocialProvider extends AbstractEntity
      * @param \string $name
      * @return void
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -151,7 +151,7 @@ class SocialProvider extends AbstractEntity
      * @param \string $identifierLabel
      * @return void
      */
-    public function setIdentifierLabel($identifierLabel)
+    public function setIdentifierLabel($identifierLabel): void
     {
         $this->identifierLabel = $identifierLabel;
     }
@@ -172,7 +172,7 @@ class SocialProvider extends AbstractEntity
      * @param \string $identifierDescription
      * @return void
      */
-    public function setIdentifierDescription($identifierDescription)
+    public function setIdentifierDescription($identifierDescription): void
     {
         $this->identifierDescription = $identifierDescription;
     }
@@ -193,7 +193,7 @@ class SocialProvider extends AbstractEntity
      * @param \string $urlScheme
      * @return void
      */
-    public function setUrlScheme($urlScheme)
+    public function setUrlScheme($urlScheme): void
     {
         $this->urlScheme = $urlScheme;
     }
@@ -214,7 +214,7 @@ class SocialProvider extends AbstractEntity
      * @param \string $urlOverrideLabel
      * @return void
      */
-    public function setUrlOverrideLabel($urlOverrideLabel)
+    public function setUrlOverrideLabel($urlOverrideLabel): void
     {
         $this->urlOverrideLabel = $urlOverrideLabel;
     }
@@ -235,7 +235,7 @@ class SocialProvider extends AbstractEntity
      * @param \string $urlOverrideDescription
      * @return void
      */
-    public function setUrlOverrideDescription($urlOverrideDescription)
+    public function setUrlOverrideDescription($urlOverrideDescription): void
     {
         $this->urlOverrideDescription = $urlOverrideDescription;
     }
@@ -256,7 +256,7 @@ class SocialProvider extends AbstractEntity
      * @param \string $showUrlOverride
      * @return void
      */
-    public function setShowUrlOverride($showUrlOverride)
+    public function setShowUrlOverride($showUrlOverride): void
     {
         $this->showUrlOverride = $showUrlOverride;
     }
@@ -277,7 +277,7 @@ class SocialProvider extends AbstractEntity
      * @param \string $www
      * @return void
      */
-    public function setWww($www)
+    public function setWww($www): void
     {
         $this->www = $www;
     }
@@ -298,7 +298,7 @@ class SocialProvider extends AbstractEntity
      * @param FileReference $image
      * @return void
      */
-    public function setImage($image)
+    public function setImage($image): void
     {
         $this->image = $image;
     }

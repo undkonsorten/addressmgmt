@@ -168,7 +168,7 @@ class BaseController extends ActionController
      *
      * @return void
      */
-    public function overrideFlexformSettings()
+    public function overrideFlexformSettings(): void
     {
 
         $originalSettings = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);

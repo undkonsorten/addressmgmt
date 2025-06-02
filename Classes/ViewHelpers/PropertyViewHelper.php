@@ -35,7 +35,7 @@ class PropertyViewHelper extends AbstractViewHelper
      * Arguments initialization
      *
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('object', 'object|array', 'Object data', true);
         $this->registerArgument('property', 'string', 'Used property', true);

@@ -68,7 +68,7 @@ class Link extends AbstractEntity
      * @param \string $text
      * @return void
      */
-    public function setText($text)
+    public function setText($text): void
     {
         $this->text = $text;
     }
@@ -89,7 +89,7 @@ class Link extends AbstractEntity
      * @param \string $link
      * @return void
      */
-    public function setLink($link)
+    public function setLink($link): void
     {
         $this->link = $link;
     }

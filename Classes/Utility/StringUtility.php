@@ -39,7 +39,7 @@ class StringUtility implements SingletonInterface
      */
     protected $charsetConverter;
 
-    public function injectCharsetConverter(CharsetConverter $charsetConverter): void
+    public function __construct(\TYPO3\CMS\Core\Charset\CharsetConverter $charsetConverter)
     {
         $this->charsetConverter = $charsetConverter;
     }

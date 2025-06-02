@@ -37,7 +37,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class SocialProviderRepository extends Repository
 {
 
-    public function initializeObject()
+    public function initializeObject(): void
     {
         /** @var $defaultQuerySettings Tx_Extbase_Persistence_Typo3QuerySettings */
         $defaultQuerySettings = $this->objectManager->get('Tx_Extbase_Persistence_Typo3QuerySettings');

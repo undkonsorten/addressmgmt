@@ -55,7 +55,7 @@ class FileRepository
      * @param File $file
      * @return void
      */
-    public function update(File $file)
+    public function update(File $file): void
     {
         //@TODO implement, use FileRepository
     }
@@ -65,7 +65,7 @@ class FileRepository
      *
      * @param File $file
      */
-    public function delete(File $file)
+    public function delete(File $file): void
     {
         //@TODO implement, check for existing references pointing to file first
     }
@@ -76,7 +76,7 @@ class FileRepository
      * @param \integer $uid
      * @return File
      */
-    public function findByUid($uid)
+    public function findByUid($uid): void
     {
         // @TODO implement
     }

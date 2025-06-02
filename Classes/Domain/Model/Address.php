@@ -321,7 +321,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $type
      * @return void
      */
-    public function setType($type)
+    public function setType($type): void
     {
         $this->type = $type;
     }
@@ -342,7 +342,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $name
      * @return void
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -373,7 +373,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $organization
      * @return void
      */
-    public function setOrganization($organization)
+    public function setOrganization($organization): void
     {
         $this->organization = $organization;
     }
@@ -394,7 +394,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $department
      * @return void
      */
-    public function setDepartment($department)
+    public function setDepartment($department): void
     {
         $this->department = $department;
     }
@@ -415,7 +415,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $street
      * @return void
      */
-    public function setStreet($street)
+    public function setStreet($street): void
     {
         $this->street = $street;
     }
@@ -436,7 +436,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $streetNumber
      * @return void
      */
-    public function setStreetNumber($streetNumber)
+    public function setStreetNumber($streetNumber): void
     {
         $this->streetNumber = $streetNumber;
     }
@@ -457,7 +457,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $addressSupplement
      * @return void
      */
-    public function setAddressSupplement($addressSupplement)
+    public function setAddressSupplement($addressSupplement): void
     {
         $this->addressSupplement = $addressSupplement;
     }
@@ -478,7 +478,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $city
      * @return void
      */
-    public function setCity($city)
+    public function setCity($city): void
     {
         $this->city = $city;
     }
@@ -499,7 +499,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $zip
      * @return void
      */
-    public function setZip($zip)
+    public function setZip($zip): void
     {
         $this->zip = $zip;
     }
@@ -520,7 +520,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $country
      * @return void
      */
-    public function setCountry($country)
+    public function setCountry($country): void
     {
         $this->country = $country;
     }
@@ -541,7 +541,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $state
      * @return void
      */
-    public function setState($state)
+    public function setState($state): void
     {
         $this->state = $state;
     }
@@ -562,7 +562,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $closestCity
      * @return void
      */
-    public function setClosestCity($closestCity)
+    public function setClosestCity($closestCity): void
     {
         $this->closestCity = $closestCity;
     }
@@ -583,7 +583,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $email
      * @return void
      */
-    public function setEmail($email)
+    public function setEmail($email): void
     {
         $this->email = $email;
     }
@@ -604,7 +604,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $phone
      * @return void
      */
-    public function setPhone($phone)
+    public function setPhone($phone): void
     {
         $this->phone = $phone;
     }
@@ -625,7 +625,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $mobile
      * @return void
      */
-    public function setMobile($mobile)
+    public function setMobile($mobile): void
     {
         $this->mobile = $mobile;
     }
@@ -646,7 +646,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $fax
      * @return void
      */
-    public function setFax($fax)
+    public function setFax($fax): void
     {
         $this->fax = $fax;
     }
@@ -667,7 +667,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param Link $www
      * @return void
      */
-    public function setWww($www)
+    public function setWww($www): void
     {
         $this->www = $www;
     }
@@ -688,7 +688,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \string $description
      * @return void
      */
-    public function setDescription($description)
+    public function setDescription($description): void
     {
         $this->description = $description;
     }
@@ -704,17 +704,17 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * @param ObjectStorage $images
      */
-    public function setImages(ObjectStorage $images)
+    public function setImages(ObjectStorage $images): void
     {
         $this->images = $images;
     }
 
-    public function addImage(FileReference $image)
+    public function addImage(FileReference $image): void
     {
         $this->images->attach($image);
     }
 
-    public function removeImage(FileReference $image)
+    public function removeImage(FileReference $image): void
     {
         $this->images->detach($image);
     }
@@ -749,7 +749,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \float $latitude
      * @return void
      */
-    public function setLatitude($latitude)
+    public function setLatitude($latitude): void
     {
         $this->latitude = $latitude;
     }
@@ -770,7 +770,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param \float $longitude
      * @return void
      */
-    public function setLongitude($longitude)
+    public function setLongitude($longitude): void
     {
         $this->longitude = $longitude;
     }
@@ -787,7 +787,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param FrontendUser $feUser
      * @return void
      */
-    public function setFeUser(FrontendUser $feUser)
+    public function setFeUser(FrontendUser $feUser): void
     {
         $this->feUser = $feUser;
     }
@@ -798,7 +798,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param SocialIdentifier $socialIdentifier
      * @return void
      */
-    public function addSocialIdentifier(SocialIdentifier $socialIdentifier)
+    public function addSocialIdentifier(SocialIdentifier $socialIdentifier): void
     {
         $this->socialIdentifiers->attach($socialIdentifier);
     }
@@ -809,7 +809,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param SocialIdentifier $socialIdentifierToRemove The SocialIdentifier to be removed
      * @return void
      */
-    public function removeSocialIdentifier(SocialIdentifier $socialIdentifierToRemove)
+    public function removeSocialIdentifier(SocialIdentifier $socialIdentifierToRemove): void
     {
         $this->socialIdentifiers->detach($socialIdentifierToRemove);
     }
@@ -830,7 +830,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param ObjectStorage<SocialIdentifier> $socialIdentifiers
      * @return void
      */
-    public function setSocialIdentifiers(ObjectStorage $socialIdentifiers)
+    public function setSocialIdentifiers(ObjectStorage $socialIdentifiers): void
     {
         $this->socialIdentifiers = $socialIdentifiers;
     }
@@ -851,7 +851,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      * @param Link $link
      * @return void
      */
-    public function setLink(Link $link)
+    public function setLink(Link $link): void
     {
         $this->link = $link;
     }
@@ -869,7 +869,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      *
      * @param integer $mapZoom
      */
-    public function setMapZoom($mapZoom)
+    public function setMapZoom($mapZoom): void
     {
         $this->mapZoom = $mapZoom;
     }
@@ -887,17 +887,17 @@ abstract class Address extends AbstractEntity implements AddressInterface
      *
      * @param ObjectStorage $category
      */
-    public function setCategory(ObjectStorage $category)
+    public function setCategory(ObjectStorage $category): void
     {
         $this->category = $category;
     }
 
-    public function addCategory(Category $category)
+    public function addCategory(Category $category): void
     {
         $this->category->attach($category);
     }
 
-    public function removeCategory(Category $category)
+    public function removeCategory(Category $category): void
     {
         $this->category->detach($category);
     }
@@ -914,7 +914,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      *
      * @param string $directions
      */
-    public function setDirections($directions)
+    public function setDirections($directions): void
     {
         $this->directions = $directions;
     }
@@ -933,7 +933,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
      *
      * @param \string $geojson
      */
-    public function setGeojson($geojson)
+    public function setGeojson($geojson): void
     {
         $this->geojson = $geojson;
     }
@@ -942,7 +942,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * @param string $counterpart
      */
-    public function setCounterpart($counterpart)
+    public function setCounterpart($counterpart): void
     {
         $this->counterpart = $counterpart;
     }
@@ -984,7 +984,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * @param File\FileUpload $imagesUpload
      */
-    public function setImagesUpload(FileUpload $imagesUpload)
+    public function setImagesUpload(FileUpload $imagesUpload): void
     {
         $this->imagesUpload = $imagesUpload;
     }
@@ -1000,7 +1000,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * @param int $publishState
      */
-    public function setPublishState($publishState)
+    public function setPublishState($publishState): void
     {
         $this->publishState = $publishState;
     }

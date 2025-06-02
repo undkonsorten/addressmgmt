@@ -8,7 +8,6 @@ $tca = [
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'versioningWS' => TRUE,
         'hideTable' => TRUE,
 
@@ -21,11 +20,11 @@ $tca = [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ],
         'searchFields' => 'name,',
         'iconfile' => 'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_room.png',
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, name, capacity, description',
     ],
     'types' => [
         '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, name, capacity, description'],
@@ -71,9 +70,7 @@ $tca = [
             'allowLanguageSynchronization' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
             ],
         ],
         'endtime' => [
@@ -81,9 +78,7 @@ $tca = [
             'allowLanguageSynchronization' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
             ],
         ],
 
@@ -101,10 +96,9 @@ $tca = [
             'allowLanguageSynchronization' => true,
             'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_room.capacity',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'size' => 13,
                 'max' => 20,
-                'eval' => 'int',
                 'checkbox' => 0,
                 'default' => 0,
             ],

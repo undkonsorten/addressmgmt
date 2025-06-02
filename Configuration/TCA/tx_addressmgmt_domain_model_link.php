@@ -12,7 +12,6 @@ $tca = [
         'label' => 'text',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
 
         'versioningWS' => true,
         'origUid' => 't3_origuid',
@@ -25,11 +24,11 @@ $tca = [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ],
         'searchFields' => 'text,link,',
         'iconfile' => 'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_link.png'
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, text, link',
     ],
     'types' => [
         '1' => ['showitem' => 'text, link,--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, starttime, endtime'],
@@ -74,9 +73,7 @@ $tca = [
             'allowLanguageSynchronization' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
             ],
         ],
         'endtime' => [
@@ -84,9 +81,7 @@ $tca = [
             'allowLanguageSynchronization' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
             ],
         ],
         'text' => [
@@ -102,12 +97,8 @@ $tca = [
             'exclude' => 0,
             'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_link.link',
             'config' => [
-                'type' => 'input',
+                'type' => 'link',
                 'size' => '50',
-                'max' => '256',
-                'eval' => 'trim',
-                'renderType' => 'inputLink',
-                'softref' => 'typolink',
             ],
         ],
     ],

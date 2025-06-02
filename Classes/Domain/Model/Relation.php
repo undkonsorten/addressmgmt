@@ -66,7 +66,7 @@ class Relation extends AbstractEntity
      * @param Room $room
      * @return void
      */
-    public function setRoom(Room $room)
+    public function setRoom(Room $room): void
     {
         $this->room = $room;
     }
@@ -109,7 +109,7 @@ class Relation extends AbstractEntity
      * @param Location $location
      * @return void
      */
-    public function setLocation(Location $location)
+    public function setLocation(Location $location): void
     {
         $this->location = $location;
     }

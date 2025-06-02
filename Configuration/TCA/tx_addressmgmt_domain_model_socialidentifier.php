@@ -9,7 +9,6 @@ $tca = [
         'label' => 'identifier',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'hideTable' => TRUE,
         'label_alt' => 'provider',
         'label_alt_force' => TRUE,
@@ -25,11 +24,11 @@ $tca = [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ],
         'searchFields' => 'identifier,url_override,provider,',
         'iconfile' => 'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_relation.png'
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, identifier, url_override, provider',
     ],
     'types' => [
         '1' => ['showitem' => 'hidden, --palette--;;1, identifier, --palette--;;url_override, provider'],
@@ -74,9 +73,7 @@ $tca = [
             'allowLanguageSynchronization' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
             ],
         ],
         'endtime' => [
@@ -84,9 +81,7 @@ $tca = [
             'allowLanguageSynchronization' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
             ],
         ],
         'identifier' => [

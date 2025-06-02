@@ -20,7 +20,7 @@ class GoogleMapViewHelper extends AbstractTagBasedViewHelper
      */
     const ATTRIBUTE_PREFIX = 'data-';
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerUniversalTagAttributes();

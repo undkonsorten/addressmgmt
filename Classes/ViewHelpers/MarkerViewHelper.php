@@ -12,7 +12,7 @@ class MarkerViewHelper extends AbstractViewHelper
      * Arguments initialization
      *
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('latitude', 'float', 'Latitude data', false, null);
         $this->registerArgument('longitude', 'float', 'Longitude data', false, null);

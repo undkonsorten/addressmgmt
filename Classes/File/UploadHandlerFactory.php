@@ -42,7 +42,7 @@ class UploadHandlerFactory
      */
     protected $objectManagerInterface;
 
-    public function injectObjectManagerInterface(ObjectManagerInterface $objectManagerInterface): void
+    public function __construct(\TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManagerInterface)
     {
         $this->objectManagerInterface = $objectManagerInterface;
     }

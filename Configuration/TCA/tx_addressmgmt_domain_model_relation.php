@@ -14,7 +14,6 @@ $tca = [
         'label_alt_force' => TRUE,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'versioningWS' => TRUE,
 
         'languageField' => 'sys_language_uid',
@@ -26,11 +25,11 @@ $tca = [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ],
         'searchFields' => 'room,location,',
         'iconfile' => 'EXT:addressmgmt/Resources/Public/Icons/tx_addressmgmt_domain_model_relation.png'
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'location, room',
     ],
     'types' => [
         '1' => ['showitem' => 'location, room'],
@@ -77,9 +76,7 @@ $tca = [
             'allowLanguageSynchronization' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
             ],
         ],
         'endtime' => [
@@ -87,10 +84,8 @@ $tca = [
             'allowLanguageSynchronization' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
+                'type' => 'datetime',
                 'dbType' => 'datetime',
-                'eval' => 'datetime',
             ],
         ],
 

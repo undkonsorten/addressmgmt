@@ -144,8 +144,8 @@ class AddressController extends BaseController
     {
         $address->setPublishState(Address::PUBLISH_WAITING);
         $this->addressRepository->update($address);
-        $this->addFlashMessage($this->localize('flashMessage.handInForReview'), AbstractMessage::OK);
-        $this->redirect('dash');
+        $this->addFlashMessage($this->localize('flashMessage.handInForReview'), \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK);
+        return $this->redirect('dash');
 
     }
 
@@ -213,7 +213,7 @@ class AddressController extends BaseController
     {
         $this->addressService->updateCoordinates($address);
         $this->addressRepository->add($address);
-        $this->addFlashMessage($this->localize('flashMessage.created'), AbstractMessage::OK);
+        $this->addFlashMessage($this->localize('flashMessage.created'), \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK);
         return $this->redirect('dash');
     }
 
@@ -227,7 +227,7 @@ class AddressController extends BaseController
     {
         $this->addressService->updateCoordinates($address);
         $this->addressRepository->update($address);
-        $this->addFlashMessage($this->localize('flashMessage.updated'), AbstractMessage::OK);
+        $this->addFlashMessage($this->localize('flashMessage.updated'), \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK);
         return $this->redirect('dash');
     }
 
@@ -277,7 +277,7 @@ class AddressController extends BaseController
         }
 
         $this->view->assign('addresses', $addresses);
-        $this->view->assign('contentUid', $this->configurationManager->getContentObject()->data['uid']);
+        $this->view->assign('contentUid', $this->request->getAttribute('currentContentObject')->data['uid']);
         return $this->htmlResponse();
     }
 
@@ -291,7 +291,7 @@ class AddressController extends BaseController
     public function showAction(Address $address): ResponseInterface
     {
         $this->view->assign('address', $address);
-        $this->view->assign('contentUid', $this->configurationManager->getContentObject()->data['uid']);
+        $this->view->assign('contentUid', $this->request->getAttribute('currentContentObject')->data['uid']);
         return $this->htmlResponse();
     }
 
@@ -304,7 +304,7 @@ class AddressController extends BaseController
     {
         $frontendUser = $this->getLoggedInFrontendUser();
         /** @noinspection PhpUndefinedMethodInspection */
-        return $this->addressRepository->findOneByFeUser($frontendUser);
+        return $this->addressRepository->findOneBy(['feUser' => $frontendUser]);
     }
 
     /**

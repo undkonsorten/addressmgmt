@@ -59,9 +59,14 @@ class ResourceFactory implements SingletonInterface
      */
     protected $persistenceManager;
 
-    public function injectPersistenceManager(PersistenceManager $persistenceManager): void
+    public function __construct(\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager $persistenceManager, \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory $dataMapFactory, \Undkonsorten\Addressmgmt\Domain\Repository\FileReferenceRepository $fileReferenceRepository, \TYPO3\CMS\Core\Resource\FileRepository $fileRepository, \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper $dataMapper, \TYPO3\CMS\Core\Resource\StorageRepository $storageRepository)
     {
         $this->persistenceManager = $persistenceManager;
+        $this->dataMapFactory = $dataMapFactory;
+        $this->fileReferenceRepository = $fileReferenceRepository;
+        $this->fileRepository = $fileRepository;
+        $this->dataMapper = $dataMapper;
+        $this->storageRepository = $storageRepository;
     }
 
     /**
@@ -69,50 +74,25 @@ class ResourceFactory implements SingletonInterface
      */
     protected $dataMapFactory;
 
-    public function injectDataMapFactory(DataMapFactory $dataMapFactory): void
-    {
-        $this->dataMapFactory = $dataMapFactory;
-    }
-
     /**
      * @var FileReferenceRepository
      */
     protected $fileReferenceRepository;
-
-    public function injectFileReferenceRepository(FileReferenceRepository $fileReferenceRepository): void
-    {
-        $this->fileReferenceRepository = $fileReferenceRepository;
-    }
 
     /**
      * @var FileRepository
      */
     protected $fileRepository;
 
-    public function injectFileRepository(FileRepository $fileRepository): void
-    {
-        $this->fileRepository = $fileRepository;
-    }
-
     /**
      * @var DataMapper
      */
     protected $dataMapper;
 
-    public function injectDataMapper(DataMapper $dataMapper): void
-    {
-        $this->dataMapper = $dataMapper;
-    }
-
     /**
      * @var StorageRepository
      */
     protected $storageRepository;
-
-    public function injectStorageRepository(StorageRepository $storageRepository): void
-    {
-        $this->storageRepository = $storageRepository;
-    }
 
     /**
      * Gets a singleton instance of this class.
@@ -240,7 +220,7 @@ class ResourceFactory implements SingletonInterface
      * @param \string $property
      * @param \boolean $deleteFileIfPossible
      */
-    public function deleteFileReference(FileReference $fileReference)
+    public function deleteFileReference(FileReference $fileReference): void
     {
         $this->fileReferenceRepository->delete($fileReference);
     }
@@ -288,7 +268,7 @@ class ResourceFactory implements SingletonInterface
      * @param FileMetaData $fileMetaData
      * @return void
      */
-    public function updateFileWithMetaData(File $file, FileMetaData $fileMetaData)
+    public function updateFileWithMetaData(File $file, FileMetaData $fileMetaData): void
     {
         $propertiesToBeUpdated = array(
             'title',
@@ -310,7 +290,7 @@ class ResourceFactory implements SingletonInterface
      * @param FileReference $fileReference
      * @return void
      */
-    public function updateFileMetaDataFromFileReference(FileMetaData $fileMetaData, FileReference $fileReference)
+    public function updateFileMetaDataFromFileReference(FileMetaData $fileMetaData, FileReference $fileReference): void
     {
         $propertiesToBeUpdated = array(
             'title',

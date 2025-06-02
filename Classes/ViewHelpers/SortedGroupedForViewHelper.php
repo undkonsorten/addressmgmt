@@ -51,7 +51,7 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper
     /**
      * registers additional arguments used by this viewhelper
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('sortBy', 'string', 'Groups will be sorted by this property', FALSE, '');
         $this->registerArgument('order', 'string', 'Sorting order, asc or desc', FALSE, self::ORDER_ASCENDING);

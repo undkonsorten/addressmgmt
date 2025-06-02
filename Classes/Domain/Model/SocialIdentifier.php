@@ -87,7 +87,7 @@ class SocialIdentifier extends AbstractEntity
      * @param \string $identifier
      * @return void
      */
-    public function setIdentifier($identifier)
+    public function setIdentifier($identifier): void
     {
         $this->identifier = $identifier;
     }
@@ -123,7 +123,7 @@ class SocialIdentifier extends AbstractEntity
      * @param \string $urlOverride
      * @return void
      */
-    public function setUrlOverride($urlOverride)
+    public function setUrlOverride($urlOverride): void
     {
         $this->urlOverride = $urlOverride;
     }
@@ -144,7 +144,7 @@ class SocialIdentifier extends AbstractEntity
      * @param SocialProvider $provider
      * @return void
      */
-    public function setProvider(SocialProvider $provider)
+    public function setProvider(SocialProvider $provider): void
     {
         $this->provider = $provider;
     }

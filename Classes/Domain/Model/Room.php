@@ -70,7 +70,7 @@ class Room extends AbstractEntity
      * @param string $name
      * @return void
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -87,7 +87,7 @@ class Room extends AbstractEntity
      *
      * @param integer $capacity
      */
-    public function setCapacity($capacity)
+    public function setCapacity($capacity): void
     {
         $this->capacity = $capacity;
     }
@@ -105,7 +105,7 @@ class Room extends AbstractEntity
      *
      * @param string $description
      */
-    public function setDescription($description)
+    public function setDescription($description): void
     {
         $this->description = $description;
     }

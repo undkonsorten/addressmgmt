@@ -102,7 +102,7 @@ class FileUpload extends AbstractValueObject
      *
      * @param FileMetaData $fileMetaData
      */
-    public function setFileMetaData(FileMetaData $fileMetaData)
+    public function setFileMetaData(FileMetaData $fileMetaData): void
     {
         $this->fileMetaData = $fileMetaData;
     }
@@ -112,7 +112,7 @@ class FileUpload extends AbstractValueObject
      *
      * @param FileMetaData $fileMetaData
      */
-    public function setMeta(FileMetaData $fileMetaData)
+    public function setMeta(FileMetaData $fileMetaData): void
     {
         $this->setFileMetaData($fileMetaData);
     }
@@ -190,7 +190,7 @@ class FileUpload extends AbstractValueObject
      *
      * @param \string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -210,7 +210,7 @@ class FileUpload extends AbstractValueObject
      *
      * @param \string $type
      */
-    public function setType($type)
+    public function setType($type): void
     {
         $this->type = $type;
     }
@@ -230,7 +230,7 @@ class FileUpload extends AbstractValueObject
      *
      * @param \integer $error
      */
-    public function setError($error)
+    public function setError($error): void
     {
         $this->error = $error;
     }
@@ -250,7 +250,7 @@ class FileUpload extends AbstractValueObject
      *
      * @param \integer $size
      */
-    public function setSize($size)
+    public function setSize($size): void
     {
         $this->size = $size;
     }
@@ -261,7 +261,7 @@ class FileUpload extends AbstractValueObject
         if (!($error == 0)) {
             switch ($error) {
                 case UPLOAD_ERR_INI_SIZE:
-                    throw new UploadException('File was too big! Max size is ' . ini_get('upload_max_filesize'));
+                    throw new UploadException('File was too big! Max size is ' . ini_get('upload_max_filesize'), 3272662043);
                     break;
             }
             return FALSE;

@@ -89,9 +89,11 @@ class UploadHandler
      */
     protected $dataMapper;
 
-    public function injectDataMapper(DataMapper $dataMapper): void
+    public function __construct(\TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper $dataMapper, \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapFactory $dataMapFactory, \TYPO3\CMS\Core\Utility\File\BasicFileUtility $basicFileUtility, private readonly \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory)
     {
         $this->dataMapper = $dataMapper;
+        $this->dataMapFactory = $dataMapFactory;
+        $this->basicFileUtility = $basicFileUtility;
     }
 
     /**
@@ -99,37 +101,22 @@ class UploadHandler
      */
     protected $dataMapFactory;
 
-    public function injectDataMapFactory(DataMapFactory $dataMapFactory): void
-    {
-        $this->dataMapFactory = $dataMapFactory;
-    }
-
     /**
      * @var BasicFileUtility
      */
     protected $basicFileUtility;
-
-    public function injectBasicFileUtility(BasicFileUtility $basicFileUtility): void
-    {
-        $this->basicFileUtility = $basicFileUtility;
-    }
 
     /**
      * @var ResourceFactoryAlias
      */
     protected $resouFactory;
 
-    public function injectResourceFactory(ResourceFactoryAlias $resourceFactory): void
-    {
-        $this->resourceFactory = $resourceFactory;
-    }
-
     /**
      * Builds datamap once object and property are given
      *
      * @return void
      */
-    public function buildDataMap()
+    public function buildDataMap(): void
     {
         $this->dataMap = $this->dataMapFactory->buildDataMap(get_class($this->object));
     }
@@ -238,7 +225,7 @@ class UploadHandler
      * @param \integer $pid
      * @param \string $foreignTable
      */
-    public function createLocalFileReference(FileInterface $file, $foreignObject, $foreignField, $pid = 13, $foreignTable = '')
+    public function createLocalFileReference(FileInterface $file, $foreignObject, $foreignField, $pid = 13, $foreignTable = ''): void
     {
 
         if (!$foreignTable) {
@@ -277,7 +264,7 @@ class UploadHandler
      *
      * @param \mixed $object
      */
-    public function setObject($object)
+    public function setObject($object): void
     {
         $this->object = $object;
     }
@@ -297,7 +284,7 @@ class UploadHandler
      *
      * @param string $property
      */
-    public function setProperty($property)
+    public function setProperty($property): void
     {
         $this->property = $property;
     }
@@ -318,7 +305,7 @@ class UploadHandler
      * @param ResourceStorage $storage
      * @return void
      */
-    public function setStorage(ResourceStorage $storage)
+    public function setStorage(ResourceStorage $storage): void
     {
         $this->storage = $storage;
     }
@@ -339,7 +326,7 @@ class UploadHandler
      * @param Folder $folder
      * @return void
      */
-    public function setFolder(Folder $folder)
+    public function setFolder(Folder $folder): void
     {
         $this->folder = $folder;
     }

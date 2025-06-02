@@ -9,7 +9,7 @@ class Category extends \TYPO3\CMS\Extbase\Domain\Model\Category
 
     /**
      * @var Category|null
-     * @Extbase\ORM\Lazy
      */
+    #[Extbase\ORM\Lazy]
     protected \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy|\TYPO3\CMS\Extbase\Domain\Model\Category|null $parent;
 }

@@ -47,7 +47,7 @@ class CategoryService
      */
     protected $categoryRepository;
 
-    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
+    public function __construct(\Undkonsorten\Addressmgmt\Domain\Repository\CategoryRepository $categoryRepository)
     {
         $this->categoryRepository = $categoryRepository;
     }
@@ -108,7 +108,7 @@ class CategoryService
             $this->categoryRepository->setDefaultOrderings($sorting);
         }
         $this->categoryRepository->setDefaultOrderings(array('title' => QueryInterface::ORDER_ASCENDING));
-        return $this->categoryRepository->findByParent($parent);
+        return $this->categoryRepository->findBy(['parent' => $parent]);
 
     }
 

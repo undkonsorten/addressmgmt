@@ -44,12 +44,9 @@ class AddressLocatorService
      */
     protected $geolocationService;
 
-    /**
-     * @param GeoLocationServiceInterface $geoLocationService
-     */
-    public function injectGeolocationService(GeoLocationServiceInterface $geoLocationService)
+    public function __construct(\Undkonsorten\Addressmgmt\Service\GeoLocationServiceInterface $geolocationService)
     {
-        $this->geolocationService = $geoLocationService;
+        $this->geolocationService = $geolocationService;
     }
 
     /**
@@ -63,7 +60,7 @@ class AddressLocatorService
      * @param Address $address
      * @throws TooDirtyException
      */
-    public function updateCoordinates(Address $address)
+    public function updateCoordinates(Address $address): void
     {
         $shouldUpdate = $this->shouldUpdateCoordinates($address, $this->propertiesToConsider);
         if ($shouldUpdate) {

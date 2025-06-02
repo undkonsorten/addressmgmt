@@ -88,7 +88,7 @@ class ExplodeForViewHelper extends AbstractViewHelper
     /**
      * Initializes the arguments for the ViewHelper
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('each', 'mixed', 'The array or string or \TYPO3\CMS\Extbase\Persistence\ObjectStorage to iterated over', true);
         $this->registerArgument('as', 'string', 'The name of the iteration variable', true);

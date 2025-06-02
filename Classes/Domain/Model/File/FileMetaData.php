@@ -73,7 +73,7 @@ class FileMetaData extends AbstractValueObject
      *
      * @param \string $title
      */
-    public function setTitle($title)
+    public function setTitle($title): void
     {
         $this->title = $title;
     }
@@ -93,7 +93,7 @@ class FileMetaData extends AbstractValueObject
      *
      * @param \string $alternative
      */
-    public function setAlternative($alternative)
+    public function setAlternative($alternative): void
     {
         $this->alternative = $alternative;
     }
@@ -113,7 +113,7 @@ class FileMetaData extends AbstractValueObject
      *
      * @param \string $description
      */
-    public function setDescription($description)
+    public function setDescription($description): void
     {
         $this->description = $description;
     }
@@ -133,7 +133,7 @@ class FileMetaData extends AbstractValueObject
      *
      * @param \string $link
      */
-    public function setLink($link)
+    public function setLink($link): void
     {
         $this->link = $link;
     }

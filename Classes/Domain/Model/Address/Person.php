@@ -97,7 +97,7 @@ class Person extends Address
      * @param \string $firstName
      * @return void
      */
-    public function setFirstName($firstName)
+    public function setFirstName($firstName): void
     {
         $this->firstName = $firstName;
     }
@@ -118,7 +118,7 @@ class Person extends Address
      * @param \string $lastName
      * @return void
      */
-    public function setLastName($lastName)
+    public function setLastName($lastName): void
     {
         $this->setName($lastName);
     }
@@ -139,7 +139,7 @@ class Person extends Address
      * @param \integer $gender
      * @return void
      */
-    public function setGender($gender)
+    public function setGender($gender): void
     {
         $this->gender = $gender;
     }
@@ -160,7 +160,7 @@ class Person extends Address
      * @param \string $title
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle($title): void
     {
         $this->title = $title;
     }

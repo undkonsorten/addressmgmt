@@ -56,9 +56,12 @@ class FileReferenceRepository
      */
     protected $fileRepository;
 
-    public function injectFileRepository(FileRepositoryAlias $fileRepository): void
+    public function __construct(\TYPO3\CMS\Core\Resource\FileRepository $fileRepository, \TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbBackend $typo3DbBackend, \TYPO3\CMS\Core\Database\ReferenceIndex $referenceIndex, \TYPO3\CMS\Extbase\Property\PropertyMapper $propertyMapper)
     {
         $this->fileRepository = $fileRepository;
+        $this->typo3DbBackend = $typo3DbBackend;
+        $this->referenceIndex = $referenceIndex;
+        $this->propertyMapper = $propertyMapper;
     }
 
     /**
@@ -66,30 +69,15 @@ class FileReferenceRepository
      */
     protected $typo3DbBackend;
 
-    public function injectTypo3DbBackend(Typo3DbBackend $typo3DbBackend): void
-    {
-        $this->typo3DbBackend = $typo3DbBackend;
-    }
-
     /**
      * @var ReferenceIndex
      */
     protected $referenceIndex;
 
-    public function injectReferenceIndex(ReferenceIndex $referenceIndex): void
-    {
-        $this->referenceIndex = $referenceIndex;
-    }
-
     /**
      * @var PropertyMapper
      */
     protected $propertyMapper;
-
-    public function injectPropertyMapper(PropertyMapper $propertyMapper): void
-    {
-        $this->propertyMapper = $propertyMapper;
-    }
 
     /**
      * add method isn't implemented, use resourceFactory instead
@@ -144,7 +132,7 @@ class FileReferenceRepository
      * @param FileReference $fileReference
      * @return void
      */
-    public function delete(FileReference $fileReference)
+    public function delete(FileReference $fileReference): void
     {
         $properties = $fileReference->getOriginalResource()->getProperties();
         $fileReferences = $this->fileRepository->findByRelation($properties['tablenames'], $properties['fieldname'], $properties['uid_foreign']);
@@ -166,7 +154,7 @@ class FileReferenceRepository
      * @param \integer $uid
      * @return FileReference
      */
-    public function findByUid($uid)
+    public function findByUid($uid): void
     {
         // @TODO implement
     }
@@ -178,7 +166,7 @@ class FileReferenceRepository
      * @param \string $property
      * @return ObjectStorage<FileReference>
      */
-    public function findByForeignObject($object, $property)
+    public function findByForeignObject($object, $property): void
     {
         //@TODO implement
     }
@@ -204,7 +192,7 @@ class FileReferenceRepository
      * @param File $file
      * @return ObjectStorage<FileReference>
      */
-    public function findByFile(File $file)
+    public function findByFile(File $file): void
     {
         //@TODO implement
     }
