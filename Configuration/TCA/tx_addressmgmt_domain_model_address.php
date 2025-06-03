@@ -353,7 +353,8 @@ $tca = [
                 'type' => 'text',
                 'cols' => 20,
                 'rows' => 5,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'default' => '',
             ],
         ],
         'description' => [
@@ -365,6 +366,7 @@ $tca = [
                 'rows' => 10,
                 'eval' => 'trim',
                 'enableRichtext' => true,
+                'default' => '',
             ],
         ],
         'directions' => [
@@ -376,6 +378,7 @@ $tca = [
                 'rows' => 15,
                 'eval' => 'trim',
                 'enableRichtext' => true,
+                'default' => '',
             ],
         ],
         'images' => [
@@ -444,6 +447,7 @@ $tca = [
             'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.geojson',
             'config' => [
                 'type' => 'text',
+                'default' => '',
             ],
         ],
         'fe_user' => [
