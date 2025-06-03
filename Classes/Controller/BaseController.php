@@ -11,6 +11,7 @@ use Undkonsorten\Addressmgmt\Domain\Model\FrontendUser;
 use Undkonsorten\Addressmgmt\Domain\Repository\FrontendUserRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Core\Context\Context;
 
 /***************************************************************
  *
@@ -63,7 +64,7 @@ class BaseController extends ActionController
      */
     protected ConfigurationManagerInterface $configurationManager;
 
-    public function __construct()
+    public function __construct(private readonly Context $context)
     {
         $this->typoScriptFrontendController = $this->getTyposcriptFrontendController();
     }
@@ -194,9 +195,9 @@ class BaseController extends ActionController
     {
         /** @var FrontendUser $frontendUser */
         $frontendUser = NULL;
-        $user = $GLOBALS['TSFE']->fe_user->user;
-        if (isset($user['uid'])) {
-            $frontendUser = $this->frontendUserRepository->findByUid($user['uid']);
+        $userUid = $this->context->getPropertyFromAspect('frontend.user', 'id');
+        if (isset($userUid)) {
+            $frontendUser = $this->frontendUserRepository->findByUid($userUid);
         }
         return $frontendUser;
     }
