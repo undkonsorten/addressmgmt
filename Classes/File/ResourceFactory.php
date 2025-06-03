@@ -108,10 +108,10 @@ class ResourceFactory implements SingletonInterface
      * Upload a file and create reference
      *
      * @param FileUpload $fileUpload
-     * @param ResourceStorage|Folder|\string $target
+     * @param ResourceStorage|Folder|string $target
      * @param \mixed $object
-     * @param \string $property
-     * @param \integer $pid
+     * @param string $property
+     * @param integer $pid
      * @return FileReference
      * @throws \Exception
      */
@@ -132,7 +132,7 @@ class ResourceFactory implements SingletonInterface
      *
      * @param FileUpload $fileUpload
      * @param Folder $folder
-     * @param \string $conflictMode defines handling for name conflicts (cancel,replace,rename)
+     * @param string $conflictMode defines handling for name conflicts (cancel,replace,rename)
      * @return File
      */
     protected function createFileFromUpload(FileUpload $fileUpload, Folder $folder, $conflictMode = 'rename')
@@ -149,7 +149,7 @@ class ResourceFactory implements SingletonInterface
      * Gets a folder from Storage, Folder or combined identifier
      * like '1:my/path'
      *
-     * @param ResourceStorage|Folder|\string $target
+     * @param ResourceStorage|Folder|string $target
      * @return Folder
      * @throws \UnexpectedValueException
      */
@@ -192,8 +192,8 @@ class ResourceFactory implements SingletonInterface
      *
      * @param File $file
      * @param \mixed $object
-     * @param \string $property
-     * @param \integer $pid
+     * @param string $property
+     * @param integer $pid
      * @return FileReference
      */
     protected function createFileReference(File $file, $object, $property, $pid = NULL)
@@ -217,7 +217,7 @@ class ResourceFactory implements SingletonInterface
      * @TODO implement deleteFileIfPossible
      * @param FileReference $fileReference
      * @param \mixed $object
-     * @param \string $property
+     * @param string $property
      * @param \boolean $deleteFileIfPossible
      */
     public function deleteFileReference(FileReference $fileReference): void
@@ -227,10 +227,10 @@ class ResourceFactory implements SingletonInterface
 
     /**
      * @param FileUpload $fileUpload
-     * @param ResourceStorage|Folder|\string $target
+     * @param ResourceStorage|Folder|string $target
      * @param FileReference $fileReference
      * @param \mixed $object
-     * @param \string $property
+     * @param string $property
      */
     public function replaceFileReferenceByUploadedFile(FileUpload $fileUpload, $target, FileReference $fileReference, $object, $property)
     {
@@ -249,7 +249,7 @@ class ResourceFactory implements SingletonInterface
      * gets foreign parameters for database queries from object and property
      *
      * @param \mixed $object
-     * @param \string $property
+     * @param string $property
      * @return \array
      */
     protected function getForeignParameters($object, $property)

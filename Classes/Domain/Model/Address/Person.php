@@ -42,7 +42,7 @@ class Person extends Address
     /**
      * firstName
      *
-     * @var \string
+     * @var string
      */
     #[Validate(['validator' => 'NotEmpty'])]
     protected $firstName;
@@ -50,21 +50,21 @@ class Person extends Address
     /**
      * gender
      *
-     * @var \integer
+     * @var integer
      */
     protected $gender;
 
     /**
      * title
      *
-     * @var \string
+     * @var string
      */
     protected $title;
 
     /**
      * String representation of address
      *
-     * @return \string
+     * @return string
      */
     public function __toString()
     {
@@ -74,7 +74,7 @@ class Person extends Address
     /**
      * return full name as first name last name
      *
-     * @return \string
+     * @return string
      */
     public function getFullName()
     {
@@ -84,7 +84,7 @@ class Person extends Address
     /**
      * Returns the firstName
      *
-     * @return \string $firstName
+     * @return string $firstName
      */
     public function getFirstName()
     {
@@ -94,7 +94,7 @@ class Person extends Address
     /**
      * Sets the firstName
      *
-     * @param \string $firstName
+     * @param string $firstName
      * @return void
      */
     public function setFirstName($firstName): void
@@ -105,7 +105,7 @@ class Person extends Address
     /**
      * Returns the lastName
      *
-     * @return \string $lastName
+     * @return string $lastName
      */
     public function getLastName()
     {
@@ -115,7 +115,7 @@ class Person extends Address
     /**
      * Sets the lastName
      *
-     * @param \string $lastName
+     * @param string $lastName
      * @return void
      */
     public function setLastName($lastName): void
@@ -126,7 +126,7 @@ class Person extends Address
     /**
      * Returns the gender
      *
-     * @return \integer $gender
+     * @return integer $gender
      */
     public function getGender()
     {
@@ -136,7 +136,7 @@ class Person extends Address
     /**
      * Sets the gender
      *
-     * @param \integer $gender
+     * @param integer $gender
      * @return void
      */
     public function setGender($gender): void
@@ -147,7 +147,7 @@ class Person extends Address
     /**
      * Returns the title
      *
-     * @return \string $title
+     * @return string $title
      */
     public function getTitle()
     {
@@ -157,7 +157,7 @@ class Person extends Address
     /**
      * Sets the title
      *
-     * @param \string $title
+     * @param string $title
      * @return void
      */
     public function setTitle($title): void

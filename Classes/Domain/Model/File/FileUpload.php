@@ -46,28 +46,28 @@ class FileUpload extends AbstractValueObject
     protected $fileMetaData;
 
     /**
-     * @var \string
+     * @var string
      */
     #[Validate(['validator' => 'NotEmpty'])]
     protected $tmp_name;
 
     /**
-     * @var \string
+     * @var string
      */
     protected $name;
 
     /**
-     * @var \integer
+     * @var integer
      */
     protected $error;
 
     /**
-     * @var \integer
+     * @var integer
      */
     protected $size;
 
     /**
-     * @var \string
+     * @var string
      */
     protected $type;
 
@@ -121,7 +121,7 @@ class FileUpload extends AbstractValueObject
     /**
      * gets the temporary name
      *
-     * @return \string
+     * @return string
      */
     public function getTemporaryName()
     {
@@ -131,7 +131,7 @@ class FileUpload extends AbstractValueObject
     /**
      * set the temporary name
      *
-     * @param \string $temporaryName
+     * @param string $temporaryName
      */
     public function setTemporaryName($temporaryName)
     {
@@ -142,7 +142,7 @@ class FileUpload extends AbstractValueObject
     /**
      * alias of temporary name
      *
-     * @param \string $tmpName
+     * @param string $tmpName
      */
     public function setTmp_name($tmpName)
     {
@@ -178,7 +178,7 @@ class FileUpload extends AbstractValueObject
     /**
      * gets the name
      *
-     * @return \string
+     * @return string
      */
     public function getName()
     {
@@ -188,7 +188,7 @@ class FileUpload extends AbstractValueObject
     /**
      * set the name
      *
-     * @param \string $name
+     * @param string $name
      */
     public function setName($name): void
     {
@@ -198,7 +198,7 @@ class FileUpload extends AbstractValueObject
     /**
      * gets the type
      *
-     * @return \string
+     * @return string
      */
     public function getType()
     {
@@ -208,7 +208,7 @@ class FileUpload extends AbstractValueObject
     /**
      * set the type
      *
-     * @param \string $type
+     * @param string $type
      */
     public function setType($type): void
     {
@@ -218,7 +218,7 @@ class FileUpload extends AbstractValueObject
     /**
      * gets the error code
      *
-     * @return \integer
+     * @return integer
      */
     public function getError()
     {
@@ -228,7 +228,7 @@ class FileUpload extends AbstractValueObject
     /**
      * sets the error code
      *
-     * @param \integer $error
+     * @param integer $error
      */
     public function setError($error): void
     {
@@ -238,7 +238,7 @@ class FileUpload extends AbstractValueObject
     /**
      * gets the size
      *
-     * @return \integer
+     * @return integer
      */
     public function getSize()
     {
@@ -248,7 +248,7 @@ class FileUpload extends AbstractValueObject
     /**
      * sets the size
      *
-     * @param \integer $size
+     * @param integer $size
      */
     public function setSize($size): void
     {

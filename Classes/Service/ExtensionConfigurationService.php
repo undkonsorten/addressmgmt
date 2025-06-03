@@ -38,7 +38,7 @@ class ExtensionConfigurationService
     protected $configuration;
 
     /**
-     * @param \string $extensionKey
+     * @param string $extensionKey
      * @return \Undkonsorten\Publications\Service\ExtensionConfigurationService
      */
     static public function getInstance($extensionKey)
@@ -47,7 +47,7 @@ class ExtensionConfigurationService
     }
 
     /**
-     * @param \string $extensionKey
+     * @param string $extensionKey
      */
     public function __construct($extensionKey = NULL)
     {
@@ -58,7 +58,7 @@ class ExtensionConfigurationService
     }
 
     /**
-     * @param \string $extensionKey
+     * @param string $extensionKey
      */
     public function load($extensionKey): void
     {
@@ -66,7 +66,7 @@ class ExtensionConfigurationService
     }
 
     /**
-     * @param \string $propertyPath
+     * @param string $propertyPath
      * @return \mixed
      */
     public function getProperty($propertyPath)

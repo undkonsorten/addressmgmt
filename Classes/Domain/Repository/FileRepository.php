@@ -73,7 +73,7 @@ class FileRepository
     /**
      * finds a file by uid
      *
-     * @param \integer $uid
+     * @param integer $uid
      * @return File
      */
     public function findByUid($uid): void

@@ -16,7 +16,7 @@ class GoogleMapViewHelper extends AbstractTagBasedViewHelper
 
     /**
      * Prefix for attributes
-     * @var \string
+     * @var string
      */
     const ATTRIBUTE_PREFIX = 'data-';
 
@@ -98,8 +98,8 @@ class GoogleMapViewHelper extends AbstractTagBasedViewHelper
     }
 
     /**
-     * @param \string $path
-     * @return \string
+     * @param string $path
+     * @return string
      */
     protected function resolveResourcePath($path)
     {

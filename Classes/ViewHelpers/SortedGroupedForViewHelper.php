@@ -39,12 +39,12 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper
 {
 
     /**
-     * @var \string
+     * @var string
      */
     const ORDER_ASCENDING = 'asc';
 
     /**
-     * @var \string
+     * @var string
      */
     const ORDER_DESCENDING = 'desc';
 
@@ -97,7 +97,7 @@ class SortedGroupedForViewHelper extends GroupedForViewHelper
 
     /**
      * @param \array $elements
-     * @param \string $groupBy
+     * @param string $groupBy
      * @return \array
      */
     static protected function sortElements(array $groups, $sortBy, $order)

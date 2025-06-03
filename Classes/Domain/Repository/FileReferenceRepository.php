@@ -47,7 +47,7 @@ class FileReferenceRepository
 
     /**
      * type returned by this repository
-     * @var \string
+     * @var string
      */
     protected $type = FileReference::class;
 
@@ -93,12 +93,12 @@ class FileReferenceRepository
     /**
      * adds a new file reference from raw data
      *
-     * @param \integer $uidLocal
-     * @param \string $tableName
-     * @param \string $fieldName
-     * @param \integer $uidForeign
-     * @param \integer $pid
-     * @param \integer $count
+     * @param integer $uidLocal
+     * @param string $tableName
+     * @param string $fieldName
+     * @param integer $uidForeign
+     * @param integer $pid
+     * @param integer $count
      * @return FileReference
      */
     public function addRaw($uidLocal, $tableName, $fieldName, $uidForeign, $pid, $count)
@@ -151,7 +151,7 @@ class FileReferenceRepository
     /**
      * finds a file reference by uid
      *
-     * @param \integer $uid
+     * @param integer $uid
      * @return FileReference
      */
     public function findByUid($uid): void
@@ -163,7 +163,7 @@ class FileReferenceRepository
      * finds all file references for given object/property
      *
      * @param \mixed $object
-     * @param \string $property
+     * @param string $property
      * @return ObjectStorage<FileReference>
      */
     public function findByForeignObject($object, $property): void
@@ -175,7 +175,7 @@ class FileReferenceRepository
      * finds one file reference for given object/property
      *
      * @param \mixed $object
-     * @param \string $property
+     * @param string $property
      * @return FileReference
      */
     public function findOneByForeignObject($object, $property)
@@ -200,11 +200,11 @@ class FileReferenceRepository
     /**
      * Adds a file reference with given relations
      *
-     * @param \integer $uidLocal
-     * @param \string $tableName
-     * @param \string $fieldName
-     * @param \integer $uidForeign
-     * @param \integer $pid
+     * @param integer $uidLocal
+     * @param string $tableName
+     * @param string $fieldName
+     * @param integer $uidForeign
+     * @param integer $pid
      * @return FileReference
      */
     protected function addInternal($uidLocal, $tableName, $fieldName, $uidForeign, $pid)

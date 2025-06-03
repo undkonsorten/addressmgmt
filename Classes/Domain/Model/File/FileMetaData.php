@@ -39,29 +39,29 @@ class FileMetaData extends AbstractValueObject
 {
 
     /**
-     * @var \string
+     * @var string
      */
     protected $title;
 
     /**
-     * @var \string
+     * @var string
      */
     protected $alternative;
 
     /**
-     * @var \string
+     * @var string
      */
     protected $link;
 
     /**
-     * @var \string
+     * @var string
      */
     protected $description;
 
     /**
      * gets the title
      *
-     * @return \string
+     * @return string
      */
     public function getTitle()
     {
@@ -71,7 +71,7 @@ class FileMetaData extends AbstractValueObject
     /**
      * set the title
      *
-     * @param \string $title
+     * @param string $title
      */
     public function setTitle($title): void
     {
@@ -81,7 +81,7 @@ class FileMetaData extends AbstractValueObject
     /**
      * gets the alternative
      *
-     * @return \string
+     * @return string
      */
     public function getAlternative()
     {
@@ -91,7 +91,7 @@ class FileMetaData extends AbstractValueObject
     /**
      * set the alternative
      *
-     * @param \string $alternative
+     * @param string $alternative
      */
     public function setAlternative($alternative): void
     {
@@ -101,7 +101,7 @@ class FileMetaData extends AbstractValueObject
     /**
      * gets the description
      *
-     * @return \string
+     * @return string
      */
     public function getDescription()
     {
@@ -111,7 +111,7 @@ class FileMetaData extends AbstractValueObject
     /**
      * set the description
      *
-     * @param \string $description
+     * @param string $description
      */
     public function setDescription($description): void
     {
@@ -121,7 +121,7 @@ class FileMetaData extends AbstractValueObject
     /**
      * gets the link
      *
-     * @return \string
+     * @return string
      */
     public function getLink()
     {
@@ -131,7 +131,7 @@ class FileMetaData extends AbstractValueObject
     /**
      * set the link
      *
-     * @param \string $link
+     * @param string $link
      */
     public function setLink($link): void
     {

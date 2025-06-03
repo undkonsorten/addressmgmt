@@ -136,7 +136,7 @@ class BaseController extends ActionController
      */
     protected function addCacheTag($cacheTag = NULL)
     {
-        /* @var $tagAdded \boolean */
+        /* @var $tagAdded boolean */
         static $tagAdded = FALSE;
         $cacheTag = $cacheTag ?: $this->request->getControllerExtensionKey();
         if (!$tagAdded) {

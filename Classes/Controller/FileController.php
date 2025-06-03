@@ -94,7 +94,7 @@ class FileController extends BaseController
      * Add a new File
      *
      * @param Address $address
-     * @param \string $property
+     * @param string $property
      * @param FileReference $fileReference
      *
      */
@@ -124,7 +124,7 @@ class FileController extends BaseController
      *
      * @param Address $address
      * @param FileReference $fileReference
-     * @param \string $property
+     * @param string $property
      * @param FileMetaData $fileMetaData
      *
      */
@@ -160,7 +160,7 @@ class FileController extends BaseController
     /**
      *
      * @param FileReference $fileReference
-     * @param \string $property
+     * @param string $property
      * @param \sting $propertyUpload
      * @param Address $address
      */

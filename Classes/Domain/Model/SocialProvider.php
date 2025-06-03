@@ -43,7 +43,7 @@ class SocialProvider extends AbstractEntity
     /**
      * name
      *
-     * @var \string
+     * @var string
      */
     #[Validate(['validator' => 'NotEmpty'])]
     protected $name;
@@ -51,49 +51,49 @@ class SocialProvider extends AbstractEntity
     /**
      * identifier label
      *
-     * @var \string
+     * @var string
      */
     protected $identifierLabel;
 
     /**
      * identifier description
      *
-     * @var \string
+     * @var string
      */
     protected $identifierDescription;
 
     /**
      * urlScheme
      *
-     * @var \string
+     * @var string
      */
     protected $urlScheme;
 
     /**
      * url override label
      *
-     * @var \string
+     * @var string
      */
     protected $urlOverrideLabel;
 
     /**
      * url override description
      *
-     * @var \string
+     * @var string
      */
     protected $urlOverrideDescription;
 
     /**
      * show url override
      *
-     * @var \boolean
+     * @var boolean
      */
     protected $showUrlOverride;
 
     /**
      * www
      *
-     * @var \string
+     * @var string
      */
     protected $www;
 
@@ -107,7 +107,7 @@ class SocialProvider extends AbstractEntity
     /**
      * String representation of social provider
      *
-     * @return \string
+     * @return string
      */
     public function __toString()
     {
@@ -117,7 +117,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Returns the name
      *
-     * @return \string $name
+     * @return string $name
      */
     public function getName()
     {
@@ -127,7 +127,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Sets the name
      *
-     * @param \string $name
+     * @param string $name
      * @return void
      */
     public function setName($name): void
@@ -138,7 +138,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Gets the identifier label
      *
-     * @return \string
+     * @return string
      */
     public function getIdentifierLabel()
     {
@@ -148,7 +148,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Sets the identifier label
      *
-     * @param \string $identifierLabel
+     * @param string $identifierLabel
      * @return void
      */
     public function setIdentifierLabel($identifierLabel): void
@@ -159,7 +159,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Gets the identifier description
      *
-     * @return \string
+     * @return string
      */
     public function getIdentifierDescription()
     {
@@ -169,7 +169,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Sets the identifier description
      *
-     * @param \string $identifierDescription
+     * @param string $identifierDescription
      * @return void
      */
     public function setIdentifierDescription($identifierDescription): void
@@ -180,7 +180,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Returns the urlScheme
      *
-     * @return \string $urlScheme
+     * @return string $urlScheme
      */
     public function getUrlScheme()
     {
@@ -190,7 +190,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Sets the urlScheme
      *
-     * @param \string $urlScheme
+     * @param string $urlScheme
      * @return void
      */
     public function setUrlScheme($urlScheme): void
@@ -201,7 +201,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Gets the url override label
      *
-     * @return \string
+     * @return string
      */
     public function getUrlOverrideLabel()
     {
@@ -211,7 +211,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Sets the url override label
      *
-     * @param \string $urlOverrideLabel
+     * @param string $urlOverrideLabel
      * @return void
      */
     public function setUrlOverrideLabel($urlOverrideLabel): void
@@ -222,7 +222,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Gets the url override description
      *
-     * @return \string
+     * @return string
      */
     public function getUrlOverrideDescription()
     {
@@ -232,7 +232,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Sets the url override description
      *
-     * @param \string $urlOverrideDescription
+     * @param string $urlOverrideDescription
      * @return void
      */
     public function setUrlOverrideDescription($urlOverrideDescription): void
@@ -243,7 +243,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Gets the status of show url override
      *
-     * @return \string
+     * @return string
      */
     public function getShowUrlOverride()
     {
@@ -253,7 +253,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Sets the status of show url override
      *
-     * @param \string $showUrlOverride
+     * @param string $showUrlOverride
      * @return void
      */
     public function setShowUrlOverride($showUrlOverride): void
@@ -264,7 +264,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Returns the www
      *
-     * @return \string $www
+     * @return string $www
      */
     public function getWww()
     {
@@ -274,7 +274,7 @@ class SocialProvider extends AbstractEntity
     /**
      * Sets the www
      *
-     * @param \string $www
+     * @param string $www
      * @return void
      */
     public function setWww($www): void

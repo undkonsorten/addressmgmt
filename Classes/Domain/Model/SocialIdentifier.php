@@ -42,7 +42,7 @@ class SocialIdentifier extends AbstractEntity
     /**
      * identifier
      *
-     * @var \string
+     * @var string
      */
     #[Validate(['validator' => 'NotEmpty'])]
     protected $identifier;
@@ -50,7 +50,7 @@ class SocialIdentifier extends AbstractEntity
     /**
      * urlOverride
      *
-     * @var \string
+     * @var string
      */
     protected $urlOverride;
 
@@ -64,7 +64,7 @@ class SocialIdentifier extends AbstractEntity
     /**
      * Returns string representation of identifier
      *
-     * @return \string
+     * @return string
      */
     public function __toString()
     {
@@ -74,7 +74,7 @@ class SocialIdentifier extends AbstractEntity
     /**
      * Returns the identifier
      *
-     * @return \string $identifier
+     * @return string $identifier
      */
     public function getIdentifier()
     {
@@ -84,7 +84,7 @@ class SocialIdentifier extends AbstractEntity
     /**
      * Sets the identifier
      *
-     * @param \string $identifier
+     * @param string $identifier
      * @return void
      */
     public function setIdentifier($identifier): void
@@ -95,7 +95,7 @@ class SocialIdentifier extends AbstractEntity
     /**
      * Returns url as from provider template if not locally overridden
      *
-     * @return \string
+     * @return string
      */
     public function getUrl()
     {
@@ -110,7 +110,7 @@ class SocialIdentifier extends AbstractEntity
     /**
      * Returns the urlOverride
      *
-     * @return \string $urlOverride
+     * @return string $urlOverride
      */
     public function getUrlOverride()
     {
@@ -120,7 +120,7 @@ class SocialIdentifier extends AbstractEntity
     /**
      * Sets the urlOverride
      *
-     * @param \string $urlOverride
+     * @param string $urlOverride
      * @return void
      */
     public function setUrlOverride($urlOverride): void

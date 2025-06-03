@@ -69,14 +69,14 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * type
      *
-     * @var \string
+     * @var string
      */
     protected $type;
 
     /**
      * name
      *
-     * @var \string
+     * @var string
      */
     #[Validate(['validator' => 'NotEmpty'])]
     protected $name;
@@ -91,28 +91,28 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * organization
      *
-     * @var \string
+     * @var string
      */
     protected $organization;
 
     /**
      * department
      *
-     * @var \string
+     * @var string
      */
     protected $department;
 
     /**
      * street
      *
-     * @var \string
+     * @var string
      */
     protected $street;
 
     /**
      * streetNumber
      *
-     * @var \string
+     * @var string
      */
     protected $streetNumber;
 
@@ -126,70 +126,70 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * addressSupplement
      *
-     * @var \string
+     * @var string
      */
     protected $addressSupplement;
 
     /**
      * city
      *
-     * @var \string
+     * @var string
      */
     protected $city;
 
     /**
      * zip
      *
-     * @var \string
+     * @var string
      */
     protected $zip;
 
     /**
      * country
      *
-     * @var \string
+     * @var string
      */
     protected $country;
 
     /**
      * state
      *
-     * @var \string
+     * @var string
      */
     protected $state;
 
     /**
      * closestCity
      *
-     * @var \string
+     * @var string
      */
     protected $closestCity;
 
     /**
      * email
      *
-     * @var \string
+     * @var string
      */
     protected $email;
 
     /**
      * phone
      *
-     * @var \string
+     * @var string
      */
     protected $phone;
 
     /**
      * mobile
      *
-     * @var \string
+     * @var string
      */
     protected $mobile;
 
     /**
      * fax
      *
-     * @var \string
+     * @var string
      */
     protected $fax;
 
@@ -203,14 +203,14 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * description
      *
-     * @var \string
+     * @var string
      */
     protected $description;
 
     /**
      * directions
      *
-     * @var \string
+     * @var string
      */
     protected $directions;
 
@@ -231,20 +231,20 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * latitude
      *
-     * @var \string
+     * @var string
      */
     protected $latitude;
 
     /**
      * longitude
      *
-     * @var \string
+     * @var string
      */
     protected $longitude;
 
     /**
      *
-     * @var \string $geojson
+     * @var string $geojson
      */
     protected $geojson;
 
@@ -298,7 +298,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * String representation of address
      *
-     * @return \string
+     * @return string
      */
     public function __toString(): string
     {
@@ -308,7 +308,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the type
      *
-     * @return \string
+     * @return string
      */
     public function getType()
     {
@@ -318,7 +318,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the type
      *
-     * @param \string $type
+     * @param string $type
      * @return void
      */
     public function setType($type): void
@@ -329,7 +329,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the Name
      *
-     * @return \string $Name
+     * @return string $Name
      */
     public function getName()
     {
@@ -339,7 +339,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the Name
      *
-     * @param \string $name
+     * @param string $name
      * @return void
      */
     public function setName($name): void
@@ -350,7 +350,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * return full name
      *
-     * @return \string
+     * @return string
      */
     public function getFullName()
     {
@@ -360,7 +360,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the organization
      *
-     * @return \string $organization
+     * @return string $organization
      */
     public function getOrganization()
     {
@@ -370,7 +370,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the organization
      *
-     * @param \string $organization
+     * @param string $organization
      * @return void
      */
     public function setOrganization($organization): void
@@ -381,7 +381,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the department
      *
-     * @return \string $department
+     * @return string $department
      */
     public function getDepartment()
     {
@@ -391,7 +391,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the department
      *
-     * @param \string $department
+     * @param string $department
      * @return void
      */
     public function setDepartment($department): void
@@ -402,7 +402,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the street
      *
-     * @return \string $street
+     * @return string $street
      */
     public function getStreet()
     {
@@ -412,7 +412,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the street
      *
-     * @param \string $street
+     * @param string $street
      * @return void
      */
     public function setStreet($street): void
@@ -423,7 +423,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the streetNumber
      *
-     * @return \string $streetNumber
+     * @return string $streetNumber
      */
     public function getStreetNumber()
     {
@@ -433,7 +433,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the streetNumber
      *
-     * @param \string $streetNumber
+     * @param string $streetNumber
      * @return void
      */
     public function setStreetNumber($streetNumber): void
@@ -444,7 +444,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the addressSupplement
      *
-     * @return \string $addressSupplement
+     * @return string $addressSupplement
      */
     public function getAddressSupplement()
     {
@@ -454,7 +454,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the addressSupplement
      *
-     * @param \string $addressSupplement
+     * @param string $addressSupplement
      * @return void
      */
     public function setAddressSupplement($addressSupplement): void
@@ -465,7 +465,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the city
      *
-     * @return \string $city
+     * @return string $city
      */
     public function getCity()
     {
@@ -475,7 +475,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the city
      *
-     * @param \string $city
+     * @param string $city
      * @return void
      */
     public function setCity($city): void
@@ -486,7 +486,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the zip
      *
-     * @return \string $zip
+     * @return string $zip
      */
     public function getZip()
     {
@@ -496,7 +496,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the zip
      *
-     * @param \string $zip
+     * @param string $zip
      * @return void
      */
     public function setZip($zip): void
@@ -507,7 +507,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the country
      *
-     * @return \string $country
+     * @return string $country
      */
     public function getCountry()
     {
@@ -517,7 +517,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the country
      *
-     * @param \string $country
+     * @param string $country
      * @return void
      */
     public function setCountry($country): void
@@ -528,7 +528,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the state
      *
-     * @return \string $state
+     * @return string $state
      */
     public function getState()
     {
@@ -538,7 +538,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the state
      *
-     * @param \string $state
+     * @param string $state
      * @return void
      */
     public function setState($state): void
@@ -549,7 +549,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the closestCity
      *
-     * @return \string $closestCity
+     * @return string $closestCity
      */
     public function getClosestCity()
     {
@@ -559,7 +559,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the closestCity
      *
-     * @param \string $closestCity
+     * @param string $closestCity
      * @return void
      */
     public function setClosestCity($closestCity): void
@@ -570,7 +570,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the email
      *
-     * @return \string $email
+     * @return string $email
      */
     public function getEmail()
     {
@@ -580,7 +580,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the email
      *
-     * @param \string $email
+     * @param string $email
      * @return void
      */
     public function setEmail($email): void
@@ -591,7 +591,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the phone
      *
-     * @return \string $phone
+     * @return string $phone
      */
     public function getPhone()
     {
@@ -601,7 +601,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the phone
      *
-     * @param \string $phone
+     * @param string $phone
      * @return void
      */
     public function setPhone($phone): void
@@ -612,7 +612,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the mobile
      *
-     * @return \string $mobile
+     * @return string $mobile
      */
     public function getMobile()
     {
@@ -622,7 +622,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the mobile
      *
-     * @param \string $mobile
+     * @param string $mobile
      * @return void
      */
     public function setMobile($mobile): void
@@ -633,7 +633,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the fax
      *
-     * @return \string $fax
+     * @return string $fax
      */
     public function getFax()
     {
@@ -643,7 +643,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the fax
      *
-     * @param \string $fax
+     * @param string $fax
      * @return void
      */
     public function setFax($fax): void
@@ -675,7 +675,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Returns the description
      *
-     * @return \string $description
+     * @return string $description
      */
     public function getDescription()
     {
@@ -685,7 +685,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
     /**
      * Sets the description
      *
-     * @param \string $description
+     * @param string $description
      * @return void
      */
     public function setDescription($description): void
@@ -931,7 +931,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
 
     /**
      *
-     * @param \string $geojson
+     * @param string $geojson
      */
     public function setGeojson($geojson): void
     {
@@ -949,7 +949,7 @@ abstract class Address extends AbstractEntity implements AddressInterface
 
 
     /**
-     * @return \string
+     * @return string
      */
     public function getGeojson()
     {

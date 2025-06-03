@@ -40,14 +40,14 @@ interface AddressInterface
     /**
      * Type field for person
      *
-     * @var \string
+     * @var string
      */
     const PERSON = 'Tx_Addressbook_Person';
 
     /**
      * Type field for organisation
      *
-     * @var \string
+     * @var string
      */
     const ORGANISATION = 'Tx_Addressbook_Organisation';
 
@@ -79,21 +79,21 @@ interface AddressInterface
     /**
      * return full name
      *
-     * @return \string
+     * @return string
      */
     public function getFullName();
 
     /**
      * return name
      *
-     * @return \string
+     * @return string
      */
     public function getName();
 
     /**
      * sets name
      *
-     * @param \string
+     * @param string
      * @return void
      */
     public function setName($name);

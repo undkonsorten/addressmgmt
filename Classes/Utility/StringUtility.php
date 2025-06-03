@@ -46,9 +46,9 @@ class StringUtility implements SingletonInterface
 
 
     /**
-     * @param \string $string
-     * @param \string $charset
-     * @return \string
+     * @param string $string
+     * @param string $charset
+     * @return string
      */
     public function slugify($string, $charset = 'utf-8')
     {

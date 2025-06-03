@@ -41,21 +41,21 @@ class Link extends AbstractEntity
     /**
      * Link text
      *
-     * @var \string
+     * @var string
      */
     protected $text;
 
     /**
      * The page
      *
-     * @var \string
+     * @var string
      */
     protected $link;
 
     /**
      * Returns the text
      *
-     * @return \string $text
+     * @return string $text
      */
     public function getText()
     {
@@ -65,7 +65,7 @@ class Link extends AbstractEntity
     /**
      * Sets the text
      *
-     * @param \string $text
+     * @param string $text
      * @return void
      */
     public function setText($text): void
@@ -76,7 +76,7 @@ class Link extends AbstractEntity
     /**
      * Returns the link
      *
-     * @return \string $link
+     * @return string $link
      */
     public function getLink()
     {
@@ -86,7 +86,7 @@ class Link extends AbstractEntity
     /**
      * Sets the link
      *
-     * @param \string $link
+     * @param string $link
      * @return void
      */
     public function setLink($link): void

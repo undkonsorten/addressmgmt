@@ -59,7 +59,7 @@ class UploadHandler
     /**
      * Name of the property
      *
-     * @var \string
+     * @var string
      */
     protected $property;
 
@@ -138,7 +138,7 @@ class UploadHandler
     /**
      *
      * @param \TYPO3\CMS\Core\Resource\RecourceStorage $storage
-     * @param \string $temporaryFile
+     * @param string $temporaryFile
      * @param \array $fileProperties
      */
     public function uploadFile(array $uploadedFileData, $fileProperties)
@@ -192,9 +192,9 @@ class UploadHandler
     /**
      * Checks if file is set and returns the temporary path
      *
-     * @param \string $namespace
-     * @param \string $name
-     * @param \string $property
+     * @param string $namespace
+     * @param string $name
+     * @param string $property
      */
     public function checkFileUpload($namespace, $name, $property)
     {
@@ -207,8 +207,8 @@ class UploadHandler
      * Adds the file to a storage
      *
      * @param \TYPO3\CMS\Core\Resource\RecourceStorage $storage
-     * @param \string $tempFile
-     * @param \string $fileName
+     * @param string $tempFile
+     * @param string $fileName
      * @rerturn \TYPO3\CMS\Core\Resource\FileInterface $fileObject
      */
     protected function addFileToStorage($storage, $tempFile, $fileName)
@@ -221,9 +221,9 @@ class UploadHandler
      * Creates the file reference
      * @param FileInterface $file
      * @param mixed $foreignObject
-     * @param \string $foreignField
-     * @param \integer $pid
-     * @param \string $foreignTable
+     * @param string $foreignField
+     * @param integer $pid
+     * @param string $foreignTable
      */
     public function createLocalFileReference(FileInterface $file, $foreignObject, $foreignField, $pid = 13, $foreignTable = ''): void
     {
