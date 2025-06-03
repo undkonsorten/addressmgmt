@@ -138,7 +138,7 @@ class ExplodeForViewHelper extends AbstractViewHelper
         $output = '';
         foreach ($arguments['each'] as $keyValue => $singleElement) {
             $templateVariableContainer->add($arguments['as'], $singleElement);
-            if ($arguments['key'] !== '') {
+            if ($arguments['key'] !== null) {
                 $templateVariableContainer->add($arguments['key'], $keyValue);
             }
             if ($arguments['iteration'] !== null) {
@@ -152,7 +152,7 @@ class ExplodeForViewHelper extends AbstractViewHelper
             }
             $output .= $renderChildrenClosure();
             $templateVariableContainer->remove($arguments['as']);
-            if ($arguments['key'] !== '') {
+            if ($arguments['key'] !== null) {
                 $templateVariableContainer->remove($arguments['key']);
             }
             if ($arguments['iteration'] !== null) {
