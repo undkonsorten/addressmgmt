@@ -144,7 +144,10 @@ class AddressController extends BaseController
     {
         $address->setPublishState(Address::PUBLISH_WAITING);
         $this->addressRepository->update($address);
-        $this->addFlashMessage($this->localize('flashMessage.handInForReview'), \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK);
+        $this->addFlashMessage(
+            '',
+            $this->localize('flashMessage.handInForReview'),
+            \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK);
         return $this->redirect('dash');
 
     }
@@ -213,7 +216,10 @@ class AddressController extends BaseController
     {
         $this->addressService->updateCoordinates($address);
         $this->addressRepository->add($address);
-        $this->addFlashMessage($this->localize('flashMessage.created'), \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK);
+        $this->addFlashMessage(
+            '',
+            $this->localize('flashMessage.created'),
+            \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK);
         return $this->redirect('dash');
     }
 
@@ -227,7 +233,11 @@ class AddressController extends BaseController
     {
         $this->addressService->updateCoordinates($address);
         $this->addressRepository->update($address);
-        $this->addFlashMessage($this->localize('flashMessage.updated'), \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK);
+        $this->addFlashMessage(
+            '',
+            $this->localize('flashMessage.updated'),
+            \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK
+        );
         return $this->redirect('dash');
     }
 

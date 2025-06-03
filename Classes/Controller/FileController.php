@@ -189,7 +189,9 @@ class FileController extends BaseController
             $fileReference = $this->resourceFactory->uploadAndReferenceFile($fileUpload, $target, $address, $property);
         }
 
-        $this->addFlashMessage(LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0 => htmlspecialchars($fileUpload->getName()))));
+        $this->addFlashMessage(
+            '',
+            LocalizationUtility::translate('flashMessage.createFile', 'Addressmgmt', array(0 => htmlspecialchars($fileUpload->getName()))));
         return $this->redirect('dash', 'Address');
 
     }
@@ -201,7 +203,9 @@ class FileController extends BaseController
     public function deleteAction(FileReference $fileReference): ResponseInterface
     {
         $this->resourceFactory->deleteFileReference($fileReference);
-        $this->addFlashMessage(LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0 => $fileReference->getUid())));
+        $this->addFlashMessage(
+            '',
+            LocalizationUtility::translate('flashMessage.deleteFile', 'Addressmgmt', array(0 => $fileReference->getUid())));
         return $this->redirect('dash', 'Address');
     }
 
