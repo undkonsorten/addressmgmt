@@ -57,8 +57,7 @@ class NominatimGeolocationService implements GeoLocationServiceInterface
      */
     public function locate($address)
     {
-        $query = rawurlencode($address);
-        $url = sprintf($this->uriScheme, $query, $this->format);
+        $url = sprintf($this->uriScheme, $address, $this->format);
         // @Todo replace with guzzle when dropping support for TYPO3 7.6 (classic install)
         $response = GeneralUtility::getUrl($url, 0, $this->headers);
         return json_decode($response, true);
