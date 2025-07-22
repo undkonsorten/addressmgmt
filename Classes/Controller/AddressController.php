@@ -272,7 +272,7 @@ class AddressController extends BaseController
             $addresses = $this->addressRepository->findDemanded(GeneralUtility::intExplode(',', $this->settings['addresses']), null, null, $orderings);
         }
 
-        if ($this->settings['filterConfiguration']) {
+        if (isset($this->settings['filterConfiguration'])) {
             $filters = [];
             foreach ($this->settings['filterConfiguration'] as $key => $filter) {
                 /** @var Category $parent */
