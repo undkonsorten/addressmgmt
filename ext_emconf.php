@@ -18,10 +18,10 @@ $EM_CONF[$_EXTKEY] = array(
     'author_email' => 'felix.althaus@undkonsorten.com, eike.starkmann@undkonsorten.com',
     'author_company' => 'undkonsorten, undkonsorten',
     'state' => 'beta',
-    'version' => '5.0.1',
+    'version' => '6.1.1',
     'constraints' => array(
         'depends' => array(
-            'typo3' => '10.4.0-12.99.99',
+            'typo3' => '11.5.0-12.99.99',
         ),
         'conflicts' => array(),
         'suggests' => array(
