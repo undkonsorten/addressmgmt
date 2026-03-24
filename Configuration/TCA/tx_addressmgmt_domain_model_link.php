@@ -49,7 +49,7 @@ $tca = [
 				'type' => 'select',
                 'renderType' => 'selectSingle',
 				'items' => [
-					['label' => '', 'value' => 0],
+					['', 0],
                 ],
 				'foreign_table' => 'tx_addressmgmt_domain_model_link',
 				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_link.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_link.sys_language_uid IN (-1,0)',

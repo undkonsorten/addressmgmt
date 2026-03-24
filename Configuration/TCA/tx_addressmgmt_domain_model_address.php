@@ -111,7 +111,7 @@ $tca = [
 				'type' => 'select',
 			    'renderType' => 'selectSingle',
 				'items' => [
-					['label' => '', 'value' => 0],
+					['', 0],
                 ],
 				'foreign_table' => 'tx_addressmgmt_domain_model_address',
 				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_address.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_address.sys_language_uid IN (-1,0)',
@@ -156,10 +156,10 @@ $tca = [
 			    'renderType' => 'selectSingle',
 				'default' => '',
 				'items' => [
-				    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.choose_type', 'value' => '0'],
-					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_person', 'value' => 'Tx_Addressbook_Person'],
-					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_organisation', 'value' => 'Tx_Addressbook_Organisation'],
-				    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_location', 'value' => 'Tx_Addressbook_Location'],
+				    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.choose_type', '0'],
+					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_person', 'Tx_Addressbook_Person'],
+					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_organisation', 'Tx_Addressbook_Organisation'],
+				    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.type_location', 'Tx_Addressbook_Location'],
                 ],
             ],
         ],
@@ -189,15 +189,14 @@ $tca = [
 				'type' => 'select',
 			    'renderType' => 'selectSingle',
 				'items' => [
-					['label' => '', 'value' => ''],
-					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.1', 'value' => 1],
-					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.2', 'value' => 2],
-					['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.3', 'value' => 3],
+					['', ''],
+					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.1', 1],
+					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.2', 2],
+					['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.3', 3],
                 ],
 				'size' => 1,
 				'maxitems' => 1,
-    'nullable' => true,
-    'nullable' => true
+                'nullable' => true,
             ],
         ],
 		'title' => [
@@ -436,15 +435,14 @@ $tca = [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['label' => '', 'value' => ''],
-                    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0', 'value' => Address::PUBLISH_CREATED],
-                    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1', 'value' => Address::PUBLISH_WAITING],
-                    ['label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2', 'value' => Address::PUBLISH_PUBLISHED],
+                    ['', ''],
+                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.0', Address::PUBLISH_CREATED],
+                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.1', Address::PUBLISH_WAITING],
+                    ['LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressmgmt_domain_model_address.publish_state.2', Address::PUBLISH_PUBLISHED],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
                 'nullable' => true,
-                'nullable' => true
             ],
         ],
 	    'geojson' => [
@@ -542,7 +540,7 @@ $tca = [
 						'type' => 'input',
 						'size' => 10,
 						'eval' => 'num',
-      'nullable' => true,
+                        'nullable' => true,
                 ],
         ],
 	    'relation' => [

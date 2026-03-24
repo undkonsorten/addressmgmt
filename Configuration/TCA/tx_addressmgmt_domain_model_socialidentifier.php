@@ -51,7 +51,7 @@ $tca = [
 				'type' => 'select',
                 'renderType' => 'selectSingle',
 				'items' => [
-					['label' => '', 'value' => 0],
+					['', 0],
                 ],
 				'foreign_table' => 'tx_addressmgmt_domain_model_socialidentifier',
 				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_socialidentifier.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_socialidentifier.sys_language_uid IN (-1,0)',

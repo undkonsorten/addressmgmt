@@ -32,10 +32,10 @@ $tca = [
     ],
 	'types' => [
 		'1' => [
-            'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, name, url_scheme, www, image, 
+            'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, name, url_scheme, www, image,
 			--div--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:div.naming,
-				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.identifier;identifier, 
-				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.url_override;url_override, 
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.identifier;identifier,
+				--palette--;LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:palette.url_override;url_override,
 			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,starttime, endtime'
         ],
     ],
@@ -57,7 +57,7 @@ $tca = [
 				'type' => 'select',
                 'renderType' => 'selectSingle',
 				'items' => [
-					['label' => '', 'value' => 0],
+					['', 0],
                 ],
 				'foreign_table' => 'tx_addressmgmt_domain_model_socialprovider',
 				'foreign_table_where' => 'AND tx_addressmgmt_domain_model_socialprovider.pid=###CURRENT_PID### AND tx_addressmgmt_domain_model_socialprovider.sys_language_uid IN (-1,0)',
