@@ -70,7 +70,8 @@
 			"web-dir": ".Build/Web"
 		},
 		"branch-alias": {
-			"dev-main": "6.1.x-dev"
+			"dev-main": "6.1.x-dev",
+			"dev-develop-13.4": "6.2.x-dev"
 		}
 	}
 }
