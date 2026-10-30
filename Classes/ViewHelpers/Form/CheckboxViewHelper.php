@@ -71,7 +71,6 @@ class CheckboxViewHelper extends AbstractFormFieldViewHelper
         $this->registerArgument('required', 'boolean', 'If set no empty value is allowed.', false, false);
         $this->registerArgument('multiple', 'boolean', 'Specifies whether this checkbox belongs to a multivalue (is part of a checkbox group)', false, false);
         $this->registerArgument('checked', 'boolean', 'Specifies that the input element should be preselected', false, null);
-        $this->registerUniversalTagAttributes();
     }
 
     /**
@@ -81,7 +80,7 @@ class CheckboxViewHelper extends AbstractFormFieldViewHelper
      * @throws Exception
      * @api
      */
-    public function render()
+    public function render(): string
     {
         $checked = $this->arguments['checked'];
         $multiple = $this->arguments['multiple'];

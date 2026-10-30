@@ -23,7 +23,6 @@ class GoogleMapViewHelper extends AbstractTagBasedViewHelper
     public function initializeArguments(): void
     {
         parent::initializeArguments();
-        $this->registerUniversalTagAttributes();
         $this->registerArgument('latitude', 'float', 'Latitude data', false, null);
         $this->registerArgument('longitude', 'float', 'Longitude data', false, null);
         $this->registerArgument('mapZoom', 'integer', 'Map zoom', false, null);
@@ -36,7 +35,7 @@ class GoogleMapViewHelper extends AbstractTagBasedViewHelper
      * @todo add description here
      *
      */
-    public function render()
+    public function render(): string
     {
         $latitude = $this->arguments['latitude'];
         $longitude = $this->arguments['longitude'];

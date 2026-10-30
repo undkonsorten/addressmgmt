@@ -20,8 +20,7 @@ ExtensionUtility::configurePlugin(
     [
         AddressController::class => 'list, show',
     ],
-    [],
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+    []
 );
 ExtensionUtility::configurePlugin(
     'Addressmgmt',
@@ -29,8 +28,7 @@ ExtensionUtility::configurePlugin(
     [
         AddressController::class => 'show',
     ],
-    [],
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+    []
 );
 ExtensionUtility::configurePlugin(
     'Addressmgmt',
@@ -40,8 +38,7 @@ ExtensionUtility::configurePlugin(
     ],
     [
         AddressController::class => 'new, create, dash',
-    ],
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+    ]
 );
 ExtensionUtility::configurePlugin(
     'Addressmgmt',
@@ -51,8 +48,7 @@ ExtensionUtility::configurePlugin(
     ],
     [
         AddressController::class => 'new, create, edit, update, dash',
-    ],
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+    ]
 );
 ExtensionUtility::configurePlugin(
     'Addressmgmt',
@@ -66,22 +62,8 @@ ExtensionUtility::configurePlugin(
         AddressController::class => 'new, create, dash',
         FileController::class => 'edit, update, new, create, delete, ',
         SocialIdentifier::class => 'create, delete, update, edit',
-    ],
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+    ]
 );
 
-ExtensionManagementUtility::addPageTSConfig(
-    '
-	@import \'EXT:addressmgmt/Configuration/TsConfig/TemplateLayout.page.typoscript\'>
-    @import \'EXT:addressmgmt/Configuration/TsConfig/ContentElementWizard.page.typoscript\'
-    '
-);
-
-$rootCategory = $extensionConfiguration->getProperty('rootCategory');
-$pageTsConfig = sprintf(
-    'TCEFORM.tt_content.pi_flexform.addressmgmt_list.sDEF.settings\.category.config.treeConfig.rootUid = %d' . PHP_EOL,
-    $rootCategory
-);
-ExtensionManagementUtility::addPageTSConfig($pageTsConfig);
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['txAddressmgmtPluginUpdater'] = \Undkonsorten\Addressmgmt\Updates\PluginUpdater::class;
 
